@@ -312,6 +312,13 @@ body {
     transform: scale(0) rotate(-180deg);
 }
 
+.logo-image-large {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: var(--radius-xl);
+}
+
 @keyframes logoEntrance {
     to {
         transform: scale(1) rotate(0deg);
@@ -706,6 +713,10 @@ body {
     box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
 }
 
+.nav-logo:hover .logo-image {
+    transform: scale(1.1);
+}
+
 .logo-mark {
     width: 40px;
     height: 40px;
@@ -721,6 +732,14 @@ body {
     transition: all var(--duration-300) var(--ease-out);
     position: relative;
     overflow: hidden;
+}
+
+.logo-image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    transition: all var(--duration-300) var(--ease-out);
 }
 
 .logo-mark::before {
@@ -4857,6 +4876,11 @@ section {
     .loading-logo .logo-mark-large {
         width: 100px;
         height: 100px;
+    }
+
+    .loading-logo .logo-image-large {
+        width: 64px;
+        height: 64px;
     }
 
     .loading-logo .logo-letter {
