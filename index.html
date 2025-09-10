@@ -5,11 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VibeWorks AI Studio - Where AI Meets Human Magic</title>
     <meta name="description" content="Building the next generation of consumer AI startups that celebrate creativity, connection, and self-expression.">
+    
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Critical Resource Preloading -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome with async loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ SW registered successfully');
+                    })
+                    .catch(error => {
+                        console.log('❌ SW registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </head>
 <body>
     <!-- Premium Loading Screen -->
@@ -107,7 +141,16 @@
             <div class="ventures-grid">
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/ratemylooks.png" alt="RateMyLooksAI">
+                        <picture>
+                            <source srcset="images/Portfoliosites/ratemylooks.png" type="image/png">
+                            <img src="images/Portfoliosites/ratemylooks.png" 
+                                 alt="RateMyLooksAI" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">RateMyLooksAI</h4>
@@ -130,7 +173,16 @@
                 </div>
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/songgram.png" alt="SongGram">
+                        <picture>
+                            <source srcset="images/Portfoliosites/songgram.png" type="image/png">
+                            <img src="images/Portfoliosites/songgram.png" 
+                                 alt="SongGram" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">SongGram</h4>
@@ -153,7 +205,16 @@
                 </div>
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/aibookpublisher.png" alt="AI Book Publisher">
+                        <picture>
+                            <source srcset="images/Portfoliosites/aibookpublisher.png" type="image/png">
+                            <img src="images/Portfoliosites/aibookpublisher.png" 
+                                 alt="AI Book Publisher" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">AI Book Publisher</h4>
@@ -176,7 +237,16 @@
                 </div>
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/sketchmysoulmate.png" alt="SketchMySoulmate">
+                        <picture>
+                            <source srcset="images/Portfoliosites/sketchmysoulmate.png" type="image/png">
+                            <img src="images/Portfoliosites/sketchmysoulmate.png" 
+                                 alt="SketchMySoulmate" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">SketchMySoulmate</h4>
@@ -199,7 +269,16 @@
                 </div>
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/optimizeaitoolsuite.png" alt="OptimizeAI Tool Suite">
+                        <picture>
+                            <source srcset="images/Portfoliosites/optimizeaitoolsuite.png" type="image/png">
+                            <img src="images/Portfoliosites/optimizeaitoolsuite.png" 
+                                 alt="OptimizeAI Tool Suite" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">OptimizeAI Tool Suite</h4>
@@ -222,7 +301,16 @@
                 </div>
                 <div class="venture-card">
                     <div class="venture-image">
-                        <img src="images/Portfoliosites/corecreatorsai.png" alt="CoreCreatorsAI">
+                        <picture>
+                            <source srcset="images/Portfoliosites/corecreatorsai.png" type="image/png">
+                            <img src="images/Portfoliosites/corecreatorsai.png" 
+                                 alt="CoreCreatorsAI" 
+                                 loading="lazy"
+                                 decoding="async"
+                                 fetchpriority="low"
+                                 width="400" 
+                                 height="280">
+                        </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
                                 <h4 class="venture-overlay-title">CoreCreatorsAI</h4>

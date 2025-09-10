@@ -5941,10 +5941,225 @@ section {
     }
 }
 
-/* Performance Optimizations */
+/* Advanced Performance Optimizations */
 .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform;
+}
+
+/* Image Loading Optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Picture element optimization */
+picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Venture image specific optimizations */
+.venture-image picture,
+.venture-image img {
+    transition: transform var(--duration-700) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Image blur placeholder during loading */
+.venture-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        var(--neutral-100) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        var(--neutral-100) 50%, 
+        var(--neutral-100) 75%, 
+        transparent 75%);
+    background-size: 20px 20px;
+    animation: loading-shimmer 1.5s ease-in-out infinite;
+    z-index: 1;
+    opacity: 0;
+}
+
+.venture-image.loading::before {
+    opacity: 1;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+/* Critical rendering path optimizations */
+.hero,
+.navbar,
+.loading-screen {
+    contain: layout style paint;
+}
+
+/* Reduce layout thrashing */
+.venture-card,
+.journey-step,
+.btn {
+    contain: layout style;
+}
+
+/* Optimize animations for 60fps */
+@media (prefers-reduced-motion: no-preference) {
+    .venture-card:hover .venture-image img,
+    .venture-card.active .venture-image img {
+        will-change: transform;
+    }
+    
+    .venture-card:not(:hover):not(.active) .venture-image img {
+        will-change: auto;
+    }
+}
+
+/* Enhanced mobile touch optimization */
+@media (max-width: 768px) {
+    .venture-image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Reduce image quality on slow connections */
+    @media (connection: slow) {
+        .venture-image img {
+            filter: contrast(1.1) brightness(1.02);
+        }
+    }
+}
+
+/* Prefers reduced data usage */
+@media (prefers-reduced-data: reduce) {
+    .floating-elements,
+    .hero-background,
+    .approach-gradient-overlay,
+    .about-grid-pattern {
+        display: none;
+    }
+    
+    .venture-image img {
+        loading: lazy;
+    }
+    
+    /* Reduce animation complexity */
+    * {
+        animation-duration: 0.1s !important;
+        transition-duration: 0.1s !important;
+    }
+}
+
+/* Slow connection optimizations */
+.slow-connection {
+    /* Disable heavy animations */
+    .floating-elements,
+    .hero-background,
+    .journey-path-line {
+        animation: none !important;
+    }
+    
+    /* Simplify gradients */
+    .venture-card::before,
+    .journey-step::before {
+        display: none;
+    }
+    
+    /* Reduce backdrop blur */
+    .navbar,
+    .ventures-footer,
+    .glass-background {
+        backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.95);
+    }
+}
+
+/* Reduced animations class */
+.reduced-animations * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Enhanced loading states */
+.venture-image.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-gradient 1.5s infinite;
+}
+
+@keyframes loading-gradient {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Critical CSS inlining support */
+.above-fold {
+    contain: layout style paint;
+    will-change: transform;
+}
+
+/* Font loading optimization */
+@font-face {
+    font-family: 'Inter-var';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap') format('woff2');
+}
+
+/* Optimized focus states for accessibility */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.venture-link:focus-visible {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-lg);
+}
+
+/* Memory optimization for mobile */
+@media (max-width: 768px) and (max-device-memory: 1) {
+    /* Reduce visual complexity on low-memory devices */
+    .floating-elements,
+    .hero-background,
+    .approach-gradient-overlay {
+        display: none;
+    }
+    
+    .venture-card::before,
+    .journey-step::before {
+        display: none;
+    }
+    
+    /* Simplify animations */
+    * {
+        animation: none !important;
+        transition: opacity 0.2s ease, transform 0.2s ease !important;
+    }
 }
 
 /* Print Styles */

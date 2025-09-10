@@ -10,6 +10,7 @@ class VibeWorksStudio {
 
     init() {
         this.initializeLoadingState();
+        this.setupImageOptimizations();
         this.setupNavigation();
         this.setupScrollEffects();
         this.setupAnimations();
@@ -30,6 +31,156 @@ class VibeWorksStudio {
     initializeLoadingState() {
         // Setup premium loading sequence with the new HTML loading screen
         this.setupPremiumLoading();
+    }
+
+    setupImageOptimizations() {
+        // Preload critical images
+        this.preloadCriticalImages();
+        
+        // Setup lazy loading with intersection observer
+        this.setupAdvancedLazyLoading();
+        
+        // Optimize image loading for mobile
+        this.setupMobileImageOptimizations();
+    }
+
+    preloadCriticalImages() {
+        // Only preload above-the-fold images for faster initial render
+        const criticalImages = [
+            // Hero background elements are CSS-based, no images to preload
+        ];
+
+        // Use link prefetch for critical images
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = src;
+            link.as = 'image';
+            document.head.appendChild(link);
+        });
+    }
+
+    setupAdvancedLazyLoading() {
+        // Enhanced intersection observer for better performance
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const ventureImage = img.closest('.venture-image');
+                    
+                    // Add loading state
+                    if (ventureImage) {
+                        ventureImage.classList.add('loading');
+                    }
+                    
+                    // Load the image
+                    img.onload = () => {
+                        img.classList.add('loaded');
+                        if (ventureImage) {
+                            ventureImage.classList.remove('loading');
+                        }
+                        // Add subtle entrance animation
+                        requestAnimationFrame(() => {
+                            img.style.opacity = '1';
+                        });
+                    };
+
+                    img.onerror = () => {
+                        if (ventureImage) {
+                            ventureImage.classList.remove('loading');
+                        }
+                        console.warn('Failed to load image:', img.src);
+                    };
+
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px', // Start loading 50px before entering viewport
+            threshold: 0.1
+        });
+
+        // Observe all lazy loading images
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    setupMobileImageOptimizations() {
+        // Detect mobile device and connection speed
+        const isMobile = window.innerWidth <= 768;
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        
+        if (isMobile) {
+            // Optimize for mobile
+            this.optimizeForMobile(connection);
+        }
+    }
+
+    optimizeForMobile(connection) {
+        // Check for slow connection
+        const isSlowConnection = connection && (
+            connection.effectiveType === 'slow-2g' ||
+            connection.effectiveType === '2g' ||
+            (connection.downlink && connection.downlink < 1.5)
+        );
+
+        if (isSlowConnection) {
+            // Reduce image quality for slow connections
+            document.documentElement.classList.add('slow-connection');
+            
+            // Disable some heavy animations
+            document.documentElement.classList.add('reduced-animations');
+        }
+
+        // Add mobile-specific optimizations
+        this.addMobilePerformanceOptimizations();
+    }
+
+    addMobilePerformanceOptimizations() {
+        // Passive scroll listeners for better performance
+        document.addEventListener('scroll', this.throttle(() => {
+            this.updateParallax();
+        }, 16), { passive: true });
+
+        // Optimize touch events
+        document.addEventListener('touchstart', () => {}, { passive: true });
+        document.addEventListener('touchmove', () => {}, { passive: true });
+
+        // Memory cleanup on mobile
+        if ('memory' in performance && performance.memory.usedJSHeapSize > 50000000) {
+            this.cleanupMemory();
+        }
+    }
+
+    cleanupMemory() {
+        // Remove unnecessary event listeners
+        const unusedElements = document.querySelectorAll('.unused');
+        unusedElements.forEach(el => el.remove());
+        
+        // Force garbage collection if available
+        if (window.gc) {
+            window.gc();
+        }
+    }
+
+    throttle(func, delay) {
+        let timeoutId;
+        let lastExecTime = 0;
+        return (...args) => {
+            const currentTime = Date.now();
+            
+            if (currentTime - lastExecTime > delay) {
+                func.apply(this, args);
+                lastExecTime = currentTime;
+            } else {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                    lastExecTime = Date.now();
+                }, delay - (currentTime - lastExecTime));
+            }
+        };
     }
 
     setupPremiumLoading() {
