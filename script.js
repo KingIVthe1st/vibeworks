@@ -34,14 +34,41 @@ class VibeWorksStudio {
     }
 
     setupImageOptimizations() {
+        // Simple image loading - just ensure they display
+        this.ensureImagesDisplay();
+        
+        // Setup simplified lazy loading
+        this.setupAdvancedLazyLoading();
+        
         // Preload critical images
         this.preloadCriticalImages();
         
-        // Setup lazy loading with intersection observer
-        this.setupAdvancedLazyLoading();
-        
         // Optimize image loading for mobile
         this.setupMobileImageOptimizations();
+    }
+
+    ensureImagesDisplay() {
+        // Ensure all images in venture cards display properly
+        const ventureImages = document.querySelectorAll('.venture-image img');
+        
+        ventureImages.forEach(img => {
+            // Force display and remove any loading attributes that might interfere
+            img.style.opacity = '1';
+            img.style.display = 'block';
+            
+            // Add error handling
+            img.onerror = function() {
+                console.warn('Failed to load image:', this.src);
+                // You could add a placeholder here if needed
+            };
+            
+            // Ensure the image loads if it hasn't already
+            if (!img.complete && img.src) {
+                img.onload = function() {
+                    this.style.opacity = '1';
+                };
+            }
+        });
     }
 
     preloadCriticalImages() {
@@ -61,48 +88,19 @@ class VibeWorksStudio {
     }
 
     setupAdvancedLazyLoading() {
-        // Enhanced intersection observer for better performance
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const ventureImage = img.closest('.venture-image');
-                    
-                    // Add loading state
-                    if (ventureImage) {
-                        ventureImage.classList.add('loading');
-                    }
-                    
-                    // Load the image
-                    img.onload = () => {
-                        img.classList.add('loaded');
-                        if (ventureImage) {
-                            ventureImage.classList.remove('loading');
-                        }
-                        // Add subtle entrance animation
-                        requestAnimationFrame(() => {
-                            img.style.opacity = '1';
-                        });
-                    };
-
-                    img.onerror = () => {
-                        if (ventureImage) {
-                            ventureImage.classList.remove('loading');
-                        }
-                        console.warn('Failed to load image:', img.src);
-                    };
-
-                    observer.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: '50px 0px', // Start loading 50px before entering viewport
-            threshold: 0.1
-        });
-
-        // Observe all lazy loading images
+        // Simplified lazy loading - just let the browser handle it
         document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-            imageObserver.observe(img);
+            // Ensure image displays regardless of loading state
+            img.style.opacity = '1';
+            
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    img.classList.add('loaded');
+                    img.style.opacity = '1';
+                });
+            }
         });
     }
 
