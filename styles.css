@@ -1223,7 +1223,7 @@ section {
 
 .journey-line {
     width: 100%;
-    height: 400px;
+    height: 600px;
 }
 
 .journey-path-line {
@@ -1240,7 +1240,8 @@ section {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: var(--space-8);
     margin-top: var(--space-12);
 }
@@ -1344,6 +1345,33 @@ section {
 .metric-label {
     font-size: var(--text-xs);
     color: var(--neutral-500);
+}
+
+/* Responsive design for journey steps */
+@media (max-width: 768px) {
+    .journey-steps {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .journey-line {
+        height: 800px;
+    }
+    
+    .journey-path-line {
+        stroke-width: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-steps {
+        gap: var(--space-4);
+    }
+    
+    .journey-step {
+        padding: var(--space-6);
+    }
 }
 
 .approach-stats {
