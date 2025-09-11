@@ -323,8 +323,8 @@ body {
 }
 
 .logo-image-large {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     border-radius: var(--radius-xl);
     z-index: 2;
@@ -747,12 +747,12 @@ body {
 
 /* Remove background when image is present */
 .logo-mark:has(.logo-image) {
-    background: transparent;
+    background: transparent !important;
 }
 
 /* Fallback for browsers that don't support :has() */
 .logo-mark.with-image {
-    background: transparent;
+    background: transparent !important;
 }
 
 .logo-image {
@@ -761,7 +761,8 @@ body {
     object-fit: contain;
     border-radius: var(--radius-lg);
     transition: all var(--duration-300) var(--ease-out);
-    z-index: 2;
+    z-index: 10;
+    position: relative;
 }
 
 .logo-mark::before {
@@ -773,10 +774,16 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left var(--duration-500) var(--ease-out);
+    z-index: 1;
 }
 
 .nav-logo:hover .logo-mark::before {
     left: 100%;
+}
+
+/* Hide the shine effect when image is present */
+.logo-mark.with-image::before {
+    display: none;
 }
 
 .logo-text {
@@ -4901,8 +4908,8 @@ section {
     }
 
     .loading-logo .logo-image-large {
-        width: 64px;
-        height: 64px;
+        width: 80px;
+        height: 80px;
     }
 
     .loading-logo .logo-letter {
