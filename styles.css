@@ -312,11 +312,17 @@ body {
     transform: scale(0) rotate(-180deg);
 }
 
+/* Remove background when image is present */
+.logo-mark-large:has(.logo-image-large) {
+    background: transparent;
+}
+
 .logo-image-large {
     width: 80px;
     height: 80px;
     object-fit: contain;
     border-radius: var(--radius-xl);
+    z-index: 2;
 }
 
 @keyframes logoEntrance {
@@ -734,12 +740,18 @@ body {
     overflow: hidden;
 }
 
+/* Remove background when image is present */
+.logo-mark:has(.logo-image) {
+    background: transparent;
+}
+
 .logo-image {
     width: 32px;
     height: 32px;
     object-fit: contain;
     border-radius: var(--radius-lg);
     transition: all var(--duration-300) var(--ease-out);
+    z-index: 2;
 }
 
 .logo-mark::before {
@@ -5650,6 +5662,18 @@ section {
     font-weight: 700;
     font-size: var(--text-2xl);
     flex-shrink: 0;
+}
+
+/* Remove background when image is present */
+.footer-logo .logo-mark:has(.logo-image) {
+    background: transparent;
+}
+
+.footer-logo .logo-image {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: var(--radius-xl);
 }
 
 .logo-content {
