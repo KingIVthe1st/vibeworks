@@ -729,8 +729,8 @@ body {
 }
 
 .logo-mark {
-    width: 52px;
-    height: 52px;
+    width: 68px;
+    height: 68px;
     background: var(--gradient-primary);
     border-radius: var(--radius-xl);
     display: flex;
@@ -756,8 +756,8 @@ body {
 }
 
 .logo-image {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
     border-radius: var(--radius-lg);
     transition: all var(--duration-300) var(--ease-out);
