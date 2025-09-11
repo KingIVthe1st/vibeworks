@@ -317,6 +317,11 @@ body {
     background: transparent;
 }
 
+/* Fallback for browsers that don't support :has() */
+.logo-mark-large.with-image {
+    background: transparent;
+}
+
 .logo-image-large {
     width: 80px;
     height: 80px;
@@ -742,6 +747,11 @@ body {
 
 /* Remove background when image is present */
 .logo-mark:has(.logo-image) {
+    background: transparent;
+}
+
+/* Fallback for browsers that don't support :has() */
+.logo-mark.with-image {
     background: transparent;
 }
 
@@ -5666,6 +5676,11 @@ section {
 
 /* Remove background when image is present */
 .footer-logo .logo-mark:has(.logo-image) {
+    background: transparent;
+}
+
+/* Fallback for browsers that don't support :has() */
+.footer-logo .logo-mark.with-image {
     background: transparent;
 }
 
