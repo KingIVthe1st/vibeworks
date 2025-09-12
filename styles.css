@@ -167,6 +167,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    padding-top: 80px;
 }
 
 /* ===== TYPOGRAPHY SYSTEM ===== */
@@ -659,30 +660,53 @@ body {
     font-size: var(--text-sm);
 }
 
-/* Premium Navigation */
+/* Premium Navigation - Always Visible */
 .navbar {
-    position: fixed;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all var(--duration-500) var(--ease-out);
+    transition: all var(--duration-300) var(--ease-out);
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(25px) saturate(200%);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .navbar.dark-mode {
     background: rgba(26, 26, 26, 0.9);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
+
+/* Ensure navbar is never hidden by any script */
+.navbar[style*="display: none"],
+.navbar[style*="visibility: hidden"],
+.navbar[style*="opacity: 0"],
+.navbar[style*="translateY(-"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Navbar padding handled in main body declaration above */
 
 .nav-container {
     display: flex;
@@ -3477,14 +3501,20 @@ section {
     }
 }
 
-/* Enhanced Premium Mobile Navigation */
+/* Enhanced Premium Mobile Navigation - Always Visible */
 @media (max-width: 768px) {
     .navbar {
         backdrop-filter: blur(25px) saturate(180%);
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         transition: all var(--duration-300) cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        position: fixed !important;
+        top: 0 !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
     }
 
     .navbar.scrolled {
@@ -3492,6 +3522,9 @@ section {
         backdrop-filter: blur(30px) saturate(200%);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
     .nav-container {
@@ -3500,6 +3533,11 @@ section {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    
+    /* Adjust body padding for mobile navbar height */
+    body {
+        padding-top: 72px;
     }
 
     .logo-text {
