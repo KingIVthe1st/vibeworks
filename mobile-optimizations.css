@@ -1,0 +1,602 @@
+/* ================================
+   VIBEWORKS MOBILE OPTIMIZATIONS
+   Strategic Mobile-First Enhancements
+   ================================ */
+
+/* Global Mobile Enhancements */
+:root {
+    --vh: 1vh;
+}
+
+/* Touch Ripple Effect */
+.touch-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Touch Feedback */
+.touch-active {
+    transform: scale(0.97);
+}
+
+/* Mobile Navbar Hide Animation */
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+/* Reduced Motion Support */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Mobile Performance Foundation */
+@media (max-width: 768px) {
+    /* Optimize rendering performance */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: text;
+    }
+
+    /* Allow text selection for inputs and content */
+    input,
+    textarea,
+    .venture-description,
+    .hero-subtitle,
+    p {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body {
+        overscroll-behavior-y: contain;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Enhanced Mobile Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        height: 70px;
+    }
+
+    .nav-container {
+        padding: 0 20px;
+        height: 100%;
+    }
+
+    .nav-logo {
+        z-index: 10001;
+    }
+
+    /* Improved Mobile Menu Header */
+    .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        padding: 25px 20px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .mobile-menu-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .mobile-menu-logo .logo-mark {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-menu-logo .logo-text {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--neutral-0);
+    }
+
+    .mobile-menu-logo .logo-subtitle {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Enhanced Mobile Menu */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(135deg,
+            var(--primary-600) 0%,
+            var(--primary-700) 100%);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateX(0);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 10000;
+    }
+
+    .nav-menu.active {
+        transform: translateX(-100%);
+    }
+
+    /* Mobile Menu Links */
+    .nav-menu .nav-link {
+        display: block;
+        padding: 18px 30px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-menu .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: var(--neutral-0);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-menu .nav-link:active,
+    .nav-menu .nav-link:focus {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--neutral-0);
+        padding-left: 35px;
+    }
+
+    .nav-menu .nav-link:active::before {
+        transform: translateX(0);
+    }
+
+    /* Mobile Menu CTA */
+    .nav-menu .nav-cta {
+        margin: 30px;
+        padding: 16px 24px;
+        background: var(--neutral-0);
+        color: var(--primary-600);
+        border-radius: 16px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        display: block;
+        text-decoration: none;
+    }
+
+    .nav-menu .nav-cta:active {
+        transform: scale(0.97);
+        box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Enhanced Hamburger Menu */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        padding: 12px;
+        cursor: pointer;
+        z-index: 10001;
+        background: rgba(99, 102, 241, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(99, 102, 241, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle:active {
+        transform: scale(0.95);
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--primary-600);
+        margin: 3px 0;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-radius: 2px;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 9998;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Mobile Hero Optimizations */
+    .hero {
+        min-height: 100vh;
+        padding: 100px 20px 40px;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        line-height: 1.15;
+        margin-bottom: 20px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 3vw, 1.125rem);
+        line-height: 1.6;
+        margin-bottom: 30px;
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 18px 30px;
+        font-size: 16px;
+        min-height: 56px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Optimized Venture Cards for Mobile */
+    .ventures-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .venture-card {
+        background: var(--neutral-0);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .venture-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .venture-image {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .venture-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Mobile Swipe Indicator */
+    .venture-card::after {
+        content: '';
+        position: absolute;
+        bottom: 50px;
+        right: 20px;
+        width: 40px;
+        height: 4px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            var(--primary-400) 50%,
+            transparent 100%);
+        border-radius: 2px;
+        animation: swipeHint 2s ease-in-out infinite;
+    }
+
+    @keyframes swipeHint {
+        0%, 100% { transform: translateX(0); opacity: 0.5; }
+        50% { transform: translateX(10px); opacity: 1; }
+    }
+
+    .venture-overlay {
+        background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 100%);
+        opacity: 1;
+        visibility: visible;
+        transition: none;
+    }
+
+    .venture-overlay-content {
+        opacity: 1;
+        transform: translateY(0);
+        padding: 15px;
+    }
+
+    .venture-overlay-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--neutral-0);
+        color: var(--primary-600);
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .venture-content {
+        padding: 20px;
+    }
+
+    .venture-meta {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .venture-badge {
+        padding: 4px 12px;
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .venture-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .venture-description {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--neutral-600);
+        margin-bottom: 15px;
+    }
+
+    .venture-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary-600);
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 8px 0;
+    }
+
+    /* Mobile Forms Optimization */
+    .premium-form {
+        padding: 0;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .input-wrapper input,
+    .input-wrapper textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 18px 0 10px;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .input-wrapper input:focus,
+    .input-wrapper textarea:focus {
+        border-bottom-color: var(--primary-500);
+        outline: none;
+    }
+
+    .input-wrapper label {
+        position: absolute;
+        left: 0;
+        top: 18px;
+        font-size: 16px;
+        color: var(--neutral-500);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    .input-wrapper input:focus + label,
+    .input-wrapper input:not(:placeholder-shown) + label,
+    .input-wrapper textarea:focus + label,
+    .input-wrapper textarea:not(:placeholder-shown) + label {
+        top: -5px;
+        font-size: 12px;
+        color: var(--primary-600);
+    }
+
+    /* Mobile Button Optimizations */
+    button,
+    .btn {
+        min-height: 48px;
+        padding: 14px 24px;
+        font-size: 16px;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    button:active,
+    .btn:active {
+        transform: scale(0.97);
+    }
+
+    /* Touch Ripple Effect */
+    button::after,
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    button:active::after,
+    .btn:active::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Mobile Scroll Performance */
+    .section {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* Reduce Animations for Performance */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    /* Mobile Footer Optimization */
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-nav-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Loading Screen Optimization */
+    .loading-screen {
+        background: linear-gradient(135deg,
+            var(--primary-600) 0%,
+            var(--primary-700) 100%);
+    }
+
+    .loading-logo {
+        transform: scale(0.85);
+    }
+
+    .loading-progress {
+        width: 80%;
+        max-width: 250px;
+    }
+}

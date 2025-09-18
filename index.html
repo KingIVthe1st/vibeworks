@@ -26,6 +26,7 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-optimizations.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -88,22 +89,34 @@
                     <div class="logo-subtitle">AI Studio</div>
                 </div>
             </a>
-            <div class="nav-menu">
-                <a href="#ventures" class="nav-link">Our Ventures</a>
-                <a href="#approach" class="nav-link">Our Approach</a>
-                <a href="#founders" class="nav-link">For Founders</a>
-                <a href="#investors" class="nav-link">For Investors</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#founders" class="nav-cta">Start Building</a>
+            <div class="nav-menu" id="navMenu">
+                <div class="mobile-menu-header">
+                    <div class="mobile-menu-logo">
+                        <div class="logo-mark with-image">
+                            <img src="logo-test.png" alt="VibeWorks Logo" class="logo-image">
+                        </div>
+                        <div>
+                            <div class="logo-text">VibeWorks</div>
+                            <div class="logo-subtitle">Menu</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#ventures" class="nav-link" data-mobile-close>Our Ventures</a>
+                <a href="#approach" class="nav-link" data-mobile-close>Our Approach</a>
+                <a href="#founders" class="nav-link" data-mobile-close>For Founders</a>
+                <a href="#investors" class="nav-link" data-mobile-close>For Investors</a>
+                <a href="#about" class="nav-link" data-mobile-close>About</a>
+                <a href="#contact" class="nav-link" data-mobile-close>Contact</a>
+                <a href="#founders" class="nav-cta" data-mobile-close>Start Building</a>
             </div>
-            <div class="nav-toggle">
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <div class="nav-progress"></div>
         </div>
+        <div class="mobile-menu-overlay" id="menuOverlay"></div>
     </nav>
 
     <!-- Hero Section -->
@@ -1745,5 +1758,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="mobile-optimizations.js"></script>
 </body>
 </html>
