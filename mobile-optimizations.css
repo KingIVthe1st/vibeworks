@@ -8,6 +8,13 @@
     --vh: 1vh;
 }
 
+/* Hide mobile menu header on desktop */
+@media (min-width: 769px) {
+    .mobile-menu-header {
+        display: none !important;
+    }
+}
+
 /* Touch Ripple Effect */
 .touch-ripple {
     position: absolute;
