@@ -14,6 +14,7 @@ class MobileOptimizations {
 
     init() {
         if (this.isMobile()) {
+            this.optimizeMobileLoading();
             this.setupMobileNavigation();
             this.setupSwipeGestures();
             this.setupTouchInteractions();
@@ -22,6 +23,47 @@ class MobileOptimizations {
             this.setupFormEnhancements();
             this.setupScrollOptimizations();
             this.setupViewportHeight();
+        }
+    }
+
+    // Optimize mobile loading to prevent blue screen issues
+    optimizeMobileLoading() {
+        const loadingScreen = document.getElementById('loading-screen');
+
+        if (loadingScreen) {
+            // Reduce loading time on mobile for better UX
+            const originalDuration = 3500;
+            const mobileDuration = 1500; // Much faster on mobile
+
+            // Override the loading screen display immediately
+            loadingScreen.style.background = 'var(--neutral-900)'; // Force dark background
+            loadingScreen.style.zIndex = '99999';
+
+            // Force early completion on mobile if page is already loaded
+            if (document.readyState === 'complete') {
+                setTimeout(() => {
+                    this.forceCompleteLoading(loadingScreen);
+                }, 500);
+            } else {
+                // Set up fast mobile loading
+                setTimeout(() => {
+                    this.forceCompleteLoading(loadingScreen);
+                }, mobileDuration);
+            }
+        }
+    }
+
+    forceCompleteLoading(loadingScreen) {
+        if (loadingScreen && loadingScreen.parentNode) {
+            loadingScreen.style.transition = 'opacity 0.5s ease-out';
+            loadingScreen.style.opacity = '0';
+
+            setTimeout(() => {
+                loadingScreen.remove();
+                // Ensure body is properly visible
+                document.body.style.visibility = 'visible';
+                document.body.style.opacity = '1';
+            }, 500);
         }
     }
 

@@ -66,12 +66,17 @@
     html {
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
     }
 
     body {
         overscroll-behavior-y: contain;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        padding-top: 70px; /* Account for fixed navbar */
+        min-height: 100%;
+        min-height: calc(var(--vh, 1vh) * 100);
     }
 
     /* Enhanced Mobile Navigation */
@@ -136,7 +141,8 @@
         right: -100%;
         width: 85%;
         max-width: 320px;
-        height: 100vh;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
         background: linear-gradient(135deg,
             var(--primary-600) 0%,
             var(--primary-700) 100%);
@@ -281,8 +287,12 @@
     /* Mobile Hero Optimizations */
     .hero {
         min-height: 100vh;
+        min-height: calc(var(--vh, 1vh) * 100);
         padding: 100px 20px 40px;
         overflow: hidden;
+        position: relative;
+        z-index: 2;
+        background: var(--neutral-900); /* Ensure background is visible */
     }
 
     .hero-content {
@@ -584,13 +594,7 @@
         font-size: 14px;
     }
 
-    /* Loading Screen Optimization */
-    .loading-screen {
-        background: linear-gradient(135deg,
-            var(--primary-600) 0%,
-            var(--primary-700) 100%);
-    }
-
+    /* Loading Screen Mobile Adjustments */
     .loading-logo {
         transform: scale(0.85);
     }
@@ -598,5 +602,58 @@
     .loading-progress {
         width: 80%;
         max-width: 250px;
+    }
+
+    /* Ensure loading screen doesn't interfere with content */
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        /* Fallback to hide loading screen after 3 seconds */
+        animation: mobileLoadingHide 3s ease-out forwards;
+    }
+
+    @keyframes mobileLoadingHide {
+        0%, 80% {
+            opacity: 1;
+            visibility: visible;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    /* Emergency fallback for mobile content visibility */
+    body {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Ensure main content is always accessible */
+    .hero,
+    .ventures,
+    .navbar {
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Force content visibility after 2 seconds on mobile */
+    @media (max-width: 768px) {
+        .hero {
+            animation: forceVisible 2s ease-out forwards;
+        }
+    }
+
+    @keyframes forceVisible {
+        0% { opacity: 0; }
+        70% { opacity: 0; }
+        100% { opacity: 1; }
     }
 }
