@@ -31,21 +31,19 @@ class MobileOptimizations {
         const loadingScreen = document.getElementById('loading-screen');
 
         if (loadingScreen) {
-            // Reduce loading time on mobile for better UX
-            const originalDuration = 3500;
-            const mobileDuration = 1500; // Much faster on mobile
+            // Much faster loading on mobile - 800ms
+            const mobileDuration = 800;
 
-            // Override the loading screen display immediately
-            loadingScreen.style.background = 'var(--neutral-900)'; // Force dark background
+            // Ensure proper background and positioning
+            loadingScreen.style.background = 'var(--neutral-900)';
             loadingScreen.style.zIndex = '99999';
+            loadingScreen.style.position = 'fixed';
 
-            // Force early completion on mobile if page is already loaded
+            // Force immediate completion if page already loaded
             if (document.readyState === 'complete') {
-                setTimeout(() => {
-                    this.forceCompleteLoading(loadingScreen);
-                }, 500);
+                this.forceCompleteLoading(loadingScreen);
             } else {
-                // Set up fast mobile loading
+                // Quick mobile loading sequence
                 setTimeout(() => {
                     this.forceCompleteLoading(loadingScreen);
                 }, mobileDuration);
