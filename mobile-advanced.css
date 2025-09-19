@@ -1,0 +1,375 @@
+/* ================================
+   ADVANCED MOBILE OPTIMIZATIONS
+   Next-Level Performance & UX
+   ================================ */
+
+/* Critical Above-the-Fold CSS */
+@media (max-width: 768px) {
+    /* Optimize Critical Rendering Path */
+    .hero {
+        contain: layout style paint;
+        will-change: transform;
+    }
+
+    /* Skeleton Loading States */
+    .skeleton {
+        background: linear-gradient(
+            90deg,
+            #f0f0f0 25%,
+            #f5f5f5 50%,
+            #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: skeleton-loading 1.5s ease-in-out infinite;
+    }
+
+    @keyframes skeleton-loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* Optimized Animations with GPU Acceleration */
+    .slide-up {
+        transform: translateY(20px) translateZ(0);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.3s ease;
+    }
+
+    .slide-up.visible {
+        transform: translateY(0) translateZ(0);
+        opacity: 1;
+    }
+
+    /* Smart Sticky CTA */
+    .mobile-sticky-cta {
+        position: fixed;
+        bottom: -100px;
+        left: 0;
+        right: 0;
+        padding: 12px 16px;
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.98) 0%,
+            rgba(255, 255, 255, 0.95) 100%
+        );
+        backdrop-filter: blur(20px);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+        z-index: 998;
+        transform: translateZ(0);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .mobile-sticky-cta.visible {
+        transform: translateY(-100px) translateZ(0);
+    }
+
+    .mobile-sticky-cta .btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        background: var(--primary-600);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Pull to Refresh Indicator */
+    .pull-to-refresh {
+        position: fixed;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.3s ease;
+        z-index: 9999;
+    }
+
+    .pull-to-refresh.visible {
+        top: 20px;
+    }
+
+    .pull-to-refresh.refreshing {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        100% { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    /* Floating Action Button */
+    .fab {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        background: var(--primary-600);
+        border-radius: 50%;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        z-index: 997;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: scale(0) translateZ(0);
+    }
+
+    .fab.visible {
+        transform: scale(1) translateZ(0);
+    }
+
+    .fab:active {
+        transform: scale(0.9) translateZ(0);
+    }
+
+    /* Bottom Sheet Pattern */
+    .bottom-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+        transform: translateY(100%) translateZ(0);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 999;
+        max-height: 90vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .bottom-sheet.visible {
+        transform: translateY(0) translateZ(0);
+    }
+
+    .bottom-sheet-handle {
+        width: 40px;
+        height: 4px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        margin: 12px auto;
+    }
+
+    /* Optimized Forms */
+    .mobile-form-group {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .mobile-form-input {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border: 2px solid transparent;
+        border-radius: 12px;
+        background: var(--neutral-50);
+        transition: all 0.2s ease;
+        -webkit-appearance: none;
+    }
+
+    .mobile-form-input:focus {
+        background: white;
+        border-color: var(--primary-500);
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        outline: none;
+    }
+
+    .mobile-form-label {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: var(--neutral-500);
+        pointer-events: none;
+        transition: all 0.2s ease;
+    }
+
+    .mobile-form-input:focus + .mobile-form-label,
+    .mobile-form-input:not(:placeholder-shown) + .mobile-form-label {
+        top: -8px;
+        left: 12px;
+        font-size: 12px;
+        background: white;
+        padding: 0 4px;
+        color: var(--primary-600);
+    }
+
+    /* Reading Progress Bar */
+    .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg,
+            var(--primary-400) 0%,
+            var(--primary-600) 100%);
+        z-index: 1001;
+        transition: width 0.1s ease;
+    }
+
+    /* Smart Scroll Indicator */
+    .scroll-indicator {
+        position: fixed;
+        bottom: 80px;
+        right: 24px;
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0) translateZ(0);
+        transition: all 0.3s ease;
+        z-index: 996;
+    }
+
+    .scroll-indicator.visible {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+    }
+
+    /* Network Status Indicator */
+    .network-status {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        padding: 8px;
+        background: var(--accent-amber);
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        transform: translateY(-100%) translateZ(0);
+        transition: transform 0.3s ease;
+        z-index: 995;
+    }
+
+    .network-status.offline {
+        transform: translateY(0) translateZ(0);
+        background: var(--neutral-700);
+    }
+
+    .network-status.slow {
+        transform: translateY(0) translateZ(0);
+        background: var(--accent-amber);
+    }
+
+    /* Touch Ripple Enhanced */
+    .ripple-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+    }
+
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+
+    /* Optimized Image Loading */
+    .progressive-image {
+        position: relative;
+        overflow: hidden;
+        background: var(--neutral-100);
+    }
+
+    .progressive-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .progressive-image img.loaded {
+        opacity: 1;
+    }
+
+    .progressive-image .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(20px);
+        transform: scale(1.1);
+        transition: opacity 0.3s ease;
+    }
+
+    .progressive-image.loaded .placeholder {
+        opacity: 0;
+    }
+
+    /* Performance Optimizations */
+    * {
+        /* Disable animations on scroll for performance */
+        animation-play-state: paused !important;
+    }
+
+    body:not(.scrolling) * {
+        animation-play-state: running !important;
+    }
+
+    /* Hardware acceleration for smooth scrolling */
+    .hardware-accelerated {
+        transform: translateZ(0);
+        will-change: transform;
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --mobile-bg: #1a1a1a;
+            --mobile-text: #ffffff;
+            --mobile-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--mobile-bg);
+            color: var(--mobile-text);
+        }
+    }
+}
