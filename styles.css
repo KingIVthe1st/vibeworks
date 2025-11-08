@@ -199,7 +199,7 @@ body.menu-open {
    ============================================ */
 
 .hero-new {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,6 +208,7 @@ body.menu-open {
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%,
       rgba(139, 92, 246, 0.06), transparent);
+  padding-top: 100px; /* Add spacing below navigation */
 }
 
 .hero-content-new {
