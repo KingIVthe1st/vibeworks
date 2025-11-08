@@ -1397,7 +1397,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 
   .hero-new {
     min-height: 100svh;
-    padding-top: 80px; /* Reduced from 100px for mobile - ensures hero title is visible */
+    padding-top: 120px; /* Increased to 120px to prevent title cutoff below nav */
   }
 
   .hero-title-new {
@@ -1567,7 +1567,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .hero-new {
-    padding-top: 70px; /* Further reduce for smallest mobile devices */
+    padding-top: 110px; /* Ensure title is visible below nav on smallest devices */
   }
 
   .hero-content-new {
