@@ -214,7 +214,7 @@ body.menu-open {
   text-align: center;
   max-width: 1200px;
   padding: 0 var(--space-md);
-  margin-top: var(--space-2xl); /* Add top spacing to prevent nav overlap */
+  /* Removed margin-top for better vertical centering */
 }
 
 .hero-title-new {
@@ -267,10 +267,8 @@ body.menu-open {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns to keep all in one row */
   gap: var(--space-lg);
-  margin: var(--space-3xl) 0;
+  margin: var(--space-3xl) auto var(--space-xl); /* Reduced bottom margin */
   max-width: 1100px; /* Increased to accommodate 4 items */
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .value-prop {
@@ -344,7 +342,7 @@ body.menu-open {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px; /* Increased spacing from bottom */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -356,6 +354,7 @@ body.menu-open {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   animation: bounce 2s infinite;
+  z-index: 1; /* Ensure it stays below content */
 }
 
 @keyframes bounce {
