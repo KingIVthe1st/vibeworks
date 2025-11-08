@@ -569,19 +569,40 @@
             observer.observe(el);
         });
 
-        // Navbar scroll effect & Scroll progress indicator
+        // Premium navbar scroll behavior & Scroll progress indicator
         let lastScroll = 0;
         const nav = document.querySelector('.nav-new');
         const scrollProgress = document.getElementById('scrollProgress');
+        const scrollThreshold = 100; // Minimum scroll before hide/show activates
+        const scrollTolerance = 5; // Prevents jitter on small scroll movements
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
 
-            // Navbar scroll effect
-            if (currentScroll > 100) {
+            // Apply glassmorphism effect when scrolled past threshold
+            if (currentScroll > scrollThreshold) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
+            }
+
+            // Premium hide-on-scroll-down, show-on-scroll-up behavior
+            if (Math.abs(currentScroll - lastScroll) > scrollTolerance) {
+                if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+                    // Scrolling down - hide nav
+                    nav.classList.remove('nav-visible');
+                    nav.classList.add('nav-hidden');
+                } else if (currentScroll < lastScroll) {
+                    // Scrolling up - show nav
+                    nav.classList.remove('nav-hidden');
+                    nav.classList.add('nav-visible');
+                }
+            }
+
+            // Always show nav at top of page
+            if (currentScroll <= scrollThreshold) {
+                nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
             }
 
             // Update scroll progress bar

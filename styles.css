@@ -253,12 +253,20 @@ img {
   right: 0;
   z-index: 1000;
   padding: var(--space-md) 0;
-  transition: all var(--transition-base);
+  /* Premium smooth transitions for hide/show behavior */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              background 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              padding 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
   /* Initial subtle glassmorphism */
   background: rgba(10, 10, 15, 0.3);
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
   border-bottom: 1px solid rgba(139, 92, 246, 0.05);
+  /* Default visible state */
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Premium glassmorphism enhancement with noise texture */
@@ -280,6 +288,20 @@ img {
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(139, 92, 246, 0.05);
+}
+
+/* Premium hide-on-scroll-down behavior */
+.nav-new.nav-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Premium show-on-scroll-up behavior */
+.nav-new.nav-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav-container {
