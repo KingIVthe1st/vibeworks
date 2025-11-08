@@ -2272,43 +2272,97 @@ html {
    ============================================ */
 
 @media (max-width: 1024px) {
+    /* ============================================
+       MOBILE TIMELINE: Premium Card-Based Design
+       ============================================ */
+
     .timeline-grid {
         grid-template-columns: 1fr;
-        padding-left: var(--space-3xl);
-        gap: var(--space-2xl);
+        padding: 0 var(--space-md); /* 24px sides instead of 128px left! */
+        gap: 24px; /* Clean spacing between cards */
     }
 
-    /* Vertical connecting line for mobile */
+    /* Remove vertical timeline line on mobile */
     .timeline-grid::before {
-        top: 0;
-        bottom: 0;
-        left: 36px;
-        right: auto;
-        width: 2px;
-        height: auto;
-        background: linear-gradient(
-            to bottom,
-            rgba(139, 92, 246, 0.2),
-            rgba(139, 92, 246, 0.6) 50%,
-            rgba(139, 92, 246, 0.2)
-        );
+        display: none;
     }
 
-    /* Reposition connecting dots for vertical timeline */
+    /* Transform timeline steps into premium cards */
+    .timeline-step {
+        position: relative;
+        background: linear-gradient(135deg, rgba(18, 18, 26, 0.8), rgba(26, 26, 38, 0.8));
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        border-radius: 16px;
+        padding: 32px;
+        overflow: hidden;
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.3),
+            0 0 40px rgba(139, 92, 246, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Large background number for visual hierarchy */
     .timeline-step::before {
-        top: 50px;
-        left: 36px;
-        transform: translate(-50%, 0);
+        content: attr(data-step);
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        font-size: clamp(100px, 25vw, 140px);
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 1;
+        z-index: 0;
+        pointer-events: none;
     }
 
     .timeline-step::after {
         display: none;
     }
 
+    /* Transform step marker into day chip/badge */
     .step-marker {
-        width: 64px;
-        height: 64px;
-        font-size: 14px;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding: 6px 12px;
+        background: var(--voltage-500);
+        color: white;
+        border-radius: 6px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Content positioning and typography */
+    .timeline-step-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .timeline-step h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--slate-50);
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+    }
+
+    .timeline-step p {
+        font-size: 15px;
+        color: var(--slate-400);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Touch feedback */
+    .timeline-step:active {
+        transform: scale(0.99);
+        opacity: 0.9;
     }
 
     .faq-grid {
@@ -2336,8 +2390,17 @@ html {
         padding: var(--space-3xl) var(--space-md);
     }
 
+    /* Reduce card padding on smaller screens for more breathing room */
     .timeline-step {
-        padding: var(--space-lg);
+        padding: 24px;
+    }
+
+    .timeline-step h3 {
+        font-size: 17px;
+    }
+
+    .timeline-step p {
+        font-size: 14px;
     }
 }
 
