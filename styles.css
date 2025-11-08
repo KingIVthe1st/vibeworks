@@ -1096,6 +1096,10 @@ img {
     padding: 16px 0;
   }
 
+  .ticker-content {
+    animation: scroll-ticker 120s linear infinite; /* Dramatically slower speed for mobile - 4x slower than desktop */
+  }
+
   .ticker-content span {
     font-size: 16px;
   }
@@ -1244,6 +1248,11 @@ img {
   /* Reduce animation complexity on mobile for better performance */
   * {
     animation-duration: 0.3s !important;
+  }
+
+  /* Exception: Keep ticker slow on mobile for readability */
+  .ticker-content {
+    animation-duration: 120s !important; /* Override the global 0.3s rule */
   }
 
   /* Optimize venture showcases for small mobile */
