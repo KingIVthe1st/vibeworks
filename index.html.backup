@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeWorks Studio - Where Vision Meets Distribution</title>
+    <meta name="description" content="VibeWorks builds creator-led AI ventures by combining studio execution with built-in influencer distribution. From audience scan to market-ready MVP in 21-45 days.">
+    
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Critical Resource Preloading -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Fonts with optimized loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome with async loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    
+    <!-- Styles (Consolidated - Mobile CSS now included in main styles.css) -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ SW registered successfully');
+                    })
+                    .catch(error => {
+                        console.log('❌ SW registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-mark with-image">
+                    <img src="logo-test.png" alt="VibeWorks Logo" class="logo-image">
+                </div>
+                <div>
+                    <div class="logo-text">VibeWorks</div>
+                    <div class="logo-subtitle">AI Studio</div>
+                </div>
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <div class="mobile-menu-header">
+                    <div class="mobile-menu-logo">
+                        <div class="logo-mark with-image">
+                            <img src="logo-test.png" alt="VibeWorks Logo" class="logo-image">
+                        </div>
+                        <div>
+                            <div class="logo-text">VibeWorks</div>
+                            <div class="logo-subtitle">Menu</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#ventures" class="nav-link" data-mobile-close>Our Ventures</a>
+                <a href="#approach" class="nav-link" data-mobile-close>Our Approach</a>
+                <a href="#founders" class="nav-link" data-mobile-close>For Founders</a>
+                <a href="#investors" class="nav-link" data-mobile-close>For Investors</a>
+                <a href="#about" class="nav-link" data-mobile-close>About</a>
+                <a href="#contact" class="nav-link" data-mobile-close>Contact</a>
+                <a href="#founders" class="nav-cta" data-mobile-close>Start Building</a>
+            </div>
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-progress"></div>
+        </div>
+        <div class="mobile-menu-overlay" id="menuOverlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-overline">
+                <span>Where Vision Meets Distribution</span>
+            </div>
+            <h1 class="hero-title">Creator-Led AI Ventures</h1>
+            <p class="hero-subtitle">VibeWorks builds creator-led AI ventures by combining studio execution with built-in influencer distribution. We bridge the gap between studios that ship products but struggle with distribution, and creators who have audiences but lack infrastructure.</p>
+            <div class="hero-buttons">
+                <a href="#ventures" class="btn btn-primary btn-large">View Portfolio</a>
+                <a href="#contact" class="btn btn-secondary btn-large">Partner With Us</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-grid"></div>
+            <div class="floating-elements">
+                <div class="element element-1"></div>
+                <div class="element element-2"></div>
+                <div class="element element-3"></div>
+                <div class="element element-4"></div>
+                <div class="element element-5"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Ventures Section -->
+    <section id="ventures" class="ventures">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-overline">Portfolio</div>
+                <h2 class="section-title">Viral-Ready Consumer AI Ventures</h2>
+                <p class="section-subtitle">Our portfolio features creator-led AI ventures designed for rapid distribution. Each product leverages built-in virality loops, UGC hooks, and creator networks to achieve explosive growth.</p>
+            </div>
+            <div class="ventures-grid">
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/ratemylooks.png" type="image/png">
+                            <img src="images/Portfoliosites/ratemylooks.png" 
+                                 alt="RateMyLooksAI" 
+                                 width="400" 
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">RateMyLooksAI</h4>
+                                <p class="venture-overlay-description">AI-powered beauty discovery that builds confidence</p>
+                                <a href="#" class="venture-overlay-link">
+                                    Explore Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Pipeline</span>
+                            <span class="venture-status">In Development</span>
+                        </div>
+                        <h3 class="venture-title">RateMyLooksAI</h3>
+                        <p class="venture-description">Viral beauty discovery platform with built-in social sharing mechanics. Leverages creator partnerships and UGC to drive organic growth in the beauty and confidence market.</p>
+                        <a href="#" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/songgram.png" type="image/png">
+                            <img src="images/Portfoliosites/songgram.png" 
+                                 alt="SongGram" 
+                                 width="400" 
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">SongGram</h4>
+                                <p class="venture-overlay-description">Transform memories into personalized musical moments</p>
+                                <a href="#" class="venture-overlay-link">
+                                    Create Song <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Pipeline</span>
+                            <span class="venture-status">In Development</span>
+                        </div>
+                        <h3 class="venture-title">SongGram</h3>
+                        <p class="venture-description">AI-powered music creation platform designed for viral social sharing. Transforms memories into personalized songs with built-in sharing mechanics for TikTok and Instagram.</p>
+                        <a href="#" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/aibookpublisher.png" type="image/png">
+                            <img src="images/Portfoliosites/aibookpublisher.png" 
+                                 alt="AI Book Publisher" 
+                                 width="400" 
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">AI Book Publisher</h4>
+                                <p class="venture-overlay-description">Instant book creation with AI-powered publishing</p>
+                                <a href="#" class="venture-overlay-link">
+                                    Start Writing <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Live</span>
+                            <span class="venture-status">Active</span>
+                        </div>
+                        <h3 class="venture-title">AI Book Publisher</h3>
+                        <p class="venture-description">Creator-driven book publishing platform with built-in marketing automation. Leverages influencer networks and viral book launches to achieve rapid audience growth and sales.</p>
+                        <a href="#" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/sketchmysoulmate.png" type="image/png">
+                            <img src="images/Portfoliosites/sketchmysoulmate.png" 
+                                 alt="SketchMySoulmate" 
+                                 width="400" 
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">SketchMySoulmate</h4>
+                                <p class="venture-overlay-description">Visualize your ideal romantic connection through AI</p>
+                                <a href="#" class="venture-overlay-link">
+                                    Start Sketching <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Pipeline</span>
+                            <span class="venture-status">In Development</span>
+                        </div>
+                        <h3 class="venture-title">SketchMySoulmate</h3>
+                        <p class="venture-description">Viral dating app with AI-powered compatibility matching. Features social sharing mechanics and influencer partnerships to drive organic user acquisition in the dating market.</p>
+                        <a href="#" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/optimizeaitoolsuite.png" type="image/png">
+                            <img src="images/Portfoliosites/optimizeaitoolsuite.png" 
+                                 alt="OptimizeAI Tool Suite" 
+                                 width="400" 
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">OptimizeAI Tool Suite</h4>
+                                <p class="venture-overlay-description">Empower your business with AI-driven solutions</p>
+                                <a href="https://www.optimizeai.io/" class="venture-overlay-link">
+                                    Start Optimizing <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Live</span>
+                            <span class="venture-status">Active</span>
+                        </div>
+                        <h3 class="venture-title">OptimizeAI Studio</h3>
+                        <p class="venture-description">Comprehensive AI toolkit designed for creators and entrepreneurs. Features viral content generation, audience analysis, and growth automation with built-in distribution strategies.</p>
+                        <a href="https://www.optimizeai.io/" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/aicharttraders.png" type="image/png">
+                            <img src="images/Portfoliosites/aicharttraders.png"
+                                 alt="AI Chart Traders"
+                                 width="400"
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">AI Chart Traders</h4>
+                                <p class="venture-overlay-description">AI-powered trading insights and chart analysis</p>
+                                <a href="https://aicharttraders.com/" class="venture-overlay-link">
+                                    Start Trading <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Live</span>
+                            <span class="venture-status">Active</span>
+                        </div>
+                        <h3 class="venture-title">AI Chart Traders</h3>
+                        <p class="venture-description">Advanced AI-powered trading platform with intelligent chart analysis and real-time market insights to help you make informed trading decisions</p>
+                        <a href="https://aicharttraders.com/" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="venture-card">
+                    <div class="venture-image">
+                        <picture>
+                            <source srcset="images/Portfoliosites/mddiagnose.png" type="image/png">
+                            <img src="images/Portfoliosites/mddiagnose.png"
+                                 alt="MD Diagnose - AI-Powered Diagnostic Assistant"
+                                 loading="lazy"
+                                 width="400"
+                                 height="280">
+                        </picture>
+                        <div class="venture-overlay">
+                            <div class="venture-overlay-content">
+                                <h4 class="venture-overlay-title">MD Diagnose</h4>
+                                <p class="venture-overlay-description">AI-powered diagnostic assistant for medical professionals</p>
+                                <a href="https://md-diagnose-app.ivanleejackson.workers.dev/" class="venture-overlay-link">
+                                    Explore Platform <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-meta">
+                            <span class="venture-badge">Live</span>
+                            <span class="venture-status">Active</span>
+                        </div>
+                        <h3 class="venture-title">MD Diagnose</h3>
+                        <p class="venture-description">Advanced AI diagnostic platform empowering medical professionals with intelligent symptom analysis, real-time insights, and clinical decision support. Features privacy-focused architecture and cutting-edge medical AI.</p>
+                        <a href="https://md-diagnose-app.ivanleejackson.workers.dev/" class="venture-link">Visit Site <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="ventures-footer">
+                <p class="coming-soon">More ventures launching soon</p>
+                <p class="coming-soon-subtitle">Building the next generation of consumer AI experiences</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section id="approach" class="approach">
+        <div class="approach-background">
+            <div class="approach-grid-bg"></div>
+            <div class="approach-gradient-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-overline">Our Approach</div>
+                <h2 class="section-title">Creator-to-Company (C2C) System</h2>
+                <p class="section-subtitle">Our systematic approach transforms creator audiences into scalable AI ventures through rapid MVP development, real audience validation, and built-in distribution networks.</p>
+            </div>
+            
+            <div class="approach-journey">
+                <div class="journey-path">
+                    <svg class="journey-line" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:var(--primary-500);stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:var(--accent-purple);stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:var(--accent-pink);stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:var(--primary-500);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:var(--accent-purple);stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Top row path (steps 1-4) -->
+                        <path class="journey-path-line" d="M50,200 Q300,50 550,200 Q800,350 1150,200" stroke="url(#pathGradient)" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+                        <!-- Connection from step 4 to step 5 -->
+                        <path class="journey-path-line" d="M1150,200 L1150,400" stroke="url(#pathGradient)" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+                        <!-- Bottom row path (steps 5-6) -->
+                        <path class="journey-path-line" d="M1150,400 Q950,400 750,400 Q550,400 350,400 Q150,400 50,400" stroke="url(#pathGradient)" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+                    </svg>
+                </div>
+                
+                <div class="journey-steps">
+                    <div class="journey-step" data-step="1">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">01</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Audience Scan</h3>
+                            <p class="step-description">Deep analysis of creator audiences and engagement patterns. We identify market gaps and distribution opportunities through data-driven insights.</p>
+                            <div class="step-metrics">
+                                <span class="metric">1-2 weeks</span>
+                                <span class="metric-label">Data & Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="2">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">02</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Offer Test</h3>
+                            <p class="step-description">Rapid validation of product concepts with real creator audiences. We test demand and refine positioning before development begins.</p>
+                            <div class="step-metrics">
+                                <span class="metric">1-2 weeks</span>
+                                <span class="metric-label">Market Validation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="3">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">03</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">MVP Development</h3>
+                            <p class="step-description">Rapid MVP development with our reusable tech stack. Full engineering, design, and ops support to ship market-ready products.</p>
+                            <div class="step-metrics">
+                                <span class="metric">21-45 days</span>
+                                <span class="metric-label">Speed to Market</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="4">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">04</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Creator Launch</h3>
+                            <p class="step-description">Strategic product launch leveraging creator networks and influencer partnerships. Built-in virality and distribution from day one.</p>
+                            <div class="step-metrics">
+                                <span class="metric">Launch Day</span>
+                                <span class="metric-label">Distribution Power</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="5">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M12.5 7a4 4 0 11-8 0 4 4 0 018 0zM20 8v6M23 11l-3 3-3-3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">05</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Iterate</h3>
+                            <p class="step-description">Rapid iteration based on real user data and creator feedback. Continuous improvement driven by audience insights and market response.</p>
+                            <div class="step-metrics">
+                                <span class="metric">Ongoing</span>
+                                <span class="metric-label">Data-Driven Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-step" data-step="6">
+                        <div class="step-visual">
+                            <div class="step-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 14l3-3 3 3M12 18V9M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">06</div>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Spin-Out</h3>
+                            <p class="step-description">Graduate to independent venture with dedicated founding team. Full support through scaling and growth milestones.</p>
+                            <div class="step-metrics">
+                                <span class="metric">6-18 months</span>
+                                <span class="metric-label">To Independence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="approach-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-label">Step Process</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Week Timeline</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Opportunity Section -->
+    <section class="opportunity">
+        <div class="opportunity-visual-bg">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="opportunity-layout">
+                <div class="opportunity-content">
+                    <div class="section-overline">Market Opportunity</div>
+                    <h2 class="section-title">Why Consumer AI, Why Now</h2>
+                    <p class="section-subtitle">We're at an inflection point where AI infrastructure meets consumer readiness, creating unprecedented opportunities for magical, human-centered experiences.</p>
+                    
+                    <div class="opportunity-highlights">
+                        <div class="highlight-stat">
+                            <div class="stat-visual">
+                                <div class="stat-circle">
+                                    <span class="stat-value">127%</span>
+                                </div>
+                            </div>
+                            <div class="stat-text">
+                                <h4>YoY Growth</h4>
+                                <p>Consumer AI adoption</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-stat">
+                            <div class="stat-visual">
+                                <div class="stat-circle">
+                                    <span class="stat-value">$2.6T</span>
+                                </div>
+                            </div>
+                            <div class="stat-text">
+                                <h4>Market Size</h4>
+                                <p>By 2030 projection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-grid">
+                    <div class="opportunity-card featured">
+                        <div class="card-visual">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 7L11 12l6 2-4-7-3-3-3 3z" fill="currentColor"/>
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="card-badge">Critical</div>
+                        </div>
+                        <h3>Explosive Growth</h3>
+                        <p>Consumer AI is experiencing 10x faster adoption than enterprise solutions, with viral distribution changing the game.</p>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <div class="card-visual">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Creative Revolution</h3>
+                        <p>Generative AI unlocks creative possibilities beyond traditional productivity, enabling entirely new forms of self-expression.</p>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <div class="card-visual">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Viral Potential</h3>
+                        <p>AI products designed for emotional connection spread organically, achieving growth without traditional marketing spend.</p>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <div class="card-visual">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Perfect Timing</h3>
+                        <p>Infrastructure costs have dropped, models are democratized, and consumers are ready for AI that goes beyond chatbots.</p>
+                    </div>
+                    
+                    <div class="opportunity-card">
+                        <div class="card-visual">
+                            <div class="card-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2h-4m-4 0V9a2 2 0 114 0v2m-4 0h4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Early Advantage</h3>
+                        <p>We're still in the first innings of consumer AI, with massive whitespace for innovative, human-centered products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Founders Section -->
+    <section id="founders" class="founders">
+        <div class="founders-background">
+            <div class="founders-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="founders-layout">
+                <div class="founders-hero">
+                    <div class="section-overline">For Creators & Founders</div>
+                    <h2 class="section-title">Turn Your Influence Into AI Ventures</h2>
+                    <p class="section-subtitle">Partner with us to transform your expertise and audience into scalable AI ventures. We provide productization, distribution, and infrastructure while you bring the vision and creator network.</p>
+                    
+                    <div class="founders-value-prop">
+                        <div class="value-item">
+                            <div class="value-number">21-45</div>
+                            <div class="value-label">Days to MVP</div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-number">Active</div>
+                            <div class="value-label">Creator Network</div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-number">20-30%</div>
+                            <div class="value-label">Partner Equity</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="founders-offering">
+                    <div class="offering-grid">
+                        <div class="offering-category">
+                            <h3 class="category-title">Capital & Resources</h3>
+                            <div class="offering-items">
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>Initial Funding</h4>
+                                        <p>Significant capital to focus on building, not fundraising</p>
+                                    </div>
+                                </div>
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>Full Stack Team</h4>
+                                        <p>Engineering, design, product, and operations from day one</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="offering-category">
+                            <h3 class="category-title">Technical Infrastructure</h3>
+                            <div class="offering-items">
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>AI Infrastructure</h4>
+                                        <p>Pre-built access to latest models, tools, and compute</p>
+                                    </div>
+                                </div>
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>Growth Systems</h4>
+                                        <p>Viral mechanics, analytics, and scaling infrastructure</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="offering-category">
+                            <h3 class="category-title">Strategic Support</h3>
+                            <div class="offering-items">
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>Network Access</h4>
+                                        <p>Access to advisors, investors, and industry connections</p>
+                                    </div>
+                                </div>
+                                <div class="offering-item">
+                                    <div class="item-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="item-content">
+                                        <h4>Operations</h4>
+                                        <p>Legal, finance, HR, and business development support</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="founders-criteria">
+                    <div class="criteria-header">
+                        <h3>We're Looking For Exceptional Builders</h3>
+                        <p>Founders who think differently about AI's potential to create emotional connections</p>
+                    </div>
+                    
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <div class="criteria-icon">🎯</div>
+                            <div class="criteria-content">
+                                <h4>Visionary Thinking</h4>
+                                <p>Deep understanding of consumer behavior and AI's creative potential</p>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-icon">⚡</div>
+                            <div class="criteria-content">
+                                <h4>Execution Speed</h4>
+                                <p>Experience with rapid iteration and user-focused development</p>
+                            </div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-icon">❤️</div>
+                            <div class="criteria-content">
+                                <h4>Human-Centered</h4>
+                                <p>Passion for creating products that enhance human creativity and connection</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="criteria-cta">
+                        <a href="#contact" class="btn btn-primary btn-large">Apply to Join Our Next Cohort</a>
+                        <p class="cta-note">Next cohort starts Q2 2024 • Applications close March 15th</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Investors Section -->
+    <section id="investors" class="investors">
+        <div class="investors-visual">
+            <div class="investment-charts">
+                <div class="chart-element chart-1"></div>
+                <div class="chart-element chart-2"></div>
+                <div class="chart-element chart-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="investors-layout">
+                <div class="investors-hero">
+                    <div class="section-overline">For Investors & Partners</div>
+                    <h2 class="section-title">Distribution-First AI Ventures</h2>
+                    <p class="section-subtitle">Join us in co-launching 2-3 pilot ventures in the next 12 months. We're building the first AI studio with built-in influencer distribution, solving the biggest challenge in the market: customer acquisition.</p>
+                    
+                    <div class="investment-metrics">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 7L11 12l6 2-4-7-3-3-3 3z" fill="currentColor"/>
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="metric-value">2-3</div>
+                            <div class="metric-label">Pilot Ventures/Year</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="metric-value">$250B+</div>
+                            <div class="metric-label">Creator Economy by 2030</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2h-4m-4 0V9a2 2 0 114 0v2m-4 0h4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="metric-value">$250K-$500K</div>
+                            <div class="metric-label">Capital Per Pilot</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-thesis">
+                    <h3 class="thesis-title">Investment Thesis</h3>
+                    <div class="thesis-points">
+                        <div class="thesis-point">
+                            <div class="point-number">01</div>
+                            <div class="point-content">
+                                <h4>Market Timing</h4>
+                                <p>Consumer AI is at an inflection point - infrastructure costs have plummeted while consumer adoption has accelerated exponentially.</p>
+                            </div>
+                        </div>
+                        <div class="thesis-point">
+                            <div class="point-number">02</div>
+                            <div class="point-content">
+                                <h4>Portfolio Approach</h4>
+                                <p>Diversified risk across multiple ventures with systematic studio support dramatically improves success probability.</p>
+                            </div>
+                        </div>
+                        <div class="thesis-point">
+                            <div class="point-number">03</div>
+                            <div class="point-content">
+                                <h4>Viral Distribution</h4>
+                                <p>Consumer AI products designed for emotional connection achieve organic growth that traditional marketing cannot replicate.</p>
+                            </div>
+                        </div>
+                        <div class="thesis-point">
+                            <div class="point-number">04</div>
+                            <div class="point-content">
+                                <h4>Early Advantage</h4>
+                                <p>We're capturing first-mover advantage in emotional AI before the market becomes commoditized.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investment-advantages">
+                    <h3>Why VibeWorks</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-item">
+                            <div class="advantage-visual">
+                                <div class="advantage-icon">🎯</div>
+                                <div class="advantage-metric">100%</div>
+                            </div>
+                            <h4>Focus on Emotional AI</h4>
+                            <p>Exclusive focus on AI that creates human connection, not just productivity</p>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-visual">
+                                <div class="advantage-icon">⚡</div>
+                                <div class="advantage-metric">6-12mo</div>
+                            </div>
+                            <h4>Rapid Market Entry</h4>
+                            <p>Studio infrastructure enables faster time-to-market than traditional startups</p>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-visual">
+                                <div class="advantage-icon">🔄</div>
+                                <div class="advantage-metric">4-6</div>
+                            </div>
+                            <h4>Portfolio Diversification</h4>
+                            <p>Multiple shots on goal across different consumer AI verticals</p>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-visual">
+                                <div class="advantage-icon">🚀</div>
+                                <div class="advantage-metric">10x+</div>
+                            </div>
+                            <h4>Systematic Methodology</h4>
+                            <p>Structured approach to building viral consumer products</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="investor-action">
+                    <div class="action-content">
+                        <h3>Ready to Build the Future?</h3>
+                        <p>Join investors in funding the next generation of consumer AI companies.</p>
+                    </div>
+                    <div class="action-buttons">
+                        <a href="#contact" class="btn btn-primary btn-large">Request Investment Deck</a>
+                        <a href="#contact" class="btn btn-ghost">Schedule Call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Thesis Section -->
+    <section class="thesis">
+        <div class="thesis-atmosphere">
+            <div class="atmosphere-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="thesis-layout">
+                <div class="thesis-intro">
+                    <div class="section-overline">Core Beliefs</div>
+                    <h2 class="section-title">What We Believe</h2>
+                    <p class="section-subtitle">Our fundamental principles guide every decision, every product, and every partnership we make in building the future of human-AI interaction.</p>
+                </div>
+                
+                <div class="thesis-manifesto">
+                    <div class="manifesto-item featured">
+                        <div class="manifesto-visual">
+                            <div class="visual-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="visual-accent"></div>
+                        </div>
+                        <div class="manifesto-content">
+                            <h3>AI should amplify human creativity, not replace it</h3>
+                            <p>The future belongs to AI that makes humans more creative, expressive, and capable of bringing their unique visions to life.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="manifesto-grid">
+                        <div class="manifesto-item">
+                            <div class="manifesto-visual">
+                                <div class="visual-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4>Emotional Connection Wins</h4>
+                            <p>Technology that touches hearts scales faster than pure utility. People share what makes them feel.</p>
+                        </div>
+                        
+                        <div class="manifesto-item">
+                            <div class="manifesto-visual">
+                                <div class="visual-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4>Consumers > Enterprise</h4>
+                            <p>Consumer markets are exponentially larger than enterprise. The consumer AI market will dwarf enterprise.</p>
+                        </div>
+                        
+                        <div class="manifesto-item">
+                            <div class="manifesto-visual">
+                                <div class="visual-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4>Play Spreads Faster</h4>
+                            <p>Playful experiences go viral organically. Joy is the ultimate growth hack.</p>
+                        </div>
+                        
+                        <div class="manifesto-item">
+                            <div class="manifesto-visual">
+                                <div class="visual-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4>Privacy by Design</h4>
+                            <p>Trust is the foundation of consumer relationships. Ethics and privacy must be built-in from day one.</p>
+                        </div>
+                        
+                        <div class="manifesto-item">
+                            <div class="manifesto-visual">
+                                <div class="visual-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                        <path d="M13 7L11 12l6 2-4-7-3-3-3 3z" fill="currentColor"/>
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h4>Agility + Resources</h4>
+                            <p>Small teams with studio support can outmaneuver tech giants. Speed plus resources wins.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="thesis-quote">
+                    <div class="quote-mark">"</div>
+                    <blockquote>
+                        <p>The future of AI isn't about replacing human creativity—it's about amplifying it. We're building technology that makes people feel more human, not less.</p>
+                        <cite>VibeWorks AI Studio Team</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team/About Section -->
+    <section id="about" class="about">
+        <div class="about-atmosphere">
+            <div class="about-gradient-bg"></div>
+            <div class="floating-about-elements">
+                <div class="about-element about-element-1"></div>
+                <div class="about-element about-element-2"></div>
+                <div class="about-element about-element-3"></div>
+                <div class="about-element about-element-4"></div>
+                <div class="about-element about-element-5"></div>
+            </div>
+            <div class="about-grid-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-hero">
+                    <div class="section-overline">Our Foundation</div>
+                    <h2 class="section-title">Distribution Meets Execution</h2>
+                    <p class="section-subtitle">We're the fusion of technical entrepreneurs with execution experience and strategic connectors with access to creator networks. Together, we bridge the gap between distribution and productization.</p>
+                    
+                    <div class="about-mission-highlight">
+                        <div class="mission-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="mission-content">
+                            <h4>Our Differentiation</h4>
+                            <p>Traditional studios = strong ops, weak distribution. Influencer groups = strong distribution, weak productization. VibeWorks = fusion of both.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-showcase">
+                    <div class="team-intro">
+                        <h3>Meet the Founders</h3>
+                        <p>The founding duo combining deep creator relationships with technical execution to build the future of creator-led AI ventures.</p>
+                    </div>
+                    
+                    <div class="founders-grid">
+                        <div class="founder-card natasha featured">
+                            <div class="founder-visual">
+                                <div class="founder-avatar">
+                                    <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton" class="founder-image">
+                                </div>
+                                <div class="founder-badge">CEO & Founder</div>
+                            </div>
+                            <div class="founder-info">
+                                <h4>Natasha Burton</h4>
+                                <p class="founder-role">CEO & Founder</p>
+                                <p class="founder-description">Operator and connector with deep relationships across the creator economy. Natasha has direct partnerships with influencers representing 30M+ followers and specializes in structuring deals that turn audiences into scalable ventures.</p>
+                                <div class="founder-highlights">
+                                    <span class="highlight">30M+ Network</span>
+                                    <span class="highlight">Distribution Strategy</span>
+                                    <span class="highlight">Decade+ Experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="founder-card ivan featured">
+                            <div class="founder-visual">
+                                <div class="founder-avatar">
+                                    <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson" class="founder-image">
+                                </div>
+                                <div class="founder-badge">CTO & Co-Founder</div>
+                            </div>
+                            <div class="founder-info">
+                                <h4>Ivanlee Jackson</h4>
+                                <p class="founder-role">CTO & Co-Founder</p>
+                                <p class="founder-description">Technical entrepreneur with 15+ years of experience building ventures at the intersection of AI, automation, and SaaS. Specializes in rapid MVP development and embedding growth systems into products from day one.</p>
+                                <div class="founder-highlights">
+                                    <span class="highlight">15+ Years Experience</span>
+                                    <span class="highlight">21-45 Day MVPs</span>
+                                    <span class="highlight">Technical Vision</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-visual">
+                                <div class="member-avatar">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="member-badge">Technical</div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Technical Team</h4>
+                                <p class="member-role">Engineering & Development</p>
+                                <p class="member-description">Engineers specializing in AI/automation and SaaS infrastructure with experience in rapid MVP development and scalable systems.</p>
+                                <div class="member-highlights">
+                                    <span class="highlight">AI Expertise</span>
+                                    <span class="highlight">Rapid Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-visual">
+                                <div class="member-avatar">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="member-badge">Business</div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Business Model</h4>
+                                <p class="member-role">Dual-Track Approach</p>
+                                <p class="member-description">Internally Ideated (40-60% equity) and Partnered Ventures (20-30% equity). Revenue via SaaS, usage credits, and affiliate-driven models.</p>
+                                <div class="member-highlights">
+                                    <span class="highlight">Dual Models</span>
+                                    <span class="highlight">Scalable Revenue</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-visual">
+                                <div class="member-avatar">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                        <rect x="2" y="3" width="20" height="4" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="2" y="10" width="20" height="4" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="2" y="17" width="20" height="4" rx="1" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="7" cy="5" r="1" fill="currentColor"/>
+                                        <circle cx="7" cy="12" r="1" fill="currentColor"/>
+                                        <circle cx="7" cy="19" r="1" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div class="member-badge">Infrastructure</div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Tech Stack</h4>
+                                <p class="member-role">Reusable Infrastructure</p>
+                                <p class="member-description">Auth, billing, analytics, affiliate ops, automations. Distribution-first design with UGC hooks, virality loops, and referral mechanics built-in.</p>
+                                <div class="member-highlights">
+                                    <span class="highlight">Rapid Deployment</span>
+                                    <span class="highlight">Viral-Ready</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expertise-showcase">
+                    <div class="expertise-header">
+                        <h3>Our Collective Expertise</h3>
+                        <p>The unique combination of skills that makes VibeWorks the ideal studio to build breakthrough consumer AI companies.</p>
+                    </div>
+                    
+                    <div class="expertise-grid">
+                        <div class="expertise-category featured">
+                            <div class="category-visual">
+                                <div class="expertise-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                                <div class="expertise-badge">Core Strength</div>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Venture Building Experience</h4>
+                                <p>Hands-on experience in building and launching consumer technology ventures, with focus on product development, user acquisition, and growth strategies.</p>
+                                <div class="expertise-metrics">
+                                    <div class="metric">
+                                        <div class="metric-number">Active</div>
+                                        <div class="metric-label">Building</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-number">Growth</div>
+                                        <div class="metric-label">Focused</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expertise-category">
+                            <div class="category-visual">
+                                <div class="expertise-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="expertise-badge">Technical</div>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>AI & Machine Learning</h4>
+                                <p>Knowledge in generative AI, computer vision, NLP, and building AI products that feel magical to consumers.</p>
+                                <div class="expertise-highlights">
+                                    <span>LLM Integration</span>
+                                    <span>Computer Vision</span>
+                                    <span>Generative AI</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expertise-category">
+                            <div class="category-visual">
+                                <div class="expertise-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="expertise-badge">Product</div>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Consumer Product Mastery</h4>
+                                <p>Experience building products people love to use and share, with understanding of viral mechanics and engagement.</p>
+                                <div class="expertise-highlights">
+                                    <span>Viral Design</span>
+                                    <span>User Psychology</span>
+                                    <span>Engagement</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expertise-category">
+                            <div class="category-visual">
+                                <div class="expertise-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 19l7-7 3 3-7 7-3-3z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M2 2l7.586 7.586" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="11" cy="11" r="2" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="expertise-badge">Design</div>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Creative & Design Leadership</h4>
+                                <p>Design thinking, creative direction, and brand building capabilities that make products stand out in crowded markets.</p>
+                                <div class="expertise-highlights">
+                                    <span>Brand Building</span>
+                                    <span>UX Research</span>
+                                    <span>Creative Strategy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-cta">
+                    <div class="cta-content">
+                        <h4>Ready to Build Together?</h4>
+                        <p>Join our collective of builders who are passionate about creating AI that celebrates human creativity and connection.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="#founders" class="btn btn-primary">
+                            <span>Apply as Founder</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-atmosphere">
+            <div class="contact-gradient-bg"></div>
+            <div class="floating-contact-elements">
+                <div class="contact-element contact-element-1"></div>
+                <div class="contact-element contact-element-2"></div>
+                <div class="contact-element contact-element-3"></div>
+                <div class="contact-element contact-element-4"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-hero">
+                    <div class="section-overline">Ready to Partner?</div>
+                    <h2 class="section-title">Let's Launch Your Next AI Venture</h2>
+                    <p class="section-subtitle">For Investors: Let's co-launch 2–3 pilot ventures in the next 12 months. Capital per pilot: $250K–$500K. For Creators: Partner with us to turn your influence or expertise into a scalable AI venture.</p>
+                    
+                    <div class="contact-stats">
+                        <div class="contact-stat">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">21-45</div>
+                                <div class="stat-label">Days to MVP</div>
+                            </div>
+                        </div>
+                        <div class="contact-stat">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">Active</div>
+                                <div class="stat-label">Creator Network</div>
+                            </div>
+                        </div>
+                        <div class="contact-stat">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">24hr</div>
+                                <div class="stat-label">Response Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-pathways">
+                    <div class="pathway pathway-founders">
+                        <div class="pathway-header">
+                            <div class="pathway-visual">
+                                <div class="pathway-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                                <div class="pathway-badge">For Visionaries</div>
+                            </div>
+                            <div class="pathway-content">
+                                <h3>Founders</h3>
+                                <p>Have an idea for consumer AI that could change how people create, connect, or express themselves?</p>
+                            </div>
+                        </div>
+                        <form class="premium-form founder-form">
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="founder-name" required>
+                                    <label for="founder-name">Your Name</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="email" id="founder-email" required>
+                                    <label for="founder-email">Email Address</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <textarea id="founder-vision" required></textarea>
+                                    <label for="founder-vision">Tell us about your vision</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <span>Submit Application</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <p class="form-note">We'll review your application within 24 hours</p>
+                        </form>
+                    </div>
+                    
+                    <div class="pathway pathway-investors">
+                        <div class="pathway-header">
+                            <div class="pathway-visual">
+                                <div class="pathway-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <polyline points="3.27,6.96 12,12.01 20.73,6.96" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                                <div class="pathway-badge">Strategic Partners</div>
+                            </div>
+                            <div class="pathway-content">
+                                <h3>Investors</h3>
+                                <p>Interested in backing the next generation of category-defining consumer AI companies?</p>
+                            </div>
+                        </div>
+                        <form class="premium-form investor-form">
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="investor-name" required>
+                                    <label for="investor-name">Your Name</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="email" id="investor-email" required>
+                                    <label for="investor-email">Email Address</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="investor-org" required>
+                                    <label for="investor-org">Organization</label>
+                                    <div class="input-line"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <span>Request Information</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <p class="form-note">Get our investment deck and portfolio insights</p>
+                        </form>
+                    </div>
+                    
+                    <div class="pathway pathway-general">
+                        <div class="pathway-header">
+                            <div class="pathway-visual">
+                                <div class="pathway-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                                <div class="pathway-badge">Open Dialog</div>
+                            </div>
+                            <div class="pathway-content">
+                                <h3>General Inquiries</h3>
+                                <p>Questions about our approach, partnerships, or just want to explore possibilities?</p>
+                            </div>
+                        </div>
+                        <div class="general-contact-premium">
+                            <div class="contact-methods">
+                                <a href="mailto:partners@vibeworksstudio.ai" class="contact-method primary-method">
+                                    <div class="method-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <div class="method-label">Email Us</div>
+                                        <div class="method-value">partners@vibeworksstudio.ai</div>
+                                    </div>
+                                    <div class="method-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </a>
+                                
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <div class="method-label">Response Time</div>
+                                        <div class="method-value">Within 24 hours</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <path d="M2 12h20" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="method-content">
+                                        <div class="method-label">Time Zone</div>
+                                        <div class="method-value">PST (UTC-8)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-footer">
+                    <div class="footer-message">
+                        <h4>Ready to shape the future of AI?</h4>
+                        <p>Whether you're a founder with the next big idea, an investor looking for category-defining opportunities, or simply curious about what we're building, we'd love to connect.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="currentColor"/>
+                                <circle cx="4" cy="4" r="2" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-atmosphere">
+            <div class="footer-gradient-bg"></div>
+            <div class="footer-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark with-image">
+                            <img src="logo-test.png" alt="VibeWorks Logo" class="logo-image">
+                        </div>
+                        <div class="logo-content">
+                            <div class="logo-text">VibeWorks</div>
+                            <div class="logo-subtitle">AI Studio</div>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Building AI that celebrates the human experience</p>
+                    
+                    <div class="footer-mission">
+                        <p>We're creating the next generation of consumer AI companies that prioritize human creativity, connection, and self-expression over pure utility.</p>
+                    </div>
+                    
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Active Ventures</div>
+                        </div>
+                        <div class="footer-stat">
+                            <div class="stat-number">2023</div>
+                            <div class="stat-label">Founded</div>
+                        </div>
+                        <div class="footer-stat">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Possibilities</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-navigation">
+                    <div class="footer-nav-section">
+                        <h4 class="nav-section-title">Company</h4>
+                        <div class="nav-links">
+                            <a href="#about" class="footer-link">
+                                <span class="link-text">About Us</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#approach" class="footer-link">
+                                <span class="link-text">Our Approach</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#contact" class="footer-link">
+                                <span class="link-text">Contact</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h4 class="nav-section-title">Opportunities</h4>
+                        <div class="nav-links">
+                            <a href="#founders" class="footer-link">
+                                <span class="link-text">For Founders</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#investors" class="footer-link">
+                                <span class="link-text">For Investors</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#ventures" class="footer-link">
+                                <span class="link-text">Our Ventures</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h4 class="nav-section-title">Connect</h4>
+                        <div class="nav-links">
+                            <a href="mailto:partners@vibeworksstudio.ai" class="footer-link">
+                                <span class="link-text">partners@vibeworksstudio.ai</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <span class="link-text">LinkedIn</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <span class="link-text">Twitter</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-nav-section">
+                        <h4 class="nav-section-title">Resources</h4>
+                        <div class="nav-links">
+                            <a href="#" class="footer-link">
+                                <span class="link-text">Investment Deck</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <span class="link-text">Founder Guide</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="footer-link">
+                                <span class="link-text">AI Insights</span>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17l9.2-9.2M17 17V7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <div class="cta-content">
+                        <h4>Ready to Build?</h4>
+                        <p>Join us in creating AI that amplifies human potential</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#founders" class="btn btn-primary">Start Building</a>
+                        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 VibeWorks AI Studio. All rights reserved.</p>
+                        <p class="subtitle">Building the future of human-AI interaction</p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="currentColor"/>
+                                <circle cx="4" cy="4" r="2" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#" class="legal-link">Terms of Service</a>
+                        <span class="separator">•</span>
+                        <a href="#" class="legal-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="mobile-optimizations.js"></script>
+    <script src="mobile-advanced.js"></script>
+</body>
+</html>

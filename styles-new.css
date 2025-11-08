@@ -80,112 +80,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
-}
-
-/* Prevent scrolling during page load animation */
-body.loading {
-  overflow: hidden;
 }
 
 body.menu-open {
   overflow: hidden;
 }
 
-/* ============================================
-   PAGE LOAD ANIMATION SEQUENCE
-   Premium orchestrated entry experience
-   ============================================ */
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUpBounce {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-4px);
-  }
-  80% {
-    transform: translateY(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Initial hidden states for all hero elements */
-.nav-new,
-.hero-title-new,
-.hero-subtitle-new,
-.value-prop,
-.btn-primary-new,
-.btn-secondary-new,
-.scroll-indicator {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-/* Loaded states with orchestrated timing */
-body.loaded .nav-new {
-  animation: fadeInUp 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms forwards;
-}
-
-body.loaded .hero-title-new {
-  animation: fadeInUp 800ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
-}
-
-body.loaded .hero-subtitle-new {
-  animation: fadeInUp 800ms cubic-bezier(0.4, 0, 0.2, 1) 400ms forwards;
-}
-
-body.loaded .value-prop:nth-child(1) {
-  animation: fadeInUp 700ms cubic-bezier(0.4, 0, 0.2, 1) 600ms forwards;
-}
-
-body.loaded .value-prop:nth-child(2) {
-  animation: fadeInUp 700ms cubic-bezier(0.4, 0, 0.2, 1) 700ms forwards;
-}
-
-body.loaded .value-prop:nth-child(3) {
-  animation: fadeInUp 700ms cubic-bezier(0.4, 0, 0.2, 1) 800ms forwards;
-}
-
-body.loaded .value-prop:nth-child(4) {
-  animation: fadeInUp 700ms cubic-bezier(0.4, 0, 0.2, 1) 900ms forwards;
-}
-
-body.loaded .btn-primary-new,
-body.loaded .btn-secondary-new {
-  animation: fadeInUp 600ms cubic-bezier(0.4, 0, 0.2, 1) 1000ms forwards;
-}
-
-body.loaded .scroll-indicator {
-  animation: fadeInUpBounce 800ms cubic-bezier(0.4, 0, 0.2, 1) 1200ms forwards;
-}
-
 ::selection {
   background: var(--voltage-500);
   color: white;
-}
-
-/* Ensure all images are constrained to viewport */
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 /* ============================================
@@ -246,31 +149,17 @@ img {
 
 .nav-cta-new {
   padding: 12px 24px;
-  background: linear-gradient(135deg, var(--voltage-500), var(--voltage-600));
+  background: var(--voltage-500);
   color: white !important;
   border-radius: 8px;
   font-weight: 600;
-  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-cta-new::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--voltage-400), var(--voltage-500));
-  opacity: 0;
-  transition: opacity 300ms ease;
+  transition: all var(--transition-fast);
 }
 
 .nav-cta-new:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-}
-
-.nav-cta-new:hover::before {
-  opacity: 1;
+  background: var(--voltage-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--voltage-glow);
 }
 
 /* Mobile Toggle */
@@ -310,7 +199,7 @@ img {
    ============================================ */
 
 .hero-new {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -319,14 +208,13 @@ img {
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%,
       rgba(139, 92, 246, 0.06), transparent);
-  padding-top: 100px; /* Add spacing below navigation */
 }
 
 .hero-content-new {
   text-align: center;
   max-width: 1200px;
   padding: 0 var(--space-md);
-  /* Removed margin-top for better vertical centering */
+  margin-top: var(--space-2xl); /* Add top spacing to prevent nav overlap */
 }
 
 .hero-title-new {
@@ -353,46 +241,20 @@ img {
 .btn-primary-new {
   display: inline-block;
   padding: 20px 48px;
-  background: linear-gradient(135deg, var(--voltage-500), var(--voltage-600));
+  background: var(--voltage-500);
   color: white;
   text-decoration: none;
   border-radius: 12px;
   font-weight: 600;
   font-size: var(--text-base);
-  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary-new::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--voltage-400), var(--voltage-500));
-  opacity: 0;
-  transition: opacity 400ms ease;
-}
-
-.btn-primary-new span,
-.btn-primary-new::before + * {
-  position: relative;
-  z-index: 1;
+  transition: all var(--transition-base);
+  box-shadow: 0 0 40px var(--voltage-glow);
 }
 
 .btn-primary-new:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow:
-    0 8px 30px rgba(139, 92, 246, 0.4),
-    0 0 60px rgba(139, 92, 246, 0.2);
-}
-
-.btn-primary-new:hover::before {
-  opacity: 1;
-}
-
-.btn-primary-new:active {
-  transform: translateY(-1px) scale(1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 60px var(--voltage-glow);
+  background: var(--voltage-600);
 }
 
 .btn-primary-new.large {
@@ -405,8 +267,10 @@ img {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns to keep all in one row */
   gap: var(--space-lg);
-  margin: var(--space-3xl) auto var(--space-xl); /* Reduced bottom margin */
+  margin: var(--space-3xl) 0;
   max-width: 1100px; /* Increased to accommodate 4 items */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .value-prop {
@@ -418,45 +282,13 @@ img {
   background: rgba(139, 92, 246, 0.05);
   border: 1px solid rgba(139, 92, 246, 0.1);
   border-radius: 12px;
-  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-/* Floating animation starts AFTER page load completes */
-body.loaded .value-prop {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Staggered floating animation for each value prop - delays adjusted to start after page load */
-body.loaded .value-prop:nth-child(1) { animation-delay: 1.3s; }
-body.loaded .value-prop:nth-child(2) { animation-delay: 1.4s; }
-body.loaded .value-prop:nth-child(3) { animation-delay: 1.5s; }
-body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.value-prop::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 400ms ease;
+  transition: all 0.3s ease;
 }
 
 .value-prop:hover {
   background: rgba(139, 92, 246, 0.08);
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.25);
-  animation-play-state: paused;
-}
-
-.value-prop:hover::before {
-  opacity: 1;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
 }
 
 .value-icon {
@@ -500,38 +332,19 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   border-radius: 12px;
   font-weight: 600;
   font-size: var(--text-base);
-  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-secondary-new::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15), transparent 70%);
-  opacity: 0;
-  transition: opacity 400ms ease;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary-new:hover {
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(139, 92, 246, 0.1);
   border-color: var(--voltage-500);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
-}
-
-.btn-secondary-new:hover::before {
-  opacity: 1;
-}
-
-.btn-secondary-new:active {
-  transform: translateY(-1px) scale(1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
 }
 
 .scroll-indicator {
   position: absolute;
-  bottom: 60px; /* Increased spacing from bottom */
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -543,7 +356,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   animation: bounce 2s infinite;
-  z-index: 1; /* Ensure it stays below content */
 }
 
 @keyframes bounce {
@@ -728,16 +540,14 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 .venture-showcase {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 3fr 2fr; /* Changed from 60% 40% to use fr units - prevents overflow */
+  grid-template-columns: 60% 40%;
   align-items: center;
   gap: var(--space-3xl);
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl); /* Added vertical padding to prevent overlaps */
   position: relative;
   opacity: 0;
   transform: translateY(40px);
   transition: all var(--transition-slow);
-  max-width: 100vw; /* Ensure it never exceeds viewport width */
-  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .venture-showcase.visible {
@@ -746,7 +556,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 }
 
 .venture-showcase.reverse {
-  grid-template-columns: 2fr 3fr; /* Changed from 40% 60% to use fr units - prevents overflow */
+  grid-template-columns: 40% 60%;
 }
 
 .venture-showcase.reverse .venture-visual {
@@ -767,44 +577,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(139, 92, 246, 0.1);
-  position: relative;
-  transition: all var(--transition-slow);
-}
-
-/* Premium multi-layer shadow system (desktop) */
-@media (hover: hover) {
-  .venture-visual {
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 80px rgba(139, 92, 246, 0.15),
-      0 2px 8px rgba(139, 92, 246, 0.2);
-  }
-}
-
-/* Dark overlay gradient on images */
-.venture-visual::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
-  transition: opacity var(--transition-base);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Desktop hover: fade overlay and enhance shadows */
-@media (hover: hover) {
-  .venture-showcase:hover .venture-visual::after {
-    opacity: 0;
-  }
-
-  .venture-showcase:hover .venture-visual {
-    transform: translateY(-12px) rotate(-1deg);
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.6),
-      0 0 120px rgba(139, 92, 246, 0.25),
-      0 4px 16px rgba(139, 92, 246, 0.3);
-  }
 }
 
 .venture-visual img {
@@ -815,19 +587,11 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 }
 
 .venture-showcase:hover .venture-visual img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .venture-info {
   padding: var(--space-2xl);
-  transition: transform var(--transition-base);
-}
-
-/* Desktop hover: venture info slides up slightly */
-@media (hover: hover) {
-  .venture-showcase:hover .venture-info {
-    transform: translateY(-8px);
-  }
 }
 
 .venture-status {
@@ -841,7 +605,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   margin-bottom: var(--space-md);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all var(--transition-base);
 }
 
 .venture-status.active {
@@ -852,13 +615,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 .venture-status.planning {
   background: rgba(245, 158, 11, 0.1);
   color: var(--warning-amber);
-}
-
-/* Status badge pulse glow on hover */
-@media (hover: hover) {
-  .venture-showcase:hover .venture-status {
-    box-shadow: 0 0 20px currentColor;
-  }
 }
 
 .venture-name {
@@ -1236,10 +992,8 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   .venture-showcase.reverse {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding: var(--space-xl) var(--space-md); /* Reduced from 4xl to xl for better mobile spacing */
-    gap: 32px; /* 32px gap between cards for breathing room */
-    overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
-    width: 100%;
+    padding: var(--space-4xl) var(--space-md);
+    gap: var(--space-2xl);
   }
 
   .venture-showcase.reverse .venture-visual,
@@ -1247,32 +1001,12 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
     order: initial;
   }
 
-  /* Mobile: Premium multi-layer shadow system */
   .venture-visual {
     height: 60vh;
-    border-radius: 20px; /* Slightly reduced for mobile */
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 80px rgba(139, 92, 246, 0.15),
-      0 2px 8px rgba(139, 92, 246, 0.2);
   }
 
-  /* Mobile: Enhanced venture info container */
   .venture-info {
-    padding: 32px; /* Better padding all around */
-    background: var(--obsidian-900);
-    border-radius: 20px;
-  }
-
-  /* Mobile: Touch active states */
-  .venture-showcase:active .venture-visual {
-    transform: scale(0.98);
-    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .venture-showcase:active .venture-info {
-    opacity: 0.95;
-    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: var(--space-lg);
   }
 
   .founders-grid-new {
@@ -1316,12 +1050,11 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .hero-new {
-    min-height: 100svh;
-    padding-top: 80px; /* Reduced from 100px for mobile - ensures hero title is visible */
+    height: 100svh;
   }
 
   .hero-title-new {
-    line-height: 1.1;
+    line-height: 1.0;
     margin-bottom: var(--space-lg);
   }
 
@@ -1331,15 +1064,13 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .btn-primary-new {
-    padding: 18px 32px; /* Increased to meet 44px minimum touch target */
+    padding: 16px 32px;
     font-size: var(--text-sm);
-    min-height: 56px; /* Ensure comfortable touch target */
   }
 
   .btn-primary-new.large {
-    padding: 22px 40px;
+    padding: 20px 40px;
     font-size: var(--text-base);
-    min-height: 60px;
   }
 
   .scroll-indicator {
@@ -1348,10 +1079,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 
   .trust-ticker {
     padding: 16px 0;
-  }
-
-  .ticker-content {
-    animation: scroll-ticker 102s linear infinite; /* Slower speed for mobile - balanced for readability */
   }
 
   .ticker-content span {
@@ -1364,17 +1091,11 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .venture-showcase {
-    padding: var(--space-xl) var(--space-md); /* Consistent with 1024px breakpoint */
-    gap: 32px; /* Maintain 32px gap */
+    padding: var(--space-2xl) var(--space-md);
   }
 
   .venture-visual {
     height: 50vh;
-    /* Maintain premium shadows on mobile */
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 80px rgba(139, 92, 246, 0.15),
-      0 2px 8px rgba(139, 92, 246, 0.2);
   }
 
   .venture-metric {
@@ -1382,9 +1103,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .venture-info {
-    padding: 32px; /* Maintain consistent padding */
-    background: var(--obsidian-900);
-    border-radius: 20px;
+    padding: var(--space-md) 0;
   }
 
   .founder-image-new {
@@ -1428,34 +1147,12 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .btn-secondary-new {
-    padding: 18px 32px; /* Increased for better touch targets */
+    padding: 16px 32px;
     font-size: var(--text-sm);
-    min-height: 56px;
   }
 
   .section-subtitle-centered {
     font-size: var(--text-base);
-  }
-
-  /* Mobile-specific touch target improvements */
-  .mobile-menu-toggle {
-    min-width: 48px;
-    min-height: 48px; /* Ensure 48x48px touch target for hamburger menu */
-    padding: 12px;
-  }
-
-  /* Optimize images for mobile performance */
-  .venture-visual img,
-  .founder-image-new img {
-    will-change: auto; /* Remove will-change on mobile for better performance */
-  }
-
-  /* Ensure all interactive elements have proper touch spacing */
-  .nav-links-new a {
-    padding: var(--space-md) var(--space-lg);
-    min-height: 48px;
-    display: flex;
-    align-items: center;
   }
 }
 
@@ -1467,24 +1164,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
     --text-4xl: clamp(20px, 5vw, 28px);
   }
 
-  .hero-new {
-    padding-top: 70px; /* Further reduce for smallest mobile devices */
-  }
-
-  .hero-content-new {
-    padding: 0 var(--space-sm); /* Tighter padding on small screens */
-  }
-
-  .hero-title-new {
-    line-height: 1.15; /* Slightly more breathing room for readability */
-    margin-bottom: var(--space-md);
-  }
-
-  .hero-subtitle-new {
-    font-size: 16px; /* Ensure readability on smallest screens */
-    line-height: 1.6;
-  }
-
   .venture-visual {
     height: 40vh;
     border-radius: 16px;
@@ -1493,50 +1172,6 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   .founder-image-new {
     width: 160px;
     height: 160px;
-  }
-
-  /* Optimize button sizes for small mobile */
-  .btn-primary-new,
-  .btn-secondary-new {
-    width: 100%; /* Full-width buttons on smallest screens for easy tapping */
-    min-height: 52px;
-  }
-
-  /* Improve value props on smallest screens */
-  .value-prop {
-    padding: var(--space-md);
-  }
-
-  /* Reduce animation complexity on mobile for better performance */
-  * {
-    animation-duration: 0.3s !important;
-  }
-
-  /* Exception: Keep ticker slow on mobile for readability */
-  .ticker-content {
-    animation-duration: 102s !important; /* Override the global 0.3s rule - 15% faster than initial mobile speed */
-  }
-
-  /* Optimize venture showcases for small mobile */
-  .venture-showcase {
-    padding: var(--space-xl) var(--space-sm);
-    gap: 32px; /* Maintain breathing room even on smallest screens */
-  }
-
-  .venture-visual {
-    height: 40vh;
-    border-radius: 16px; /* Slightly reduced for very small screens */
-    /* Maintain premium shadows */
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 80px rgba(139, 92, 246, 0.15),
-      0 2px 8px rgba(139, 92, 246, 0.2);
-  }
-
-  .venture-info {
-    padding: 24px; /* Slightly reduced for small screens but still generous */
-    background: var(--obsidian-900);
-    border-radius: 16px;
   }
 }
 
@@ -1789,474 +1424,4 @@ html {
   .footer-new {
     border-width: 2px;
   }
-}
-
-/* ============================================
-   FAQ SECTION
-   ============================================ */
-
-.faq-section {
-    padding: var(--space-4xl) var(--space-xl);
-    background: var(--obsidian-900);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--space-2xl);
-    margin-top: var(--space-3xl);
-}
-
-.faq-item {
-    background: var(--obsidian-950);
-    border: 1px solid rgba(139, 92, 246, 0.1);
-    border-radius: 16px;
-    padding: var(--space-2xl);
-    transition: all 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-}
-
-.faq-item.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.faq-item:nth-child(even) {
-    transition-delay: 100ms;
-}
-
-.faq-item:hover {
-    border-color: var(--voltage-500);
-    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
-    transform: translateY(-4px) scale(1);
-}
-
-.faq-item h3 {
-    font-size: var(--text-xl);
-    font-weight: 600;
-    margin-bottom: var(--space-md);
-    color: var(--slate-50);
-    line-height: 1.4;
-}
-
-.faq-item p {
-    font-size: var(--text-base);
-    color: var(--slate-400);
-    line-height: 1.7;
-}
-
-/* ============================================
-   TIMELINE/NEXT STEPS SECTION - PREMIUM TRANSFORMATION
-   ============================================ */
-
-.next-steps-section {
-    padding: var(--space-4xl) var(--space-xl);
-    background:
-        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(139, 92, 246, 0.05), transparent 70%),
-        var(--obsidian-950);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.next-steps-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(139, 92, 246, 0.3) 20%,
-        rgba(139, 92, 246, 0.3) 80%,
-        transparent
-    );
-    pointer-events: none;
-}
-
-.timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    max-width: 1600px;
-    margin: var(--space-3xl) auto 0;
-    position: relative;
-    padding: var(--space-2xl) 0;
-}
-
-/* Connecting line between steps */
-.timeline-grid::before {
-    content: '';
-    position: absolute;
-    top: 80px;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(
-        to right,
-        rgba(139, 92, 246, 0.2),
-        rgba(139, 92, 246, 0.6) 50%,
-        rgba(139, 92, 246, 0.2)
-    );
-    z-index: 0;
-}
-
-.timeline-step {
-    padding: var(--space-xl) var(--space-md);
-    background: transparent;
-    border: none;
-    text-align: center;
-    transition: all 600ms cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    z-index: 1;
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-}
-
-/* Scroll-triggered reveal animation */
-.timeline-step.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* Staggered animation delays */
-.timeline-step:nth-child(1) { transition-delay: 0ms; }
-.timeline-step:nth-child(2) { transition-delay: 150ms; }
-.timeline-step:nth-child(3) { transition-delay: 300ms; }
-.timeline-step:nth-child(4) { transition-delay: 450ms; }
-.timeline-step:nth-child(5) { transition-delay: 600ms; }
-
-/* Content card */
-.timeline-step-content {
-    background: var(--obsidian-900);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    border-radius: 20px;
-    padding: var(--space-2xl) var(--space-lg);
-    height: 100%;
-    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Gradient overlay on hover */
-.timeline-step-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(139, 92, 246, 0.08),
-        transparent 70%
-    );
-    opacity: 0;
-    transition: opacity 400ms ease;
-}
-
-.timeline-step:hover .timeline-step-content::before {
-    opacity: 1;
-}
-
-.timeline-step:hover .timeline-step-content {
-    border-color: rgba(139, 92, 246, 0.5);
-    transform: translateY(-8px);
-    box-shadow:
-        0 20px 40px rgba(139, 92, 246, 0.2),
-        0 0 60px rgba(139, 92, 246, 0.1);
-}
-
-/* Step marker - circular icon style */
-.step-marker {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
-    border: 2px solid rgba(139, 92, 246, 0.3);
-    border-radius: 50%;
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0 auto var(--space-lg);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--voltage-400);
-    position: relative;
-    transition: all 400ms ease;
-    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
-}
-
-/* Pulse animation on hover */
-.timeline-step:hover .step-marker {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.1));
-    border-color: var(--voltage-500);
-    box-shadow:
-        0 0 0 8px rgba(139, 92, 246, 0.1),
-        0 0 30px rgba(139, 92, 246, 0.3);
-    transform: scale(1.1);
-}
-
-/* Connecting dots between steps */
-.timeline-step::before {
-    content: '';
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    background: var(--voltage-500);
-    border: 3px solid var(--obsidian-950);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    transition: all 300ms ease;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
-}
-
-.timeline-step:hover::before {
-    width: 16px;
-    height: 16px;
-    box-shadow:
-        0 0 30px rgba(139, 92, 246, 0.8),
-        0 0 60px rgba(139, 92, 246, 0.4);
-}
-
-/* Remove connecting elements for last step */
-.timeline-step:last-child::after {
-    display: none;
-}
-
-.timeline-step h3 {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-    color: var(--slate-50);
-    letter-spacing: -0.01em;
-    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255,255,255,0.85) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: all 300ms ease;
-}
-
-.timeline-step:hover h3 {
-    background: linear-gradient(135deg, var(--voltage-400) 0%, #FFFFFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.timeline-step p {
-    font-size: 15px;
-    color: var(--slate-400);
-    line-height: 1.7;
-    transition: color 300ms ease;
-}
-
-.timeline-step:hover p {
-    color: var(--slate-50);
-}
-
-/* ============================================
-   FOOTER ENHANCEMENTS
-   ============================================ */
-
-.footer-newsletter {
-    background: rgba(139, 92, 246, 0.05);
-    border: 1px solid rgba(139, 92, 246, 0.1);
-    border-radius: 16px;
-    padding: var(--space-2xl);
-    margin-bottom: var(--space-2xl);
-    text-align: center;
-}
-
-.footer-newsletter h3 {
-    font-size: var(--text-4xl);
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
-    color: var(--slate-50);
-}
-
-.footer-newsletter > p {
-    font-size: var(--text-base);
-    color: var(--slate-400);
-    margin-bottom: var(--space-lg);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.newsletter-form {
-    display: flex;
-    gap: var(--space-sm);
-    max-width: 500px;
-    margin: 0 auto var(--space-sm);
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 16px 20px;
-    background: var(--obsidian-950);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    border-radius: 8px;
-    color: var(--slate-50);
-    font-size: var(--text-base);
-    font-family: var(--font-body);
-}
-
-.newsletter-form input:focus {
-    outline: none;
-    border-color: var(--voltage-500);
-}
-
-.newsletter-form input::placeholder {
-    color: var(--slate-600);
-}
-
-.newsletter-form button {
-    padding: 16px 32px;
-    background: var(--voltage-500);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: var(--text-base);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    font-family: var(--font-body);
-}
-
-.newsletter-form button:hover {
-    background: var(--voltage-600);
-    transform: translateY(-2px);
-}
-
-.newsletter-note {
-    font-size: 13px;
-    color: var(--slate-600);
-    font-style: italic;
-}
-
-.footer-trust {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-3xl);
-    padding: var(--space-xl);
-    margin-bottom: var(--space-lg);
-    flex-wrap: wrap;
-}
-
-.trust-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    color: var(--slate-400);
-    font-size: var(--text-sm);
-}
-
-.trust-icon {
-    color: var(--voltage-500);
-    font-weight: 700;
-    font-size: 18px;
-}
-
-/* ============================================
-   MOBILE RESPONSIVE FOR NEW SECTIONS
-   ============================================ */
-
-@media (max-width: 1024px) {
-    .timeline-grid {
-        grid-template-columns: 1fr;
-        padding-left: var(--space-3xl);
-        gap: var(--space-2xl);
-    }
-
-    /* Vertical connecting line for mobile */
-    .timeline-grid::before {
-        top: 0;
-        bottom: 0;
-        left: 36px;
-        right: auto;
-        width: 2px;
-        height: auto;
-        background: linear-gradient(
-            to bottom,
-            rgba(139, 92, 246, 0.2),
-            rgba(139, 92, 246, 0.6) 50%,
-            rgba(139, 92, 246, 0.2)
-        );
-    }
-
-    /* Reposition connecting dots for vertical timeline */
-    .timeline-step::before {
-        top: 50px;
-        left: 36px;
-        transform: translate(-50%, 0);
-    }
-
-    .timeline-step::after {
-        display: none;
-    }
-
-    .step-marker {
-        width: 64px;
-        height: 64px;
-        font-size: 14px;
-    }
-
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .newsletter-form {
-        flex-direction: column;
-    }
-    
-    .footer-trust {
-        flex-direction: column;
-        gap: var(--space-md);
-        align-items: flex-start;
-        padding-left: var(--space-md);
-    }
-
-    .faq-section {
-        padding: var(--space-3xl) var(--space-md);
-    }
-
-    .next-steps-section {
-        padding: var(--space-3xl) var(--space-md);
-    }
-
-    .timeline-step {
-        padding: var(--space-lg);
-    }
-}
-
-@media (max-width: 480px) {
-    .faq-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-    }
-
-    .faq-item {
-        padding: var(--space-lg);
-    }
-
-    .footer-newsletter {
-        padding: var(--space-lg);
-    }
-
-    .footer-newsletter h3 {
-        font-size: var(--text-2xl);
-    }
 }
