@@ -842,7 +842,12 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   height: 80vh;
   border-radius: 24px;
   overflow: hidden;
-  background: var(--obsidian-900);
+  /* Premium gradient background for letterboxing */
+  background: linear-gradient(135deg,
+    rgba(18, 18, 26, 1) 0%,
+    rgba(26, 26, 38, 1) 50%,
+    rgba(18, 18, 26, 1) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -861,12 +866,12 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 }
 
-/* Dark overlay gradient on images */
+/* Subtle overlay gradient on images (lighter for full image visibility) */
 .venture-visual::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.2));
   transition: opacity var(--transition-base);
   pointer-events: none;
   z-index: 1;
@@ -890,7 +895,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
 .venture-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Changed from 'cover' to show full images without cropping */
   transition: transform var(--transition-slow);
 }
 
@@ -1331,6 +1336,12 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   .venture-visual {
     height: 60vh;
     border-radius: 20px; /* Slightly reduced for mobile */
+    /* Premium gradient background for letterboxing on mobile */
+    background: linear-gradient(135deg,
+      rgba(18, 18, 26, 1) 0%,
+      rgba(26, 26, 38, 1) 50%,
+      rgba(18, 18, 26, 1) 100%
+    );
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.5),
       0 0 80px rgba(139, 92, 246, 0.15),
