@@ -851,7 +851,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(139, 92, 246, 0.1);
+  border: none; /* No border on desktop - shadows provide depth */
   position: relative;
   transition: all var(--transition-slow);
 }
@@ -1342,6 +1342,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
       rgba(26, 26, 38, 1) 50%,
       rgba(18, 18, 26, 1) 100%
     );
+    border: 1px solid rgba(139, 92, 246, 0.1); /* Border on mobile for definition */
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.5),
       0 0 80px rgba(139, 92, 246, 0.15),
