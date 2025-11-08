@@ -9,7 +9,7 @@ class VibeWorksStudio {
     }
 
     init() {
-        this.initializeLoadingState();
+        // Removed: this.initializeLoadingState() - Loading screen removed for instant page load
         this.setupImageOptimizations();
         this.setupNavigation();
         this.setupScrollEffects();
@@ -19,18 +19,19 @@ class VibeWorksStudio {
         this.setupForms();
         this.setupMicroInteractions();
         this.setupPerformanceOptimizations();
+
         
+        this.setupNetworkAwareLoading();
+        this.setupBatteryOptimization();
+        this.setupMemoryManagement();
+        this.setupViewportHeight();
+
         // Initialize when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.onReady());
         } else {
             this.onReady();
         }
-    }
-
-    initializeLoadingState() {
-        // Setup premium loading sequence with the new HTML loading screen
-        this.setupPremiumLoading();
     }
 
     setupImageOptimizations() {
@@ -181,95 +182,11 @@ class VibeWorksStudio {
         };
     }
 
-    setupPremiumLoading() {
-        const loadingScreen = document.getElementById('loading-screen');
-        const progressFill = document.querySelector('.progress-fill');
-        const loadingPercentage = document.querySelector('.loading-percentage');
-        
-        if (!loadingScreen || !progressFill || !loadingPercentage) {
-            // If loading screen elements don't exist, skip to main initialization
-            setTimeout(() => this.onReady(), 100);
-            return;
-        }
-
-        let progress = 0;
-        const duration = 3500; // 3.5 seconds for premium feel
-        const interval = 50; // Smooth updates
-        const baseIncrement = (interval / duration) * 100;
-
-        const updateProgress = () => {
-            // Add organic variation to the progress
-            const variation = Math.random() * 0.5 + 0.5; // 0.5 to 1.0
-            progress += baseIncrement * variation;
-            
-            // Slow down as we approach 100%
-            if (progress > 90) {
-                progress += (100 - progress) * 0.1;
-            }
-            
-            if (progress > 100) progress = 100;
-            
-            progressFill.style.width = `${progress}%`;
-            loadingPercentage.textContent = `${Math.floor(progress)}%`;
-            
-            if (progress >= 100) {
-                setTimeout(() => {
-                    this.completeLoading(loadingScreen);
-                }, 800); // Hold at 100% briefly
-            } else {
-                requestAnimationFrame(() => {
-                    setTimeout(updateProgress, interval);
-                });
-            }
-        };
-
-        // Start progress animation after logo entrance
-        setTimeout(updateProgress, 1000);
-    }
-
-    completeLoading(loadingScreen) {
-        // Add completion class for final animation
-        loadingScreen.classList.add('fade-out');
-        
-        // Initialize main experience after loading completes
-        setTimeout(() => {
-            this.onReady();
-            this.setupEntranceAnimations();
-            
-            // Remove loading screen from DOM
-            setTimeout(() => {
-                if (loadingScreen.parentNode) {
-                    loadingScreen.parentNode.removeChild(loadingScreen);
-                }
-            }, 100);
-        }, 700);
-    }
-
-    setupEntranceAnimations() {
-        // Sophisticated staggered entrance animations
-        const entranceElements = [
-            { selector: '.navbar', delay: 0 },
-            { selector: '.hero-content > *', delay: 200 },
-            { selector: '.hero-visual', delay: 400 }
-        ];
-
-        entranceElements.forEach(({ selector, delay }) => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach((element, index) => {
-                if (element) {
-                    // Set initial state
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(40px)';
-                    
-                    setTimeout(() => {
-                        element.style.transition = 'opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }, delay + (index * 100));
-                }
-            });
-        });
-    }
+    /* REMOVED: Loading screen functionality - instant page load now
+    setupPremiumLoading() { ... }
+    completeLoading() { ... }
+    setupEntranceAnimations() { ... }
+    */
 
     onReady() {
         // Initialize mobile-specific features
@@ -277,15 +194,9 @@ class VibeWorksStudio {
         this.setupMobileTouchFeedback();
         this.setupMobilePerformanceOptimizations();
         this.setupMobileEnhancements();
-        
-        // Optimize loading time for mobile
-        const isMobile = window.innerWidth <= 768;
-        const loadingTime = isMobile ? 1500 : 2000; // Faster loading on mobile
-        
-        setTimeout(() => {
-            this.hideLoadingScreen();
-            this.startMainAnimations();
-        }, loadingTime);
+
+        // Start animations immediately - no artificial delays
+        this.startMainAnimations();
     }
 
     setupMobilePerformanceOptimizations() {
@@ -519,15 +430,6 @@ class VibeWorksStudio {
                 element.style.transition = 'transform 0.2s ease-out';
             }, { passive: true });
         });
-    }
-
-    hideLoadingScreen() {
-        const overlay = document.querySelector('.loading-overlay');
-        if (overlay) {
-            overlay.classList.add('hidden');
-            setTimeout(() => overlay.remove(), 500);
-        }
-        document.documentElement.classList.remove('loading');
     }
 
     startMainAnimations() {
@@ -1230,6 +1132,105 @@ class VibeWorksStudio {
         `;
         document.head.appendChild(rippleCSS);
     }
+    // ===== MOBILE OPTIMIZATIONS (from mobile-optimizations.js) =====
+    
+    setupMobileNavigation() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const navLinks = document.querySelectorAll('[data-mobile-close]');
+
+        if (!navToggle || !navMenu) return;
+
+        // Prevent body scroll when menu is open
+        let isMenuOpen = false;
+        document.addEventListener('touchmove', (e) => {
+            if (isMenuOpen) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Handle escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                isMenuOpen = false;
+                navToggle?.classList.remove('active');
+                navMenu?.classList.remove('active');
+                menuOverlay?.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    setupViewportHeight() {
+        const setVH = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+    }
+
+    // ===== ADVANCED MOBILE FEATURES (from mobile-advanced.js) =====
+    
+    setupNetworkAwareLoading() {
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            
+            if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                document.documentElement.classList.add('low-bandwidth');
+                document.documentElement.classList.add('reduced-motion');
+            }
+
+            connection.addEventListener('change', () => {
+                if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                    document.documentElement.classList.add('low-bandwidth');
+                } else {
+                    document.documentElement.classList.remove('low-bandwidth');
+                }
+            });
+        }
+    }
+
+    setupBatteryOptimization() {
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                if (battery.level < 0.2) {
+                    document.documentElement.classList.add('power-save-mode');
+                    document.documentElement.style.setProperty('--animation-duration', '0.1s');
+                }
+
+                battery.addEventListener('levelchange', () => {
+                    if (battery.level < 0.2) {
+                        document.documentElement.classList.add('power-save-mode');
+                    } else {
+                        document.documentElement.classList.remove('power-save-mode');
+                    }
+                });
+            });
+        }
+    }
+
+    setupMemoryManagement() {
+        if ('memory' in performance) {
+            setInterval(() => {
+                const memory = performance.memory;
+                if (memory.usedJSHeapSize > 50000000) {
+                    // Optimize memory - remove far off-screen images
+                    const images = document.querySelectorAll('img');
+                    images.forEach(img => {
+                        const rect = img.getBoundingClientRect();
+                        if (rect.bottom < -500 || rect.top > window.innerHeight + 500) {
+                            img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"/>';
+                        }
+                    });
+                }
+            }, 30000);
+        }
+    }
+
 }
 
 // Initialize the application

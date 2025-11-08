@@ -9,6 +9,12 @@
     <!-- Performance Optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="logo-test.png" as="image">
+    
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Critical Resource Preloading -->
@@ -18,16 +24,14 @@
     <!-- Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome with async loading -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
-    <!-- Styles -->
+    <!-- Styles (Consolidated - Mobile CSS now included in main styles.css) -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile-optimizations.css">
-    <link rel="stylesheet" href="mobile-advanced.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -48,36 +52,6 @@
     </script>
 </head>
 <body>
-    <!-- Premium Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-mark-large with-image">
-                    <img src="logo-test.png" alt="VibeWorks Logo" class="logo-image-large">
-                    <div class="logo-pulse"></div>
-                </div>
-                <div class="loading-text">
-                    <div class="logo-name">VibeWorks</div>
-                    <div class="logo-tagline">AI Studio</div>
-                </div>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <div class="loading-percentage">0%</div>
-            </div>
-            <div class="loading-message">Building the future of AI</div>
-        </div>
-        <div class="loading-background">
-            <div class="loading-particle loading-particle-1"></div>
-            <div class="loading-particle loading-particle-2"></div>
-            <div class="loading-particle loading-particle-3"></div>
-            <div class="loading-particle loading-particle-4"></div>
-            <div class="loading-particle loading-particle-5"></div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -128,10 +102,28 @@
                 <span>Where Vision Meets Distribution</span>
             </div>
             <h1 class="hero-title">Creator-Led AI Ventures</h1>
-            <p class="hero-subtitle">VibeWorks builds creator-led AI ventures by combining studio execution with built-in influencer distribution. We bridge the gap between studios that ship products but struggle with distribution, and creators who have audiences but lack infrastructure.</p>
+            <p class="hero-subtitle">
+                Studio execution meets creator distribution. We build AI ventures that reach millions from day one.
+            </p>
             <div class="hero-buttons">
                 <a href="#ventures" class="btn btn-primary btn-large">View Portfolio</a>
                 <a href="#contact" class="btn btn-secondary btn-large">Partner With Us</a>
+            </div>
+
+            <!-- Hero Value Props -->
+            <div class="hero-value-props">
+                <div class="value-prop">
+                    <i class="fas fa-rocket"></i>
+                    <span>21-45 Day Builds</span>
+                </div>
+                <div class="value-prop">
+                    <i class="fas fa-users"></i>
+                    <span>Built-In Distribution</span>
+                </div>
+                <div class="value-prop">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Revenue Share Model</span>
+                </div>
             </div>
         </div>
         <div class="hero-visual">
@@ -142,6 +134,30 @@
                 <div class="element element-3"></div>
                 <div class="element element-4"></div>
                 <div class="element element-5"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators Bar -->
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-stat">15+</div>
+                    <div class="trust-label">Years Combined Experience</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-stat">21-45</div>
+                    <div class="trust-label">Days to MVP</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-stat">8</div>
+                    <div class="trust-label">Active Ventures</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-stat">10M+</div>
+                    <div class="trust-label">Combined Audience Reach</div>
+                </div>
             </div>
         </div>
     </section>
@@ -162,7 +178,7 @@
                             <img src="images/Portfoliosites/ratemylooks.png" 
                                  alt="RateMyLooksAI" 
                                  width="400" 
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -191,7 +207,7 @@
                             <img src="images/Portfoliosites/songgram.png" 
                                  alt="SongGram" 
                                  width="400" 
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -220,7 +236,7 @@
                             <img src="images/Portfoliosites/aibookpublisher.png" 
                                  alt="AI Book Publisher" 
                                  width="400" 
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -249,7 +265,7 @@
                             <img src="images/Portfoliosites/sketchmysoulmate.png" 
                                  alt="SketchMySoulmate" 
                                  width="400" 
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -278,7 +294,7 @@
                             <img src="images/Portfoliosites/optimizeaitoolsuite.png" 
                                  alt="OptimizeAI Tool Suite" 
                                  width="400" 
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -307,7 +323,7 @@
                             <img src="images/Portfoliosites/aicharttraders.png"
                                  alt="AI Chart Traders"
                                  width="400"
-                                 height="280">
+                                 height="280" loading="lazy">
                         </picture>
                         <div class="venture-overlay">
                             <div class="venture-overlay-content">
@@ -947,6 +963,44 @@
         </div>
     </section>
 
+    <!-- Founders Section -->
+    <section id="team" class="founders">
+        <div class="container">
+            <div class="section-header" data-animate="fadeInUp">
+                <div class="section-overline">Leadership</div>
+                <h2 class="section-title">Meet the Founders</h2>
+                <p class="section-subtitle">Built by builders with proven track records in engineering and distribution</p>
+            </div>
+            <div class="founders-grid">
+                <div class="founder-card" data-animate="fadeInUp">
+                    <div class="founder-image">
+                        <img src="images/Portfoliosites/ivan.jpg" alt="Ivan Jackson" loading="lazy">
+                    </div>
+                    <h3 class="founder-name">Ivan Jackson</h3>
+                    <p class="founder-role">Co-Founder & CEO</p>
+                    <p class="founder-bio">Full-stack engineer with 10+ years building consumer AI products. Expert in rapid prototyping and taking ideas from 0→1.</p>
+                    <div class="founder-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="founder-card" data-animate="fadeInUp">
+                    <div class="founder-image">
+                        <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Thompson" loading="lazy">
+                    </div>
+                    <h3 class="founder-name">Natasha Thompson</h3>
+                    <p class="founder-role">Co-Founder & Head of Distribution</p>
+                    <p class="founder-bio">Creator with 500K+ followers across platforms. Proven track record launching viral products to built-in audiences.</p>
+                    <div class="founder-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Our Thesis Section -->
     <section class="thesis">
         <div class="thesis-atmosphere">
@@ -1103,7 +1157,8 @@
                         <div class="founder-card natasha featured">
                             <div class="founder-visual">
                                 <div class="founder-avatar">
-                                    <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton" class="founder-image">
+                                    <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton" class="founder-image"
+                                        loading="lazy">
                                 </div>
                                 <div class="founder-badge">CEO & Founder</div>
                             </div>
@@ -1122,7 +1177,8 @@
                         <div class="founder-card ivan featured">
                             <div class="founder-visual">
                                 <div class="founder-avatar">
-                                    <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson" class="founder-image">
+                                    <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson" class="founder-image"
+                                        loading="lazy">
                                 </div>
                                 <div class="founder-badge">CTO & Co-Founder</div>
                             </div>
@@ -1758,8 +1814,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="mobile-optimizations.js"></script>
-    <script src="mobile-advanced.js"></script>
+    <script defer src="script.js"></script>
 </body>
 </html>
