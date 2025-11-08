@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+
     <!-- Navigation - Updated with More Sections -->
     <nav class="nav-new">
         <div class="nav-container">
@@ -581,18 +584,25 @@
             observer.observe(el);
         });
 
-        // Navbar scroll effect
+        // Navbar scroll effect & Scroll progress indicator
         let lastScroll = 0;
         const nav = document.querySelector('.nav-new');
+        const scrollProgress = document.getElementById('scrollProgress');
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
 
+            // Navbar scroll effect
             if (currentScroll > 100) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
+
+            // Update scroll progress bar
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (currentScroll / scrollHeight) * 100;
+            scrollProgress.style.width = `${Math.min(scrollPercentage, 100)}%`;
 
             lastScroll = currentScroll;
         });
