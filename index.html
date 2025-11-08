@@ -402,33 +402,43 @@
 
         <div class="timeline-grid">
             <div class="timeline-step">
-                <div class="step-marker">Day 1-2</div>
-                <h3>Discovery Call</h3>
-                <p>We discuss your product idea, target audience, technical requirements, and engagement model fit. This is a conversation, not a sales pitch.</p>
+                <div class="timeline-step-content">
+                    <div class="step-marker">Day 1-2</div>
+                    <h3>Discovery Call</h3>
+                    <p>We discuss your product idea, target audience, technical requirements, and engagement model fit. This is a conversation, not a sales pitch.</p>
+                </div>
             </div>
 
             <div class="timeline-step">
-                <div class="step-marker">Day 3-5</div>
-                <h3>Proposal & Scope</h3>
-                <p>We deliver a detailed scope document with timeline, technical architecture overview, and clear pricing or partnership terms. No surprises.</p>
+                <div class="timeline-step-content">
+                    <div class="step-marker">Day 3-5</div>
+                    <h3>Proposal & Scope</h3>
+                    <p>We deliver a detailed scope document with timeline, technical architecture overview, and clear pricing or partnership terms. No surprises.</p>
+                </div>
             </div>
 
             <div class="timeline-step">
-                <div class="step-marker">Week 1</div>
-                <h3>Kickoff & Sprint Planning</h3>
-                <p>Once aligned, we begin immediately. You'll have access to our project board, regular check-ins, and working prototypes within the first week.</p>
+                <div class="timeline-step-content">
+                    <div class="step-marker">Week 1</div>
+                    <h3>Kickoff & Sprint Planning</h3>
+                    <p>Once aligned, we begin immediately. You'll have access to our project board, regular check-ins, and working prototypes within the first week.</p>
+                </div>
             </div>
 
             <div class="timeline-step">
-                <div class="step-marker">Week 3-6</div>
-                <h3>Development & Testing</h3>
-                <p>We build, iterate, and refine based on your feedback. You see progress in real-time, not at the end. Launch-ready doesn't mean "barely functional."</p>
+                <div class="timeline-step-content">
+                    <div class="step-marker">Week 3-6</div>
+                    <h3>Development & Testing</h3>
+                    <p>We build, iterate, and refine based on your feedback. You see progress in real-time, not at the end. Launch-ready doesn't mean "barely functional."</p>
+                </div>
             </div>
 
             <div class="timeline-step">
-                <div class="step-marker">Launch</div>
-                <h3>Deployment & Activation</h3>
-                <p>We deploy to production infrastructure, implement analytics, and activate distribution channels. For partnerships, this is where promotion begins.</p>
+                <div class="timeline-step-content">
+                    <div class="step-marker">Launch</div>
+                    <h3>Deployment & Activation</h3>
+                    <p>We deploy to production infrastructure, implement analytics, and activate distribution channels. For partnerships, this is where promotion begins.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -542,7 +552,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.venture-showcase, .founder-card-new, .process-card').forEach(el => {
+        document.querySelectorAll('.venture-showcase, .founder-card-new, .process-card, .timeline-step, .faq-item').forEach(el => {
             observer.observe(el);
         });
 
