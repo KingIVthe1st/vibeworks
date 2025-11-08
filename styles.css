@@ -292,15 +292,15 @@ img {
 
 /* Premium hide-on-scroll-down behavior */
 .nav-new.nav-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
   pointer-events: none;
 }
 
 /* Premium show-on-scroll-up behavior */
 .nav-new.nav-visible {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(0) !important;
+  opacity: 1 !important;
   pointer-events: auto;
 }
 
