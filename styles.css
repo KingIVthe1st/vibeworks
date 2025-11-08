@@ -1443,7 +1443,7 @@ body.loaded .value-prop:nth-child(4) { animation-delay: 1.6s; }
   }
 
   .ticker-content {
-    animation: scroll-ticker 102s linear infinite; /* Slower speed for mobile - balanced for readability */
+    animation: scroll-ticker 87s linear infinite; /* 15% faster on mobile for better engagement */
   }
 
   .ticker-content span {
