@@ -465,6 +465,7 @@ img {
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .btn-primary-new::before {
@@ -474,12 +475,7 @@ img {
   background: linear-gradient(135deg, var(--voltage-400), var(--voltage-500));
   opacity: 0;
   transition: opacity 400ms ease;
-}
-
-.btn-primary-new span,
-.btn-primary-new::before + * {
-  position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 .btn-primary-new:hover {
@@ -487,6 +483,7 @@ img {
   box-shadow:
     0 8px 30px rgba(139, 92, 246, 0.4),
     0 0 60px rgba(139, 92, 246, 0.2);
+  color: white;
 }
 
 .btn-primary-new:hover::before {
