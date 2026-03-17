@@ -2639,3 +2639,279 @@ section + section { border-top: 1px solid var(--border); }
   letter-spacing: 0.08em;
   margin-bottom: var(--space-sm);
 }
+
+/* ============================================================
+   ENHANCEMENTS — Visual, Animation & UX Upgrades
+   ============================================================ */
+
+/* ── Fix: page-hero grid background via pseudo-element ─────
+   Replaces the broken .services__grid-bg applied directly to
+   the section element (which overrode position:relative).
+   Apply .page-hero--grid to any page-hero section instead. */
+.page-hero--grid {
+  position: relative;
+  overflow: hidden;
+}
+.page-hero--grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+.page-hero--grid .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Active nav state (aria-current="page") ──────────────── */
+.nav__link[aria-current="page"] {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--gold);
+}
+.nav__cta[aria-current="page"] {
+  background: var(--gold);
+  color: var(--base);
+  border-color: var(--gold);
+}
+
+/* ── Arrow micro-interaction on all text links ───────────── */
+.how-panel__link,
+.venture-preview__footer a,
+.team-teaser__link,
+.footer-cta a,
+.venture-pattern__cta,
+.track-section a.btn,
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+/* Arrow nudge — applies to any → or → inside buttons/links */
+.btn .btn-arrow,
+.how-panel__link::after {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.btn:hover .btn-arrow,
+.how-panel__link:hover::after {
+  transform: translateX(4px);
+}
+
+/* ── How-panel hover: background + border glow ───────────── */
+.how-panel {
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.how-panel:hover {
+  background: rgba(139, 92, 246, 0.06);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.12);
+  transform: translateY(-4px);
+}
+.how-panel:hover .how-panel__icon {
+  transform: scale(1.08);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.how-panel__icon {
+  transition: transform 0.3s ease;
+}
+
+/* ── Track card stagger entrance + hover upgrade ─────────── */
+.track-selector .track-card:nth-child(1) { transition-delay: 0ms; }
+.track-selector .track-card:nth-child(2) { transition-delay: 80ms; }
+.track-selector .track-card:nth-child(3) { transition-delay: 160ms; }
+.track-card {
+  transition: background 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease, transform 0.25s ease;
+}
+.track-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+.track-card:hover .track-card__icon svg {
+  transform: scale(1.1);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.track-card__icon svg {
+  transition: transform 0.25s ease;
+}
+
+/* ── Venture preview card: text color on hover ───────────── */
+.venture-preview-card:hover .venture-preview-card__name {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+.venture-preview-card__name {
+  transition: color 0.3s ease;
+}
+
+/* ── Venture live badge: glow on hover ───────────────────── */
+.venture-row__live-badge {
+  transition: box-shadow 0.3s ease;
+}
+.venture-row__live-badge:hover {
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+}
+
+/* ── Founder photo hover ─────────────────────────────────── */
+.founder__photo {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+.founder__photo:hover {
+  transform: scale(1.02);
+}
+.founder__photo--violet:hover {
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+}
+.founder__photo--gold:hover {
+  box-shadow: 0 20px 60px rgba(232, 184, 75, 0.3);
+}
+
+/* ── Founder credentials list ────────────────────────────── */
+.founder__creds {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.founder__creds li {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding-left: 18px;
+  position: relative;
+}
+.founder__creds li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--violet-bright);
+  font-size: 11px;
+  top: 1px;
+}
+
+/* ── Footer CTA: gradient background ────────────────────── */
+.footer-cta {
+  position: relative;
+  overflow: hidden;
+}
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%,
+    rgba(139, 92, 246, 0.08) 0%,
+    transparent 70%);
+  pointer-events: none;
+}
+.footer-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section separator: subtle gradient divider ──────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--border) 20%,
+    rgba(139, 92, 246, 0.3) 50%,
+    var(--border) 80%,
+    transparent 100%);
+  margin: 0;
+}
+
+/* ── Services track sections: alternating background ────── */
+.track-section:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+/* ── Track-nav active pill (JS-driven .active class) ─────── */
+.track-nav__pill.active {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: var(--violet-bright);
+  color: var(--text-primary);
+}
+
+/* ── Proof strip counters: use stat__number class ───────── */
+.proof-strip__stat .stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+
+/* ── About thesis: first paragraph larger ────────────────── */
+.about-thesis > p:first-of-type {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ── Team teaser: side-by-side layout ────────────────────── */
+.team-teaser__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.team-teaser__member {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.team-teaser__photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+}
+.team-teaser__photo--ivan {
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+.team-teaser__photo--natasha {
+  border: 2px solid rgba(232, 184, 75, 0.4);
+  box-shadow: 0 0 40px rgba(232, 184, 75, 0.1);
+}
+@media (max-width: 768px) {
+  .team-teaser__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Page hero: ensure enough clearance for fixed nav ─────── */
+.page-hero {
+  padding-top: calc(90px + var(--space-2xl)) !important;
+}
+
+/* ── Stagger reveal for .track-card on contact page ─────── */
+.track-card.reveal-up:nth-child(1) { transition-delay: 0ms; }
+.track-card.reveal-up:nth-child(2) { transition-delay: 80ms; }
+.track-card.reveal-up:nth-child(3) { transition-delay: 160ms; }
+
+/* ── Marquee: allow full width ───────────────────────────── */
+.marquee {
+  max-width: 100% !important;
+}
+
+/* ── Venture row gap: reduce on mid-size screens ────────── */
+@media (max-width: 1100px) {
+  .venture-row {
+    gap: var(--space-2xl);
+  }
+}
+
+/* ── Services: add missing footer-cta border-bottom ─────── */
+.services-proof + .footer-cta {
+  border-top: 1px solid var(--border);
+}

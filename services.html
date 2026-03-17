@@ -33,7 +33,7 @@
       <a href="/" class="nav__logo">VibeWorks</a>
       <div class="nav__links" id="navLinks">
         <a href="/ventures.html" class="nav__link">Ventures</a>
-        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/services.html" class="nav__link" aria-current="page">Services</a>
         <a href="/about.html"    class="nav__link">About</a>
         <a href="/contact.html"  class="nav__cta">Contact</a>
       </div>
@@ -44,10 +44,10 @@
   </nav>
 
   <!-- ── Page Hero ────────────────────────── -->
-  <section class="page-hero services__grid-bg">
+  <section class="page-hero page-hero--grid">
     <div class="container">
       <p class="page-hero__label">How We Work</p>
-      <h1 class="page-hero__headline reveal-up">Three Ways To Work With VibeWorks</h1>
+      <h1 class="page-hero__headline reveal-up">The Build. The Partner. The Portfolio.</h1>
       <p class="page-hero__subline reveal-up">Whether you have an idea, a business problem, or want to build together — there's a track for you.</p>
       <nav class="track-nav" aria-label="Track navigation">
         <a href="#partner"   class="track-nav__pill">Studio Partner</a>
@@ -149,7 +149,7 @@
     <div class="container">
       <div class="proof-strip__grid">
         <div class="proof-strip__item reveal-up">
-          <p class="proof-strip__stat">9</p>
+          <p class="proof-strip__stat stat__number" data-count="9">9</p>
           <p class="proof-strip__copy">We've shipped more in a year than most agencies do in five.</p>
         </div>
         <div class="proof-strip__item reveal-up" style="transition-delay:80ms">
@@ -162,6 +162,12 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────── -->
+  <section class="footer-cta container reveal-up">
+    <h2 class="footer-cta__headline">Ready to pick your track?</h2>
+    <a href="/contact.html" class="btn btn--gold btn--large btn--magnetic">Start A Conversation →</a>
   </section>
 
   <!-- ── Site Footer ───────────────────────── -->
