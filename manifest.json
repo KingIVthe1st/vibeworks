@@ -1,8 +1,9 @@
 {
   "name": "VibeWorks AI Studio",
   "short_name": "VibeWorks",
-  "description": "Custom AI agents and AI products built for entrepreneurs and small teams.",
+  "description": "VibeWorks AI Studio — an AI venture studio building and launching AI products at speed.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07070E",
   "theme_color": "#8B5CF6",
