@@ -600,3 +600,59 @@ function buildWordSpans(el, delayMs) {
     });
   });
 })();
+
+// ── Active Nav State ─────────────────────────
+
+(function initActiveNav() {
+  const path = window.location.pathname;
+  document.querySelectorAll('.nav__link, .nav__cta').forEach(link => {
+    const href = link.getAttribute('href') || '';
+    // Home: exact match on / or index.html
+    if (href === '/' || href === '/index.html') {
+      if (path === '/' || path === '/index.html' || path === '') {
+        link.classList.add('active');
+      }
+    } else if (href !== '#' && href.length > 1) {
+      const clean = href.replace('.html', '');
+      if (path.includes(clean)) {
+        link.classList.add('active');
+      }
+    }
+  });
+})();
+
+// ── Contact Page: Track Selector + Form Reveal ──
+
+(function initContactPage() {
+  const cards = document.querySelectorAll('.track-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.contact-form').forEach(f => f.classList.remove('visible'));
+      card.classList.add('selected');
+      const form = document.querySelector('[data-form="' + card.dataset.track + '"]');
+      if (form) form.classList.add('visible');
+    });
+  });
+
+  // Auto-select track from URL param (?track=partner|build|portfolio)
+  const params = new URLSearchParams(window.location.search);
+  const track = params.get('track');
+  if (track) {
+    const btn = document.querySelector('[data-track="' + track + '"]');
+    if (btn) btn.click();
+  }
+
+  // Success banner (?sent=true after Formspree redirect)
+  if (params.get('sent') === 'true') {
+    const banner = document.querySelector('.contact-success');
+    if (banner) {
+      banner.classList.add('visible');
+      // Clean URL without reloading
+      const cleanUrl = window.location.pathname;
+      history.replaceState(null, '', cleanUrl);
+    }
+  }
+})();
