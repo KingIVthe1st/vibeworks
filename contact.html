@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — VibeWorks AI Studio</title>
+  <meta name="description" content="Start a conversation with VibeWorks. Apply to partner, start a custom build, or discuss portfolio opportunities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vibeworksstudio.ai/contact.html">
+  <meta property="og:title" content="Contact VibeWorks AI Studio">
+  <meta property="og:description" content="Start a conversation with VibeWorks. Apply to partner, start a custom build, or discuss portfolio opportunities.">
+  <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact VibeWorks AI Studio">
+  <meta name="twitter:description" content="Start a conversation with VibeWorks. Apply to partner, start a custom build, or discuss portfolio opportunities.">
+  <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
+  <meta name="theme-color" content="#8B5CF6">
+  <link rel="canonical" href="https://vibeworksstudio.ai/contact.html">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">VibeWorks</a>
+      <div class="nav__links" id="navLinks">
+        <a href="/ventures.html" class="nav__link">Ventures</a>
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/about.html"    class="nav__link">About</a>
+        <a href="/contact.html"  class="nav__cta">Contact</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__headline reveal-up">Let's Talk.</h1>
+      <p class="page-hero__subline reveal-up">Tell us what you're working on. We'll tell you honestly if and how we can help.</p>
+      <div class="hero__availability" style="margin-top: var(--space-md);">
+        <span class="hero__avail-dot" aria-hidden="true"></span>
+        <span>Currently accepting 2 new client engagements for Q2 2026.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact Section ───────────────────── -->
+  <section class="container" style="padding: var(--space-xl) 0 var(--space-2xl);">
+
+    <!-- Success Banner (shown after ?sent=true redirect) -->
+    <div class="contact-success" role="status">
+      Message sent. We'll be in touch within 24 hours.
+    </div>
+
+    <!-- Track Selector -->
+    <div class="track-selector" role="group" aria-label="Select your inquiry type">
+      <button class="track-card" data-track="partner" type="button">
+        <span class="track-card__icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <circle cx="14" cy="20" r="9" stroke="#E8B84B" stroke-width="2"/>
+            <circle cx="26" cy="20" r="9" stroke="#E8B84B" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="track-card__title">Studio Partner</span>
+        <span class="track-card__sub">I have an idea and want to build together</span>
+      </button>
+
+      <button class="track-card" data-track="build" type="button">
+        <span class="track-card__icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect x="5" y="10" width="30" height="20" rx="3" stroke="#A78BFA" stroke-width="2"/>
+            <path d="M12 18l5 4-5 4" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="20" y1="26" x2="28" y2="26" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="track-card__title">Custom Build</span>
+        <span class="track-card__sub">I need AI built for my business</span>
+      </button>
+
+      <button class="track-card" data-track="portfolio" type="button">
+        <span class="track-card__icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <circle cx="10" cy="10" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="20" cy="10" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="30" cy="10" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="10" cy="20" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="20" cy="20" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="30" cy="20" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="10" cy="30" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="20" cy="30" r="3" stroke="#9CA3AF" stroke-width="2"/>
+            <circle cx="30" cy="30" r="3" stroke="#9CA3AF" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="track-card__title">Portfolio / Investor</span>
+        <span class="track-card__sub">I'm interested in your ventures</span>
+      </button>
+    </div>
+
+    <!-- Form: Studio Partner -->
+    <!-- FORMSPREE SETUP: Replace FORMSPREE_PARTNER_ID with real ID from formspree.io -->
+    <div class="contact-form" data-form="partner">
+      <form action="https://formspree.io/f/FORMSPREE_PARTNER_ID" method="POST">
+        <input type="hidden" name="_subject" value="Studio Partner Application">
+        <input type="hidden" name="_next" value="https://vibeworksstudio.ai/contact.html?sent=true">
+        <div class="form-group">
+          <label for="partner-name">Name *</label>
+          <input type="text" id="partner-name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="partner-email">Email *</label>
+          <input type="email" id="partner-email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="partner-idea">What's your idea? *</label>
+          <textarea id="partner-idea" name="idea" required placeholder="What problem does it solve? Who is it for?"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Do you have an existing audience or user base?</label>
+          <div class="form-radio-group">
+            <label><input type="radio" name="audience" value="Yes"> Yes</label>
+            <label><input type="radio" name="audience" value="No"> No</label>
+            <label><input type="radio" name="audience" value="Building one"> Building one</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--gold btn--large form-submit">Apply For Partnership →</button>
+      </form>
+    </div>
+
+    <!-- Form: Custom Build -->
+    <!-- FORMSPREE SETUP: Replace FORMSPREE_BUILD_ID with real ID from formspree.io -->
+    <div class="contact-form" data-form="build">
+      <form action="https://formspree.io/f/FORMSPREE_BUILD_ID" method="POST">
+        <input type="hidden" name="_subject" value="Custom Build Inquiry">
+        <input type="hidden" name="_next" value="https://vibeworksstudio.ai/contact.html?sent=true">
+        <div class="form-group">
+          <label for="build-name">Name *</label>
+          <input type="text" id="build-name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="build-email">Email *</label>
+          <input type="email" id="build-email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="build-company">Company or business name</label>
+          <input type="text" id="build-company" name="company" placeholder="Optional">
+        </div>
+        <div class="form-group">
+          <label for="build-desc">What do you need built? *</label>
+          <textarea id="build-desc" name="description" required placeholder="Describe the tool or product you have in mind"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="build-timeline">Timeline</label>
+          <select id="build-timeline" name="timeline">
+            <option value="">Select...</option>
+            <option>ASAP</option>
+            <option>Within 1 month</option>
+            <option>1–3 months</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="build-budget">Budget range</label>
+          <select id="build-budget" name="budget">
+            <option value="">Select...</option>
+            <option>Under $1K</option>
+            <option>$1K–$5K</option>
+            <option>$5K–$15K</option>
+            <option>$15K+</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--violet btn--large form-submit">Start My Project →</button>
+      </form>
+    </div>
+
+    <!-- Form: Portfolio / Investor -->
+    <!-- FORMSPREE SETUP: Replace FORMSPREE_PORTFOLIO_ID with real ID from formspree.io -->
+    <div class="contact-form" data-form="portfolio">
+      <form action="https://formspree.io/f/FORMSPREE_PORTFOLIO_ID" method="POST">
+        <input type="hidden" name="_subject" value="Portfolio / Investor Inquiry">
+        <input type="hidden" name="_next" value="https://vibeworksstudio.ai/contact.html?sent=true">
+        <div class="form-group">
+          <label for="portfolio-name">Name *</label>
+          <input type="text" id="portfolio-name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="portfolio-email">Email *</label>
+          <input type="email" id="portfolio-email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="portfolio-org">Organization</label>
+          <input type="text" id="portfolio-org" name="organization" placeholder="Optional">
+        </div>
+        <div class="form-group">
+          <label for="portfolio-interest">Area of interest</label>
+          <select id="portfolio-interest" name="interest">
+            <option value="">Select...</option>
+            <option>Equity Investment</option>
+            <option>Licensing &amp; White-label</option>
+            <option>Acquisition</option>
+            <option>Strategic Partnership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="portfolio-msg">Message</label>
+          <textarea id="portfolio-msg" name="message" placeholder="Tell us about your interest..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--ghost btn--large form-submit">Start The Conversation →</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ── Direct Contact ────────────────────── -->
+  <div class="contact-direct container">
+    <p>Or email us directly: <a href="mailto:info@vibeworksstudio.ai">info@vibeworksstudio.ai</a></p>
+    <p>We respond to every message within 24 hours.</p>
+  </div>
+
+  <!-- ── Site Footer ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
+          <p class="site-footer__tagline">AI Venture Studio</p>
+          <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Navigation</p>
+          <div class="site-footer__links">
+            <a href="/ventures.html">Ventures</a>
+            <a href="/services.html">Services</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Portfolio</p>
+          <div class="site-footer__links">
+            <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
+            <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
+            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
+            <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
+            <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
+        <span>Built with AI. Delivered by humans.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
