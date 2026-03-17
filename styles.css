@@ -1840,6 +1840,7 @@ section + section { border-top: 1px solid var(--border); }
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 4px;
+  transition: box-shadow 0.4s ease;
 }
 .venture-preview-card__img-wrap img {
   width: 100%;
