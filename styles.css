@@ -66,7 +66,11 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  cursor: none;
+}
+
+/* Custom cursor — desktop pointer devices only */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
 }
 body.menu-open { overflow: hidden; }
 
@@ -2914,4 +2918,223 @@ a.btn {
 /* ── Services: add missing footer-cta border-bottom ─────── */
 .services-proof + .footer-cta {
   border-top: 1px solid var(--border);
+}
+
+/* ============================================
+   MOBILE FIXES — COMPREHENSIVE PASS
+   Priority: CRITICAL + HIGH issues from audit
+   ============================================ */
+
+/* ── CRITICAL: Container padding on tiny screens ─ */
+@media (max-width: 480px) {
+  .container,
+  .container-wide {
+    padding: 0 var(--space-md); /* 24px instead of 40px on tiny screens */
+  }
+}
+
+/* ── CRITICAL: Form inputs — prevent iOS auto-zoom ─ */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-size: 16px; /* minimum to prevent iOS Safari viewport zoom */
+}
+
+/* ── CRITICAL: Hamburger touch target ───────────── */
+.nav__hamburger {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── CRITICAL: Mobile menu z-index ─────────────── */
+@media (max-width: 768px) {
+  .nav__links {
+    z-index: 950; /* must exceed nav z-index: 900 */
+  }
+}
+
+/* ── HIGH: body cursor properly scoped ─────────── */
+@media (hover: none), (pointer: coarse) {
+  body, .btn, .faq__question, .nav__link, .nav__cta, .nav__logo {
+    cursor: auto;
+  }
+}
+
+/* ── HIGH: Page-hero padding on mobile ─────────── */
+@media (max-width: 768px) {
+  .page-hero {
+    padding-top: calc(72px + var(--space-lg)) !important; /* ~112px, was 186px */
+    padding-bottom: var(--space-xl);
+  }
+}
+
+/* ── HIGH: Hero section mobile spacing fixes ────── */
+@media (max-width: 768px) {
+  .hero__ctas {
+    margin-bottom: var(--space-xl); /* was var(--space-4xl) = 192px */
+  }
+  .hero__title {
+    font-size: clamp(36px, 12vw, 64px); /* floor reduced from 44px */
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .hero__stats {
+    gap: var(--space-md); /* was var(--space-lg) = 40px, now 24px */
+    max-width: 100%;
+  }
+}
+
+/* ── HIGH: page-hero headline on small phones ───── */
+@media (max-width: 480px) {
+  .page-hero__headline {
+    font-size: clamp(28px, 9vw, 40px); /* was 40px floor */
+  }
+}
+
+/* ── HIGH: Aurora orbs — reduce GPU load on mobile ─ */
+@media (max-width: 768px) {
+  .aurora-orb--1 {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+    animation-duration: 30s;
+  }
+  .aurora-orb--2 {
+    width: 200px;
+    height: 200px;
+    filter: blur(50px);
+    animation-duration: 38s;
+  }
+  .aurora-orb--3 {
+    display: none; /* drop third orb entirely on mobile */
+  }
+}
+
+/* ── HIGH: Track nav pills — adequate touch targets ─ */
+@media (max-width: 600px) {
+  .track-nav__pill {
+    font-size: 14px;    /* was 13px */
+    padding: 12px 16px; /* was 8px 14px — now ~44px tap height */
+  }
+}
+
+/* ── HIGH: Radio inputs — stack vertically + larger targets ─ */
+.form-radio-group {
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.form-radio-group label {
+  min-height: 44px;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.form-radio-group input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+@media (min-width: 480px) {
+  .form-radio-group { flex-direction: row; }
+}
+
+/* ── HIGH: Contact form padding on mobile ─────── */
+@media (max-width: 768px) {
+  .contact-form form {
+    padding: var(--space-lg); /* was var(--space-xl) = 64px, now 40px */
+    border-radius: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .contact-form form {
+    padding: var(--space-md); /* 24px on very small screens */
+  }
+}
+
+/* ── HIGH: Venture featured overlay on mobile ─── */
+@media (max-width: 768px) {
+  .venture-featured__img-wrap {
+    aspect-ratio: 4/3; /* taller than 16/9 to give overlay room */
+  }
+  .venture-featured__desc {
+    display: none; /* hide long desc in cramped mobile overlay */
+  }
+  .venture-featured__overlay {
+    padding: var(--space-md);
+  }
+}
+
+/* ── HIGH: Founder photo — better mobile sizing ─ */
+@media (max-width: 768px) {
+  .founder__photo img {
+    height: auto;
+    max-height: 300px;
+    object-position: center top; /* keep faces in frame */
+  }
+}
+
+/* ── HIGH: Footer links — adequate tap targets ── */
+@media (max-width: 768px) {
+  .site-footer__links {
+    gap: 0;
+  }
+  .site-footer__links a {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+}
+
+/* ── HIGH: Venture row spacing on mobile ────── */
+@media (max-width: 768px) {
+  .venture-row {
+    margin-bottom: var(--space-2xl); /* was var(--space-4xl) = 192px */
+  }
+}
+
+/* ── MEDIUM: Nav mobile menu gap + spacing ──── */
+@media (max-width: 768px) {
+  .nav__links {
+    gap: var(--space-lg); /* was var(--space-xl) = 64px */
+  }
+  .nav__cta {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+}
+
+/* ── MEDIUM: About thesis paragraph spacing ── */
+@media (max-width: 768px) {
+  .about-thesis p {
+    margin-bottom: var(--space-md); /* was var(--space-lg) = 40px */
+  }
+}
+
+/* ── MEDIUM: Footer/proof strip grid gaps ─── */
+@media (max-width: 768px) {
+  .site-footer__grid {
+    gap: var(--space-lg); /* was var(--space-xl) = 64px */
+  }
+  .proof-strip__grid {
+    gap: var(--space-lg);
+  }
+}
+
+/* ── MEDIUM: team-teaser photo — fix conflicting height rule ─ */
+.team-teaser__photo {
+  max-width: 100%;
+  height: auto; /* override the conflicting 200px fixed height */
+}
+
+/* ── About section: promote inline styles to overrideable CSS ─ */
+.about-section {
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--space-xl) 0;
+  }
 }

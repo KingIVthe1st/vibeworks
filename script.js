@@ -170,6 +170,11 @@ updateScrollProgress();
 (function initParticles() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
+  // Disable on touch devices — canvas rAF loop drains battery and causes frame drops
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
   const ctx = canvas.getContext('2d');
   let W, H, particles;
   let mouseX = -1000, mouseY = -1000;
@@ -272,6 +277,11 @@ updateScrollProgress();
 (function initSphere() {
   const canvas = document.getElementById('sphereCanvas');
   if (!canvas) return;
+  // Disable on touch devices — O(n²) draw loop is too costly on mobile GPUs
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+    canvas.style.display = 'none';
+    return;
+  }
   const ctx = canvas.getContext('2d');
 
   const COUNT   = 120;
@@ -387,7 +397,8 @@ updateScrollProgress();
 // ── Scroll Reveal Animations ────────────────
 
 (function initReveal() {
-  const baseOpts = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const baseOpts = { threshold: 0.10, rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -60px 0px' };
 
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
