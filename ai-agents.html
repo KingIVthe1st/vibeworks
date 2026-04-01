@@ -102,6 +102,21 @@
     </div>
   </div>
 
+  <!-- ── Trusted By Strip ─────────────────── -->
+  <section class="aa-trust-strip">
+    <div class="container">
+      <p class="aa-trust-strip__label">Trusted By Founders &amp; Teams At</p>
+      <div class="aa-trust-strip__logos">
+        <div class="aa-trust-logo">🏥 <span>Healthcare AI</span></div>
+        <div class="aa-trust-logo">📈 <span>FinTech Startups</span></div>
+        <div class="aa-trust-logo">🎵 <span>Music Platforms</span></div>
+        <div class="aa-trust-logo">📚 <span>Publishing Houses</span></div>
+        <div class="aa-trust-logo">🛍️ <span>E-Commerce Brands</span></div>
+        <div class="aa-trust-logo">⚖️ <span>Consulting Firms</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════════════════════════
        THE PROBLEM
        ══════════════════════════════════════════ -->
@@ -515,6 +530,31 @@
   </section>
 
   <!-- ══════════════════════════════════════════
+       LEAD MAGNET
+       ══════════════════════════════════════════ -->
+  <section class="aa-lead-magnet">
+    <div class="container">
+      <div class="aa-lead-magnet__inner reveal-up">
+        <div class="aa-lead-magnet__content">
+          <span class="label label--gold">Free Resource</span>
+          <h2 class="aa-lead-magnet__title">The AI Agent Blueprint</h2>
+          <p class="aa-lead-magnet__copy">Our free guide breaks down exactly how to identify which parts of your business should be automated first, what an AI agent can (and can't) do, and how to calculate your ROI before spending a dime.</p>
+          <ul class="aa-lead-magnet__list">
+            <li>✦ The 5-Point "Should I Automate This?" Framework</li>
+            <li>✦ ROI Calculator Template (Spreadsheet Included)</li>
+            <li>✦ 12 Real Use Cases From Businesses Like Yours</li>
+          </ul>
+        </div>
+        <div class="aa-lead-magnet__form">
+          <p class="aa-lead-magnet__form-title">Get the free guide →</p>
+          <a href="/contact.html?track=agents-guide" class="btn btn--gold btn--large btn--magnetic" style="width:100%;justify-content:center;">Download Free Guide</a>
+          <p class="aa-lead-magnet__fine">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
        FINAL CTA
        ══════════════════════════════════════════ -->
   <section class="footer-cta container reveal-up">
@@ -717,6 +757,39 @@
       text-align: center;
     }
 
+    /* ── Trust Strip ─────────────────────── */
+    .aa-trust-strip {
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .aa-trust-strip__label {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: var(--space-md);
+      opacity: 0.6;
+    }
+    .aa-trust-strip__logos {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .aa-trust-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+    .aa-trust-logo:hover { opacity: 0.8; }
+
     /* ── Before / After ───────────────────── */
     .aa-transform { padding: var(--space-2xl) 0; background: var(--surface); }
     .aa-ba-grid {
@@ -733,9 +806,14 @@
       border: 1px solid var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .aa-ba-card--before {
+      border-color: rgba(239,68,68,0.2);
+      background: linear-gradient(135deg, rgba(239,68,68,0.04), var(--surface-2));
+    }
     .aa-ba-card--after {
-      border-color: rgba(139,92,246,0.3);
-      box-shadow: 0 0 40px rgba(139,92,246,0.08);
+      border-color: rgba(16,185,129,0.3);
+      background: linear-gradient(135deg, rgba(16,185,129,0.04), var(--surface-2));
+      box-shadow: 0 0 40px rgba(16,185,129,0.08);
     }
     .aa-ba-card__title {
       font-family: var(--font-display);
@@ -860,7 +938,11 @@
       border: 1px solid var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .aa-phase__visual img { width: 100%; display: block; }
+    .aa-phase__visual img {
+      width: 100%;
+      display: block;
+      filter: brightness(1.15) contrast(1.05);
+    }
 
     /* Stats grid for Phase 4 */
     .aa-phase__stats-grid {
@@ -1109,6 +1191,70 @@
       justify-content: center;
     }
 
+    /* ── Lead Magnet ───────────────────────── */
+    .aa-lead-magnet { padding: var(--space-2xl) 0; }
+    .aa-lead-magnet__inner {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: var(--space-xl);
+      align-items: center;
+      background: var(--surface);
+      border-radius: 20px;
+      padding: var(--space-xl);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .aa-lead-magnet__inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--violet-bright), var(--gold));
+    }
+    .aa-lead-magnet__title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      margin: var(--space-sm) 0 var(--space-md);
+    }
+    .aa-lead-magnet__copy {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+    .aa-lead-magnet__list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .aa-lead-magnet__list li {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .aa-lead-magnet__form {
+      background: var(--surface-2);
+      border-radius: 16px;
+      padding: var(--space-lg);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .aa-lead-magnet__form-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: var(--space-md);
+    }
+    .aa-lead-magnet__fine {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: var(--space-sm);
+      opacity: 0.6;
+    }
+
     /* ── FAQ ───────────────────────────────── */
     .aa-faq { padding: var(--space-2xl) 0; }
     .aa-faq__list {
@@ -1271,6 +1417,14 @@
 
       .aa-faq__q { font-size: 16px; padding: var(--space-md); }
       .aa-faq__a { padding: 0 var(--space-md) var(--space-md); }
+
+      .aa-lead-magnet__inner {
+        grid-template-columns: 1fr;
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .aa-trust-strip__logos { gap: var(--space-md); }
+      .aa-trust-logo { font-size: 12px; }
 
       .aa-final-ctas {
         flex-direction: column;
