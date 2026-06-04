@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Maintenance &amp; Support — VibeWorks AI Studio</title>
+  <meta name="description" content="Monthly maintenance & support plans for your AI agent. Uptime monitoring, model updates, prompt tuning, feature development, and priority support — so your agent stays sharp, online, and evolving.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vibeworksstudio.ai/support.html">
+  <meta property="og:title" content="AI Agent Maintenance &amp; Support — VibeWorks AI Studio">
+  <meta property="og:description" content="Monthly plans that keep your AI agent online, current, and evolving. Uptime monitoring, model updates, feature development, and priority support.">
+  <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agent Maintenance &amp; Support — VibeWorks AI Studio">
+  <meta name="twitter:description" content="Monthly maintenance & support plans for your AI agent. Stay online, current, and evolving.">
+  <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
+  <meta name="theme-color" content="#8B5CF6">
+  <link rel="canonical" href="https://vibeworksstudio.ai/support.html">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ── Page-scoped styles (support.html only) ─────────────────
+       Uses the site's design tokens (--violet, --gold, --surface,
+       --border, --font-display, etc.). Nothing here leaks to other
+       pages — all selectors are .sup-* prefixed.            -->
+  <style>
+    /* ── Marquee ticker ── */
+    .sup-ticker {
+      background: var(--violet-glow);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid rgba(139,92,246,0.22);
+      overflow: hidden;
+      padding: 0.6rem 0;
+    }
+    .sup-ticker__track {
+      display: flex;
+      gap: 3rem;
+      white-space: nowrap;
+      width: max-content;
+      animation: sup-ticker 30s linear infinite;
+    }
+    .sup-ticker__track span {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--violet-bright);
+    }
+    .sup-ticker__track .sup-dot { color: var(--violet); }
+    @keyframes sup-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .sup-ticker__track { animation: none; } }
+
+    /* ── Hero ── */
+    .sup-hero { position: relative; overflow: hidden; text-align: center; }
+    .sup-hero .container { display: flex; flex-direction: column; align-items: center; }
+    .sup-hero__glow {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(139,92,246,0.20) 0%, transparent 62%),
+        radial-gradient(ellipse 45% 35% at 82% 88%, rgba(232,184,75,0.07) 0%, transparent 60%);
+    }
+    .sup-hero .container > * { position: relative; z-index: 1; }
+    .sup-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: var(--violet-glow);
+      border: 1px solid rgba(139,92,246,0.32);
+      padding: 0.4rem 1rem; border-radius: 999px;
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--violet-bright); margin-bottom: 1.8rem;
+    }
+    .sup-badge__dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--violet);
+      box-shadow: 0 0 0 0 rgba(139,92,246,0.6); animation: sup-pulse 2s ease infinite;
+    }
+    @keyframes sup-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(139,92,246,0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(139,92,246,0); }
+      100% { box-shadow: 0 0 0 0 rgba(139,92,246,0); }
+    }
+    .sup-hero__accent { color: var(--violet); }
+    .sup-hero__sub { max-width: 600px; margin-left: auto; margin-right: auto; }
+    .sup-hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: var(--space-lg); }
+
+    /* ── Generic section scaffolding ── */
+    .sup-section { padding: var(--space-3xl) 0; }
+    .sup-label {
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--violet);
+      margin-bottom: var(--space-sm);
+    }
+    .sup-title {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: var(--space-md);
+    }
+    .sup-section__intro { color: var(--text-muted); max-width: 580px; line-height: 1.75; }
+    .sup-section--center { text-align: center; }
+    .sup-section--center .sup-section__intro { margin-left: auto; margin-right: auto; }
+    .sup-section--surface { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ── Why-cards ── */
+    .sup-why__grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-md); margin-top: var(--space-2xl);
+    }
+    .sup-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: var(--space-lg);
+      transition: border-color var(--ease-base), transform var(--ease-base);
+    }
+    .sup-card:hover { border-color: rgba(139,92,246,0.32); transform: translateY(-4px); }
+    .sup-card__icon {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--violet-glow); border: 1px solid rgba(139,92,246,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--violet-bright); margin-bottom: var(--space-md);
+    }
+    .sup-card__icon svg { width: 22px; height: 22px; }
+    .sup-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .sup-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── Plans ── */
+    .sup-plans__grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: var(--space-lg); align-items: start; margin-top: var(--space-2xl);
+    }
+    .sup-plan {
+      position: relative; background: var(--base); border: 1px solid var(--border);
+      border-radius: 18px; padding: var(--space-xl);
+      transition: border-color var(--ease-base), transform var(--ease-base), box-shadow var(--ease-base);
+    }
+    .sup-plan:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.14); }
+    .sup-plan--featured {
+      border-color: rgba(139,92,246,0.4);
+      box-shadow: 0 0 70px rgba(139,92,246,0.12);
+    }
+    .sup-plan--featured:hover { border-color: var(--violet); box-shadow: 0 0 90px rgba(139,92,246,0.22); }
+    .sup-plan__badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--violet); color: #fff; font-family: var(--font-display);
+      font-weight: 700; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.32rem 1rem; border-radius: 999px; white-space: nowrap;
+    }
+    .sup-plan__tier {
+      font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+    .sup-plan__name { font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+    .sup-plan__price { display: flex; align-items: baseline; gap: 0.3rem; margin-bottom: var(--space-sm); }
+    .sup-plan__dollar { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--violet); align-self: flex-start; margin-top: 0.35rem; }
+    .sup-plan .sup-plan__amount { font-family: var(--font-display); font-weight: 800; font-size: 3.4rem; letter-spacing: -0.04em; line-height: 1; color: var(--text-primary); }
+    .sup-plan__per { font-size: 0.9rem; color: var(--text-muted); }
+    .sup-plan__tagline {
+      font-size: 0.92rem; color: var(--text-muted); line-height: 1.65;
+      padding-bottom: var(--space-md); border-bottom: 1px solid var(--border); margin-bottom: var(--space-md);
+    }
+    .sup-plan__group {
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet-bright);
+      margin: var(--space-md) 0 0.8rem;
+    }
+    .sup-feats { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .sup-feats li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.9rem; line-height: 1.5; }
+    .sup-check {
+      width: 19px; height: 19px; min-width: 19px; margin-top: 1px;
+      background: var(--violet-glow); border: 1px solid rgba(139,92,246,0.3); border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--violet-bright);
+    }
+    .sup-check svg { width: 11px; height: 11px; }
+    .sup-check--gold { background: var(--gold-glow); border-color: rgba(232,184,75,0.32); color: var(--gold); }
+    .sup-feats strong { color: var(--text-primary); font-weight: 600; }
+    .sup-feats .sup-desc { color: var(--text-muted); font-size: 0.83rem; display: block; margin-top: 0.15rem; line-height: 1.55; }
+    .sup-plan .btn { width: 100%; justify-content: center; margin-top: var(--space-lg); }
+
+    /* ── Compare table ── */
+    .sup-compare { width: 100%; border-collapse: collapse; margin-top: var(--space-2xl); font-size: 0.9rem; }
+    .sup-compare th {
+      font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+      padding: var(--space-sm) var(--space-md); text-align: left;
+      border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: bottom;
+    }
+    .sup-compare th .sup-th-price { display: block; font-family: var(--font-body); font-weight: 400; font-size: 0.78rem; color: var(--text-subtle); margin-top: 0.2rem; }
+    .sup-compare th:not(:first-child) { text-align: center; }
+    .sup-compare th.sup-col-pro { color: var(--violet-bright); }
+    .sup-compare td { padding: 0.9rem var(--space-md); border-bottom: 1px solid var(--border); color: var(--text-primary); }
+    .sup-compare td:not(:first-child) { text-align: center; }
+    .sup-compare tr:last-child td { border-bottom: none; }
+    .sup-compare tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .sup-feat-name { font-weight: 600; }
+    .sup-feat-note { display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.1rem; font-weight: 400; }
+    .sup-tick { color: var(--violet); font-size: 1.05rem; }
+    .sup-tick--gold { color: var(--gold); font-size: 1.05rem; }
+    .sup-cross { color: var(--text-subtle); font-size: 1.05rem; }
+    .sup-compare__wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    @media (max-width: 768px) {
+      .sup-section { padding: var(--space-2xl) 0; }
+      .sup-plan { padding: var(--space-lg); }
+      .sup-compare { font-size: 0.82rem; min-width: 540px; }
+      .sup-compare th, .sup-compare td { padding: 0.7rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ── Navigation ───────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">VibeWorks</a>
+      <div class="nav__links" id="navLinks">
+        <a href="/ventures.html" class="nav__link">Ventures</a>
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/ai-agents.html" class="nav__link">AI Agents</a>
+        <a href="/about.html"    class="nav__link">About</a>
+        <a href="/contact.html"  class="nav__cta">Contact</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Ticker ───────────────────────────── -->
+  <div class="sup-ticker" aria-hidden="true">
+    <div class="sup-ticker__track">
+      <span>AI Agent Maintenance</span><span class="sup-dot">✦</span>
+      <span>24/7 Uptime Monitoring</span><span class="sup-dot">✦</span>
+      <span>Monthly Agent Updates</span><span class="sup-dot">✦</span>
+      <span>Feature Expansions</span><span class="sup-dot">✦</span>
+      <span>Rapid Response SLA</span><span class="sup-dot">✦</span>
+      <span>Zero Agent Downtime</span><span class="sup-dot">✦</span>
+      <span>VibeWorks AI Studio</span><span class="sup-dot">✦</span>
+      <span>AI Agent Maintenance</span><span class="sup-dot">✦</span>
+      <span>24/7 Uptime Monitoring</span><span class="sup-dot">✦</span>
+      <span>Monthly Agent Updates</span><span class="sup-dot">✦</span>
+      <span>Feature Expansions</span><span class="sup-dot">✦</span>
+      <span>Rapid Response SLA</span><span class="sup-dot">✦</span>
+      <span>Zero Agent Downtime</span><span class="sup-dot">✦</span>
+      <span>VibeWorks AI Studio</span><span class="sup-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ── Hero ─────────────────────────────── -->
+  <section class="page-hero page-hero--grid sup-hero">
+    <div class="sup-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="sup-badge"><span class="sup-badge__dot"></span>Monthly Support Plans</div>
+      <h1 class="page-hero__headline reveal-up">Your AI Agent<br><span class="sup-hero__accent">Doesn't Run Itself.</span></h1>
+      <p class="page-hero__subline sup-hero__sub reveal-up">AI agents need care, updates, and someone watching the door. Our monthly maintenance plans keep your agent sharp, online, and evolving — so you never have to think twice about it.</p>
+      <div class="sup-hero__ctas reveal-up">
+        <a href="#plans" class="btn btn--violet btn--large btn--magnetic">See Maintenance Plans →</a>
+        <a href="/contact.html?track=support" class="btn btn--ghost btn--large btn--magnetic">Talk to Us First</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Maintenance Matters ──────────── -->
+  <section class="sup-section">
+    <div class="container">
+      <p class="sup-label">Why Maintenance Matters</p>
+      <h2 class="sup-title">AI Agents Break.<br>We Make Sure Yours Doesn't.</h2>
+      <p class="sup-section__intro">Every AI agent we build is a living system. APIs change, models update, business logic shifts — and without ongoing care, your agent goes from asset to liability. We keep it running at full power.</p>
+
+      <div class="sup-why__grid">
+        <div class="sup-card reveal-up">
+          <div class="sup-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Agents Go Offline</h3>
+          <p>Webhooks break. APIs deprecate. Platforms update. Without monitoring and fast response, your agent disappears and takes your productivity with it. We catch it before you do.</p>
+        </div>
+        <div class="sup-card reveal-up" style="transition-delay:80ms">
+          <div class="sup-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          </div>
+          <h3>Models Keep Evolving</h3>
+          <p>New AI model releases mean better performance — but also behavior changes. We handle prompt tuning, model upgrades, and compatibility checks so your agent keeps up with the curve.</p>
+        </div>
+        <div class="sup-card reveal-up" style="transition-delay:160ms">
+          <div class="sup-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          </div>
+          <h3>Business Needs Shift</h3>
+          <p>Your workflows change. Your team grows. What your agent handles today won't be enough in 90 days. Support means your agent scales with you, not behind you.</p>
+        </div>
+        <div class="sup-card reveal-up" style="transition-delay:240ms">
+          <div class="sup-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>You Need Peace of Mind</h3>
+          <p>You built this to save time, not spend it debugging. A maintenance plan means someone always has eyes on your system — and you can focus on running your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Plans ────────────────────────────── -->
+  <section class="sup-section sup-section--surface sup-section--center" id="plans">
+    <div class="container">
+      <p class="sup-label">Maintenance &amp; Support</p>
+      <h2 class="sup-title">Two Plans. Zero Guesswork.</h2>
+      <p class="sup-section__intro">Whether you need your agent kept alive and current or want to keep building on top of it — we have a plan that fits your pace.</p>
+
+      <div class="sup-plans__grid">
+
+        <!-- Essentials -->
+        <div class="sup-plan reveal-up" style="text-align:left">
+          <div class="sup-plan__tier">Tier 01</div>
+          <div class="sup-plan__name">Agent Essentials</div>
+          <div class="sup-plan__price">
+            <span class="sup-plan__dollar">$</span>
+            <span class="sup-plan__amount stat__number" data-count="250">250</span>
+            <span class="sup-plan__per">/ month</span>
+          </div>
+          <p class="sup-plan__tagline">Everything your agent needs to stay online, stay current, and keep performing. Built for businesses that want stability without the overhead of managing it themselves.</p>
+
+          <div class="sup-plan__group">Uptime &amp; Monitoring</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Uptime Monitoring</strong><span class="sup-desc">We actively check your agent's availability and response performance every month — before you notice a problem.</span></div></li>
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Offline Recovery &amp; Restoration</strong><span class="sup-desc">If your agent goes offline — broken webhook, API change, platform outage — we identify and restore it, no ticket needed.</span></div></li>
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Integration Health Checks</strong><span class="sup-desc">We verify that your agent's connected tools (CRMs, APIs, forms, automations) are still firing correctly.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Agent Updates</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Prompt &amp; Logic Tuning</strong><span class="sup-desc">We review your agent's behavior monthly and make adjustments to improve accuracy, tone, and response quality.</span></div></li>
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Model Compatibility Updates</strong><span class="sup-desc">When AI models update or deprecate, we migrate your agent to keep it on the best available model.</span></div></li>
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Minor Workflow Adjustments</strong><span class="sup-desc">Small changes to flow logic, response routing, or business rules — up to 2 minor adjustments per month included.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Automatic Updates</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Bi-Weekly Automatic System Updates</strong><span class="sup-desc">Your agent is automatically reviewed and updated every 2 weeks — no action needed. We handle prompt tuning, model checks, and integration syncs on a rolling schedule so your agent never falls behind.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Support</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Text Support — 72-Hour Response</strong><span class="sup-desc">Reach us directly via text for questions, concerns, or issue reports. Our team responds within 72 hours during business days — no ticket system, no runaround.</span></div></li>
+            <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Status Summary</strong><span class="sup-desc">A brief monthly report covering what was checked, what was tuned, and the current state of your agent.</span></div></li>
+          </ul>
+
+          <a href="/contact.html?track=support&amp;plan=essentials" class="btn btn--ghost btn--large">Get Started with Essentials →</a>
+        </div>
+
+        <!-- Growth -->
+        <div class="sup-plan sup-plan--featured reveal-up" style="text-align:left;transition-delay:100ms">
+          <div class="sup-plan__badge">Most Popular</div>
+          <div class="sup-plan__tier">Tier 02</div>
+          <div class="sup-plan__name">Agent Growth</div>
+          <div class="sup-plan__price">
+            <span class="sup-plan__dollar">$</span>
+            <span class="sup-plan__amount stat__number" data-count="500">500</span>
+            <span class="sup-plan__per">/ month</span>
+          </div>
+          <p class="sup-plan__tagline">Everything in Essentials — plus active development. Built for businesses that want their AI agent to grow alongside the business. New features, expanded capabilities, and priority access to our team.</p>
+
+          <div class="sup-plan__group">Everything in Essentials, Plus:</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Feature Development</strong><span class="sup-desc">Each month, we scope and build one new feature or capability for your agent — expanding what it can do without starting from scratch.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Workflow Expansions</strong><span class="sup-desc">Add new branches, response paths, or trigger logic to your agent as your business processes evolve. Included up to 3 changes per month.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>New Integration Builds</strong><span class="sup-desc">Want your agent to connect to a new tool, CRM, or platform? We build the integration as part of your monthly development cycle.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Growth &amp; Strategy</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Strategy Call (30 min)</strong><span class="sup-desc">A dedicated call with your VibeWorks team to discuss what's working, what to build next, and how to maximize your agent's ROI.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Agent Roadmap Planning</strong><span class="sup-desc">We help you think 60–90 days ahead — identifying feature opportunities, automation gaps, and ways to scale your agent's impact across your operations.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Performance Optimization Reports</strong><span class="sup-desc">Monthly deep-dive reports on how your agent is performing — response rates, completion quality, and specific tuning recommendations.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Automatic Updates</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Weekly Automatic System Updates</strong><span class="sup-desc">Your agent is automatically reviewed and updated every single week. We run weekly checks on model performance, integration health, prompt accuracy, and system behavior — so your agent is always operating at peak capacity.</span></div></li>
+          </ul>
+
+          <div class="sup-plan__group">Priority Support</div>
+          <ul class="sup-feats">
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Phone Support — 24-Hour Response</strong><span class="sup-desc">Growth clients get direct phone access to the VibeWorks team. Call us with any issue and receive a response within 24 hours during business hours — no bots, no automated menus.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Direct Slack or Text Access</strong><span class="sup-desc">Skip the ticket system. Growth clients get direct communication access to the VibeWorks team during business hours.</span></div></li>
+            <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Emergency Hotfix Coverage</strong><span class="sup-desc">If your agent hits a critical failure, we treat it as an emergency and mobilize to restore full function — same business day.</span></div></li>
+          </ul>
+
+          <a href="/contact.html?track=support&amp;plan=growth" class="btn btn--violet btn--large btn--magnetic">Get Started with Growth →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Compare ──────────────────────────── -->
+  <section class="sup-section">
+    <div class="container">
+      <p class="sup-label">Side By Side</p>
+      <h2 class="sup-title">Compare Plans</h2>
+      <p class="sup-section__intro">Everything laid out so you can pick the plan that fits where your business is right now.</p>
+
+      <div class="sup-compare__wrap">
+        <table class="sup-compare">
+          <thead>
+            <tr>
+              <th style="width:48%">Feature</th>
+              <th>Essentials<span class="sup-th-price">$250 / mo</span></th>
+              <th class="sup-col-pro">Growth<span class="sup-th-price">$500 / mo</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="sup-feat-name">Uptime Monitoring</span><span class="sup-feat-note">Monthly checks on agent availability and performance</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Offline Recovery</span><span class="sup-feat-note">Restore agent when it goes down due to API/platform issues</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Integration Health Checks</span><span class="sup-feat-note">Verify CRMs, APIs &amp; tools are firing correctly</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Monthly Prompt Tuning</span><span class="sup-feat-note">Improve agent accuracy, tone, and response quality</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Model Compatibility Updates</span><span class="sup-feat-note">Migrate to new AI models as they release</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Minor Workflow Adjustments</span><span class="sup-feat-note">Small flow/logic changes included monthly</span></td><td>Up to 2/mo</td><td>Up to 3/mo</td></tr>
+            <tr><td><span class="sup-feat-name">Monthly Status Report</span><span class="sup-feat-note">Written summary of activity and agent health</span></td><td><span class="sup-tick">✓</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Monthly Feature Development</span><span class="sup-feat-note">Build one new capability per month</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Workflow Expansions</span><span class="sup-feat-note">Add new branches, routes &amp; trigger logic</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">New Integration Builds</span><span class="sup-feat-note">Connect your agent to new platforms &amp; tools</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Monthly Strategy Call</span><span class="sup-feat-note">30-min call with your VibeWorks team</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Agent Roadmap Planning</span><span class="sup-feat-note">60–90 day roadmap for your agent's growth</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Performance Optimization Reports</span><span class="sup-feat-note">Deep-dive analytics and tuning recommendations</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Automatic System Updates</span><span class="sup-feat-note">Hands-free scheduled maintenance cycles</span></td><td>Every 2 weeks</td><td>Every week</td></tr>
+            <tr><td><span class="sup-feat-name">Support Channel</span></td><td>Text</td><td>Phone + Text + Slack</td></tr>
+            <tr><td><span class="sup-feat-name">Support Response Time</span></td><td>72 hours</td><td>24 hours</td></tr>
+            <tr><td><span class="sup-feat-name">Direct Team Access (Slack/Text)</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+            <tr><td><span class="sup-feat-name">Emergency Hotfix Coverage</span><span class="sup-feat-note">Same business day response for critical failures</span></td><td><span class="sup-cross">—</span></td><td><span class="sup-tick--gold">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ (global .faq pattern — wired by initFAQ()) ── -->
+  <section class="faq sup-section--surface" style="padding-top:var(--space-3xl);padding-bottom:var(--space-3xl)">
+    <div class="container">
+      <div class="faq__header">
+        <p class="sup-label" style="text-align:center">Got Questions</p>
+        <h2 class="faq__title">Frequently Asked</h2>
+      </div>
+      <div class="faq__grid">
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">Do I need to already have an AI agent built by VibeWorks?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>Ideally yes — our maintenance plans are designed around agents we build, since we already know the architecture. That said, if your agent was built elsewhere and you want us to take over maintenance, reach out and we'll evaluate whether we can support it after a technical review.</p></div>
+        </div>
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">What counts as "going offline"?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>An agent "goes offline" when it stops responding, returns errors, or loses connection to its integrations. Common causes include API changes from third-party platforms, model deprecations, webhook failures, or platform outages. Our monitoring catches these fast — and restoration is included in both plans.</p></div>
+        </div>
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">What's included in "monthly feature development" on Growth?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>Once a month, we scope and implement one meaningful new capability for your agent. This could be a new conversation flow, a new integration with a third-party tool, an additional automation trigger, or an upgraded response type. Before each development cycle, we'll align on what gets built so it fits your current priorities.</p></div>
+        </div>
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">Can I switch plans after I start?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>Yes. Plans are month-to-month. You can upgrade from Essentials to Growth at any time — the additional features kick in at the start of your next billing cycle. Downgrades also take effect the following month.</p></div>
+        </div>
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">Is there a contract or minimum commitment?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>No long-term contracts. Our plans are billed monthly and you can cancel anytime before your next billing date. We believe in earning your business every month — not locking you in.</p></div>
+        </div>
+        <div class="faq__item reveal-up">
+          <button class="faq__question" aria-expanded="false">What if I need something beyond what's covered?<span class="faq__icon" aria-hidden="true">+</span></button>
+          <div class="faq__answer"><p>Larger builds, major redesigns, or completely new agents fall outside maintenance scope. We'll flag it clearly and provide a separate project quote. Our goal is transparency — you'll never be surprised by out-of-scope charges without first agreeing to them.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Closing CTA ──────────────────────── -->
+  <section class="footer-cta container reveal-up">
+    <h2 class="footer-cta__headline">Your AI agent is an asset. Protect it.</h2>
+    <p style="color:var(--text-muted);max-width:480px;margin:var(--space-sm) auto var(--space-lg);">One broken agent can cost you hours, deals, and trust. A maintenance plan costs less than one hour of downtime. Let's keep it running.</p>
+    <a href="/contact.html?track=support" class="btn btn--gold btn--large btn--magnetic">Start Your Plan Today →</a>
+  </section>
+
+  <!-- ── Site Footer ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
+          <p class="site-footer__tagline">AI Venture Studio</p>
+          <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Navigation</p>
+          <div class="site-footer__links">
+            <a href="/ventures.html">Ventures</a>
+            <a href="/services.html">Services</a>
+            <a href="/about.html">About</a>
+            <a href="/support.html">Support</a>
+            <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Portfolio</p>
+          <div class="site-footer__links">
+            <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
+            <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
+            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
+            <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
+            <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
+        <span>Built with AI. Delivered by humans.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
