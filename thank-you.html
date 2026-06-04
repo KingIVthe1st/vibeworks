@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In — VibeWorks AI Studio</title>
+  <meta name="description" content="Your VibeWorks AI agent maintenance plan is active. Here's what happens next.">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vibeworksstudio.ai/thank-you.html">
+  <meta property="og:title" content="You're In — VibeWorks AI Studio">
+  <meta property="og:description" content="Your AI agent maintenance plan is active. Here's what happens next.">
+  <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
+  <meta name="theme-color" content="#8B5CF6">
+  <link rel="canonical" href="https://vibeworksstudio.ai/thank-you.html">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ── Page-scoped styles (thank-you.html only) — all .ty-* prefixed ── -->
+  <style>
+    .ty-hero { position: relative; overflow: hidden; text-align: center; }
+    .ty-hero .container { display: flex; flex-direction: column; align-items: center; }
+    .ty-hero__glow {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(139,92,246,0.22) 0%, transparent 62%),
+        radial-gradient(ellipse 45% 35% at 50% 92%, rgba(232,184,75,0.08) 0%, transparent 60%);
+    }
+    .ty-hero .container > * { position: relative; z-index: 1; }
+
+    .ty-mark {
+      width: 84px; height: 84px; border-radius: 50%;
+      background: var(--violet-glow); border: 1px solid rgba(139,92,246,0.4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--violet-bright); margin-bottom: var(--space-lg);
+      box-shadow: 0 0 0 0 rgba(139,92,246,0.5); animation: ty-pop 0.5s cubic-bezier(.2,.7,.2,1) both, ty-ring 2.4s ease 0.5s infinite;
+    }
+    .ty-mark svg { width: 40px; height: 40px; }
+    @keyframes ty-pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes ty-ring { 0% { box-shadow: 0 0 0 0 rgba(139,92,246,0.5); } 70% { box-shadow: 0 0 0 18px rgba(139,92,246,0); } 100% { box-shadow: 0 0 0 0 rgba(139,92,246,0); } }
+    @media (prefers-reduced-motion: reduce) { .ty-mark { animation: none; } }
+
+    .ty-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: var(--violet-glow); border: 1px solid rgba(139,92,246,0.32);
+      padding: 0.4rem 1rem; border-radius: 999px;
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--violet-bright); margin-bottom: 1.6rem;
+    }
+    .ty-accent { color: var(--violet); }
+    .ty-hero__sub { max-width: 560px; margin: 0 auto; }
+    .ty-plan-line {
+      display: inline-flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+      margin-top: var(--space-md); font-family: var(--font-display); font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .ty-plan-line .ty-price { color: var(--gold); }
+    .ty-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: var(--space-xl); }
+
+    /* steps */
+    .ty-steps__grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-md); margin-top: var(--space-2xl);
+    }
+    .ty-step {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: var(--space-lg); text-align: left;
+    }
+    .ty-step__num {
+      font-family: var(--font-display); font-weight: 800; font-size: 0.9rem;
+      width: 34px; height: 34px; border-radius: 9px;
+      background: var(--violet-glow); border: 1px solid rgba(139,92,246,0.3);
+      color: var(--violet-bright); display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--space-md);
+    }
+    .ty-step h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; margin-bottom: 0.45rem; }
+    .ty-step p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .ty-step a { color: var(--violet-bright); }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ── Navigation (matches site) ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">VibeWorks</a>
+      <div class="nav__links" id="navLinks">
+        <a href="/ventures.html" class="nav__link">Ventures</a>
+        <a href="/services.html" class="nav__link">Services</a>
+        <a href="/ai-agents.html" class="nav__link">AI Agents</a>
+        <a href="/about.html"    class="nav__link">About</a>
+        <a href="/contact.html"  class="nav__cta">Contact</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="page-hero page-hero--grid ty-hero">
+    <div class="ty-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="ty-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <div class="ty-badge"><span>✦</span> Subscription Active</div>
+      <h1 class="page-hero__headline">You're in.<br><span class="ty-accent" id="tyPlanHeadline">Welcome to your plan.</span></h1>
+      <p class="page-hero__subline ty-hero__sub">Your AI agent maintenance plan is active and we've got it from here. A receipt is on its way to your inbox — here's exactly what happens next.</p>
+      <div class="ty-plan-line">
+        <span id="tyPlanName">Maintenance Plan</span>
+        <span class="ty-price" id="tyPlanPrice"></span>
+      </div>
+      <div class="ty-ctas">
+        <a href="/" class="btn btn--violet btn--large btn--magnetic">Back to Home →</a>
+        <a href="/support.html" class="btn btn--ghost btn--large btn--magnetic">View Plan Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What happens next ── -->
+  <section class="sup-section" style="padding:var(--space-3xl) 0;">
+    <div class="container">
+      <div class="ty-steps__grid">
+        <div class="ty-step">
+          <div class="ty-step__num">1</div>
+          <h3>Check your inbox</h3>
+          <p>Stripe just emailed your receipt and subscription details. Keep it — it has the link to manage or cancel your plan anytime. Billing is month-to-month.</p>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step__num">2</div>
+          <h3>We reach out within 1 business day</h3>
+          <p>The VibeWorks team will contact you to kick off onboarding — confirm your agent details and set up your <span id="tyChannel">support channel</span>.</p>
+        </div>
+        <div class="ty-step">
+          <div class="ty-step__num">3</div>
+          <h3>Your agent gets to work</h3>
+          <p>Monitoring, updates, and tuning begin on your plan's cadence (<span id="tyCadence">on schedule</span>). Questions before we connect? <a href="/contact.html?track=support">Message us here</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Site Footer (matches site) ── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
+          <p class="site-footer__tagline">AI Venture Studio</p>
+          <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Navigation</p>
+          <div class="site-footer__links">
+            <a href="/ventures.html">Ventures</a>
+            <a href="/services.html">Services</a>
+            <a href="/about.html">About</a>
+            <a href="/support.html">Support</a>
+            <a href="/contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="site-footer__col-title">Portfolio</p>
+          <div class="site-footer__links">
+            <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
+            <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
+            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
+            <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
+            <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
+        <span>Built with AI. Delivered by humans.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Personalize by ?plan= (progressive enhancement; sensible defaults render without JS) -->
+  <script>
+    (function () {
+      var PLANS = {
+        essentials: { name: 'Agent Essentials', price: '$250/mo', headline: 'Welcome to Agent Essentials.',
+          channel: 'text support (72-hour response)', cadence: 'every 2 weeks' },
+        growth: { name: 'Agent Growth', price: '$500/mo', headline: 'Welcome to Agent Growth.',
+          channel: 'priority phone, text & Slack support (24-hour response)', cadence: 'every week' }
+      };
+      var key = new URLSearchParams(window.location.search).get('plan');
+      var p = PLANS[key];
+      if (!p) return;
+      var set = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+      set('tyPlanHeadline', p.headline);
+      set('tyPlanName', p.name);
+      set('tyPlanPrice', '· ' + p.price);
+      set('tyChannel', p.channel);
+      set('tyCadence', p.cadence);
+      document.title = "You're In — " + p.name + ' — VibeWorks AI Studio';
+    })();
+  </script>
+</body>
+</html>
