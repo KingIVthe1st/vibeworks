@@ -98,6 +98,9 @@
     var dot = document.getElementById('cursorDot');
     var ring = document.getElementById('cursorRing');
     if (dot && ring) {
+      // Hide the native cursor ONLY now that the custom cursor is live — if this
+      // code never runs (JS off, coarse pointer), the native cursor stays.
+      document.body.style.cursor = 'none';
       var mx = -100, my = -100, rx = -100, ry = -100, visible = false;
       document.addEventListener('mousemove', function (e) {
         mx = e.clientX; my = e.clientY;
