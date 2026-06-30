@@ -40,3 +40,7 @@ node_modules/
 
 # Brainstorming scratch
 .superpowers/
+
+# Claude Code local settings
+.claude/
+.playwright-mcp/
