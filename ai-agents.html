@@ -3,595 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agents — VibeWorks AI Studio</title>
-  <meta name="description" content="Custom AI agents built, trained, and maintained for your business. Stop hiring humans for robot work — VibeWorks builds the AI workforce that scales your revenue, not your headcount.">
+  <title>AI Agent Fleets — always-on agents that do the work</title>
+  <meta name="description" content="VibeWorks designs, deploys, and runs fleets of always-on AI agents wired into your stack — sales, support, ops, content. Real actions, supervised with human-in-the-loop guardrails, on your infrastructure.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vibeworksstudio.ai/ai-agents.html">
-  <meta property="og:title" content="AI Agents — VibeWorks AI Studio">
-  <meta property="og:description" content="Custom AI agents for entrepreneurs and businesses. Built, trained, supported, maintained.">
+  <meta property="og:title" content="AI Agent Fleets — always-on agents that do the work">
+  <meta property="og:description" content="Always-on AI agents wired into your stack — sales, support, ops, content. They take real actions, not just chat. Built, deployed, and run by VibeWorks.">
   <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Agents — VibeWorks AI Studio">
-  <meta name="twitter:description" content="Custom AI agents for entrepreneurs and businesses. Built, trained, supported, maintained.">
+  <meta name="twitter:title" content="AI Agent Fleets — always-on agents that do the work">
+  <meta name="twitter:description" content="Always-on AI agents wired into your stack — they take real actions, not just chat. Built, deployed, and run by VibeWorks.">
   <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
-  <meta name="theme-color" content="#8B5CF6">
+  <meta name="theme-color" content="#070512">
   <link rel="canonical" href="https://vibeworksstudio.ai/ai-agents.html">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ── Custom Cursor ────────────────────── -->
+  <!-- ── Aurora + engineered-grid backdrop ── -->
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- ── Custom cursor ── -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── Scroll progress ── -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ── Navigation ───────────────────────── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">VibeWorks</a>
-      <div class="nav__links" id="navLinks">
-        <a href="/ventures.html" class="nav__link">Ventures</a>
-        <a href="/services.html" class="nav__link">Services</a>
-        <a href="/ai-agents.html" class="nav__link" aria-current="page">AI Agents</a>
-        <a href="/about.html"    class="nav__link">About</a>
-        <a href="/contact.html"  class="nav__cta">Contact</a>
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="in">
+      <a class="logo" href="/">Vibe<b>Works</b></a>
+      <div class="links" id="navLinks">
+        <a href="/platforms.html">Platforms</a>
+        <a href="/ai-agents.html">AI Agents</a>
+        <a href="/services.html">How We Work</a>
+        <a href="/about.html">About</a>
+        <a class="cta" href="/contact.html">Start a build →</a>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════
-       HERO
-       ══════════════════════════════════════════ -->
-  <section class="aa-hero">
-    <div class="hero__aurora" aria-hidden="true">
-      <div class="aurora-orb aurora-orb--1"></div>
-      <div class="aurora-orb aurora-orb--2"></div>
-      <div class="aurora-orb aurora-orb--3"></div>
+  <!-- ── Page hero ── -->
+  <header class="pagehead wrap">
+    <span class="pill"><span class="d"></span>Always-on · built and run by VibeWorks</span>
+    <h1>AI agents that<br><span class="grad">do the work.</span></h1>
+    <p class="sub">An agent fleet is a set of always-on AI agents wired into your stack — sales, support, ops, content — that take real actions, not just answer questions. Supervised, guardrailed, and run by us.</p>
+    <div class="stats">
+      <div><div class="n grad">24/7</div><div class="l">Always on</div></div>
+      <div><div class="n">Your stack</div><div class="l">Wired in</div></div>
+      <div><div class="n">Human</div><div class="l">In the loop</div></div>
     </div>
-    <div class="container aa-hero__inner">
-      <div class="hero__availability">
-        <span class="hero__avail-dot" aria-hidden="true"></span>
-        <span>Now accepting agent builds · Q2 2026</span>
+  </header>
+
+  <!-- ── What they do ── -->
+  <section class="svc wrap" id="capabilities">
+    <div class="sh reveal-up">
+      <span class="mono grad">What they do</span>
+      <h2>Agents that take action — not another chatbot.</h2>
+      <p>Wired into the tools you already run, a fleet does real work end to end, around the clock, inside the guardrails you set.</p>
+    </div>
+
+    <div class="waysgrid">
+      <div class="way reveal-up">
+        <div class="no">01 — ALWAYS ON</div>
+        <h3>24/7 autonomous operation</h3>
+        <p>The fleet runs around the clock — no shifts, no queues. Work gets picked up the moment it lands, day or night.</p>
       </div>
-      <h1 class="aa-hero__title reveal-up">
-        Stop Hiring Humans<br>
-        <span class="aa-hero__title--gradient">For Robot Work.</span>
-      </h1>
-      <p class="aa-hero__sub reveal-up">
-        We architect, train, and obsessively maintain custom AI agents that vaporize your operational bottlenecks — 24/7/365. Not chatbots. Not templates. <strong>Elite AI operators</strong> built for your business.
-      </p>
-      <div class="aa-hero__ctas reveal-up">
-        <a href="/contact.html?track=agents" class="btn btn--gold btn--large btn--magnetic">Build Your AI Team →</a>
-        <a href="#how-it-works" class="btn btn--ghost btn--large">See How It Works</a>
+      <div class="way reveal-up">
+        <div class="no">02 — WHERE YOU WORK</div>
+        <h3>WhatsApp, Slack, Discord &amp; email</h3>
+        <p>Agents live in the channels your team and customers already use, bridged in directly — not trapped behind another login.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ── Hero Image ───────────────────────── -->
-  <div class="container aa-hero-img reveal-up">
-    <img src="images/ai-agents/hero-v2.jpg" alt="AI Agent command center with holographic interfaces" loading="eager" width="1200" height="800"
-         onerror="this.src='images/ai-agents/hero-ai-agent.jpg'">
-  </div>
-
-  <!-- ── Marquee ──────────────────────────── -->
-  <div class="aa-marquee" aria-hidden="true">
-    <div class="aa-marquee__track">
-      <span>Build</span><span class="aa-marquee__sep">✦</span>
-      <span>Train</span><span class="aa-marquee__sep">✦</span>
-      <span>Support</span><span class="aa-marquee__sep">✦</span>
-      <span>Maintain</span><span class="aa-marquee__sep">✦</span>
-      <span>24/7 Agents</span><span class="aa-marquee__sep">✦</span>
-      <span>Your Voice</span><span class="aa-marquee__sep">✦</span>
-      <span>Your Rules</span><span class="aa-marquee__sep">✦</span>
-      <span>Zero Downtime</span><span class="aa-marquee__sep">✦</span>
-      <span>Build</span><span class="aa-marquee__sep">✦</span>
-      <span>Train</span><span class="aa-marquee__sep">✦</span>
-      <span>Support</span><span class="aa-marquee__sep">✦</span>
-      <span>Maintain</span><span class="aa-marquee__sep">✦</span>
-      <span>24/7 Agents</span><span class="aa-marquee__sep">✦</span>
-      <span>Your Voice</span><span class="aa-marquee__sep">✦</span>
-      <span>Your Rules</span><span class="aa-marquee__sep">✦</span>
-      <span>Zero Downtime</span><span class="aa-marquee__sep">✦</span>
-    </div>
-  </div>
-
-  <!-- ── Trusted By Strip ─────────────────── -->
-  <section class="aa-trust-strip">
-    <div class="container">
-      <p class="aa-trust-strip__label">Trusted By Founders &amp; Teams At</p>
-      <div class="aa-trust-strip__logos">
-        <div class="aa-trust-logo">🏥 <span>Healthcare AI</span></div>
-        <div class="aa-trust-logo">📈 <span>FinTech Startups</span></div>
-        <div class="aa-trust-logo">🎵 <span>Music Platforms</span></div>
-        <div class="aa-trust-logo">📚 <span>Publishing Houses</span></div>
-        <div class="aa-trust-logo">🛍️ <span>E-Commerce Brands</span></div>
-        <div class="aa-trust-logo">⚖️ <span>Consulting Firms</span></div>
+      <div class="way reveal-up">
+        <div class="no">03 — REAL ACTIONS</div>
+        <h3>Does the work, not just chat</h3>
+        <p>Books the call, updates the record, sends the follow-up, files the ticket. Agents act in your tools, end to end.</p>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">04 — SUPERVISED</div>
+        <h3>Approval gates on what matters</h3>
+        <p>Routine work runs on its own; anything sensitive — money, account changes, risky moves — pauses for a human to approve.</p>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">05 — WIRED IN</div>
+        <h3>Connected to your real stack</h3>
+        <p>CRMs, databases, payment and messaging APIs, internal tools — agents plug into the systems that run your business.</p>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">06 — ACCOUNTABLE</div>
+        <h3>Observable and guardrailed</h3>
+        <p>Every action is logged and bounded by the rules you set, so you can see exactly what the fleet did, and why.</p>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       THE PROBLEM
-       ══════════════════════════════════════════ -->
-  <section class="aa-problem">
-    <div class="container">
-      <div class="aa-problem__inner reveal-up">
-        <span class="label label--violet">Sound Familiar?</span>
-        <h2 class="section-headline aa-problem__headline">The "If You Want It Done Right" Death Spiral.</h2>
-        <div class="aa-problem__grid">
-          <div class="aa-problem__pain">
-            <p class="aa-problem__copy">You answer emails at midnight. Chase leads during lunch. Manually update spreadsheets. Schedule your own calls. Research competitors in the shower.</p>
-            <p class="aa-problem__copy">You've tried hiring — but training takes months, turnover costs thousands, and <em>nobody cares about your business the way you do.</em></p>
-          </div>
-          <div class="aa-problem__stats">
-            <div class="aa-problem__stat">
-              <span class="aa-problem__stat-num" data-target="73">0</span><span class="aa-problem__stat-unit">%</span>
-              <span class="aa-problem__stat-label">of founders work 50+ hours/week on tasks AI could handle</span>
-            </div>
-            <div class="aa-problem__stat">
-              <span class="aa-problem__stat-num" data-target="40">0</span><span class="aa-problem__stat-unit">hrs</span>
-              <span class="aa-problem__stat-label">per month wasted on repetitive operational tasks</span>
-            </div>
-          </div>
-        </div>
-        <p class="aa-problem__punchline">
-          What if you could clone your best instincts into an AI teammate that operates 24/7, never calls in sick, and gets smarter every single week?
-        </p>
-      </div>
+  <!-- ── How we deploy them ── -->
+  <section class="svc wrap" id="deploy">
+    <div class="sh reveal-up">
+      <span class="mono grad">How we deploy them</span>
+      <h2>We design it, deploy it, and keep it running.</h2>
+      <p>On your infrastructure, observable and guardrailed, with a human in the loop where it matters — not a DIY framework you're left to babysit.</p>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       BEFORE / AFTER
-       ══════════════════════════════════════════ -->
-  <section class="aa-transform">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--gold">The Transformation</span>
-        <h2 class="section-headline">Before vs. After Your AI Agent</h2>
-      </div>
-      <div class="aa-ba-grid">
-        <div class="aa-ba-card aa-ba-card--before reveal-up">
-          <h3 class="aa-ba-card__title">😩 Before</h3>
-          <ul class="aa-ba-list">
-            <li><span class="aa-x">✗</span> Inbox owns you — 200+ unread by Tuesday</li>
-            <li><span class="aa-x">✗</span> Leads go cold because you replied 3 days late</li>
-            <li><span class="aa-x">✗</span> Same 12 questions answered 50 times a week</li>
-            <li><span class="aa-x">✗</span> Manual reporting eats every Monday morning</li>
-            <li><span class="aa-x">✗</span> One hire costs $60K+ and still needs managing</li>
-            <li><span class="aa-x">✗</span> Growth is bottlenecked by your 24 hours</li>
-          </ul>
-        </div>
-        <div class="aa-ba-card aa-ba-card--after reveal-up">
-          <h3 class="aa-ba-card__title aa-ba-card__title--after">🚀 After</h3>
-          <ul class="aa-ba-list">
-            <li><span class="aa-check">✓</span> AI triages every email — you see only what matters</li>
-            <li><span class="aa-check">✓</span> Every lead gets a response within 2 minutes</li>
-            <li><span class="aa-check">✓</span> Instant answers in your brand voice, 24/7</li>
-            <li><span class="aa-check">✓</span> Reports auto-generated and waiting in your inbox</li>
-            <li><span class="aa-check">✓</span> AI scales instantly — no recruiting, no overhead</li>
-            <li><span class="aa-check">✓</span> You focus on vision. The grind handles itself.</li>
-          </ul>
+    <!-- Process -->
+    <div class="feat reveal-up">
+      <div class="ft">
+        <div class="no">RUN BY US</div>
+        <h3>A fleet you don't have to operate.</h3>
+        <div class="tag">Built, wired, supervised, maintained.</div>
+        <p class="desc">We map the work worth handing to an agent, build and wire the fleet into your systems, then supervise it in production — tuning as your business changes. The same kind of agent infrastructure behind our own platforms, pointed at your operation.</p>
+        <div class="chips"><span>Observable</span><span>Guardrailed</span><span>Human-in-the-loop</span><span>On your infra</span><span>Maintained by us</span></div>
+        <div class="links2">
+          <a class="visit" href="/contact.html">Start an agent build</a>
+          <a class="mono" style="color:var(--txt-mute)" href="/services.html#agents">How an engagement works →</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       WHAT WE BUILD
-       ══════════════════════════════════════════ -->
-  <section class="aa-types" id="what-we-build">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--violet">What We Build</span>
-        <h2 class="section-headline">AI Agents That Actually Run Your Business</h2>
-        <p class="aa-section-sub">Not another chatbot widget. These are autonomous AI systems trained on your business, your voice, your processes.</p>
-      </div>
-      <div class="aa-agent-grid">
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--gold">
-            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.8 7.8l2.8 2.8M21.4 21.4l2.8 2.8M7.8 24.2l2.8-2.8M21.4 10.6l2.8-2.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="bigframe">
+        <div class="gt"><span class="ic"></span>agent fleet — how we run it</div>
+        <div class="spec">
+          <div class="spec__group">
+            <div class="spec__label">Who it's for</div>
+            <p>Teams buried in repeatable work — follow-ups, triage, first-line support, data entry — who want capacity without adding headcount.</p>
           </div>
-          <p class="aa-agent-card__label">Always On</p>
-          <h3 class="aa-agent-card__title">Executive Assistants</h3>
-          <p class="aa-agent-card__body">Calendar, email triage, meeting coordination, prospect research — running your day even while you sleep.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--violet">
-            <svg viewBox="0 0 32 32" fill="none"><path d="M8 12l4 4-4 4M14 20h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="26" height="22" rx="3" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="spec__group">
+            <div class="spec__label">What you get</div>
+            <ul>
+              <li>Agents connected to the tools you already use, doing the work end to end</li>
+              <li>Human-in-the-loop controls and guardrails you define</li>
+              <li>Built, deployed, and maintained by us — not a framework to wire up yourself</li>
+            </ul>
           </div>
-          <p class="aa-agent-card__label">Revenue Machines</p>
-          <h3 class="aa-agent-card__title">Sales &amp; Lead Agents</h3>
-          <p class="aa-agent-card__body">Qualify leads, follow up instantly, book calls, manage your CRM, and nurture prospects through your funnel.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--green">
-            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M6 26c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <p class="aa-agent-card__label">Your Brand Voice</p>
-          <h3 class="aa-agent-card__title">Customer Support</h3>
-          <p class="aa-agent-card__body">Handle inquiries in your tone, resolve issues instantly, escalate the rest. Support becomes a growth engine.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--gold">
-            <svg viewBox="0 0 32 32" fill="none"><path d="M4 8h24M4 16h24M4 24h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="26" cy="24" r="3" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <p class="aa-agent-card__label">Behind The Scenes</p>
-          <h3 class="aa-agent-card__title">Operations &amp; Workflow</h3>
-          <p class="aa-agent-card__body">Automate pipelines, generate reports, monitor KPIs. Your entire operation hums without human bottlenecks.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--violet">
-            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><rect x="18" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <p class="aa-agent-card__label">Full Teams</p>
-          <h3 class="aa-agent-card__title">Multi-Agent Systems</h3>
-          <p class="aa-agent-card__body">Sales hands off to support, support escalates to your EA, EA updates your PM. An AI team working in concert.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-        <div class="aa-agent-card reveal-up">
-          <div class="aa-agent-card__icon aa-agent-card__icon--gold">
-            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </div>
-          <p class="aa-agent-card__label">Custom Everything</p>
-          <h3 class="aa-agent-card__title">Bespoke AI Solutions</h3>
-          <p class="aa-agent-card__body">Trading, healthcare, content creation, education — if AI can power it, we've probably already built one.</p>
-          <div class="aa-agent-card__glow" aria-hidden="true"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       HOW IT WORKS — 4 PHASES
-       ══════════════════════════════════════════ -->
-  <section class="aa-process" id="how-it-works">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--gold">The Process</span>
-        <h2 class="section-headline">Four Phases. One Unbreakable System.</h2>
-        <p class="aa-section-sub">Every agent we deploy goes through the same battle-tested pipeline. No shortcuts.</p>
-      </div>
-
-      <!-- Phase 1: Build -->
-      <div class="aa-phase reveal-up">
-        <div class="aa-phase__content">
-          <div class="aa-phase__badge"><span class="aa-phase__num aa-phase__num--violet">01</span><span class="label label--violet">Build</span></div>
-          <h3 class="aa-phase__title">We Architect Your Agent From Scratch</h3>
-          <p class="aa-phase__copy">No templates. No cookie-cutter setups. We study your business, your workflows, your communication style — then build an AI agent that thinks and operates the way you need.</p>
-          <ul class="aa-phase__list">
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Deep-dive into your business processes &amp; SOPs</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Custom knowledge base from your docs &amp; playbooks</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Integration with your stack (CRM, email, Slack, calendars)</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Your voice, your rules, your brand — baked in from day one</li>
-          </ul>
-        </div>
-        <div class="aa-phase__visual">
-          <img src="images/ai-agents/build-v2.jpg" alt="AI agent architecture blueprint"
-               loading="lazy" width="1200" height="800"
-               onerror="this.src='images/ai-agents/build-process.jpg'">
-        </div>
-      </div>
-
-      <!-- Phase 2: Train -->
-      <div class="aa-phase aa-phase--reversed reveal-up">
-        <div class="aa-phase__content">
-          <div class="aa-phase__badge"><span class="aa-phase__num aa-phase__num--gold">02</span><span class="label label--gold">Train</span></div>
-          <h3 class="aa-phase__title">We Train It Until It Thinks Like You</h3>
-          <p class="aa-phase__copy">An AI agent is only as good as its training. We run yours through real scenarios, edge cases, and stress tests until it handles your business like a seasoned team member.</p>
-          <ul class="aa-phase__list">
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Real conversation testing with your actual use cases</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Edge case hardening and failure mode handling</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Tone calibration — professional, casual, or anywhere between</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Iterative refinement until you say "that's exactly right"</li>
-          </ul>
-        </div>
-        <div class="aa-phase__visual">
-          <img src="images/ai-agents/train-v2.jpg" alt="AI agent training with data streams"
-               loading="lazy" width="1200" height="800"
-               onerror="this.src='images/ai-agents/training-loop.jpg'">
-        </div>
-      </div>
-
-      <!-- Phase 3: Support -->
-      <div class="aa-phase reveal-up">
-        <div class="aa-phase__content">
-          <div class="aa-phase__badge"><span class="aa-phase__num aa-phase__num--violet">03</span><span class="label label--violet">Support</span></div>
-          <h3 class="aa-phase__title">We Don't Ghost You After Launch</h3>
-          <p class="aa-phase__copy">Most AI agencies hand you a bot and disappear. We deploy your agent, monitor its performance, and stand behind it. Agent acting weird? We're already on it.</p>
-          <ul class="aa-phase__list">
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Dedicated support from the team that built your agent</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Performance monitoring and anomaly detection</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Direct line to engineering — not a ticketing system</li>
-            <li><span class="aa-arrow aa-arrow--violet">→</span> Monthly performance reviews and optimization recs</li>
-          </ul>
-        </div>
-        <div class="aa-phase__visual">
-          <img src="images/ai-agents/support-v2.jpg" alt="AI agent monitoring dashboard"
-               loading="lazy" width="1200" height="800"
-               onerror="this.src='images/ai-agents/support-maintain.jpg'">
-        </div>
-      </div>
-
-      <!-- Phase 4: Maintain -->
-      <div class="aa-phase aa-phase--reversed reveal-up">
-        <div class="aa-phase__content">
-          <div class="aa-phase__badge"><span class="aa-phase__num aa-phase__num--gold">04</span><span class="label label--gold">Maintain</span></div>
-          <h3 class="aa-phase__title">We Keep It Sharp. Forever.</h3>
-          <p class="aa-phase__copy">AI moves fast. Models improve. Your business evolves. We continuously maintain, update, and optimize your agents so they get smarter over time — never stale.</p>
-          <ul class="aa-phase__list">
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Automatic model upgrades as better AI ships</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Knowledge base updates as your business changes</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Security patches and compliance monitoring</li>
-            <li><span class="aa-arrow aa-arrow--gold">→</span> Scaling infrastructure as your usage grows</li>
-          </ul>
-        </div>
-        <div class="aa-phase__visual aa-phase__stats-grid">
-          <div class="aa-stat-card"><p class="aa-stat-card__number aa-stat-card__number--violet">99.9%</p><p class="aa-stat-card__label">Uptime Target</p></div>
-          <div class="aa-stat-card"><p class="aa-stat-card__number aa-stat-card__number--gold">24/7</p><p class="aa-stat-card__label">Monitoring</p></div>
-          <div class="aa-stat-card"><p class="aa-stat-card__number aa-stat-card__number--green">Weekly</p><p class="aa-stat-card__label">Model Updates</p></div>
-          <div class="aa-stat-card"><p class="aa-stat-card__number aa-stat-card__number--violet">∞</p><p class="aa-stat-card__label">Scalability</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       WHY US — CREDIBILITY
-       ══════════════════════════════════════════ -->
-  <section class="aa-why">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--gold">Why VibeWorks</span>
-        <h2 class="section-headline">We Don't Just Build AI.<br>We <em>Run</em> On AI.</h2>
-        <p class="aa-section-sub">Our own business is powered by the same AI agents we build for clients. Our executive assistant is an AI. Our production team includes AI. This isn't theory — it's Tuesday.</p>
-      </div>
-      <div class="aa-proof-grid">
-        <div class="aa-proof-card reveal-up">
-          <p class="aa-proof-card__stat"><span class="aa-counter" data-target="9">0</span>+</p>
-          <p class="aa-proof-card__label">AI products shipped across healthcare, fintech, music, and publishing.</p>
-        </div>
-        <div class="aa-proof-card reveal-up">
-          <p class="aa-proof-card__stat"><span class="aa-counter" data-target="2">0</span> Live Agents</p>
-          <p class="aa-proof-card__label">Running our own business right now — executive assistant + production specialist.</p>
-        </div>
-        <div class="aa-proof-card reveal-up">
-          <p class="aa-proof-card__stat">24/7/365</p>
-          <p class="aa-proof-card__label">Our agents work while we sleep. Yours will too.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       TESTIMONIALS / SOCIAL PROOF
-       ══════════════════════════════════════════ -->
-  <section class="aa-testimonials">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--violet">What Founders Say</span>
-        <h2 class="section-headline">Real Results. Real Businesses.</h2>
-      </div>
-      <div class="aa-testimonial-grid">
-        <div class="aa-testimonial reveal-up">
-          <div class="aa-testimonial__stars" aria-label="5 stars">★★★★★</div>
-          <p class="aa-testimonial__quote">"Our AI agent handles 80% of customer inquiries before my team even wakes up. It paid for itself in the first week."</p>
-          <div class="aa-testimonial__author">
-            <div class="aa-testimonial__avatar">JR</div>
-            <div>
-              <p class="aa-testimonial__name">James R.</p>
-              <p class="aa-testimonial__role">Founder, SaaS Startup</p>
-            </div>
-          </div>
-        </div>
-        <div class="aa-testimonial reveal-up">
-          <div class="aa-testimonial__stars" aria-label="5 stars">★★★★★</div>
-          <p class="aa-testimonial__quote">"I was spending 3 hours a day on email. Now my AI assistant handles it in my voice and I review for 10 minutes. Life-changing."</p>
-          <div class="aa-testimonial__author">
-            <div class="aa-testimonial__avatar">MT</div>
-            <div>
-              <p class="aa-testimonial__name">Maria T.</p>
-              <p class="aa-testimonial__role">CEO, E-commerce Brand</p>
-            </div>
-          </div>
-        </div>
-        <div class="aa-testimonial reveal-up">
-          <div class="aa-testimonial__stars" aria-label="5 stars">★★★★★</div>
-          <p class="aa-testimonial__quote">"The multi-agent system they built coordinates our entire sales pipeline. Our close rate jumped 34% in the first month."</p>
-          <div class="aa-testimonial__author">
-            <div class="aa-testimonial__avatar">DK</div>
-            <div>
-              <p class="aa-testimonial__name">David K.</p>
-              <p class="aa-testimonial__role">Managing Partner, Consulting Firm</p>
-            </div>
+          <div class="spec__group">
+            <div class="spec__label">How it works</div>
+            <ul>
+              <li>We map the workflows worth handing to an agent</li>
+              <li>We build and wire the fleet into your systems</li>
+              <li>We supervise, tune, and keep it running</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════
-       THE GUARANTEE
-       ══════════════════════════════════════════ -->
-  <section class="aa-guarantee">
-    <div class="container">
-      <div class="aa-guarantee__inner reveal-up">
-        <div class="aa-guarantee__icon" aria-hidden="true">🛡️</div>
-        <h2 class="aa-guarantee__title">The 10-Hour ROI Guarantee</h2>
-        <p class="aa-guarantee__copy">If your custom agent doesn't vaporize <strong>10+ hours of grunt work</strong> from your calendar every week within the first 30 days, we engineer a ground-up rebuild — <strong>on our dime</strong>. No caveats. No fine print. We don't win unless you win.</p>
-        <a href="/contact.html?track=agents" class="btn btn--gold btn--large btn--magnetic">Claim Your Guarantee →</a>
+    <!-- In practice -->
+    <div class="feat rev reveal-up">
+      <div class="ft">
+        <div class="no">IN PRACTICE</div>
+        <h3>What a live fleet looks like.</h3>
+        <div class="tag">A support fleet for an e-commerce brand.</div>
+        <p class="desc">Picture a support fleet wired into WhatsApp and web chat: it answers order questions in seconds, resolves the routine stuff on its own, and holds anything sensitive — a large refund, an account change — for a human to approve. A generic example; every fleet is scoped to your business.</p>
+        <div class="chips"><span>WhatsApp</span><span>Web chat</span><span>Approval gates</span><span>CRM-wired</span></div>
+        <div class="links2">
+          <a class="visit" href="/contact.html">Scope your fleet</a>
+        </div>
+      </div>
+      <div class="bigframe">
+        <div class="gt"><span class="ic" style="background:linear-gradient(135deg,var(--cyan),var(--indigo))"></span>support fleet — live console <span style="margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--green)">● running</span></div>
+        <div class="row"><span>Channels</span><span class="v">WhatsApp · Web chat</span></div>
+        <div class="row"><span>Order-status questions</span><span class="pillg">● auto-resolved</span></div>
+        <div class="row"><span>Refund · $420</span><span class="pillv">⏸ held for approval</span></div>
+        <div class="row"><span>First response time</span><span class="v">under 1 min</span></div>
+        <div class="row"><span>Escalated to a human</span><span class="v">3 today</span></div>
+        <div class="bars"><div class="bar" style="width:82%"></div><div class="bar s" style="width:48%"></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       PRICING
-       ══════════════════════════════════════════ -->
-  <section class="aa-pricing" id="pricing">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--violet">Investment</span>
-        <h2 class="section-headline">Simple Pricing. Serious Results.</h2>
-        <p class="aa-section-sub">Every engagement starts with a discovery call. We scope it, price it, and deliver it — no surprises.</p>
-      </div>
-      <div class="aa-pricing__grid">
-        <!-- AI Assistant -->
-        <div class="aa-price-card reveal-up">
-          <p class="aa-price-card__tier">AI Assistant</p>
-          <h3 class="aa-price-card__price">$2,500</h3>
-          <p class="aa-price-card__sub">A full-time employee for a fraction of the cost</p>
-          <ul class="aa-price-card__features">
-            <li><span class="aa-check">✓</span> Custom AI agent trained on YOUR business, voice &amp; style</li>
-            <li><span class="aa-check">✓</span> Proactive task management — handles to-dos, scheduling &amp; research without being asked</li>
-            <li><span class="aa-check">✓</span> Instant lead response — catches every inquiry in under 2 seconds</li>
-            <li><span class="aa-check">✓</span> Deploys on WhatsApp, Slack, web chat, or email</li>
-            <li><span class="aa-check">✓</span> Remembers every client and every conversation</li>
-            <li><span class="aa-check">✓</span> Live in 48 hours</li>
-            <li><span class="aa-check">✓</span> Monthly optimization call</li>
-          </ul>
-          <p class="aa-price-card__best-for">Best for: You need a reliable right hand — someone handling the day-to-day so you can focus on growth.</p>
-          <a href="/contact.html?track=agents&tier=starter" class="btn btn--ghost btn--large aa-price-card__cta">Get Started →</a>
-        </div>
-        <!-- AI Sales Engine -->
-        <div class="aa-price-card aa-price-card--featured reveal-up">
-          <div class="aa-price-card__badge">Most Popular</div>
-          <p class="aa-price-card__tier">AI Sales Engine</p>
-          <h3 class="aa-price-card__price aa-price-card__price--gradient">$5,000</h3>
-          <p class="aa-price-card__sub">It doesn't just assist — it closes</p>
-          <ul class="aa-price-card__features">
-            <li><span class="aa-check">✓</span> Everything in AI Assistant, plus:</li>
-            <li><span class="aa-check">✓</span> 🎙️ Custom AI voice — sends &amp; receives voice notes that sound human</li>
-            <li><span class="aa-check">✓</span> 🔁 Automated sales follow-up — nurture sequences &amp; cold lead re-engagement</li>
-            <li><span class="aa-check">✓</span> 📊 CRM + calendar integration — books directly into your pipeline</li>
-            <li><span class="aa-check">✓</span> 📈 Live performance dashboard — see what your agent is converting</li>
-            <li><span class="aa-check">✓</span> 🗓️ Weekly strategy calls — we optimize with you every week</li>
-          </ul>
-          <p class="aa-price-card__best-for">Best for: You're leaving money on the table. You need an AI that actively SELLS, not just responds.</p>
-          <a href="/contact.html?track=agents&tier=pro" class="btn btn--violet btn--large btn--magnetic aa-price-card__cta">Build My Sales Engine →</a>
-        </div>
-        <!-- AI Infrastructure -->
-        <div class="aa-price-card reveal-up">
-          <p class="aa-price-card__tier">AI Infrastructure</p>
-          <h3 class="aa-price-card__price">$7,000<span style="font-size:24px;font-weight:600;">+</span></h3>
-          <p class="aa-price-card__sub">An AI that doesn't just run your business — it builds it</p>
-          <ul class="aa-price-card__features">
-            <li><span class="aa-check aa-check--gold">✓</span> Everything in Sales Engine, plus:</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 🏗️ AI that builds — websites, landing pages &amp; sales funnels deployed by your agent</li>
-            <li><span class="aa-check aa-check--gold">✓</span> ⚙️ Full tech infrastructure — automation pipelines, integrations &amp; backend systems</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 🤖 Multiple specialized agents — sales, support, operations &amp; development</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 💰 Financial systems — trading bots, analytics engines &amp; revenue tracking</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 🏷️ White-label ready — deploy under your brand, your domain</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 👤 Dedicated account manager + on-call support</li>
-            <li><span class="aa-check aa-check--gold">✓</span> 📋 Custom SLA &amp; uptime guarantee</li>
-          </ul>
-          <p class="aa-price-card__best-for">Best for: You want AI building your entire business infrastructure while you focus on the vision.</p>
-          <a href="/contact.html?track=agents&tier=enterprise" class="btn btn--gold btn--large btn--magnetic aa-price-card__cta">Let's Talk →</a>
-        </div>
-      </div>
-      <p class="reveal-up" style="text-align:center;margin-top:var(--space-xl);color:var(--text-muted);font-size:var(--text-sm);">
-        Already have an agent running? Keep it sharp, online, and evolving with our
-        <a href="/support.html" style="color:var(--violet-bright);text-underline-offset:3px;">monthly maintenance &amp; support plans →</a>
-      </p>
-    </div>
+  <!-- ── Closing CTA ── -->
+  <section class="closing wrap">
+    <span class="mono grad" style="display:block;margin-bottom:22px">Let's build</span>
+    <h2>Put a fleet to work on <span class="grad">your operation.</span></h2>
+    <a class="btn btn-fill btn--magnetic" href="/contact.html">Start an agent build →</a>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       FAQ
-       ══════════════════════════════════════════ -->
-  <section class="aa-faq">
-    <div class="container">
-      <div class="aa-section-header reveal-up">
-        <span class="label label--violet">FAQ</span>
-        <h2 class="section-headline">Questions We Get Asked</h2>
-      </div>
-      <div class="aa-faq__list">
-        <details class="aa-faq__item reveal-up">
-          <summary class="aa-faq__q">How long does it take to build an agent?</summary>
-          <p class="aa-faq__a">Most single agents are deployed within 5–10 business days. Multi-agent systems take 2–4 weeks. We move fast because the infrastructure is already built — we're not starting from scratch for each client.</p>
-        </details>
-        <details class="aa-faq__item reveal-up">
-          <summary class="aa-faq__q">What makes this different from ChatGPT or a chatbot?</summary>
-          <p class="aa-faq__a">ChatGPT is a general-purpose tool you prompt. Our agents are purpose-built for your business — trained on your data, integrated with your tools, operating autonomously under your rules. It's the difference between a Swiss army knife and a custom-forged blade.</p>
-        </details>
-        <details class="aa-faq__item reveal-up">
-          <summary class="aa-faq__q">Is my data secure?</summary>
-          <p class="aa-faq__a">Non-negotiable. Your data stays yours. Enterprise-grade encryption, isolated environments, zero shared training. We sign NDAs and custom data processing agreements as standard practice.</p>
-        </details>
-        <details class="aa-faq__item reveal-up">
-          <summary class="aa-faq__q">Can I try before committing?</summary>
-          <p class="aa-faq__a">Absolutely. Every engagement starts with a free discovery call where we map out exactly what your agent would do, how it integrates, and what the ROI looks like. Plus our 30-day guarantee means zero risk even after you sign.</p>
-        </details>
-        <details class="aa-faq__item reveal-up">
-          <summary class="aa-faq__q">What if I want to cancel maintenance?</summary>
-          <p class="aa-faq__a">Month-to-month. Cancel anytime. You own your agent — we just keep it running and improving. If you cancel, your agent keeps working; you just won't get updates, new features, or priority support.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       LEAD MAGNET
-       ══════════════════════════════════════════ -->
-  <section class="aa-lead-magnet">
-    <div class="container">
-      <div class="aa-lead-magnet__inner reveal-up">
-        <div class="aa-lead-magnet__content">
-          <span class="label label--gold">Free Resource</span>
-          <h2 class="aa-lead-magnet__title">The AI Agent Blueprint</h2>
-          <p class="aa-lead-magnet__copy">Our free guide breaks down exactly how to identify which parts of your business should be automated first, what an AI agent can (and can't) do, and how to calculate your ROI before spending a dime.</p>
-          <ul class="aa-lead-magnet__list">
-            <li>✦ The 5-Point "Should I Automate This?" Framework</li>
-            <li>✦ ROI Calculator Template (Spreadsheet Included)</li>
-            <li>✦ 12 Real Use Cases From Businesses Like Yours</li>
-          </ul>
-        </div>
-        <div class="aa-lead-magnet__form">
-          <p class="aa-lead-magnet__form-title">Get the free guide →</p>
-          <a href="/contact.html?track=agents-guide" class="btn btn--gold btn--large btn--magnetic" style="width:100%;justify-content:center;">Download Free Guide</a>
-          <p class="aa-lead-magnet__fine">No spam. Unsubscribe anytime.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FINAL CTA
-       ══════════════════════════════════════════ -->
-  <section class="footer-cta container reveal-up">
-    <h2 class="footer-cta__headline">Ready to build your AI workforce?</h2>
-    <p class="aa-final-sub">Book a free discovery call. We'll map out your agent, scope the build, and show you exactly what's possible.</p>
-    <div class="aa-final-ctas">
-      <a href="/contact.html?track=agents" class="btn btn--gold btn--large btn--magnetic">Book Discovery Call →</a>
-      <a href="/ventures.html" class="btn btn--ghost btn--large">See Our Track Record →</a>
-    </div>
-  </section>
-
-  <!-- ── Site Footer ───────────────────────── -->
+  <!-- ── Site footer ── -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="site-footer__grid">
         <div>
-          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
-          <p class="site-footer__tagline">AI Venture Studio</p>
+          <p class="site-footer__brand-name">Vibe<b>Works</b></p>
+          <p class="site-footer__tagline">AI platform engineers</p>
           <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
         </div>
         <div>
           <p class="site-footer__col-title">Navigation</p>
           <div class="site-footer__links">
-            <a href="/ventures.html">Ventures</a>
-            <a href="/services.html">Services</a>
+            <a href="/platforms.html">Platforms</a>
             <a href="/ai-agents.html">AI Agents</a>
+            <a href="/services.html">How We Work</a>
             <a href="/about.html">About</a>
             <a href="/support.html">Support</a>
             <a href="/contact.html">Contact</a>
@@ -600,909 +207,24 @@
         <div>
           <p class="site-footer__col-title">Portfolio</p>
           <div class="site-footer__links">
+            <a href="https://atomicitypro.com" target="_blank" rel="noopener">Atomicity</a>
+            <a href="https://growthos.ivanleejackson.workers.dev" target="_blank" rel="noopener">GrowthOS</a>
+            <a href="https://robinaiagent.com" target="_blank" rel="noopener">Robin Trade</a>
             <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
             <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
-            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
             <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
             <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+            <a href="https://aibookpublisher.com" target="_blank" rel="noopener">AI Book Publisher</a>
           </div>
         </div>
       </div>
       <div class="site-footer__bar">
         <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
-        <span>Built with AI. Delivered by humans.</span>
+        <span>We build the systems others only pitch.</span>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
-
-  <!-- ══════════════════════════════════════════
-       AI AGENTS PAGE STYLES (10/10 VERSION)
-       ══════════════════════════════════════════ -->
-  <style>
-    /* ── Hero ──────────────────────────────── */
-    .aa-hero {
-      position: relative;
-      padding: var(--space-4xl) 0 var(--space-xl);
-      overflow: hidden;
-    }
-    .aa-hero__inner { position: relative; z-index: 2; text-align: center; }
-    .aa-hero__title {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 8vw, 90px);
-      font-weight: 800;
-      line-height: 1.05;
-      margin-bottom: var(--space-md);
-    }
-    .aa-hero__title--gradient {
-      background: linear-gradient(135deg, var(--violet-bright), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .aa-hero__sub {
-      color: var(--text-muted);
-      font-size: var(--text-subhead);
-      max-width: 700px;
-      margin: 0 auto var(--space-lg);
-      line-height: 1.7;
-    }
-    .aa-hero__sub strong { color: var(--text-primary); }
-    .aa-hero__ctas {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ── Hero Image ───────────────────────── */
-    .aa-hero-img {
-      margin-top: calc(-1 * var(--space-sm));
-      margin-bottom: var(--space-xl);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 80px rgba(139,92,246,0.15), 0 0 160px rgba(139,92,246,0.05);
-    }
-    .aa-hero-img img { width: 100%; display: block; }
-
-    /* ── Marquee ──────────────────────────── */
-    .aa-marquee {
-      padding: var(--space-md) 0;
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: var(--space-xl);
-    }
-    .aa-marquee__track {
-      display: flex;
-      gap: 40px;
-      animation: aa-marquee-scroll 25s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .aa-marquee__track span {
-      font-family: var(--font-display);
-      font-size: clamp(18px, 2.5vw, 24px);
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .aa-marquee__sep {
-      color: var(--violet-bright) !important;
-      font-size: 14px !important;
-    }
-    @keyframes aa-marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── Section Headers ──────────────────── */
-    .aa-section-header { text-align: center; margin-bottom: var(--space-xl); }
-    .aa-section-sub {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: var(--space-md) auto 0;
-      line-height: 1.6;
-    }
-
-    /* ── Problem ──────────────────────────── */
-    .aa-problem { padding: var(--space-2xl) 0; }
-    .aa-problem__inner { max-width: 900px; margin: 0 auto; text-align: center; }
-    .aa-problem__headline { margin-top: var(--space-sm); }
-    .aa-problem__grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: var(--space-xl);
-      text-align: left;
-      margin-top: var(--space-lg);
-      align-items: center;
-    }
-    .aa-problem__copy {
-      color: var(--text-muted);
-      font-size: var(--text-body);
-      line-height: 1.7;
-      margin-bottom: var(--space-sm);
-    }
-    .aa-problem__copy em { color: var(--text-primary); font-style: italic; }
-    .aa-problem__stats {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-    .aa-problem__stat {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: var(--space-md);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .aa-problem__stat-num {
-      font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--violet-bright), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .aa-problem__stat-unit {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-    .aa-problem__stat-label {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-    .aa-problem__punchline {
-      color: var(--text-primary);
-      font-size: clamp(18px, 2.5vw, 22px);
-      font-weight: 600;
-      margin-top: var(--space-xl);
-      font-family: var(--font-display);
-      text-align: center;
-    }
-
-    /* ── Trust Strip ─────────────────────── */
-    .aa-trust-strip {
-      padding: var(--space-lg) 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .aa-trust-strip__label {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: var(--space-md);
-      opacity: 0.6;
-    }
-    .aa-trust-strip__logos {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-lg);
-      flex-wrap: wrap;
-    }
-    .aa-trust-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 600;
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
-    }
-    .aa-trust-logo:hover { opacity: 0.8; }
-
-    /* ── Before / After ───────────────────── */
-    .aa-transform { padding: var(--space-2xl) 0; background: var(--surface); }
-    .aa-ba-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .aa-ba-card {
-      background: var(--surface-2);
-      border-radius: 16px;
-      padding: var(--space-lg);
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-ba-card--before {
-      border-color: rgba(239,68,68,0.2);
-      background: linear-gradient(135deg, rgba(239,68,68,0.04), var(--surface-2));
-    }
-    .aa-ba-card--after {
-      border-color: rgba(16,185,129,0.3);
-      background: linear-gradient(135deg, rgba(16,185,129,0.04), var(--surface-2));
-      box-shadow: 0 0 40px rgba(16,185,129,0.08);
-    }
-    .aa-ba-card__title {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: var(--space-md);
-      color: var(--text-muted);
-    }
-    .aa-ba-card__title--after { color: var(--violet-bright); }
-    .aa-ba-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-    .aa-ba-list li { font-size: 15px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
-    .aa-ba-card--before .aa-ba-list li { color: var(--text-muted); }
-    .aa-ba-card--after .aa-ba-list li { color: var(--text-primary); }
-    .aa-x { color: #ef4444; font-weight: 700; flex-shrink: 0; }
-    .aa-check { color: var(--green-pulse); font-weight: 700; flex-shrink: 0; }
-    .aa-check--gold { color: var(--gold); }
-
-    /* ── Agent Cards ──────────────────────── */
-    .aa-types { padding: var(--space-2xl) 0; }
-    .aa-agent-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-md);
-    }
-    .aa-agent-card {
-      position: relative;
-      background: var(--surface);
-      border-radius: 16px;
-      padding: var(--space-lg);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-agent-card__icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-md);
-    }
-    .aa-agent-card__icon svg { width: 28px; height: 28px; }
-    .aa-agent-card__icon--gold { background: var(--gold-glow); color: var(--gold); }
-    .aa-agent-card__icon--violet { background: var(--violet-glow); color: var(--violet-bright); }
-    .aa-agent-card__icon--green { background: rgba(16,185,129,0.12); color: #10B981; }
-    .aa-agent-card__label {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .aa-agent-card__title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .aa-agent-card__body {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      line-height: 1.6;
-    }
-    .aa-agent-card__glow {
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at center, rgba(139,92,246,0.06) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-
-    /* ── Process Phases ───────────────────── */
-    .aa-process { padding: var(--space-2xl) 0; background: var(--surface); }
-    .aa-phase {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      align-items: center;
-      margin-bottom: var(--space-2xl);
-    }
-    .aa-phase:last-child { margin-bottom: 0; }
-    .aa-phase--reversed .aa-phase__visual { order: -1; }
-    .aa-phase__badge { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-md); }
-    .aa-phase__num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-    }
-    .aa-phase__num--violet { background: var(--violet-glow); color: var(--violet-bright); }
-    .aa-phase__num--gold { background: var(--gold-glow); color: var(--gold); }
-    .aa-phase__title {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3vw, 36px);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: var(--space-md);
-    }
-    .aa-phase__copy {
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: var(--space-md);
-    }
-    .aa-phase__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-    .aa-phase__list li { color: var(--text-muted); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
-    .aa-arrow { font-weight: 700; flex-shrink: 0; }
-    .aa-arrow--violet { color: var(--violet-bright); }
-    .aa-arrow--gold { color: var(--gold); }
-    .aa-phase__visual {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-phase__visual img {
-      width: 100%;
-      display: block;
-      filter: brightness(1.15) contrast(1.05);
-    }
-
-    /* Stats grid for Phase 4 */
-    .aa-phase__stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      padding: var(--space-xl);
-      background: linear-gradient(135deg, rgba(139,92,246,0.06), rgba(232,184,75,0.06));
-    }
-    .aa-stat-card {
-      background: var(--surface-2);
-      border-radius: 12px;
-      padding: var(--space-md) var(--space-sm);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .aa-stat-card__number {
-      font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 700;
-      margin: 0;
-    }
-    .aa-stat-card__number--violet { color: var(--violet-bright); }
-    .aa-stat-card__number--gold { color: var(--gold); }
-    .aa-stat-card__number--green { color: var(--green-pulse); }
-    .aa-stat-card__label { color: var(--text-muted); font-size: var(--text-sm); margin: 4px 0 0; }
-
-    /* ── Why Us / Proof ───────────────────── */
-    .aa-why { padding: var(--space-2xl) 0; }
-    .aa-proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .aa-proof-card {
-      text-align: center;
-      padding: var(--space-lg);
-      background: var(--surface);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-proof-card__stat {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 5vw, 48px);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--violet-bright), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: var(--space-sm);
-    }
-    .aa-proof-card__label {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      line-height: 1.5;
-    }
-
-    /* ── Testimonials ─────────────────────── */
-    .aa-testimonials { padding: var(--space-2xl) 0; background: var(--surface); }
-    .aa-testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .aa-testimonial {
-      background: var(--surface-2);
-      border-radius: 16px;
-      padding: var(--space-lg);
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-testimonial__stars {
-      color: var(--gold);
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: var(--space-md);
-    }
-    .aa-testimonial__quote {
-      color: var(--text-primary);
-      font-size: 15px;
-      line-height: 1.7;
-      font-style: italic;
-      flex: 1;
-      margin-bottom: var(--space-md);
-    }
-    .aa-testimonial__author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border);
-    }
-    .aa-testimonial__avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--violet), var(--violet-bright));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-    .aa-testimonial__name {
-      font-weight: 600;
-      font-size: 14px;
-      margin: 0;
-    }
-    .aa-testimonial__role {
-      color: var(--text-muted);
-      font-size: 12px;
-      margin: 2px 0 0;
-    }
-
-    /* ── Guarantee ─────────────────────────── */
-    .aa-guarantee { padding: var(--space-2xl) 0; }
-    .aa-guarantee__inner {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      background: var(--surface);
-      border-radius: 24px;
-      padding: var(--space-2xl) var(--space-xl);
-      border: 2px solid rgba(232,184,75,0.3);
-      box-shadow: 0 0 80px rgba(232,184,75,0.08), 0 0 160px rgba(232,184,75,0.04);
-      position: relative;
-      overflow: hidden;
-    }
-    .aa-guarantee__inner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--violet-bright), var(--gold));
-    }
-    .aa-guarantee__icon { font-size: 56px; margin-bottom: var(--space-md); }
-    .aa-guarantee__title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 800;
-      margin-bottom: var(--space-md);
-      background: linear-gradient(135deg, var(--gold), #f5d78e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .aa-guarantee__copy {
-      color: var(--text-muted);
-      font-size: 17px;
-      line-height: 1.7;
-      margin-bottom: var(--space-lg);
-    }
-    .aa-guarantee__copy strong { color: var(--text-primary); }
-
-    /* ── Pricing ───────────────────────────── */
-    .aa-pricing { padding: var(--space-2xl) 0; background: var(--surface); }
-    .aa-pricing__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start;
-    }
-    .aa-price-card {
-      background: var(--surface-2);
-      border-radius: 16px;
-      padding: var(--space-lg);
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .aa-price-card--featured {
-      border-color: rgba(139,92,246,0.4);
-      box-shadow: 0 0 60px rgba(139,92,246,0.1);
-      transform: scale(1.03);
-    }
-    .aa-price-card__badge {
-      position: absolute;
-      top: -12px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--violet), var(--violet-bright));
-      color: white;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 4px 16px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .aa-price-card__tier {
-      color: var(--text-muted);
-      font-size: var(--text-label);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .aa-price-card__price {
-      font-family: var(--font-display);
-      font-size: 40px;
-      font-weight: 800;
-      margin: var(--space-xs) 0;
-    }
-    .aa-price-card__price--gradient {
-      background: linear-gradient(135deg, var(--violet-bright), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .aa-price-card__sub {
-      color: var(--text-muted);
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-lg);
-    }
-    .aa-price-card__features {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex: 1;
-    }
-    .aa-price-card__features li {
-      font-size: 14px;
-      display: flex;
-      gap: 8px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-    .aa-price-card--featured .aa-price-card__features li { color: var(--text-primary); }
-    .aa-price-card__best-for {
-      margin-top: var(--space-md);
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-      font-style: italic;
-    }
-    .aa-price-card--featured .aa-price-card__best-for {
-      color: var(--text-primary);
-    }
-    .aa-price-card__cta {
-      margin-top: var(--space-lg);
-      text-align: center;
-      width: 100%;
-      justify-content: center;
-    }
-
-    /* ── Lead Magnet ───────────────────────── */
-    .aa-lead-magnet { padding: var(--space-2xl) 0; }
-    .aa-lead-magnet__inner {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: var(--space-xl);
-      align-items: center;
-      background: var(--surface);
-      border-radius: 20px;
-      padding: var(--space-xl);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    .aa-lead-magnet__inner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--violet-bright), var(--gold));
-    }
-    .aa-lead-magnet__title {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 3.5vw, 36px);
-      font-weight: 800;
-      margin: var(--space-sm) 0 var(--space-md);
-    }
-    .aa-lead-magnet__copy {
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: var(--space-md);
-    }
-    .aa-lead-magnet__list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .aa-lead-magnet__list li {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .aa-lead-magnet__form {
-      background: var(--surface-2);
-      border-radius: 16px;
-      padding: var(--space-lg);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .aa-lead-magnet__form-title {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 20px;
-      margin-bottom: var(--space-md);
-    }
-    .aa-lead-magnet__fine {
-      color: var(--text-muted);
-      font-size: 12px;
-      margin-top: var(--space-sm);
-      opacity: 0.6;
-    }
-
-    /* ── FAQ ───────────────────────────────── */
-    .aa-faq { padding: var(--space-2xl) 0; }
-    .aa-faq__list {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .aa-faq__item {
-      background: var(--surface);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: border-color 0.3s ease;
-    }
-    .aa-faq__item[open] { border-color: rgba(139,92,246,0.3); }
-    .aa-faq__q {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      padding: var(--space-md) var(--space-lg);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .aa-faq__q::-webkit-details-marker { display: none; }
-    .aa-faq__q::after {
-      content: '+';
-      font-size: 24px;
-      color: var(--violet-bright);
-      font-weight: 400;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-      margin-left: var(--space-md);
-    }
-    .aa-faq__item[open] .aa-faq__q::after { transform: rotate(45deg); }
-    .aa-faq__a {
-      color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.7;
-      padding: 0 var(--space-lg) var(--space-md);
-    }
-
-    /* ── Final CTA ────────────────────────── */
-    .aa-final-sub {
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto var(--space-lg);
-      font-size: var(--text-subhead);
-    }
-    .aa-final-ctas {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ══════════════════════════════════════════
-       HOVER EFFECTS (Desktop)
-       ══════════════════════════════════════════ */
-    @media (hover: hover) {
-      .aa-agent-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(139,92,246,0.3);
-        box-shadow: 0 16px 48px rgba(139,92,246,0.12);
-      }
-      .aa-agent-card:hover .aa-agent-card__glow { opacity: 1; }
-      .aa-phase__visual:not(.aa-phase__stats-grid):hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(139,92,246,0.15);
-      }
-      .aa-ba-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-      .aa-testimonial:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(139,92,246,0.1); }
-      .aa-proof-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(139,92,246,0.1); }
-      .aa-price-card:hover:not(.aa-price-card--featured) {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(139,92,246,0.1);
-      }
-      .aa-price-card--featured:hover { transform: scale(1.05); }
-      .aa-faq__item:hover { border-color: rgba(139,92,246,0.2); }
-      .aa-guarantee__inner:hover {
-        box-shadow: 0 0 100px rgba(232,184,75,0.12), 0 0 200px rgba(232,184,75,0.06);
-      }
-    }
-
-    /* ── Staggered reveals ────────────────── */
-    .aa-agent-grid .aa-agent-card:nth-child(2) { transition-delay: 80ms; }
-    .aa-agent-grid .aa-agent-card:nth-child(3) { transition-delay: 160ms; }
-    .aa-agent-grid .aa-agent-card:nth-child(4) { transition-delay: 240ms; }
-    .aa-agent-grid .aa-agent-card:nth-child(5) { transition-delay: 320ms; }
-    .aa-agent-grid .aa-agent-card:nth-child(6) { transition-delay: 400ms; }
-    .aa-proof-grid .aa-proof-card:nth-child(2) { transition-delay: 100ms; }
-    .aa-proof-grid .aa-proof-card:nth-child(3) { transition-delay: 200ms; }
-    .aa-testimonial-grid .aa-testimonial:nth-child(2) { transition-delay: 100ms; }
-    .aa-testimonial-grid .aa-testimonial:nth-child(3) { transition-delay: 200ms; }
-    .aa-pricing__grid .aa-price-card:nth-child(2) { transition-delay: 80ms; }
-    .aa-pricing__grid .aa-price-card:nth-child(3) { transition-delay: 160ms; }
-    .aa-faq__list .aa-faq__item:nth-child(2) { transition-delay: 50ms; }
-    .aa-faq__list .aa-faq__item:nth-child(3) { transition-delay: 100ms; }
-    .aa-faq__list .aa-faq__item:nth-child(4) { transition-delay: 150ms; }
-    .aa-faq__list .aa-faq__item:nth-child(5) { transition-delay: 200ms; }
-
-    /* ══════════════════════════════════════════
-       MOBILE RESPONSIVE
-       ══════════════════════════════════════════ */
-    @media (max-width: 768px) {
-      .aa-hero { padding: var(--space-3xl) 0 var(--space-lg); }
-      .aa-hero__title { font-size: clamp(32px, 10vw, 56px); }
-      .aa-hero__ctas {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 var(--space-md);
-      }
-      .aa-hero__ctas .btn { width: 100%; text-align: center; justify-content: center; }
-
-      .aa-hero-img { border-radius: 12px; margin: 0 var(--space-sm) var(--space-lg); }
-
-      .aa-marquee__track span { font-size: 16px; }
-
-      .aa-problem__grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .aa-problem__stats {
-        flex-direction: row;
-        gap: var(--space-sm);
-      }
-      .aa-problem__stat { flex: 1; padding: var(--space-sm); }
-      .aa-problem__stat-num { font-size: 36px; }
-
-      .aa-ba-grid { grid-template-columns: 1fr; }
-      .aa-ba-card { padding: var(--space-md); }
-
-      .aa-agent-grid { grid-template-columns: 1fr; }
-      .aa-agent-card { padding: var(--space-md); }
-
-      .aa-phase {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-      }
-      .aa-phase--reversed .aa-phase__visual { order: 1; }
-      .aa-phase__title { font-size: clamp(24px, 6vw, 32px); }
-      .aa-phase__stats-grid { padding: var(--space-md); gap: var(--space-sm); }
-
-      .aa-proof-grid { grid-template-columns: 1fr; max-width: 400px; }
-
-      .aa-testimonial-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-
-      .aa-guarantee__inner {
-        padding: var(--space-xl) var(--space-md);
-        border-radius: 16px;
-      }
-      .aa-guarantee__copy { font-size: 15px; }
-
-      .aa-pricing__grid { grid-template-columns: 1fr; max-width: 440px; }
-      .aa-price-card--featured { order: -1; transform: none; }
-
-      .aa-faq__q { font-size: 16px; padding: var(--space-md); }
-      .aa-faq__a { padding: 0 var(--space-md) var(--space-md); }
-
-      .aa-lead-magnet__inner {
-        grid-template-columns: 1fr;
-        padding: var(--space-lg) var(--space-md);
-      }
-
-      .aa-trust-strip__logos { gap: var(--space-md); }
-      .aa-trust-logo { font-size: 12px; }
-
-      .aa-final-ctas {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 var(--space-md);
-      }
-      .aa-final-ctas .btn { width: 100%; text-align: center; justify-content: center; }
-    }
-
-    @media (max-width: 480px) {
-      .aa-hero__title { font-size: clamp(28px, 9vw, 42px); }
-      .aa-problem__stats { flex-direction: column; }
-      .aa-stat-card__number { font-size: 28px; }
-    }
-
-    /* ── Tablet tweaks ────────────────────── */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .aa-agent-grid { grid-template-columns: repeat(2, 1fr); }
-      .aa-testimonial-grid { grid-template-columns: repeat(2, 1fr); }
-      .aa-testimonial:nth-child(3) { grid-column: 1 / -1; max-width: 500px; justify-self: center; }
-    }
-  </style>
-
-  <!-- ── Counter Animation Script ─────────── -->
-  <script>
-    // Animated number counter for stats
-    (function() {
-      const counters = document.querySelectorAll('.aa-counter, .aa-problem__stat-num[data-target]');
-      const speed = 1500;
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.getAttribute('data-target'));
-            if (isNaN(target) || el.dataset.counted) return;
-            el.dataset.counted = 'true';
-
-            const start = performance.now();
-            function update(now) {
-              const progress = Math.min((now - start) / speed, 1);
-              const eased = 1 - Math.pow(1 - progress, 3); // ease out cubic
-              el.textContent = Math.floor(eased * target);
-              if (progress < 1) requestAnimationFrame(update);
-              else el.textContent = target;
-            }
-            requestAnimationFrame(update);
-            observer.unobserve(el);
-          }
-        });
-      }, { threshold: 0.3 });
-
-      counters.forEach(el => observer.observe(el));
-    })();
-  </script>
 </body>
 </html>
