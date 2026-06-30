@@ -3,139 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — VibeWorks AI Studio</title>
-  <meta name="description" content="VibeWorks AI Studio is a two-person AI venture studio led by Ivanlee Jackson and Natasha Burton. Learn our story and thesis.">
+  <title>About — Two builders, one platform studio | VibeWorks</title>
+  <meta name="description" content="VibeWorks is a two-person studio that designs, builds, and runs production-grade AI platforms. Operators, not a research lab or an agency — the proof is the software running in production.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vibeworksstudio.ai/about.html">
-  <meta property="og:title" content="About VibeWorks AI Studio">
-  <meta property="og:description" content="VibeWorks AI Studio is a two-person AI venture studio led by Ivanlee Jackson and Natasha Burton.">
+  <meta property="og:title" content="About — Two builders, one platform studio | VibeWorks">
+  <meta property="og:description" content="Ivan builds the platforms; Natasha makes them land. A deliberately small studio shipping production-grade AI systems — Atomicity, GrowthOS, Robin Trade — and the consumer apps that show the range.">
   <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About VibeWorks AI Studio">
-  <meta name="twitter:description" content="VibeWorks AI Studio is a two-person AI venture studio led by Ivanlee Jackson and Natasha Burton.">
+  <meta name="twitter:title" content="About — Two builders, one platform studio | VibeWorks">
+  <meta name="twitter:description" content="A two-person studio shipping production-grade AI platforms. Operators, not a lab or an agency.">
   <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
-  <meta name="theme-color" content="#8B5CF6">
+  <meta name="theme-color" content="#070512">
   <link rel="canonical" href="https://vibeworksstudio.ai/about.html">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- ── Aurora + engineered-grid backdrop ── -->
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- ── Custom cursor ── -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── Scroll progress ── -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">VibeWorks</a>
-      <div class="nav__links" id="navLinks">
-        <a href="/ventures.html" class="nav__link">Ventures</a>
-        <a href="/services.html" class="nav__link">Services</a>
-        <a href="/ai-agents.html" class="nav__link">AI Agents</a>
-        <a href="/about.html"    class="nav__link" aria-current="page">About</a>
-        <a href="/contact.html"  class="nav__cta">Contact</a>
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="in">
+      <a class="logo" href="/">Vibe<b>Works</b></a>
+      <div class="links" id="navLinks">
+        <a href="/platforms.html">Platforms</a>
+        <a href="/ai-agents.html">AI Agents</a>
+        <a href="/services.html">How We Work</a>
+        <a href="/about.html">About</a>
+        <a class="cta" href="/contact.html">Start a build →</a>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ── Page Hero ────────────────────────── -->
-  <section class="page-hero">
-    <div class="container">
-      <h1 class="page-hero__headline reveal-up">Built By Builders.</h1>
-      <p class="page-hero__subline reveal-up">VibeWorks AI Studio is a two-person team that ships faster than most companies ten times our size. Here's why — and where we're going.</p>
+  <!-- ── Page hero ── -->
+  <header class="pagehead wrap">
+    <span class="pill"><span class="d"></span>The studio behind the platforms</span>
+    <h1>Two builders.<br><span class="grad">One platform studio.</span></h1>
+    <p class="sub">VibeWorks designs, builds, and runs production-grade AI platforms. We're operators, not a research lab or an agency — the proof is the software running in production right now.</p>
+    <div class="stats">
+      <div><div class="n grad">3</div><div class="l">Flagship platforms</div></div>
+      <div><div class="n">8</div><div class="l">Products live</div></div>
+      <div><div class="n">5</div><div class="l">Verticals</div></div>
     </div>
+  </header>
+
+  <!-- ── Thesis ── -->
+  <section class="about-thesis wrap">
+    <div class="sh reveal-up">
+      <span class="mono grad">The thesis</span>
+      <h2>Operators, not observers.</h2>
+    </div>
+    <p class="lede reveal-up">Most AI talk is decks and demos. We ship. VibeWorks exists to turn hard problems — <b>multi-tenant SaaS, compliant payments, autonomous agents</b> — into systems that run in production and hold up under real use. We don't write reports about what's possible; we build the thing and put it live. A two-person studio, deliberately small, with an enterprise-grade output bar.</p>
   </section>
 
-  <!-- ── Studio Thesis ────────────────────── -->
-  <section class="container">
-    <div class="about-thesis">
-      <span class="label label--violet">Our Thesis</span>
-      <p class="reveal-up">Most AI companies are either research labs or service firms. We're neither.</p>
-      <p class="reveal-up">We're operators. We build products, put them live, and watch them work in the real world. That feedback loop — across 9 products, 5 verticals, hundreds of thousands of users — is what makes us different.</p>
-      <p class="reveal-up">The formula we've developed isn't magic. It's a repeatable system: identify a real problem, build a focused AI solution, launch with distribution, iterate fast. Two weeks, start to finish.</p>
-      <p class="reveal-up">We're building VibeWorks to be the studio that defines what AI product development looks like at speed and scale. Every product teaches us something. Every client build funds the next experiment. The machine keeps compounding.</p>
-    </div>
-  </section>
-
-  <!-- ── Team ──────────────────────────────── -->
-  <section class="container about-section">
-    <div class="section-header reveal-up" style="margin-bottom: var(--space-2xl);">
-      <span class="label label--gold">The Team</span>
-      <h2 class="section-headline">Two People. Nine Products.</h2>
+  <!-- ── The two builders ── -->
+  <section class="founders wrap">
+    <div class="sh reveal-up">
+      <span class="mono grad">The two builders</span>
+      <h2>Who's behind it.</h2>
+      <p>One engine for what we build, one for whether it lands. Together, that's the whole machine.</p>
     </div>
 
-    <div class="founder reveal-up" style="margin-bottom: var(--space-2xl);">
-      <div class="founder__photo founder__photo--violet">
-        <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson — Co-Founder &amp; CTO" loading="lazy">
+    <!-- Ivan -->
+    <div class="feat reveal-up">
+      <div class="ft">
+        <div class="no">CO-FOUNDER · CTO</div>
+        <h3>Ivanlee Jackson</h3>
+        <div class="tag">The technical engine.</div>
+        <p class="desc">Ivan architects and builds every platform the studio ships. Atomicity's multi-tenant, PCI-compliant collections stack, GrowthOS's autonomous ad planner, Robin Trade's supervised trading agent — all built on Cloudflare's edge, all in production. The platforms are the proof.</p>
+        <div class="chips"><span>Architecture</span><span>Multi-tenant SaaS</span><span>Compliance</span><span>Cloudflare edge</span><span>AI agents</span></div>
+        <div class="links2">
+          <a class="visit" href="/platforms.html">See the platforms</a>
+        </div>
       </div>
-      <div class="founder__content">
-        <h3 class="founder__name">Ivanlee Jackson</h3>
-        <p class="founder__title">Co-Founder &amp; CTO</p>
-        <p class="founder__bio">10+ years building full-stack products from zero to production. Ivan has shipped AI-powered apps across healthcare, fintech, music, and consumer tech — fast, clean, and built to scale.</p>
-        <p class="founder__bio founder__bio--strong">He architects the infrastructure. He writes the code. He is the reason 2 weeks is a track record, not a claim.</p>
-        <ul class="founder__creds">
-          <li>10+ years full-stack engineering</li>
-          <li>Expert in 0→1 AI product builds</li>
-          <li>Claude, OpenAI &amp; modern AI infrastructure</li>
-          <li>Every line of code is production-grade</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="founder founder--reverse reveal-up">
-      <div class="founder__photo founder__photo--gold">
-        <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton — Co-Founder &amp; CEO" loading="lazy">
-      </div>
-      <div class="founder__content">
-        <h3 class="founder__name">Natasha Burton</h3>
-        <p class="founder__title">Co-Founder &amp; CEO</p>
-        <p class="founder__bio">500K+ followers and a track record of turning audiences into revenue. Natasha understands distribution at a level most agencies never reach — because she lives it.</p>
-        <p class="founder__bio founder__bio--strong">She is the reason products don't just launch. They land.</p>
-        <ul class="founder__creds">
-          <li>500K+ engaged audience</li>
-          <li>Serial viral product launcher</li>
-          <li>Creator economy &amp; growth strategy</li>
-          <li>The bridge between AI capability and real people</li>
-        </ul>
+      <div class="portrait">
+        <figure>
+          <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson, Co-Founder and CTO of VibeWorks" loading="lazy">
+          <figcaption><span class="ic"></span>Ivanlee Jackson · CTO</figcaption>
+        </figure>
       </div>
     </div>
-  </section>
 
-  <!-- ── The Vision ────────────────────────── -->
-  <section class="container about-section">
-    <div style="max-width: 720px; margin: 0 auto;">
-      <span class="label label--violet">Where We're Going</span>
-      <h2 class="section-headline reveal-up">The Vision</h2>
-      <p class="reveal-up" style="font-family: var(--font-body); font-size: var(--text-subhead); color: var(--text-muted); line-height: 1.7; margin-top: var(--space-md);">We're building a portfolio of AI products that compounds. Each venture teaches us something the next one benefits from. Each client build funds the next studio experiment. The goal is not one big hit — it's a machine that keeps producing them. We're early. The portfolio is growing. If you want to be part of that, there's a track for you.</p>
+    <!-- Natasha -->
+    <div class="feat rev reveal-up">
+      <div class="ft">
+        <div class="no">CO-FOUNDER · CEO</div>
+        <h3>Natasha Burton</h3>
+        <div class="tag">The distribution engine.</div>
+        <p class="desc">Natasha makes sure what we build actually lands. She leads positioning, audience, and go-to-market, and brings a 500K+ audience of her own to every launch. Engineering decides whether a product works; distribution decides whether anyone uses it — that's her half of the machine.</p>
+        <div class="chips"><span>Go-to-market</span><span>Positioning</span><span>500K+ audience</span><span>Brand</span><span>Partnerships</span></div>
+        <div class="links2">
+          <a class="visit" href="/contact.html">Work with the studio</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <figure>
+          <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton, Co-Founder and CEO of VibeWorks" loading="lazy">
+          <figcaption><span class="ic"></span>Natasha Burton · CEO</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- ── CTA ───────────────────────────────── -->
-  <section class="footer-cta container reveal-up">
-    <h2 class="footer-cta__headline">You've seen who we are. Now let's build something.</h2>
-    <a href="/contact.html" class="btn btn--gold btn--large btn--magnetic">Start A Conversation →</a>
+  <!-- ── Vision ── -->
+  <section class="about-vision wrap">
+    <div class="sh reveal-up">
+      <span class="mono grad">Where this goes</span>
+      <h2>A compounding platform studio.</h2>
+      <p>Every build makes the next one faster. Shared infrastructure, patterns, and AI tooling compound across the portfolio — so a two-person studio can ship like a much bigger one, and keep widening the gap.</p>
+    </div>
+    <div class="waysgrid">
+      <div class="way reveal-up">
+        <div class="no">01 — PRINCIPLE</div>
+        <h3>Build, then own</h3>
+        <p>We'd rather ship and run real products than bill hours. Owning the platforms keeps our standards honest — we live with every decision.</p>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">02 — PRINCIPLE</div>
+        <h3>Small on purpose</h3>
+        <p>Two builders, no layers. Decisions are fast, scope stays tight, and quality doesn't get diluted on the way to production.</p>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">03 — PRINCIPLE</div>
+        <h3>Compounding infrastructure</h3>
+        <p>What we build for one platform makes the next one cheaper and faster. The portfolio is the moat — and it grows with every launch.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- ── Site Footer ───────────────────────── -->
+  <!-- ── Closing CTA ── -->
+  <section class="closing wrap">
+    <span class="mono grad" style="display:block;margin-bottom:22px">Let's build</span>
+    <h2>Have something worth building? <span class="grad">Let's talk.</span></h2>
+    <a class="btn btn-fill btn--magnetic" href="/contact.html">Start the conversation →</a>
+  </section>
+
+  <!-- ── Site footer ── -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="site-footer__grid">
         <div>
-          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
-          <p class="site-footer__tagline">AI Venture Studio</p>
+          <p class="site-footer__brand-name">Vibe<b>Works</b></p>
+          <p class="site-footer__tagline">AI platform engineers</p>
           <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
         </div>
         <div>
           <p class="site-footer__col-title">Navigation</p>
           <div class="site-footer__links">
-            <a href="/ventures.html">Ventures</a>
-            <a href="/services.html">Services</a>
+            <a href="/platforms.html">Platforms</a>
+            <a href="/ai-agents.html">AI Agents</a>
+            <a href="/services.html">How We Work</a>
             <a href="/about.html">About</a>
             <a href="/support.html">Support</a>
             <a href="/contact.html">Contact</a>
@@ -144,17 +177,20 @@
         <div>
           <p class="site-footer__col-title">Portfolio</p>
           <div class="site-footer__links">
+            <a href="https://atomicitypro.com" target="_blank" rel="noopener">Atomicity</a>
+            <a href="https://growthos.ivanleejackson.workers.dev" target="_blank" rel="noopener">GrowthOS</a>
+            <a href="https://robinaiagent.com" target="_blank" rel="noopener">Robin Trade</a>
             <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
             <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
-            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
             <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
             <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+            <a href="https://aibookpublisher.com" target="_blank" rel="noopener">AI Book Publisher</a>
           </div>
         </div>
       </div>
       <div class="site-footer__bar">
         <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
-        <span>Built with AI. Delivered by humans.</span>
+        <span>We build the systems others only pitch.</span>
       </div>
     </div>
   </footer>
