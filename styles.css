@@ -207,3 +207,35 @@ a.visit:hover:after{transform:translateX(4px)}
   .stats{gap:24px}
   .closing{padding:84px 0}
 }
+
+/* ============================================================
+   PAGE-SPECIFIC — Platforms page
+   ============================================================ */
+
+/* ── Inner-page hero (centered) ────────────────────────────── */
+.pagehead{padding:84px 0 26px;text-align:center;max-width:800px;margin:0 auto}
+.pagehead .pill{margin-bottom:22px}
+.pagehead h1{font-family:var(--disp);font-weight:800;font-size:clamp(40px,5.6vw,74px);line-height:1.0;letter-spacing:-.035em}
+.pagehead .sub{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:var(--txt-dim);max-width:580px;margin:22px auto 0}
+.pagehead .stats{justify-content:center;margin-top:40px}
+
+/* ── Selected client work (gold accent card) ───────────────── */
+.clientwork{--gold:#e8b958;--gold-br:#f5d480;padding:72px 0;border-top:1px solid var(--line-soft)}
+.clientcard{display:grid;grid-template-columns:.82fr 1.18fr;align-items:stretch;max-width:1000px;margin:0 auto;border:1px solid rgba(232,185,88,.28);border-radius:20px;overflow:hidden;background:linear-gradient(160deg,rgba(28,22,10,.66),rgba(11,9,18,.72));box-shadow:0 44px 96px rgba(0,0,0,.55),inset 0 1px 0 rgba(245,212,128,.12);transition:.25s ease}
+.clientcard:hover{transform:translateY(-4px);border-color:rgba(245,212,128,.5);box-shadow:0 52px 110px rgba(232,185,88,.16)}
+.clientcard__art{position:relative;min-height:240px;padding:28px;display:flex;align-items:flex-end;border-right:1px solid rgba(232,185,88,.22);background:radial-gradient(circle at 28% 22%,rgba(245,212,128,.2),transparent 56%),linear-gradient(150deg,#1d1708,#0b0a12);overflow:hidden}
+.clientcard__bars{display:flex;align-items:flex-end;gap:9px;height:150px;width:100%}
+.clientcard__bars i{flex:1;border-radius:3px;background:linear-gradient(180deg,var(--gold-br),rgba(232,185,88,.32));box-shadow:0 0 16px rgba(245,212,128,.22)}
+.clientcard__body{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+.clientcard__no{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--gold-br)}
+.clientcard__body h3{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,40px);letter-spacing:-.025em;margin:12px 0 6px}
+.clientcard__tag{font-size:17px;color:var(--gold-br);font-weight:500;margin-bottom:14px}
+.clientcard__body p{font-size:15.5px;color:var(--txt-dim);line-height:1.65;max-width:440px}
+.clientcard .visit{margin-top:22px;color:#fff}
+.clientcard .visit:after{color:var(--gold-br)}
+
+@media(max-width:880px){
+  .clientcard{grid-template-columns:1fr}
+  .clientcard__art{border-right:0;border-bottom:1px solid rgba(232,185,88,.22);min-height:170px}
+  .clientcard__bars{height:110px}
+}
