@@ -14,19 +14,42 @@
   <meta name="twitter:title" content="AI Agent Maintenance &amp; Support — VibeWorks AI Studio">
   <meta name="twitter:description" content="Monthly maintenance & support plans for your AI agent. Stay online, current, and evolving.">
   <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
-  <meta name="theme-color" content="#8B5CF6">
+  <meta name="theme-color" content="#070512">
   <link rel="canonical" href="https://vibeworksstudio.ai/support.html">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <!-- ── Page-scoped styles (support.html only) ─────────────────
-       Uses the site's design tokens (--violet, --gold, --surface,
-       --border, --font-display, etc.). Nothing here leaks to other
-       pages — all selectors are .sup-* prefixed.            -->
+       All selectors are .sup-* prefixed. Token bridge maps legacy
+       custom props onto the new cinematic design system tokens. -->
   <style>
+    /* ── Token bridge: legacy → cinematic system ── */
+    :root {
+      --violet-glow:   rgba(139,92,246,0.12);
+      --gold:          #e8b84b;
+      --gold-glow:     rgba(232,184,75,0.12);
+      --border:        var(--line);
+      --font-display:  var(--disp);
+      --font-body:     var(--sans);
+      --text-muted:    var(--txt-dim);
+      --text-primary:  var(--txt);
+      --text-subtle:   var(--txt-mute);
+      --violet-bright: var(--violet-br);
+      --base:          var(--bg);
+      --surface:       var(--bg-2);
+      --ease-base:     0.25s ease;
+      --space-xs:      0.4rem;
+      --space-sm:      0.75rem;
+      --space-md:      1.25rem;
+      --space-lg:      1.75rem;
+      --space-xl:      2.5rem;
+      --space-2xl:     3.5rem;
+      --space-3xl:     5rem;
+    }
+
     /* ── Marquee ticker ── */
     .sup-ticker {
       background: var(--violet-glow);
@@ -55,15 +78,15 @@
     @media (prefers-reduced-motion: reduce) { .sup-ticker__track { animation: none; } }
 
     /* ── Hero ── */
-    .sup-hero { position: relative; overflow: hidden; text-align: center; }
-    .sup-hero .container { display: flex; flex-direction: column; align-items: center; }
+    .sup-hero { position: relative; overflow: hidden; text-align: center; padding: 96px 0 80px; }
+    .sup-hero .wrap { display: flex; flex-direction: column; align-items: center; }
     .sup-hero__glow {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
       background:
         radial-gradient(ellipse 70% 55% at 50% 0%, rgba(139,92,246,0.20) 0%, transparent 62%),
         radial-gradient(ellipse 45% 35% at 82% 88%, rgba(232,184,75,0.07) 0%, transparent 60%);
     }
-    .sup-hero .container > * { position: relative; z-index: 1; }
+    .sup-hero .wrap > * { position: relative; z-index: 1; }
     .sup-badge {
       display: inline-flex; align-items: center; gap: 0.55rem;
       background: var(--violet-glow);
@@ -78,12 +101,17 @@
       box-shadow: 0 0 0 0 rgba(139,92,246,0.6); animation: sup-pulse 2s ease infinite;
     }
     @keyframes sup-pulse {
-      0% { box-shadow: 0 0 0 0 rgba(139,92,246,0.55); }
-      70% { box-shadow: 0 0 0 8px rgba(139,92,246,0); }
+      0%   { box-shadow: 0 0 0 0 rgba(139,92,246,0.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(139,92,246,0); }
       100% { box-shadow: 0 0 0 0 rgba(139,92,246,0); }
     }
+    .sup-hero h1 {
+      font-family: var(--disp); font-weight: 800;
+      font-size: clamp(40px,5.6vw,74px); line-height: 1.0;
+      letter-spacing: -.035em; margin-bottom: var(--space-md);
+    }
     .sup-hero__accent { color: var(--violet); }
-    .sup-hero__sub { max-width: 600px; margin-left: auto; margin-right: auto; }
+    .sup-hero__sub { max-width: 600px; margin-left: auto; margin-right: auto; color: var(--txt-dim); line-height: 1.65; font-size: clamp(16px,1.6vw,18px); }
     .sup-hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: var(--space-lg); }
 
     /* ── Generic section scaffolding ── */
@@ -200,6 +228,23 @@
     .sup-cross { color: var(--text-subtle); font-size: 1.05rem; }
     .sup-compare__wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
+    /* ── FAQ accordion ── */
+    .sup-faq__header { text-align: center; margin-bottom: 3rem; }
+    .sup-faq__grid { max-width: 720px; margin: 0 auto; }
+    .faq__item { border-bottom: 1px solid var(--line); }
+    .faq__question {
+      width: 100%; background: none; border: none; color: var(--txt);
+      font-family: var(--sans); font-size: 1rem; font-weight: 600;
+      text-align: left; cursor: pointer; padding: 1.25rem 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .faq__question:hover { color: var(--violet-br); }
+    .faq__icon { font-size: 1.3rem; color: var(--violet-br); transition: transform 0.3s ease; flex-shrink: 0; }
+    .faq__question[aria-expanded="true"] .faq__icon { transform: rotate(45deg); }
+    .faq__answer { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+    .faq__question[aria-expanded="true"] + .faq__answer { max-height: 500px; }
+    .faq__answer p { padding: 0 0 1.25rem; font-size: 0.95rem; color: var(--txt-dim); line-height: 1.7; }
+
     @media (max-width: 768px) {
       .sup-section { padding: var(--space-2xl) 0; }
       .sup-plan { padding: var(--space-lg); }
@@ -210,22 +255,28 @@
 </head>
 <body>
 
+  <!-- ── Aurora + engineered-grid backdrop ── -->
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- ── Custom cursor ── -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── Scroll progress ── -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ── Navigation ───────────────────────── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">VibeWorks</a>
-      <div class="nav__links" id="navLinks">
-        <a href="/ventures.html" class="nav__link">Ventures</a>
-        <a href="/services.html" class="nav__link">Services</a>
-        <a href="/ai-agents.html" class="nav__link">AI Agents</a>
-        <a href="/about.html"    class="nav__link">About</a>
-        <a href="/contact.html"  class="nav__cta">Contact</a>
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="in">
+      <a class="logo" href="/">Vibe<b>Works</b></a>
+      <div class="links" id="navLinks">
+        <a href="/platforms.html">Platforms</a>
+        <a href="/ai-agents.html">AI Agents</a>
+        <a href="/services.html">How We Work</a>
+        <a href="/about.html">About</a>
+        <a class="cta" href="/contact.html">Start a build →</a>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -252,22 +303,22 @@
   </div>
 
   <!-- ── Hero ─────────────────────────────── -->
-  <section class="page-hero page-hero--grid sup-hero">
+  <section class="sup-hero">
     <div class="sup-hero__glow" aria-hidden="true"></div>
-    <div class="container">
+    <div class="wrap">
       <div class="sup-badge"><span class="sup-badge__dot"></span>Monthly Support Plans</div>
-      <h1 class="page-hero__headline reveal-up">Your AI Agent<br><span class="sup-hero__accent">Doesn't Run Itself.</span></h1>
-      <p class="page-hero__subline sup-hero__sub reveal-up">AI agents need care, updates, and someone watching the door. Our monthly maintenance plans keep your agent sharp, online, and evolving — so you never have to think twice about it.</p>
+      <h1 class="reveal-up">Your AI Agent<br><span class="sup-hero__accent">Doesn't Run Itself.</span></h1>
+      <p class="sup-hero__sub reveal-up">AI agents need care, updates, and someone watching the door. Our monthly maintenance plans keep your agent sharp, online, and evolving — so you never have to think twice about it.</p>
       <div class="sup-hero__ctas reveal-up">
-        <a href="#plans" class="btn btn--violet btn--large btn--magnetic">See Maintenance Plans →</a>
-        <a href="/contact.html?track=support" class="btn btn--ghost btn--large btn--magnetic">Talk to Us First</a>
+        <a href="#plans" class="btn btn-fill btn--magnetic">See Maintenance Plans →</a>
+        <a href="/contact.html?track=support" class="btn btn-glass btn--magnetic">Talk to Us First</a>
       </div>
     </div>
   </section>
 
   <!-- ── Why Maintenance Matters ──────────── -->
   <section class="sup-section">
-    <div class="container">
+    <div class="wrap">
       <p class="sup-label">Why Maintenance Matters</p>
       <h2 class="sup-title">AI Agents Break.<br>We Make Sure Yours Doesn't.</h2>
       <p class="sup-section__intro">Every AI agent we build is a living system. APIs change, models update, business logic shifts — and without ongoing care, your agent goes from asset to liability. We keep it running at full power.</p>
@@ -307,7 +358,7 @@
 
   <!-- ── Plans ────────────────────────────── -->
   <section class="sup-section sup-section--surface sup-section--center" id="plans">
-    <div class="container">
+    <div class="wrap">
       <p class="sup-label">Maintenance &amp; Support</p>
       <h2 class="sup-title">Two Plans. Zero Guesswork.</h2>
       <p class="sup-section__intro">Whether you need your agent kept alive and current or want to keep building on top of it — we have a plan that fits your pace.</p>
@@ -320,7 +371,7 @@
           <div class="sup-plan__name">Agent Essentials</div>
           <div class="sup-plan__price">
             <span class="sup-plan__dollar">$</span>
-            <span class="sup-plan__amount stat__number" data-count="250">250</span>
+            <span class="sup-plan__amount">250</span>
             <span class="sup-plan__per">/ month</span>
           </div>
           <p class="sup-plan__tagline">Everything your agent needs to stay online, stay current, and keep performing. Built for businesses that want stability without the overhead of managing it themselves.</p>
@@ -350,7 +401,7 @@
             <li><span class="sup-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Monthly Status Summary</strong><span class="sup-desc">A brief monthly report covering what was checked, what was tuned, and the current state of your agent.</span></div></li>
           </ul>
 
-          <a href="https://buy.stripe.com/5kQ8wQ8D38t0197cif8EM02" class="btn btn--ghost btn--large">Get Started with Essentials →</a>
+          <a href="https://buy.stripe.com/5kQ8wQ8D38t0197cif8EM02" class="btn btn-glass">Get Started with Essentials →</a>
         </div>
 
         <!-- Growth -->
@@ -360,7 +411,7 @@
           <div class="sup-plan__name">Agent Growth</div>
           <div class="sup-plan__price">
             <span class="sup-plan__dollar">$</span>
-            <span class="sup-plan__amount stat__number" data-count="500">500</span>
+            <span class="sup-plan__amount">500</span>
             <span class="sup-plan__per">/ month</span>
           </div>
           <p class="sup-plan__tagline">Everything in Essentials — plus active development. Built for businesses that want their AI agent to grow alongside the business. New features, expanded capabilities, and priority access to our team.</p>
@@ -391,7 +442,7 @@
             <li><span class="sup-check sup-check--gold" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><div><strong>Emergency Hotfix Coverage</strong><span class="sup-desc">If your agent hits a critical failure, we treat it as an emergency and mobilize to restore full function — same business day.</span></div></li>
           </ul>
 
-          <a href="https://buy.stripe.com/14A9AU9H74cKg412HF8EM03" class="btn btn--violet btn--large btn--magnetic">Get Started with Growth →</a>
+          <a href="https://buy.stripe.com/14A9AU9H74cKg412HF8EM03" class="btn btn-fill btn--magnetic">Get Started with Growth →</a>
         </div>
 
       </div>
@@ -400,7 +451,7 @@
 
   <!-- ── Compare ──────────────────────────── -->
   <section class="sup-section">
-    <div class="container">
+    <div class="wrap">
       <p class="sup-label">Side By Side</p>
       <h2 class="sup-title">Compare Plans</h2>
       <p class="sup-section__intro">Everything laid out so you can pick the plan that fits where your business is right now.</p>
@@ -439,14 +490,14 @@
     </div>
   </section>
 
-  <!-- ── FAQ (global .faq pattern — wired by initFAQ()) ── -->
-  <section class="faq sup-section--surface" style="padding-top:var(--space-3xl);padding-bottom:var(--space-3xl)">
-    <div class="container">
-      <div class="faq__header">
+  <!-- ── FAQ ───────────────────────────────── -->
+  <section class="sup-section sup-section--surface">
+    <div class="wrap">
+      <div class="sup-faq__header">
         <p class="sup-label" style="text-align:center">Got Questions</p>
-        <h2 class="faq__title">Frequently Asked</h2>
+        <h2 class="sup-title" style="text-align:center">Frequently Asked</h2>
       </div>
-      <div class="faq__grid">
+      <div class="sup-faq__grid">
         <div class="faq__item reveal-up">
           <button class="faq__question" aria-expanded="false">Do I need to already have an AI agent built by VibeWorks?<span class="faq__icon" aria-hidden="true">+</span></button>
           <div class="faq__answer"><p>Ideally yes — our maintenance plans are designed around agents we build, since we already know the architecture. That said, if your agent was built elsewhere and you want us to take over maintenance, reach out and we'll evaluate whether we can support it after a technical review.</p></div>
@@ -476,26 +527,30 @@
   </section>
 
   <!-- ── Closing CTA ──────────────────────── -->
-  <section class="footer-cta container reveal-up">
-    <h2 class="footer-cta__headline">Your AI agent is an asset. Protect it.</h2>
-    <p style="color:var(--text-muted);max-width:480px;margin:var(--space-sm) auto var(--space-lg);">One broken agent can cost you hours, deals, and trust. A maintenance plan costs less than one hour of downtime. Let's keep it running.</p>
-    <a href="#plans" class="btn btn--gold btn--large btn--magnetic">Start Your Plan Today →</a>
+  <section class="closing wrap reveal-up">
+    <span class="mono grad" style="display:block;margin-bottom:22px">Agent Maintenance</span>
+    <h2>Your AI agent is an asset. <span class="grad">Protect it.</span></h2>
+    <p style="color:var(--txt-dim);max-width:480px;margin:24px auto 0;">One broken agent can cost you hours, deals, and trust. A maintenance plan costs less than one hour of downtime. Let's keep it running.</p>
+    <a href="#plans" class="btn btn-fill btn--magnetic" style="margin-top:36px">Start Your Plan Today →</a>
   </section>
 
-  <!-- ── Site Footer ───────────────────────── -->
+  <!-- ── Site footer ── -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="site-footer__grid">
         <div>
-          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
-          <p class="site-footer__tagline">AI Venture Studio</p>
+          <p class="site-footer__brand-name">Vibe<b>Works</b></p>
+          <p class="site-footer__tagline">AI platform engineers</p>
+          <p class="site-footer__desc">Production-grade AI platforms, designed and shipped by a two-person studio.</p>
+          <p class="site-footer__avail">2 client spots open · Q3 2026</p>
           <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
         </div>
         <div>
           <p class="site-footer__col-title">Navigation</p>
           <div class="site-footer__links">
-            <a href="/ventures.html">Ventures</a>
-            <a href="/services.html">Services</a>
+            <a href="/platforms.html">Platforms</a>
+            <a href="/ai-agents.html">AI Agents</a>
+            <a href="/services.html">How We Work</a>
             <a href="/about.html">About</a>
             <a href="/support.html">Support</a>
             <a href="/contact.html">Contact</a>
@@ -504,21 +559,38 @@
         <div>
           <p class="site-footer__col-title">Portfolio</p>
           <div class="site-footer__links">
+            <a href="https://atomicitypro.com" target="_blank" rel="noopener">Atomicity</a>
+            <a href="https://growthos.ivanleejackson.workers.dev" target="_blank" rel="noopener">GrowthOS</a>
+            <a href="https://robinaiagent.com" target="_blank" rel="noopener">Robin Trade</a>
             <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
             <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
-            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
             <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
             <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+            <a href="https://aibookpublisher.com" target="_blank" rel="noopener">AI Book Publisher</a>
           </div>
         </div>
       </div>
       <div class="site-footer__bar">
         <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
-        <span>Built with AI. Delivered by humans.</span>
+        <span>We build the systems others only pitch.</span>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <!-- FAQ accordion (no external dependency) -->
+  <script>
+    (function () {
+      document.querySelectorAll('.faq__question').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.faq__question').forEach(function (b) {
+            b.setAttribute('aria-expanded', 'false');
+          });
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
