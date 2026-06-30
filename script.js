@@ -10,18 +10,29 @@
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   var hoverPointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  /* ── Scroll reveal ─────────────────────────────────────── */
+  /* ── Scroll reveal (robust: content must NEVER stay hidden) ─
+     A backgrounded/hidden tab pauses CSS transitions, which can
+     strand reveal-up content at opacity 0. Guard every path so
+     content always ends up visible. */
   var revealEls = document.querySelectorAll('.reveal-up');
-  if ('IntersectionObserver' in window && !reduce) {
+  function revealInstant(el) { el.style.transition = 'none'; el.classList.add('in'); }
+  function revealRemaining() {
+    revealEls.forEach(function (el) { if (!el.classList.contains('in')) revealInstant(el); });
+  }
+  if (!('IntersectionObserver' in window) || reduce || document.hidden) {
+    // No IO, reduced motion, or hidden tab (transitions paused) → show instantly.
+    revealEls.forEach(revealInstant);
+  } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    // No IO or reduced motion → show everything immediately
-    revealEls.forEach(function (el) { el.classList.add('in'); });
+    // If the tab is backgrounded mid-load, transitions pause — reveal what's left instantly.
+    document.addEventListener('visibilitychange', function () { if (document.hidden) revealRemaining(); });
+    // Last-ditch safety so content can never be stranded invisible.
+    window.addEventListener('load', function () { setTimeout(revealRemaining, 4000); });
   }
 
   /* ── Nav scroll state + scroll progress ────────────────── */
