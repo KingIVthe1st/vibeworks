@@ -321,3 +321,7 @@ nav .links a[aria-current="page"]:not(.cta)::after{content:"";position:absolute;
 @media(max-width:880px){
   nav .links a[aria-current="page"]:not(.cta)::after{bottom:0;height:2px;width:24px}
 }
+
+/* ── Footer left-column balance (M3) ───────────────────────── */
+.site-footer__desc{font-size:13px;color:var(--txt-dim);line-height:1.6;margin-top:12px;max-width:220px}
+.site-footer__avail{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet-br);margin-top:10px}
