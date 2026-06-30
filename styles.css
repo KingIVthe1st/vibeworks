@@ -235,6 +235,8 @@ a.visit:hover:after{transform:translateX(4px)}
 .clientcard__body p{font-size:15.5px;color:var(--txt-dim);line-height:1.65;max-width:440px}
 .clientcard .visit{margin-top:22px;color:#fff}
 .clientcard .visit:after{color:var(--gold-br)}
+.clientcard__shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(1.05)}
+.clientcard__art:after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,transparent 55%,rgba(11,9,18,.5));pointer-events:none}
 
 @media(max-width:880px){
   .clientcard{grid-template-columns:1fr}
