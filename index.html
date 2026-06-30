@@ -3,288 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VibeWorks AI Studio — AI Venture Studio</title>
-  <meta name="description" content="VibeWorks is an AI venture studio. We build and launch our own AI products, partner with founders, and build custom AI for businesses. Nine live products.">
+  <title>VibeWorks — AI platforms, shipped like products.</title>
+  <meta name="description" content="VibeWorks designs and builds production-grade AI systems for serious businesses — multi-tenant SaaS, autonomous agents, compliant payments — then puts them live. Two people. Enterprise-grade output.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vibeworksstudio.ai/">
-  <meta property="og:title" content="VibeWorks AI Studio — AI Venture Studio">
-  <meta property="og:description" content="VibeWorks is an AI venture studio. We build and launch our own AI products, partner with founders, and build custom AI for businesses. Nine live products.">
+  <meta property="og:title" content="VibeWorks — AI platforms, shipped like products.">
+  <meta property="og:description" content="We build the systems others only pitch. Production-grade AI platforms — Atomicity, GrowthOS, Robin Trade — designed, built, and put live by a two-person studio.">
   <meta property="og:image" content="https://vibeworksstudio.ai/images/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VibeWorks AI Studio — AI Venture Studio">
-  <meta name="twitter:description" content="VibeWorks is an AI venture studio. Nine live products and counting.">
+  <meta name="twitter:title" content="VibeWorks — AI platforms, shipped like products.">
+  <meta name="twitter:description" content="We build the systems others only pitch. Production-grade AI platforms, designed and shipped by a two-person studio.">
   <meta name="twitter:image" content="https://vibeworksstudio.ai/images/social-card.png">
-  <meta name="theme-color" content="#8B5CF6">
+  <meta name="theme-color" content="#070512">
   <link rel="canonical" href="https://vibeworksstudio.ai/">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ── Page Loader (home only) ──────────── -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__inner">
-      <svg class="loader__monogram" viewBox="0 0 104 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polyline class="loader__path loader__path--v" points="2,4 16,56 30,4" stroke="#8B5CF6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline class="loader__path loader__path--w" points="42,4 54,48 63,22 72,48 84,4" stroke="#E8B84B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <p class="loader__tagline">VibeWorks AI Studio</p>
-    </div>
-  </div>
+  <!-- ── Aurora + engineered-grid backdrop ── -->
+  <div class="aurora" aria-hidden="true"></div>
 
-  <!-- ── Custom Cursor ────────────────────── -->
+  <!-- ── Custom cursor ── -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-  <!-- ── Scroll Progress ──────────────────── -->
+  <!-- ── Scroll progress ── -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ── Navigation ───────────────────────── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">VibeWorks</a>
-      <div class="nav__links" id="navLinks">
-        <a href="/ventures.html" class="nav__link">Ventures</a>
-        <a href="/services.html" class="nav__link">Services</a>
-        <a href="/ai-agents.html" class="nav__link">AI Agents</a>
-        <a href="/about.html"    class="nav__link">About</a>
-        <a href="/contact.html"  class="nav__cta">Contact</a>
+  <!-- ── Navigation ── -->
+  <nav id="nav">
+    <div class="in">
+      <a class="logo" href="/">Vibe<b>Works</b></a>
+      <div class="links" id="navLinks">
+        <a href="/platforms.html">Platforms</a>
+        <a href="/ai-agents.html">AI Agents</a>
+        <a href="/services.html">How We Work</a>
+        <a href="/about.html">About</a>
+        <a class="cta" href="/contact.html">Start a build →</a>
       </div>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ── Hero ─────────────────────────────── -->
-  <section class="hero" id="hero">
-    <div class="hero__aurora" aria-hidden="true">
-      <div class="aurora-orb aurora-orb--1"></div>
-      <div class="aurora-orb aurora-orb--2"></div>
-      <div class="aurora-orb aurora-orb--3"></div>
-    </div>
-    <canvas class="hero__canvas" id="heroCanvas"></canvas>
-
-    <div class="hero__content container">
-      <div class="hero__availability">
-        <span class="hero__avail-dot" aria-hidden="true"></span>
-        <span>2 client spots open &middot; Q2 2026</span>
+  <!-- ── Hero ── -->
+  <section class="hero wrap">
+    <div>
+      <span class="pill"><span class="d"></span>2 client spots open · Q3 2026</span>
+      <h1>AI platforms,<br><span class="grad">shipped like products.</span></h1>
+      <p class="sub">We design and build production-grade AI systems for serious businesses — multi-tenant SaaS, autonomous agents, compliant payments — then put them live. Two people. Enterprise-grade output.</p>
+      <div class="ctas">
+        <a class="btn btn-fill btn--magnetic" href="/contact.html">Book a build call →</a>
+        <a class="btn btn-glass" href="/platforms.html">Explore the platforms</a>
       </div>
-
-      <h1 class="hero__title">
-        We Build<br>
-        <span class="hero__title--accent">AI Products.</span>
-      </h1>
-
-      <p class="hero__subtitle">
-        VibeWorks is an AI venture studio. We launch our own products, partner with founders,
-        and build custom AI for businesses. Nine live products and counting.
-      </p>
-
-      <div class="hero__ctas">
-        <a href="/ventures.html" class="btn btn--ghost btn--large">See Our Ventures →</a>
-        <a href="/services.html#partner" class="btn btn--gold btn--large btn--magnetic">Partner With Us →</a>
-        <a href="/services.html#build"   class="btn btn--violet btn--large btn--magnetic">Build Something →</a>
-      </div>
-
-      <div class="hero__stats">
-        <div class="stat">
-          <div class="stat__number" data-count="9">0</div>
-          <div class="stat__label">Products Launched</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number stat__number--static">2 Wks</div>
-          <div class="stat__label">Avg Delivery</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number stat__number--static">500K+</div>
-          <div class="stat__label">Distribution Reach</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number" data-count="5">0</div>
-          <div class="stat__label">Verticals</div>
-        </div>
-      </div>
-
-      <!-- Marquee ticker -->
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>AI Venture Studio</span><span class="marquee__sep">&#10022;</span>
-          <span>9 Live Products</span><span class="marquee__sep">&#10022;</span>
-          <span>2-Week Delivery</span><span class="marquee__sep">&#10022;</span>
-          <span>500K+ Reach</span><span class="marquee__sep">&#10022;</span>
-          <span>Claude-Powered</span><span class="marquee__sep">&#10022;</span>
-          <span>Zero Fluff. Real Results.</span><span class="marquee__sep">&#10022;</span>
-          <!-- Duplicate for seamless loop -->
-          <span>AI Venture Studio</span><span class="marquee__sep">&#10022;</span>
-          <span>9 Live Products</span><span class="marquee__sep">&#10022;</span>
-          <span>2-Week Delivery</span><span class="marquee__sep">&#10022;</span>
-          <span>500K+ Reach</span><span class="marquee__sep">&#10022;</span>
-          <span>Claude-Powered</span><span class="marquee__sep">&#10022;</span>
-          <span>Zero Fluff. Real Results.</span><span class="marquee__sep">&#10022;</span>
-        </div>
+      <div class="stats">
+        <div><div class="n grad">3</div><div class="l">Flagship platforms</div></div>
+        <div><div class="n">8</div><div class="l">Products live</div></div>
+        <div><div class="n">2 wks</div><div class="l">Avg delivery</div></div>
+        <div><div class="n">500K+</div><div class="l">Reach</div></div>
       </div>
     </div>
-
-    <div class="hero__scroll-indicator">
-      <span>Scroll</span>
-      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" aria-hidden="true">
-        <path d="M8 4v16M8 20l-5-5M8 20l5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
+    <div class="stack" aria-hidden="true">
+      <div class="glass gA">
+        <div class="gt"><span class="ic"></span>Atomicity — Collections</div>
+        <div class="row"><span>Active portfolios</span><span class="v">128</span></div>
+        <div class="row"><span>Recovered · MTD</span><span class="pillg">▲ 18.4%</span></div>
+        <div class="row"><span>Compliance</span><span class="pillv">PCI SAQ-A ✓</span></div>
+        <div class="bars"><div class="bar" style="width:80%"></div><div class="bar s" style="width:55%"></div></div>
+      </div>
+      <div class="glass gB">
+        <div class="gt"><span class="ic" style="background:linear-gradient(135deg,var(--pink),var(--violet))"></span>GrowthOS — Engine</div>
+        <div class="row"><span>Goal → campaigns</span><span class="pillv">auto</span></div>
+        <div class="row"><span>Channels</span><span class="v">Meta · WhatsApp</span></div>
+        <div class="row"><span>Optimizer</span><span class="pillg">● running</span></div>
+      </div>
+      <div class="floaty fTop"><div class="fl">DEPLOY → CLOUDFLARE EDGE</div><div class="fv">live in 2 wks</div></div>
+      <div class="floaty fBot"><div class="fl">AI AGENTS · 24/7</div><div class="fv">always on</div></div>
     </div>
   </section>
 
-  <!-- ── Featured Ventures ─────────────────── -->
-  <section class="venture-preview container" id="ventures-preview">
-    <div class="venture-preview__header reveal-up">
-      <span class="label label--gold">From The Portfolio</span>
-      <h2 class="section-headline">What We've Built</h2>
+  <!-- ── Selected Platforms ── -->
+  <section class="platforms wrap" id="platforms">
+    <div class="sh reveal-up">
+      <span class="mono grad">Selected Platforms</span>
+      <h2>The work that proves the studio.</h2>
+      <p>Three flagship systems running in production today — not concepts. Live, paying, compliant.</p>
     </div>
 
-    <div class="venture-preview__grid">
-      <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener" class="venture-preview-card reveal-up">
-        <div class="venture-preview-card__img-wrap">
-          <img src="images/Portfoliosites/ratemylooks.png" alt="RateMyLooksAI screenshot" loading="lazy">
+    <!-- Atomicity -->
+    <div class="feat reveal-up">
+      <div class="ft">
+        <div class="no">01 — FINTECH SAAS</div>
+        <h3>Atomicity</h3>
+        <div class="tag">Collect more. Stay compliant. Win bigger clients.</div>
+        <p class="desc">A multi-tenant debt-collections platform with built-in telephony, AI collection agents, and PCI-compliant payments. Multi-office, role-aware, audit-ready — the operating system serious agencies run on.</p>
+        <div class="chips"><span>Multi-tenant</span><span>PCI SAQ-A</span><span>Telephony</span><span>AI agents</span><span>Edge</span></div>
+        <div class="links2">
+          <a class="visit" href="https://atomicitypro.com" target="_blank" rel="noopener">Visit atomicitypro.com</a>
+          <a class="mono" style="color:var(--txt-mute)" href="/platforms.html">All platforms →</a>
         </div>
-        <span class="venture-preview-card__category">Consumer AI</span>
-        <span class="venture-preview-card__name">RateMyLooksAI</span>
-        <span class="venture-preview-card__desc">Your Beauty Score, Decided by AI</span>
-        <span class="btn btn--ghost" style="width:fit-content;margin-top:4px;font-size:13px;padding:8px 16px;">Live →</span>
+      </div>
+      <div class="bigframe">
+        <div class="gt"><span class="ic"></span>atomicity — collections dashboard</div>
+        <img src="images/platforms/atomicity-dashboard.png" alt="Atomicity debt-collections dashboard showing active portfolios, recovery metrics, and compliance status (synthetic data)" loading="lazy">
+      </div>
+    </div>
+
+    <!-- GrowthOS -->
+    <div class="feat rev reveal-up">
+      <div class="ft">
+        <div class="no">02 — AUTONOMOUS GROWTH</div>
+        <h3>GrowthOS</h3>
+        <div class="tag">Your AI growth employee.</div>
+        <p class="desc">Give it a goal; it plans, launches, and optimizes Meta and WhatsApp ad campaigns on its own. A provider-agnostic AI planner that turns intent into live, managed acquisition — no agency required.</p>
+        <div class="chips"><span>Autonomous</span><span>Meta + WhatsApp</span><span>BYO-key planner</span><span>Self-serve</span></div>
+        <div class="links2">
+          <a class="visit" href="https://growthos.ivanleejackson.workers.dev" target="_blank" rel="noopener">Visit GrowthOS</a>
+          <a class="mono" style="color:var(--txt-mute)" href="/platforms.html">All platforms →</a>
+        </div>
+      </div>
+      <div class="bigframe">
+        <div class="gt"><span class="ic" style="background:linear-gradient(135deg,var(--pink),var(--violet))"></span>growthos — campaign engine</div>
+        <img src="images/platforms/growthos-dashboard.png" alt="GrowthOS campaign engine dashboard showing autonomously generated Meta and WhatsApp ad campaigns and spend efficiency (synthetic data)" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Robin Trade -->
+    <div class="feat reveal-up">
+      <div class="ft">
+        <div class="no">03 — SUPERVISED TRADING</div>
+        <h3>Robin Trade</h3>
+        <div class="tag">Supervised AI trading, in your control.</div>
+        <p class="desc">A supervised agentic-trading platform for Robinhood. Connect your account over OAuth and an AI agent proposes and places trades inside the guardrails you set — built on MCP, with a human in the loop on every move.</p>
+        <div class="chips"><span>OAuth</span><span>MCP</span><span>Supervised</span><span>Robinhood</span><span>Edge</span></div>
+        <div class="links2">
+          <a class="visit" href="https://robinaiagent.com" target="_blank" rel="noopener">Visit robinaiagent.com</a>
+          <a class="mono" style="color:var(--txt-mute)" href="/platforms.html">All platforms →</a>
+        </div>
+      </div>
+      <div class="bigframe">
+        <div class="gt"><span class="ic" style="background:linear-gradient(135deg,var(--cyan),var(--indigo))"></span>robin trade — supervised agent</div>
+        <img src="images/platforms/robintrade-dashboard.png" alt="Robin Trade supervised trading dashboard showing proposed trades, guardrails, and agent activity (synthetic data)" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Three ways to work ── -->
+  <section class="ways wrap" id="how-we-work">
+    <div class="sh reveal-up">
+      <span class="mono grad">How we work</span>
+      <h2>Three ways to work with us.</h2>
+      <p>Pick the engagement that fits — from a fixed-scope build to a long-term studio partnership.</p>
+    </div>
+    <div class="waysgrid">
+      <div class="way reveal-up">
+        <div class="no">01 — BUILD</div>
+        <h3>Custom Platform Build</h3>
+        <p>Fixed scope, two-week sprints. We architect and ship a production system — multi-tenant, compliant, on the edge — then hand you the keys.</p>
+        <a class="visit" href="/services.html#build">Start a build</a>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">02 — PARTNER</div>
+        <h3>Studio Partnership</h3>
+        <p>You bring the vision and distribution; we build and run the product. Revenue-share, long-term, real skin in the game.</p>
+        <a class="visit" href="/services.html#partner">Partner with us</a>
+      </div>
+      <div class="way reveal-up">
+        <div class="no">03 — AGENTS</div>
+        <h3>AI Agent Fleets</h3>
+        <p>Always-on AI agents wired into your stack — sales, support, ops — that do the work, not just chat.</p>
+        <a class="visit" href="/ai-agents.html">Explore agents</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Consumer scale strip ── -->
+  <section class="consumer wrap" id="consumer">
+    <div class="sh reveal-up">
+      <span class="mono grad">And consumer scale</span>
+      <h2>We launch our own, too.</h2>
+      <p>Five consumer apps across five verticals, live and in users' hands — range, not the headline.</p>
+    </div>
+    <div class="cgrid">
+      <a class="cchip reveal-up" href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">
+        <img src="images/Portfoliosites/ratemylooks.png" alt="RateMyLooksAI app screenshot" loading="lazy">
+        <div class="cn">RateMyLooksAI</div><div class="ct">Consumer · beauty AI</div><span class="live">● live</span>
       </a>
-
-      <a href="https://songgram.com" target="_blank" rel="noopener" class="venture-preview-card reveal-up" style="transition-delay:80ms">
-        <div class="venture-preview-card__img-wrap">
-          <img src="images/Portfoliosites/songgram.png" alt="SongGram screenshot" loading="lazy">
-        </div>
-        <span class="venture-preview-card__category">Music AI</span>
-        <span class="venture-preview-card__name">SongGram</span>
-        <span class="venture-preview-card__desc">Who Are You Through Music?</span>
-        <span class="btn btn--ghost" style="width:fit-content;margin-top:4px;font-size:13px;padding:8px 16px;">Live →</span>
+      <a class="cchip reveal-up" href="https://sketchmysoulmate.com" target="_blank" rel="noopener">
+        <img src="images/Portfoliosites/sketchmysoulmate.png" alt="SketchMySoulmate app screenshot" loading="lazy">
+        <div class="cn">SketchMySoulmate</div><div class="ct">Creator · viral</div><span class="live">● live</span>
       </a>
-
-      <a href="https://aicharttraders.com" target="_blank" rel="noopener" class="venture-preview-card reveal-up" style="transition-delay:160ms">
-        <div class="venture-preview-card__img-wrap">
-          <img src="images/Portfoliosites/aicharttraders.png" alt="AI Chart Traders screenshot" loading="lazy">
-        </div>
-        <span class="venture-preview-card__category">Fintech AI</span>
-        <span class="venture-preview-card__name">AI Chart Traders</span>
-        <span class="venture-preview-card__desc">Trade Smarter. React Faster.</span>
-        <span class="btn btn--ghost" style="width:fit-content;margin-top:4px;font-size:13px;padding:8px 16px;">Live →</span>
+      <a class="cchip reveal-up" href="https://aicharttraders.com" target="_blank" rel="noopener">
+        <img src="images/Portfoliosites/aicharttraders.png" alt="AI Chart Traders app screenshot" loading="lazy">
+        <div class="cn">AI Chart Traders</div><div class="ct">Fintech · analysis</div><span class="live">● live</span>
+      </a>
+      <a class="cchip reveal-up" href="https://richpeoplestocks.com/" target="_blank" rel="noopener">
+        <img src="images/Portfoliosites/richpplstocks.png" alt="Rich People Stocks app screenshot" loading="lazy">
+        <div class="cn">Rich People Stocks</div><div class="ct">Fintech · intel</div><span class="live">● live</span>
+      </a>
+      <a class="cchip reveal-up" href="https://aibookpublisher.com" target="_blank" rel="noopener">
+        <img src="images/Portfoliosites/aibookpublisher.png" alt="AI Book Publisher app screenshot" loading="lazy">
+        <div class="cn">AI Book Publisher</div><div class="ct">Publishing AI</div><span class="live">● live</span>
       </a>
     </div>
-
-    <div class="venture-preview__footer reveal-up">
-      <a href="/ventures.html">See all 9 ventures →</a>
-    </div>
   </section>
 
-  <!-- ── Three Ways To Work With Us ────────── -->
-  <section class="how-panels" id="how-it-works">
-    <div class="container">
-      <div class="how-panels__header reveal-up">
-        <span class="label label--violet">How We Work</span>
-        <h2 class="section-headline">Three Ways To Work With VibeWorks</h2>
+  <!-- ── Team teaser ── -->
+  <section class="team wrap" id="team">
+    <div class="sh reveal-up">
+      <span class="mono grad">The studio</span>
+      <h2>Two builders. One machine.</h2>
+    </div>
+    <div class="teamgrid">
+      <div class="member reveal-up">
+        <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson, Co-Founder and CTO of VibeWorks" loading="lazy">
+        <div>
+          <div class="mn">Ivanlee Jackson</div>
+          <div class="mt">Co-Founder · CTO</div>
+          <div class="mr">The technical engine behind every platform we ship.</div>
+        </div>
       </div>
-
-      <div class="how-panels__grid">
-        <div class="how-panel reveal-up">
-          <div class="how-panel__icon">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="11" cy="16" r="8" stroke="#E8B84B" stroke-width="2"/>
-              <circle cx="21" cy="16" r="8" stroke="#E8B84B" stroke-width="2"/>
-            </svg>
-          </div>
-          <p class="how-panel__label">For Founders &amp; Creators</p>
-          <h3 class="how-panel__title">Studio Partner</h3>
-          <p class="how-panel__body">You bring the vision. We build the product. Revenue share — no upfront cost.</p>
-          <a href="/services.html#partner" class="how-panel__link">Learn more →</a>
-        </div>
-
-        <div class="how-panel reveal-up" style="transition-delay:80ms">
-          <div class="how-panel__icon">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="7" width="26" height="18" rx="3" stroke="#A78BFA" stroke-width="2"/>
-              <path d="M9 13l4 4-4 4" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="15" y1="21" x2="23" y2="21" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <p class="how-panel__label">For Entrepreneurs &amp; SMBs</p>
-          <h3 class="how-panel__title">Custom Build</h3>
-          <p class="how-panel__body">We build your AI product or tool from scratch. Fixed scope. 2-week delivery.</p>
-          <a href="/services.html#build" class="how-panel__link">Learn more →</a>
-        </div>
-
-        <div class="how-panel reveal-up" style="transition-delay:160ms">
-          <div class="how-panel__icon">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="16" cy="8" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="24" cy="8" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="8" cy="16" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="16" cy="16" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="24" cy="16" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="8" cy="24" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="16" cy="24" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-              <circle cx="24" cy="24" r="2.5" stroke="#9CA3AF" stroke-width="2"/>
-            </svg>
-          </div>
-          <p class="how-panel__label">For Investors &amp; Operators</p>
-          <h3 class="how-panel__title">The Portfolio</h3>
-          <p class="how-panel__body">Nine live ventures. Open to investment, licensing, and strategic partnership.</p>
-          <a href="/ventures.html" class="how-panel__link">Explore →</a>
+      <div class="member reveal-up">
+        <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton, Co-Founder and CEO of VibeWorks" loading="lazy">
+        <div>
+          <div class="mn">Natasha Burton</div>
+          <div class="mt">Co-Founder · CEO</div>
+          <div class="mr">The distribution engine that makes every launch land.</div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ── Team Teaser ───────────────────────── -->
-  <section class="team-teaser container" id="team">
-    <div class="team-teaser__header reveal-up">
-      <span class="label label--violet">The Studio</span>
-      <h2 class="section-headline">Two Builders. One Machine.</h2>
-    </div>
-
-    <div class="team-teaser__grid">
-      <div class="team-teaser__person reveal-up">
-        <img src="images/Portfoliosites/ivan.jpg" alt="Ivanlee Jackson" class="team-teaser__photo" loading="lazy">
-        <p class="team-teaser__name">Ivanlee Jackson</p>
-        <p class="team-teaser__role">Co-Founder &amp; CTO — The technical engine behind every product we've shipped.</p>
-      </div>
-      <div class="team-teaser__person reveal-up" style="transition-delay:80ms">
-        <img src="images/Portfoliosites/natasha.jpeg" alt="Natasha Burton" class="team-teaser__photo" loading="lazy">
-        <p class="team-teaser__name">Natasha Burton</p>
-        <p class="team-teaser__role">Co-Founder &amp; CEO — The distribution engine that makes every launch land.</p>
-      </div>
-    </div>
-
-    <div class="team-teaser__footer reveal-up">
-      <a href="/about.html" class="btn btn--ghost">Meet the team →</a>
+    <div class="teamcta reveal-up">
+      <a class="btn btn-glass" href="/about.html">Meet the studio →</a>
     </div>
   </section>
 
-  <!-- ── Footer CTA ────────────────────────── -->
-  <section class="footer-cta container reveal-up">
-    <h2 class="footer-cta__headline">Every product we've built started with one conversation.</h2>
-    <a href="/contact.html" class="btn btn--gold btn--large btn--magnetic">Start The Conversation →</a>
+  <!-- ── Closing CTA ── -->
+  <section class="closing wrap">
+    <span class="mono grad" style="display:block;margin-bottom:22px">Let's build</span>
+    <h2>Every platform we ship starts with <span class="grad">one conversation.</span></h2>
+    <a class="btn btn-fill btn--magnetic" href="/contact.html">Start the conversation →</a>
   </section>
 
-  <!-- ── Site Footer ───────────────────────── -->
+  <!-- ── Site footer ── -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="wrap">
       <div class="site-footer__grid">
         <div>
-          <p class="site-footer__brand-name">VibeWorks AI Studio</p>
-          <p class="site-footer__tagline">AI Venture Studio</p>
+          <p class="site-footer__brand-name">Vibe<b>Works</b></p>
+          <p class="site-footer__tagline">AI platform engineers</p>
           <a href="mailto:info@vibeworksstudio.ai" class="site-footer__email">info@vibeworksstudio.ai</a>
         </div>
         <div>
           <p class="site-footer__col-title">Navigation</p>
           <div class="site-footer__links">
-            <a href="/ventures.html">Ventures</a>
-            <a href="/services.html">Services</a>
+            <a href="/platforms.html">Platforms</a>
+            <a href="/ai-agents.html">AI Agents</a>
+            <a href="/services.html">How We Work</a>
             <a href="/about.html">About</a>
             <a href="/support.html">Support</a>
             <a href="/contact.html">Contact</a>
@@ -293,17 +272,20 @@
         <div>
           <p class="site-footer__col-title">Portfolio</p>
           <div class="site-footer__links">
+            <a href="https://atomicitypro.com" target="_blank" rel="noopener">Atomicity</a>
+            <a href="https://growthos.ivanleejackson.workers.dev" target="_blank" rel="noopener">GrowthOS</a>
+            <a href="https://robinaiagent.com" target="_blank" rel="noopener">Robin Trade</a>
             <a href="https://ratemylooks.pages.dev/" target="_blank" rel="noopener">RateMyLooksAI</a>
             <a href="https://sketchmysoulmate.com" target="_blank" rel="noopener">SketchMySoulmate</a>
-            <a href="https://songgram.com" target="_blank" rel="noopener">SongGram</a>
             <a href="https://aicharttraders.com" target="_blank" rel="noopener">AI Chart Traders</a>
             <a href="https://richpeoplestocks.com/" target="_blank" rel="noopener">Rich People Stocks</a>
+            <a href="https://aibookpublisher.com" target="_blank" rel="noopener">AI Book Publisher</a>
           </div>
         </div>
       </div>
       <div class="site-footer__bar">
         <span>© 2026 VibeWorks AI Studio · vibeworksstudio.ai</span>
-        <span>Built with AI. Delivered by humans.</span>
+        <span>We build the systems others only pitch.</span>
       </div>
     </div>
   </footer>
