@@ -18,6 +18,24 @@
   <link rel="canonical" href="https://vibeworksstudio.ai/">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="/src/styles/sections.css">
+  <script>window.__vwLoaderStart=performance.now()</script>
+  <style>
+    #site-loader{--loader-progress:0;position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:#070512;color:#f4f2ff;opacity:1;visibility:visible;transition:opacity .42s ease,visibility .42s ease}
+    #site-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-inner{display:grid;justify-items:center;gap:1.25rem}
+    .loader-mark{position:relative;display:grid;width:min(76vw,18rem);height:6rem;place-items:center}
+    .loader-word{position:relative;z-index:2;font:600 clamp(1.7rem,6vw,2.7rem)/1 sans-serif;letter-spacing:-.06em;opacity:0;animation:loader-word .5s .52s ease forwards}
+    .loader-word span{color:#7c5cff}
+    .loader-particles{position:absolute;inset:0;z-index:1}
+    .loader-particles span{position:absolute;top:50%;left:50%;width:3px;height:3px;border-radius:50%;background:#9c87ff;box-shadow:0 0 9px #7c5cff;opacity:0;animation:loader-assemble .9s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(var(--i)*5ms)}
+    .loader-track{width:min(58vw,12rem);height:1px;overflow:hidden;background:rgba(174,180,194,.18)}
+    .loader-progress{width:100%;height:100%;background:#7c5cff;transform:scaleX(var(--loader-progress));transform-origin:left;transition:transform .18s ease}
+    .loader-label{font:400 .62rem/1 monospace;letter-spacing:.18em;text-transform:uppercase;color:#aeb4c2}
+    @keyframes loader-assemble{0%{opacity:0;transform:rotate(calc(var(--i)*47deg)) translate(calc(8rem + var(--i)*.035rem)) scale(.2)}55%{opacity:.9}100%{opacity:.25;transform:rotate(calc(var(--i)*137.5deg)) translate(calc(2rem + var(--i)*.012rem)) scale(1)}}
+    @keyframes loader-word{to{opacity:1}}
+    @media(prefers-reduced-motion:reduce){#site-loader{transition-duration:.22s}.loader-particles{display:none}.loader-word{opacity:1;animation:none}.loader-progress{transition:none}}
+  </style>
+  <noscript><style>#site-loader{display:none!important}</style></noscript>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -33,6 +51,25 @@
   </script>
 </head>
 <body>
+  <div id="site-loader" role="status" aria-label="Loading VibeWorks">
+    <div class="loader-inner">
+      <div class="loader-mark" aria-hidden="true">
+        <div class="loader-particles">
+          <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span>
+          <span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span><span style="--i:13"></span><span style="--i:14"></span><span style="--i:15"></span><span style="--i:16"></span><span style="--i:17"></span><span style="--i:18"></span><span style="--i:19"></span>
+          <span style="--i:20"></span><span style="--i:21"></span><span style="--i:22"></span><span style="--i:23"></span><span style="--i:24"></span><span style="--i:25"></span><span style="--i:26"></span><span style="--i:27"></span><span style="--i:28"></span><span style="--i:29"></span>
+          <span style="--i:30"></span><span style="--i:31"></span><span style="--i:32"></span><span style="--i:33"></span><span style="--i:34"></span><span style="--i:35"></span><span style="--i:36"></span><span style="--i:37"></span><span style="--i:38"></span><span style="--i:39"></span>
+          <span style="--i:40"></span><span style="--i:41"></span><span style="--i:42"></span><span style="--i:43"></span><span style="--i:44"></span><span style="--i:45"></span><span style="--i:46"></span><span style="--i:47"></span><span style="--i:48"></span><span style="--i:49"></span>
+          <span style="--i:50"></span><span style="--i:51"></span><span style="--i:52"></span><span style="--i:53"></span><span style="--i:54"></span><span style="--i:55"></span><span style="--i:56"></span><span style="--i:57"></span><span style="--i:58"></span><span style="--i:59"></span>
+          <span style="--i:60"></span><span style="--i:61"></span><span style="--i:62"></span><span style="--i:63"></span><span style="--i:64"></span><span style="--i:65"></span><span style="--i:66"></span><span style="--i:67"></span><span style="--i:68"></span><span style="--i:69"></span>
+          <span style="--i:70"></span><span style="--i:71"></span><span style="--i:72"></span><span style="--i:73"></span><span style="--i:74"></span><span style="--i:75"></span><span style="--i:76"></span><span style="--i:77"></span><span style="--i:78"></span><span style="--i:79"></span>
+        </div>
+        <div class="loader-word">Vibe<span>Works</span></div>
+      </div>
+      <div class="loader-track" aria-hidden="true"><div class="loader-progress"></div></div>
+      <p class="loader-label">Assembling the line</p>
+    </div>
+  </div>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="logo" href="#hero" aria-label="VibeWorks home">Vibe<span>Works</span></a>

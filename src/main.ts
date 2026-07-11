@@ -17,6 +17,7 @@ import { createFinaleActs, createFinaleCameraKeyframes } from './scene/acts/fina
 import { createHeroAct, heroCameraKeyframes } from './scene/acts/hero'
 import { createStage } from './scene/stage'
 import type { Act } from './scene/types'
+import { initLoader } from './ui/loader'
 
 document.documentElement.classList.add('js')
 
@@ -36,6 +37,7 @@ if (navToggle && navLinks) {
 }
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
+let heroReady: Promise<void> = Promise.resolve()
 
 if (!reducedMotion) {
   const canvas = document.createElement('canvas')
@@ -47,6 +49,7 @@ if (!reducedMotion) {
     document.documentElement.classList.add('webgl')
     document.body.prepend(canvas)
     const hero = createHeroAct()
+    heroReady = hero.ready
     const design = createDesignAct((local) => hero.setDesignProgress(local))
     const build = createBuildAct(
       (local, dock) => {
@@ -100,3 +103,5 @@ if (!reducedMotion) {
 
   initReveals()
 }
+
+void initLoader({ heroReady, reducedMotion })

@@ -249,6 +249,7 @@ export const heroCameraKeyframes: CameraKeyframes = {
 }
 
 export interface HeroAct extends Act {
+  ready: Promise<void>
   setDesignProgress(local: number): void
   setBuildProgress(local: number): void
   setBuildDock(target: Vector3): void
@@ -260,6 +261,9 @@ function easeInOutCubic(value: number): number {
 }
 
 export function createHeroAct(): HeroAct {
+  let resolveReady: () => void = () => undefined
+  const ready = new Promise<void>((resolve) => { resolveReady = () => resolve() })
+  let isReady = false
   let particleMaterial: ShaderMaterial | null = null
   let streakMaterial: ShaderMaterial | null = null
   let dustMaterial: ShaderMaterial | null = null
@@ -275,6 +279,7 @@ export function createHeroAct(): HeroAct {
   return {
     id: 'hero',
     range: [0, 0],
+    ready,
     init(stage) {
       stageRef = stage
 
@@ -368,6 +373,10 @@ export function createHeroAct(): HeroAct {
         dustMaterial.uniforms.uAnchor.value.copy(anchor)
         stageRef.renderer.getDrawingBufferSize(resolution)
         voidMaterial.uniforms.uResolution.value.copy(resolution)
+        if (!isReady) {
+          isReady = true
+          resolveReady()
+        }
       })
     },
     update(local, _dt) {
