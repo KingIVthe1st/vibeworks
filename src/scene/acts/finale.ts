@@ -21,7 +21,6 @@ import type { Act, Stage } from '../types'
 
 interface FinaleActs {
   operators: Act
-  support: Act
   shipped: Act
 }
 
@@ -61,19 +60,17 @@ export function createFinaleCameraKeyframes(previous: CameraKeyframes): CameraKe
   const landscapeLook = previous.landscape.lookAt[previous.landscape.lookAt.length - 1]
   const portraitLook = previous.portrait.lookAt[previous.portrait.lookAt.length - 1]
   return {
-    actIds: [...(previous.actIds ?? []), 'studio', 'support', 'start'],
-    actStops: [...(previous.actStops ?? [0, 1]).map((stop) => stop * 0.72), 0.82, 0.91, 1],
+    actIds: [...(previous.actIds ?? []), 'studio', 'start'],
+    actStops: [...(previous.actStops ?? [0, 1]).map((stop) => stop * 0.78), 0.9, 1],
     landscape: {
       position: [
         ...previous.landscape.position,
         [landscapeEnd[0] - 0.08, landscapeEnd[1] + 0.08, landscapeEnd[2] + 0.42],
-        [landscapeEnd[0] - 0.12, landscapeEnd[1] + 0.1, landscapeEnd[2] + 0.5],
         [landscapeEnd[0] - 0.16, landscapeEnd[1] + 0.06, landscapeEnd[2] + 0.36],
       ],
       lookAt: [
         ...previous.landscape.lookAt,
         [landscapeLook[0], landscapeLook[1] - 0.03, landscapeLook[2]],
-        [landscapeLook[0], landscapeLook[1] - 0.05, landscapeLook[2]],
         [landscapeLook[0], landscapeLook[1] - 0.02, landscapeLook[2]],
       ],
     },
@@ -81,13 +78,11 @@ export function createFinaleCameraKeyframes(previous: CameraKeyframes): CameraKe
       position: [
         ...previous.portrait.position,
         [portraitEnd[0] - 0.04, portraitEnd[1] + 0.06, portraitEnd[2] + 0.46],
-        [portraitEnd[0] - 0.06, portraitEnd[1] + 0.08, portraitEnd[2] + 0.54],
         [portraitEnd[0] - 0.08, portraitEnd[1] + 0.04, portraitEnd[2] + 0.4],
       ],
       lookAt: [
         ...previous.portrait.lookAt,
         [portraitLook[0], portraitLook[1] - 0.025, portraitLook[2]],
-        [portraitLook[0], portraitLook[1] - 0.04, portraitLook[2]],
         [portraitLook[0], portraitLook[1] - 0.015, portraitLook[2]],
       ],
     },
@@ -104,7 +99,6 @@ export function createFinaleActs(): FinaleActs {
   let padGeometry: BufferGeometry | null = null
   let padVertexCount = 0
   let operatorLocal = 0
-  let supportLocal = 0
   let shippedLocal = 0
   let blueprintMaterial: LineBasicMaterial | null = null
   let monitorFrameMaterial: LineBasicMaterial | null = null
@@ -132,15 +126,15 @@ export function createFinaleActs(): FinaleActs {
     group.scale.setScalar(scale)
   }
 
-  const setMachineIntensity = (ambient: boolean) => {
+  const setMachineIntensity = () => {
     if (!blueprintMaterial || !monitorFrameMaterial || !screenMaterial || !screenGlowMaterial || !droneMaterial || !droneGlowMaterial || !statusMaterial) return
-    blueprintMaterial.opacity = ambient ? 0.11 : 0.62
-    monitorFrameMaterial.opacity = ambient ? 0.1 : 0.72
-    screenMaterial.opacity = ambient ? 0.06 : 0.2
-    screenGlowMaterial.uniforms.uOpacity.value = ambient ? 0.035 : 0.16
-    droneMaterial.opacity = ambient ? 0.12 : 0.85
-    droneGlowMaterial.uniforms.uOpacity.value = ambient ? 0.04 : 0.5
-    statusMaterial.opacity = ambient ? 0.12 : 0.82
+    blueprintMaterial.opacity = 0.62
+    monitorFrameMaterial.opacity = 0.72
+    screenMaterial.opacity = 0.2
+    screenGlowMaterial.uniforms.uOpacity.value = 0.16
+    droneMaterial.opacity = 0.85
+    droneGlowMaterial.uniforms.uOpacity.value = 0.5
+    statusMaterial.opacity = 0.82
   }
 
   const initialize = (stage: Stage) => {
@@ -236,10 +230,6 @@ export function createFinaleActs(): FinaleActs {
     const studioShell = studio?.querySelector<HTMLElement>('.section-shell')
     const studioHeading = studio?.querySelector<HTMLElement>('.section-heading')
     const operatorGrid = studio?.querySelector<HTMLElement>('.operator-grid')
-    const support = document.querySelector<HTMLElement>('#support')
-    const supportShell = support?.querySelector<HTMLElement>('.section-shell')
-    const supportHeading = support?.querySelector<HTMLElement>('.section-heading')
-    const planGrid = support?.querySelector<HTMLElement>('.plan-grid')
     const start = document.querySelector<HTMLElement>('#start')
     const startInner = start?.querySelector<HTMLElement>('.start-inner')
     const startCta = start?.querySelector<HTMLElement>('.start-cta')
@@ -263,30 +253,12 @@ export function createFinaleActs(): FinaleActs {
             : headingRect.top + headingRect.height * 0.48
           const recede = 1 - smoothstep(operatorLocal) * 0.36
           placeAtScreen(machine, x, y, 5, (stageRef.portrait ? 0.34 : 0.46) * recede)
-          setMachineIntensity(false)
+          setMachineIntensity()
           drones.forEach((drone, index) => {
             const angle = time * (0.42 + index * 0.05) + index * Math.PI * 2 / 3
             drone.group.visible = true
             drone.group.position.set(Math.cos(angle) * 1.45, Math.sin(angle * 1.3) * 0.72, Math.sin(angle) * 0.38)
             drone.body.rotation.set(time * 0.5, angle, time * 0.3)
-          })
-          machine.visible = true
-        }
-      } else if (supportLocal > 0 && supportLocal < 1 && support && supportShell && supportHeading && planGrid) {
-        const sectionRect = support.getBoundingClientRect()
-        const shellRect = supportShell.getBoundingClientRect()
-        const headingRect = supportHeading.getBoundingClientRect()
-        const plansRect = planGrid.getBoundingClientRect()
-        if (sectionRect.bottom > 0 && sectionRect.top < window.innerHeight && shellRect.width > 0 && plansRect.height > 0) {
-          const x = stageRef.portrait ? shellRect.right - 62 : shellRect.right - 90
-          const y = Math.max(sectionRect.top + 74, headingRect.top + 52)
-          placeAtScreen(machine, x, y, 5.4, stageRef.portrait ? 0.2 : 0.25)
-          setMachineIntensity(true)
-          drones.forEach((drone, index) => {
-            drone.group.visible = index < 2
-            const angle = time * 0.22 + index * Math.PI
-            drone.group.position.set(Math.cos(angle) * 1.55, Math.sin(angle) * 0.46, Math.sin(angle) * 0.3)
-            drone.body.rotation.set(time * 0.2, angle, 0)
           })
           machine.visible = true
         }
@@ -321,12 +293,6 @@ export function createFinaleActs(): FinaleActs {
       range: [0, 0],
       init: initialize,
       update(local) { operatorLocal = Math.min(1, Math.max(0, local)) },
-    },
-    support: {
-      id: 'support',
-      range: [0, 0],
-      init: initialize,
-      update(local) { supportLocal = Math.min(1, Math.max(0, local)) },
     },
     shipped: {
       id: 'start',

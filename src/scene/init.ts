@@ -46,7 +46,7 @@ export function initScene({ getProgress, subscribe }: SceneOptions): void {
   const agents = createAgentsAct()
   const deploy = createDeployAct((local, packet) => hero.setDeployHandoff(local, packet))
   const finale = createFinaleActs()
-  const acts: Act[] = [hero, design, build, agents, deploy, finale.operators, finale.support, finale.shipped]
+  const acts: Act[] = [hero, design, build, agents, deploy, finale.operators, finale.shipped]
   acts.forEach((act) => act.init(stage))
 
   const cameraRig = createCameraRig(
