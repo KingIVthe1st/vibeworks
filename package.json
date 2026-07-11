@@ -1,0 +1,42 @@
+{
+  "name": "vibeworkscursor",
+  "version": "1.0.0",
+  "description": "A world-class, premium landing page for VibeWorks AI Studio that rivals the design quality of companies like Linear, Figma, and top-tier startup studios.",
+  "main": "script.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingIVthe1st/vibeworks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KingIVthe1st/vibeworks/issues"
+  },
+  "homepage": "https://github.com/KingIVthe1st/vibeworks#readme",
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.25",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.185.1",
+    "sharp": "^0.35.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.4",
+    "vitest": "^4.1.10"
+  }
+}

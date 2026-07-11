@@ -1,0 +1,7 @@
+import '@fontsource-variable/bricolage-grotesque'
+import '@fontsource/plus-jakarta-sans/400.css'
+import '@fontsource/plus-jakarta-sans/600.css'
+import '@fontsource/ibm-plex-mono/400.css'
+import './styles/tokens.css'
+import './styles/base.css'
+import './styles/thank-you.css'
