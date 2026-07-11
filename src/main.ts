@@ -53,3 +53,22 @@ if (!reducedMotion) {
 }
 
 void initLoader({ reducedMotion })
+
+// Deep links (/#support etc., incl. legacy-stub redirects): the loader + Lenis
+// init can stomp the browser's native hash jump, so re-apply it once layout
+// and fonts have settled. Lenis needs its own scrollTo or it lerps back.
+if (location.hash) {
+  const jumpToHash = () => {
+    const target = document.querySelector<HTMLElement>(location.hash)
+    if (!target) return
+    const top = target.getBoundingClientRect().top + window.scrollY
+    const lenis = (window as unknown as { __lenis?: { scrollTo(t: number, o?: object): void } }).__lenis
+    if (lenis) lenis.scrollTo(top, { immediate: true })
+    else window.scrollTo(0, top)
+  }
+  void document.fonts.ready.then(() => {
+    requestAnimationFrame(jumpToHash)
+    // Once more after late media/scene settle shifts layout.
+    setTimeout(jumpToHash, 900)
+  })
+}
