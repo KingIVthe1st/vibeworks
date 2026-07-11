@@ -19,5 +19,5 @@ export interface Act {
   id: string
   range: [number, number]
   init(stage: Stage): void
-  update(local: number, dt: number): void
+  update(local: number, dt: number, global?: number): void
 }

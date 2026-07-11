@@ -2,6 +2,10 @@ import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+export function refreshScroll(): void {
+  ScrollTrigger.refresh()
+}
+
 export function initScroll(onProgress: (p: number) => void): void {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
 

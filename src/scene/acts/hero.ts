@@ -248,17 +248,30 @@ export const heroCameraKeyframes: CameraKeyframes = {
   },
 }
 
-export function createHeroAct(): Act {
+export interface HeroAct extends Act {
+  setDesignProgress(local: number): void
+  setBuildProgress(local: number): void
+  setBuildDock(target: Vector3): void
+}
+
+function easeInOutCubic(value: number): number {
+  return value < 0.5 ? 4 * value * value * value : 1 - Math.pow(-2 * value + 2, 3) / 2
+}
+
+export function createHeroAct(): HeroAct {
   let particleMaterial: ShaderMaterial | null = null
   let streakMaterial: ShaderMaterial | null = null
   let dustMaterial: ShaderMaterial | null = null
   let voidMaterial: ShaderMaterial | null = null
   let stageRef: Stage | null = null
   let localProgress = 0
+  let designProgress = 0
+  let buildProgress = 0
+  const buildDock = new Vector3()
 
   return {
     id: 'hero',
-    range: [0, 0.12],
+    range: [0, 0],
     init(stage) {
       stageRef = stage
 
@@ -322,12 +335,18 @@ export function createHeroAct(): Act {
       stage.scene.add(dust.mesh)
 
       const resolution = new Vector2()
+      const heroAnchor = new Vector3()
+      const blueprintCenter = new Vector3()
       onStageFrame(stage, (time) => {
         if (!particleMaterial || !streakMaterial || !dustMaterial || !voidMaterial || !stageRef) return
         const portrait = stageRef.portrait
         const pulse = 1 + Math.sin(time * (Math.PI * 2 / 3.5)) * 0.06
         const anchor = particleMaterial.uniforms.uAnchor.value as Vector3
-        anchor.set(portrait ? 0 : 1.72, portrait ? 1.45 : 0.28, 0)
+        const designEase = easeInOutCubic(designProgress)
+        heroAnchor.set(portrait ? 0 : 1.72, portrait ? 1.45 : 0.28, 0)
+        blueprintCenter.set(0, portrait ? -0.34 : 0.28, portrait ? -0.35 : 0)
+        anchor.lerpVectors(heroAnchor, blueprintCenter, designEase)
+        anchor.lerp(buildDock, easeInOutCubic(buildProgress))
         particleMaterial.uniforms.uTime.value = time
         particleMaterial.uniforms.uSize.value = portrait ? 44 : 55
         particleMaterial.uniforms.uPulse.value = pulse
@@ -348,6 +367,15 @@ export function createHeroAct(): Act {
       const brightness = 0.88 + eased * 0.42
       if (particleMaterial) particleMaterial.uniforms.uBrightness.value = brightness
       if (streakMaterial) streakMaterial.uniforms.uBrightness.value = brightness
+    },
+    setDesignProgress(local) {
+      designProgress = Math.min(1, Math.max(0, local))
+    },
+    setBuildProgress(local) {
+      buildProgress = Math.min(1, Math.max(0, local))
+    },
+    setBuildDock(target) {
+      buildDock.copy(target)
     },
   }
 }
