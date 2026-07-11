@@ -1,5 +1,4 @@
 interface LoaderOptions {
-  heroReady: Promise<void>
   reducedMotion: boolean
 }
 
@@ -27,18 +26,18 @@ function firstViewportImagesReady(): Promise<void> {
   })).then(() => undefined)
 }
 
-export async function initLoader({ heroReady, reducedMotion }: LoaderOptions): Promise<void> {
+export async function initLoader({ reducedMotion }: LoaderOptions): Promise<void> {
   const overlay = document.querySelector<HTMLElement>('#site-loader')
   if (!overlay) return
 
-  const gates = [heroReady, document.fonts.ready.then(() => undefined), firstViewportImagesReady()]
+  const gates = [document.fonts.ready.then(() => undefined), firstViewportImagesReady()]
   let completed = 0
   const tracked = gates.map((gate) => gate.catch(() => undefined).then(() => {
     completed += 1
     overlay.style.setProperty('--loader-progress', String(completed / gates.length))
   }))
   const elapsed = performance.now() - (window.__vwLoaderStart ?? performance.now())
-  const remaining = Math.max(0, (reducedMotion ? 300 : 1500) - elapsed)
+  const remaining = Math.max(0, (reducedMotion ? 300 : 900) - elapsed)
   await Promise.race([
     Promise.all(tracked),
     new Promise<void>((resolve) => window.setTimeout(resolve, remaining)),

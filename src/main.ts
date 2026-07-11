@@ -4,19 +4,8 @@ import '@fontsource/plus-jakarta-sans/600.css'
 import '@fontsource/ibm-plex-mono/400.css'
 import './styles/tokens.css'
 import './styles/base.css'
-import { initScroll, refreshScroll } from './scroll/scroll'
+import { initScroll } from './scroll/scroll'
 import { initReveals } from './scroll/reveals'
-import { localProgress } from './scroll/progress'
-import { measureActRanges, measurePlatformRanges, observeActLayout } from './scroll/ranges'
-import { createCameraRig } from './scene/camera'
-import { createAgentsAct, createAgentsCameraKeyframes } from './scene/acts/agents'
-import { createBuildAct, createBuildCameraKeyframes } from './scene/acts/build'
-import { createDeployAct, createDeployCameraKeyframes } from './scene/acts/deploy'
-import { createDesignAct, createDesignCameraKeyframes } from './scene/acts/design'
-import { createFinaleActs, createFinaleCameraKeyframes } from './scene/acts/finale'
-import { createHeroAct, heroCameraKeyframes } from './scene/acts/hero'
-import { createStage } from './scene/stage'
-import type { Act } from './scene/types'
 import { initLoader } from './ui/loader'
 
 document.documentElement.classList.add('js')
@@ -37,71 +26,30 @@ if (navToggle && navLinks) {
 }
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches
-let heroReady: Promise<void> = Promise.resolve()
+const maxScroll = () => Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
+let currentProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll()))
+const progressListeners = new Set<(progress: number) => void>()
 
 if (!reducedMotion) {
-  const canvas = document.createElement('canvas')
-  canvas.id = 'stage'
-  canvas.setAttribute('aria-hidden', 'true')
-
-  const stage = createStage(canvas)
-  if (stage) {
-    document.documentElement.classList.add('webgl')
-    document.body.prepend(canvas)
-    const hero = createHeroAct()
-    heroReady = hero.ready
-    const design = createDesignAct((local) => hero.setDesignProgress(local))
-    const build = createBuildAct(
-      (local, dock) => {
-        hero.setBuildDock(dock)
-        hero.setBuildProgress(local)
-      },
-      (local) => design.setBuildProgress(local),
-    )
-    const agents = createAgentsAct()
-    const deploy = createDeployAct((local, packet) => hero.setDeployHandoff(local, packet))
-    const finale = createFinaleActs()
-    const acts: Act[] = [hero, design, build, agents, deploy, finale.operators, finale.support, finale.shipped]
-    acts.forEach((act) => act.init(stage))
-
-    const cameraRig = createCameraRig(
-      stage,
-      createFinaleCameraKeyframes(
-        createDeployCameraKeyframes(
-          createAgentsCameraKeyframes(
-            createBuildCameraKeyframes(createDesignCameraKeyframes(heroCameraKeyframes)),
-          ),
-        ),
-      ),
-    )
-    let currentProgress = 0
-    const syncActRanges = () => {
-      const measured = measureActRanges()
-      const platforms = measurePlatformRanges()
-      const rangeMap = new Map([...measured, ...platforms].map(({ id, range }) => [id, range] as const))
-      build.setPlatformRanges(new Map(platforms.map(({ id, range }) => [id, range] as const)))
-      acts.forEach((act) => {
-        const range = rangeMap.get(act.id)
-        if (range) act.range = [...range]
-      })
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
-      currentProgress = Math.min(1, Math.max(0, window.scrollY / maxScroll))
-      cameraRig.setRanges(rangeMap)
-      cameraRig.scrub(currentProgress)
-      acts.forEach((act) => act.update(localProgress(currentProgress, act.range), 0, currentProgress))
-      refreshScroll()
-    }
-
-    initScroll((progress) => {
-      currentProgress = progress
-      cameraRig.scrub(progress)
-      acts.forEach((act) => act.update(localProgress(progress, act.range), 0, progress))
-    })
-    syncActRanges()
-    observeActLayout(syncActRanges)
-  }
-
+  initScroll((progress) => {
+    currentProgress = progress
+    progressListeners.forEach((listener) => listener(progress))
+  })
   initReveals()
+
+  const loadScene = () => {
+    void import('./scene/init').then(({ initScene }) => initScene({
+      getProgress: () => currentProgress,
+      subscribe(listener) {
+        progressListeners.add(listener)
+        return () => progressListeners.delete(listener)
+      },
+    })).catch(() => undefined)
+  }
+  requestAnimationFrame(() => {
+    if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(loadScene, { timeout: 700 })
+    else setTimeout(loadScene, 1)
+  })
 }
 
-void initLoader({ heroReady, reducedMotion })
+void initLoader({ reducedMotion })
