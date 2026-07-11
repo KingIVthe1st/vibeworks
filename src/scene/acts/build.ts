@@ -14,7 +14,6 @@ import {
   Vector2,
   Vector3,
 } from 'three'
-import { localProgress } from '../../scroll/progress'
 import type { CameraKeyframes } from '../camera'
 import { onStageFrame } from '../stage'
 import { loadActTextures } from '../textures'
@@ -39,14 +38,15 @@ const screenVertex = /* glsl */ `
 const screenFragment = /* glsl */ `
   uniform sampler2D uMap;
   uniform float uBoot;
+  uniform float uIntensity;
   varying vec2 vUv;
 
   void main() {
-    vec3 source = texture2D(uMap, vUv).rgb;
+    vec3 source = texture2D(uMap, vUv).rgb * uIntensity;
     float revealed = step(vUv.y, uBoot);
     float wipeLine = (1.0 - smoothstep(0.0, 0.02, abs(vUv.y - uBoot)))
       * step(0.001, uBoot) * step(uBoot, 0.999);
-    vec3 darkScreen = source * 0.025 + vec3(0.004, 0.003, 0.012);
+    vec3 darkScreen = source * 0.35 + vec3(0.004, 0.003, 0.012);
     vec3 color = mix(darkScreen, source, revealed);
     color += vec3(0.486, 0.361, 1.0) * wipeLine * 0.9;
     gl_FragColor = vec4(color, 1.0);
@@ -56,6 +56,7 @@ const screenFragment = /* glsl */ `
 interface MonitorRig {
   group: Group
   material: ShaderMaterial
+  article: HTMLElement
   figure: HTMLElement
   phase: number
 }
@@ -153,7 +154,6 @@ export function createBuildAct(
   let loading = false
   let loadGeneration = 0
   let buildLocal = 0
-  let globalProgress = 0
   const pointerTarget = new Vector2()
   const pointerCurrent = new Vector2()
   const ndc = new Vector3()
@@ -219,14 +219,16 @@ export function createBuildAct(
       })
 
       for (let index = 0; index < PLATFORM_IDS.length; index += 1) {
-        const figure = document.querySelector<HTMLElement>(`#platforms article[data-platform="${PLATFORM_IDS[index]}"] .device-frame`)
-        if (!figure) continue
+        const article = document.querySelector<HTMLElement>(`#platforms article[data-platform="${PLATFORM_IDS[index]}"]`)
+        const figure = article?.querySelector<HTMLElement>('.device-frame')
+        if (!article || !figure) continue
         const material = new ShaderMaterial({
           vertexShader: screenVertex,
           fragmentShader: screenFragment,
           uniforms: {
             uMap: { value: blackTexture },
             uBoot: { value: 0 },
+            uIntensity: { value: 1.15 },
           },
           toneMapped: false,
         })
@@ -258,7 +260,7 @@ export function createBuildAct(
 
         group.visible = false
         stage.scene.add(group)
-        monitors.push({ group, material, figure, phase: index * 1.7 })
+        monitors.push({ group, material, article, figure, phase: index * 1.7 })
       }
 
       const finePointer = matchMedia('(hover: hover) and (pointer: fine)')
@@ -284,6 +286,7 @@ export function createBuildAct(
           // prevents stale/default transforms from exposing a frame or glow.
           monitor.group.visible = false
           const rect = monitor.figure.getBoundingClientRect()
+          const articleRect = monitor.article.getBoundingClientRect()
           // localProgress remains 1 after an act, so both bounds are needed.
           // Requiring a positive on-screen intersection also keeps a future
           // article's shell from peeking into the current article transition.
@@ -313,26 +316,23 @@ export function createBuildAct(
           )
           monitor.group.visible = true
 
+          const articleEntry = Math.min(1, Math.max(0, (window.innerHeight - articleRect.top) / Math.max(1, articleRect.height)))
+          const rawBoot = Math.min(1, Math.max(0, (articleEntry - 0.2) / 0.25))
+          const boot = 1 - Math.pow(1 - rawBoot, 3)
+          monitor.material.uniforms.uBoot.value = boot
+
           if (index === 0) {
             dockPosition.set(0, 0, 0.04 * monitor.group.scale.z)
               .applyQuaternion(monitor.group.quaternion)
               .add(worldPosition)
-            const range = platformRanges.get(PLATFORM_IDS[0])
-            onAtomicityBoot(range ? localProgress(globalProgress, range) : 0, dockPosition)
+            onAtomicityBoot(boot, dockPosition)
           }
         }
       })
     },
     update(local, _dt, global = 0) {
       buildLocal = Math.min(1, Math.max(0, local))
-      globalProgress = global
       onBuildProgress(buildLocal)
-      for (let index = 0; index < monitors.length; index += 1) {
-        const range = platformRanges.get(PLATFORM_IDS[index])
-        const boot = range ? localProgress(global, range) : 0
-        monitors[index].material.uniforms.uBoot.value = boot
-      }
-
       if (!stageRef || this.range[1] <= this.range[0]) return
       const margin = Math.max(0.015, (this.range[1] - this.range[0]) * 0.16)
       const nearAct = global >= this.range[0] - margin && global <= this.range[1] + margin

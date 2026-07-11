@@ -21,10 +21,12 @@ interface Callout {
   element: HTMLDivElement
   anchor: Vector3
   opacity: number
+  collisionTime: number
 }
 
 export interface DesignAct extends Act {
   setBuildProgress(local: number): void
+  refreshCollisionElements(): void
 }
 
 export function easeInOutCubic(value: number): number {
@@ -105,9 +107,10 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
   let localProgress = 0
   let buildProgress = 0
   let totalVertices = 0
-  let textRects: DOMRect[] = []
+  let textElements: HTMLElement[] = []
+  const liveTextRects: DOMRect[] = []
   let wasActive = false
-  let cacheTextRects = () => undefined
+  let cacheTextElements = () => undefined
 
   return {
     id: 'design',
@@ -143,7 +146,12 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
 
       const updateComposition = () => {
         if (!blueprint || !stageRef) return
-        blueprint.position.set(0, stageRef.portrait ? -0.62 : 0, stageRef.portrait ? -0.35 : 0)
+        const desktopRise = easeInOutCubic(Math.max(0, (localProgress - 0.7) / 0.2))
+        blueprint.position.set(
+          0,
+          stageRef.portrait ? -0.62 : -1.4 * (1 - desktopRise),
+          stageRef.portrait ? -0.35 : 0,
+        )
         const baseOpacity = stageRef.portrait ? 0.28 : 0.45
         material.opacity = baseOpacity * (1 - easeInOutCubic(Math.min(1, buildProgress * 3)))
       }
@@ -151,22 +159,20 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
       onStageFrame(stage, updateComposition)
 
       if (stage.tier.name !== 'low') {
-        cacheTextRects = () => {
-          textRects = Array.from(document.querySelectorAll<HTMLElement>('#design h2, #design p, #design ul'))
+        cacheTextElements = () => {
+          textElements = Array.from(document.querySelectorAll<HTMLElement>('#design h2, #design p'))
             .filter((element) => {
               const style = getComputedStyle(element)
               return style.display !== 'none' && style.visibility !== 'hidden'
             })
-            .map((element) => element.getBoundingClientRect())
-            .filter((rect) => rect.width > 0 && rect.height > 0)
         }
         let resizeTimer = 0
         const scheduleTextRects = () => {
           window.clearTimeout(resizeTimer)
-          resizeTimer = window.setTimeout(cacheTextRects, 120)
+          resizeTimer = window.setTimeout(cacheTextElements, 120)
         }
         window.addEventListener('resize', scheduleTextRects, { passive: true })
-        void document.fonts.ready.then(cacheTextRects)
+        void document.fonts.ready.then(() => window.setTimeout(cacheTextElements, 300))
 
         const layer = document.createElement('div')
         layer.className = 'callout-layer'
@@ -181,7 +187,7 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
           element.className = 'callout'
           element.textContent = label
           layer.append(element)
-          callouts.push({ element, anchor, opacity: 0 })
+          callouts.push({ element, anchor, opacity: 0, collisionTime: 0 })
         })
         document.body.append(layer)
 
@@ -194,19 +200,42 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
           const visibility = (localProgress > 0 && localProgress < 1 ? 1 : 0)
             * Math.min(1, Math.max(0, (localProgress - 0.28) / 0.24))
             * (1 - easeInOutCubic(Math.min(1, buildProgress * 4)))
+          liveTextRects.length = 0
+          let copyBottom = 0
+          textElements.forEach((textElement) => {
+            const rect = textElement.getBoundingClientRect()
+            if (rect.width > 0 && rect.height > 0) {
+              liveTextRects.push(rect)
+              copyBottom = Math.max(copyBottom, rect.bottom)
+            }
+          })
           callouts.forEach((callout) => {
             const { element, anchor } = callout
             projected.copy(anchor).applyMatrix4(bp.matrixWorld).project(stg.camera)
             const onScreen = projected.z > -1 && projected.z < 1
-            element.style.left = `${(projected.x * 0.5 + 0.5) * window.innerWidth}px`
-            element.style.top = `${(-projected.y * 0.5 + 0.5) * window.innerHeight}px`
-            const rect = element.getBoundingClientRect()
-            const collides = textRects.some((textRect) => !(
+            const screenX = (projected.x * 0.5 + 0.5) * window.innerWidth
+            const screenY = (-projected.y * 0.5 + 0.5) * window.innerHeight
+            element.style.left = `${screenX}px`
+            element.style.top = `${screenY}px`
+            let rect = element.getBoundingClientRect()
+            let collides = liveTextRects.some((textRect) => !(
               rect.right <= textRect.left
               || rect.left >= textRect.right
               || rect.bottom <= textRect.top
               || rect.top >= textRect.bottom
             ))
+            callout.collisionTime = collides ? callout.collisionTime + dt : 0
+            if (collides && callout.collisionTime > 0.5) {
+              const clampedY = copyBottom + 24 + rect.height * 0.5
+              element.style.top = `${clampedY}px`
+              rect = element.getBoundingClientRect()
+              collides = liveTextRects.some((textRect) => !(
+                rect.right <= textRect.left
+                || rect.left >= textRect.right
+                || rect.bottom <= textRect.top
+                || rect.top >= textRect.bottom
+              )) || rect.bottom > window.innerHeight
+            }
             const target = onScreen && !collides ? visibility : 0
             const opacityStep = Math.min(1, dt / 0.12)
             callout.opacity += Math.max(-opacityStep, Math.min(opacityStep, target - callout.opacity))
@@ -219,7 +248,7 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
       localProgress = Math.min(1, Math.max(0, local))
       const active = localProgress > 0 && localProgress < 1
       if (blueprint) blueprint.visible = active
-      if (active && !wasActive) cacheTextRects()
+      if (active && !wasActive) cacheTextElements()
       wasActive = active
       onParticleProgress(localProgress)
 
@@ -233,6 +262,9 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
     },
     setBuildProgress(local) {
       buildProgress = Math.min(1, Math.max(0, local))
+    },
+    refreshCollisionElements() {
+      cacheTextElements()
     },
   }
 }

@@ -248,6 +248,7 @@ export function createFinaleActs(): FinaleActs {
       if (!stageRef || !machine || !landing || !packet || !packetGlow || !padGeometry) return
       machine.visible = false
       landing.visible = false
+      packet.visible = false
 
       if (operatorLocal > 0 && operatorLocal < 1 && studio && studioShell && studioHeading && operatorGrid) {
         const sectionRect = studio.getBoundingClientRect()
@@ -256,7 +257,10 @@ export function createFinaleActs(): FinaleActs {
         const gridRect = operatorGrid.getBoundingClientRect()
         if (sectionRect.bottom > 0 && sectionRect.top < window.innerHeight && shellRect.width > 0 && gridRect.height > 0) {
           const x = stageRef.portrait ? shellRect.left + shellRect.width * 0.5 : shellRect.right - Math.min(shellRect.width * 0.17, 190)
-          const y = stageRef.portrait ? headingRect.bottom + Math.min((gridRect.top - headingRect.bottom) * 0.5, 90) : headingRect.top + headingRect.height * 0.48
+          const portraitGap = Math.max(0, gridRect.top - headingRect.bottom)
+          const y = stageRef.portrait
+            ? headingRect.bottom + Math.min(120, Math.max(78, portraitGap * 0.72))
+            : headingRect.top + headingRect.height * 0.48
           const recede = 1 - smoothstep(operatorLocal) * 0.36
           placeAtScreen(machine, x, y, 5, (stageRef.portrait ? 0.34 : 0.46) * recede)
           setMachineIntensity(false)
@@ -303,6 +307,7 @@ export function createFinaleActs(): FinaleActs {
           const settle = smoothstep((shippedLocal - 0.7) / 0.3)
           packet.position.set(0, 1.35 * (1 - descend) + 0.14 - settle * 0.06, 0.12)
           packet.scale.setScalar(0.78 + Math.sin(time * 2.1) * 0.04 * (1 - settle))
+          packet.visible = shippedLocal > 0.15
           packetGlow.opacity = 0.42 * (1 - smoothstep((shippedLocal - 0.7) / 0.22))
           landing.visible = true
         }

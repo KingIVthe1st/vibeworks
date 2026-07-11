@@ -8,8 +8,8 @@ import {
   MeshBasicMaterial,
   Object3D,
   Points,
-  PointsMaterial,
   QuadraticBezierCurve3,
+  ShaderMaterial,
   SphereGeometry,
   TubeGeometry,
   Vector3,
@@ -22,6 +22,30 @@ const NODE_COORDINATES: Array<[number, number]> = [
   [0.58, -1.3], [0.22, -0.2], [0.72, 0.72], [0.1, 1.86],
   [-0.48, 2.65], [-0.78, -2.36], [-0.18, -1.78], [0.45, 2.95],
 ]
+
+const gridVertex = /* glsl */ `
+  uniform float uPointSize;
+  uniform float uViewportHeight;
+  varying float vEdgeAlpha;
+  void main() {
+    vec4 viewPosition = modelViewMatrix * vec4(position, 1.0);
+    gl_Position = projectionMatrix * viewPosition;
+    gl_PointSize = max(1.0, uPointSize * uViewportHeight * 0.5 / max(1.0, -viewPosition.z));
+    vec2 screenUv = gl_Position.xy / gl_Position.w * 0.5 + 0.5;
+    float edgeDistance = min(min(screenUv.x, 1.0 - screenUv.x), min(screenUv.y, 1.0 - screenUv.y));
+    vEdgeAlpha = smoothstep(0.0, 0.06, edgeDistance);
+  }
+`
+
+const gridFragment = /* glsl */ `
+  varying float vEdgeAlpha;
+  void main() {
+    float d = distance(gl_PointCoord, vec2(0.5));
+    if (d > 0.5) discard;
+    float alpha = smoothstep(0.5, 0.12, d) * 0.58 * vEdgeAlpha;
+    gl_FragColor = vec4(vec3(0.486, 0.361, 1.0), alpha);
+  }
+`
 
 function spherePoint(latitude: number, longitude: number, radius = 1): Vector3 {
   const cosLatitude = Math.cos(latitude)
@@ -102,16 +126,19 @@ export function createDeployAct(onParticleHandoff: (local: number, packet: Vecto
       const pointCount = Math.max(180, Math.round(900 * stage.tier.instances))
       const pointGeometry = new BufferGeometry()
       pointGeometry.setAttribute('position', new Float32BufferAttribute(fibonacciSpherePositions(pointCount), 3))
-      const grid = new Points(pointGeometry, new PointsMaterial({
-        color: 0x7c5cff,
-        size: stage.portrait ? 0.026 : 0.022,
-        sizeAttenuation: true,
+      const gridMaterial = new ShaderMaterial({
+        vertexShader: gridVertex,
+        fragmentShader: gridFragment,
+        uniforms: {
+          uPointSize: { value: stage.portrait ? 0.026 : 0.022 },
+          uViewportHeight: { value: window.innerHeight * stage.tier.dpr },
+        },
         transparent: true,
-        opacity: 0.58,
         blending: AdditiveBlending,
         depthWrite: false,
         toneMapped: false,
-      }))
+      })
+      const grid = new Points(pointGeometry, gridMaterial)
       globe.add(grid)
 
       NODE_COORDINATES.forEach(([latitude, longitude]) => nodePositions.push(spherePoint(latitude, longitude, 1.025)))
@@ -146,7 +173,7 @@ export function createDeployAct(onParticleHandoff: (local: number, packet: Vecto
       packet = new Group()
       const packetCore = new Mesh(
         new SphereGeometry(0.052, 8, 6),
-        new MeshBasicMaterial({ color: 0xffffff, toneMapped: false }),
+        new MeshBasicMaterial({ color: 0x7c5cff, blending: AdditiveBlending, transparent: true, opacity: 0.9, depthWrite: false, toneMapped: false }),
       )
       const packetGlow = new Mesh(
         new SphereGeometry(0.105, 8, 6),
@@ -174,11 +201,14 @@ export function createDeployAct(onParticleHandoff: (local: number, packet: Vecto
         const intersects = sectionRect.bottom > 0 && sectionRect.top < window.innerHeight
         if (!active || !intersects || shellRect.width <= 0 || headingRect.height <= 0 || proofRect.height <= 0 || cardsRect.height <= 0) return
 
-        const centerX = stageRef.portrait
+        const desiredCenterX = stageRef.portrait
           ? proofRect.left + proofRect.width * 0.5
           : shellRect.right - Math.min(shellRect.width * 0.2, 230)
+        const centerX = stageRef.portrait
+          ? desiredCenterX
+          : Math.min(window.innerWidth * 0.88, Math.max(desiredCenterX, headingRect.right + 180))
         const centerY = stageRef.portrait
-          ? proofRect.bottom + Math.min((headingRect.top - proofRect.bottom) * 0.5, 90)
+          ? headingRect.bottom + Math.min(90, Math.max(32, (proofRect.top - headingRect.bottom) * 0.5))
           : headingRect.top + headingRect.height * 0.48
         ndcPoint.set(centerX / window.innerWidth * 2 - 1, 1 - centerY / window.innerHeight * 2, 0.5)
         ndcPoint.unproject(stageRef.camera)
@@ -190,6 +220,8 @@ export function createDeployAct(onParticleHandoff: (local: number, packet: Vecto
         root.quaternion.copy(stageRef.camera.quaternion)
         root.scale.setScalar(stageRef.portrait ? 0.78 : 1.04)
         root.visible = true
+        gridMaterial.uniforms.uPointSize.value = stageRef.portrait ? 0.026 : 0.022
+        gridMaterial.uniforms.uViewportHeight.value = window.innerHeight * stageRef.tier.dpr
 
         globe.rotation.set(0.12, time * 0.075, time * 0.018)
         const pathProgress = Math.min(11.9999, localProgress * 12)

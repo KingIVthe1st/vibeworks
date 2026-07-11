@@ -84,6 +84,7 @@ export function createAgentsAct(): Act {
   const bodyPosition = new Vector3()
   const dotPosition = new Vector3()
   const dotOffset = new Vector3(0.055, 0.04, 0.045)
+  const projectedPosition = new Vector3()
   let phase = new Float32Array(0)
   let rateA = new Float32Array(0)
   let rateB = new Float32Array(0)
@@ -186,7 +187,7 @@ export function createAgentsAct(): Act {
           ? cardsRect.left + cardsRect.width * 0.5
           : shellRect.right - Math.min(shellRect.width * 0.19, 220)
         const centerY = stageRef.portrait
-          ? cardsRect.top + Math.min(cardsRect.height * 0.13, 150)
+          ? headingRect.bottom + Math.max(24, (cardsRect.top - headingRect.bottom) * 0.5)
           : headingRect.top + headingRect.height * 0.5
         ndcPoint.set(centerX / window.innerWidth * 2 - 1, 1 - centerY / window.innerHeight * 2, 0.5)
         ndcPoint.unproject(stageRef.camera)
@@ -197,6 +198,7 @@ export function createAgentsAct(): Act {
         swarm.position.copy(center)
         swarm.quaternion.copy(stageRef.camera.quaternion)
         swarm.scale.setScalar(stageRef.portrait ? 0.86 : 1)
+        swarm.updateWorldMatrix(true, false)
         swarm.visible = true
 
         const entry = smoothstep(localProgress / 0.24)
@@ -222,29 +224,39 @@ export function createAgentsAct(): Act {
           }
           bodyPosition.set(x, y, z)
           const depthScale = 0.72 + ((z / Math.max(0.001, radiusZ[index])) * 0.5 + 0.5) * 0.46
+          projectedPosition.copy(bodyPosition).applyMatrix4(swarm.matrixWorld).project(stageRef.camera)
+          const screenX = (projectedPosition.x * 0.5 + 0.5) * window.innerWidth
+          const screenY = (1 - (projectedPosition.y * 0.5 + 0.5)) * window.innerHeight
+          const edgeDistance = Math.min(screenX / window.innerWidth, 1 - screenX / window.innerWidth, screenY / window.innerHeight, 1 - screenY / window.innerHeight)
+          const edgeFade = smoothstep(edgeDistance / 0.06)
+          const overHeading = screenX >= headingRect.left - 18 && screenX <= headingRect.right + 18
+            && screenY >= headingRect.top - 18 && screenY <= headingRect.bottom + 18
+          const overCards = screenY >= cardsRect.top - 12 && screenY <= cardsRect.bottom + 12
+          const safeAreaFade = overHeading || overCards ? 0 : 1
+          const visualFade = edgeFade * safeAreaFade
           dummy.position.copy(bodyPosition)
           dummy.rotation.set(time * 0.7 + p, time * 0.5 + p, time * 0.35)
-          dummy.scale.setScalar(entry * depthScale * (index === 0 ? 1 + goldStrength * 0.9 : 1))
+          dummy.scale.setScalar(entry * depthScale * visualFade * (index === 0 ? 1 + goldStrength * 0.9 : 1))
           dummy.updateMatrix()
           body.setMatrixAt(index, dummy.matrix)
 
           dummy.position.copy(bodyPosition)
           dummy.rotation.set(0, 0, 0)
-          dummy.scale.setScalar(entry * depthScale * (index === 0 ? 1 + goldStrength * 1.4 : 1))
+          dummy.scale.setScalar(entry * depthScale * visualFade * (index === 0 ? 1 + goldStrength * 1.4 : 1))
           dummy.updateMatrix()
           glow.setMatrixAt(index, dummy.matrix)
 
           dotPosition.copy(bodyPosition).add(dotOffset)
           dummy.position.copy(dotPosition)
           dummy.rotation.set(0, 0, 0)
-          dummy.scale.setScalar(entry * (index === 0 ? 1 + goldStrength * 1.8 : 1))
+          dummy.scale.setScalar(entry * visualFade * (index === 0 ? 1 + goldStrength * 1.8 : 1))
           dummy.updateMatrix()
           status.setMatrixAt(index, dummy.matrix)
 
           if (index === 0) {
             dockPulse.position.copy(bodyPosition)
-            dockPulse.scale.setScalar(entry * depthScale * goldStrength * 1.7)
-            dockPulse.visible = goldStrength > 0.01
+            dockPulse.scale.setScalar(entry * depthScale * visualFade * goldStrength * 1.7)
+            dockPulse.visible = visualFade > 0 && goldStrength > 0.01
           }
         }
         body.instanceMatrix.needsUpdate = true

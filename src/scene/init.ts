@@ -74,6 +74,7 @@ export function initScene({ getProgress, subscribe }: SceneOptions): void {
       if (range) act.range = [...range]
     })
     cameraRig.setRanges(rangeMap)
+    design.refreshCollisionElements()
     applyProgress(getProgress())
     refreshScroll()
   }

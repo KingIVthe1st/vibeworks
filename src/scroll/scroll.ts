@@ -11,6 +11,7 @@ export function initScroll(onProgress: (p: number) => void): void {
 
   gsap.registerPlugin(ScrollTrigger)
   const lenis = new Lenis({ lerp: 0.1 })
+  ;(window as unknown as { __lenis: Lenis }).__lenis = lenis
   lenis.on('scroll', ScrollTrigger.update)
   gsap.ticker.add((t) => lenis.raf(t * 1000))
   gsap.ticker.lagSmoothing(0)
