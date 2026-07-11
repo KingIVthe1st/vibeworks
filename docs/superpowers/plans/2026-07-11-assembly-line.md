@@ -89,7 +89,8 @@ Append to `.gitignore`: `node_modules/`, `dist/`.
 git rm _redirects about.html ai-agents.html contact.html platforms.html services.html support.html ventures.html styles.css script.js
 mkdir -p public src
 git mv CNAME manifest.json public/
-git mv thank-you.html thank-you.html   # stays at root as second Vite entry
+# thank-you.html stays at repo root untouched (second Vite entry)
+rmdir nanobanana-output   # untracked empty dir
 printf '' > public/.nojekyll
 ```
 Write a minimal placeholder `index.html` (`<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>VibeWorks</title></head><body><h1>scaffold</h1><script type="module" src="/src/main.ts"></script></body></html>`) and `src/main.ts` (`console.log('assembly line scaffold')`).
