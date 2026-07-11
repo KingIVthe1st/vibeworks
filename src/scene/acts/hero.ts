@@ -252,6 +252,7 @@ export interface HeroAct extends Act {
   setDesignProgress(local: number): void
   setBuildProgress(local: number): void
   setBuildDock(target: Vector3): void
+  setDeployHandoff(local: number, target: Vector3): void
 }
 
 function easeInOutCubic(value: number): number {
@@ -267,7 +268,9 @@ export function createHeroAct(): HeroAct {
   let localProgress = 0
   let designProgress = 0
   let buildProgress = 0
+  let deployProgress = 0
   const buildDock = new Vector3()
+  const deployTarget = new Vector3()
 
   return {
     id: 'hero',
@@ -347,12 +350,18 @@ export function createHeroAct(): HeroAct {
         blueprintCenter.set(0, portrait ? -0.34 : 0.28, portrait ? -0.35 : 0)
         anchor.lerpVectors(heroAnchor, blueprintCenter, designEase)
         anchor.lerp(buildDock, easeInOutCubic(buildProgress))
+        anchor.lerp(deployTarget, easeInOutCubic(Math.min(1, deployProgress / 0.16)))
+        const deployVisibility = 1 - easeInOutCubic(Math.min(1, deployProgress / 0.24))
+        const heroBrightness = (0.88 + localProgress * localProgress * (3 - 2 * localProgress) * 0.42)
+          * deployVisibility
         particleMaterial.uniforms.uTime.value = time
         particleMaterial.uniforms.uSize.value = portrait ? 44 : 55
         particleMaterial.uniforms.uPulse.value = pulse
+        particleMaterial.uniforms.uBrightness.value = heroBrightness
         streakMaterial.uniforms.uTime.value = time
         streakMaterial.uniforms.uPulse.value = pulse
         streakMaterial.uniforms.uPortrait.value = portrait ? 1 : 0
+        streakMaterial.uniforms.uBrightness.value = heroBrightness
         streakMaterial.uniforms.uAnchor.value.copy(anchor)
         dustMaterial.uniforms.uTime.value = time
         dustMaterial.uniforms.uPortrait.value = portrait ? 1 : 0
@@ -376,6 +385,10 @@ export function createHeroAct(): HeroAct {
     },
     setBuildDock(target) {
       buildDock.copy(target)
+    },
+    setDeployHandoff(local, target) {
+      deployProgress = Math.min(1, Math.max(0, local))
+      deployTarget.copy(target)
     },
   }
 }

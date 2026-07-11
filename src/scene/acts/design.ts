@@ -188,13 +188,15 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
         const projected = new Vector3()
         onStageFrame(stage, (_time, dt) => {
           if (!blueprint || !stageRef) return
-          blueprint.updateWorldMatrix(true, false)
+          const bp = blueprint
+          const stg = stageRef
+          bp.updateWorldMatrix(true, false)
           const visibility = (localProgress > 0 && localProgress < 1 ? 1 : 0)
             * Math.min(1, Math.max(0, (localProgress - 0.28) / 0.24))
             * (1 - easeInOutCubic(Math.min(1, buildProgress * 4)))
           callouts.forEach((callout) => {
             const { element, anchor } = callout
-            projected.copy(anchor).applyMatrix4(blueprint.matrixWorld).project(stageRef.camera)
+            projected.copy(anchor).applyMatrix4(bp.matrixWorld).project(stg.camera)
             const onScreen = projected.z > -1 && projected.z < 1
             element.style.left = `${(projected.x * 0.5 + 0.5) * window.innerWidth}px`
             element.style.top = `${(-projected.y * 0.5 + 0.5) * window.innerHeight}px`

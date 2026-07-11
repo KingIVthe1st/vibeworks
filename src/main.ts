@@ -9,8 +9,11 @@ import { initReveals } from './scroll/reveals'
 import { localProgress } from './scroll/progress'
 import { measureActRanges, measurePlatformRanges, observeActLayout } from './scroll/ranges'
 import { createCameraRig } from './scene/camera'
+import { createAgentsAct, createAgentsCameraKeyframes } from './scene/acts/agents'
 import { createBuildAct, createBuildCameraKeyframes } from './scene/acts/build'
+import { createDeployAct, createDeployCameraKeyframes } from './scene/acts/deploy'
 import { createDesignAct, createDesignCameraKeyframes } from './scene/acts/design'
+import { createFinaleActs, createFinaleCameraKeyframes } from './scene/acts/finale'
 import { createHeroAct, heroCameraKeyframes } from './scene/acts/hero'
 import { createStage } from './scene/stage'
 import type { Act } from './scene/types'
@@ -52,12 +55,21 @@ if (!reducedMotion) {
       },
       (local) => design.setBuildProgress(local),
     )
-    const acts: Act[] = [hero, design, build]
+    const agents = createAgentsAct()
+    const deploy = createDeployAct((local, packet) => hero.setDeployHandoff(local, packet))
+    const finale = createFinaleActs()
+    const acts: Act[] = [hero, design, build, agents, deploy, finale.operators, finale.support, finale.shipped]
     acts.forEach((act) => act.init(stage))
 
     const cameraRig = createCameraRig(
       stage,
-      createBuildCameraKeyframes(createDesignCameraKeyframes(heroCameraKeyframes)),
+      createFinaleCameraKeyframes(
+        createDeployCameraKeyframes(
+          createAgentsCameraKeyframes(
+            createBuildCameraKeyframes(createDesignCameraKeyframes(heroCameraKeyframes)),
+          ),
+        ),
+      ),
     )
     let currentProgress = 0
     const syncActRanges = () => {
