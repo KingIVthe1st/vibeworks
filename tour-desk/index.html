@@ -19,102 +19,363 @@
   <link rel="icon" type="image/png" href="/images/icon-192.png?v=2" sizes="192x192">
   <link rel="apple-touch-icon" href="/images/icon-192.png?v=2">
   <link rel="manifest" href="/manifest.json">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body class="desk">
-  <header class="desk-top desk-wrap">
-    <a class="desk-mark" href="/" aria-label="VibeWorks home">Vibe<span>Works</span></a>
+  <a class="desk-skip" href="#main">Skip to the content</a>
+
+  <header class="desk-top">
+    <div class="desk-wrap desk-top-inner">
+      <a class="desk-mark" href="/" aria-label="VibeWorks home">Vibe<span>Works</span></a>
+      <p class="desk-status"><span class="desk-dot" aria-hidden="true"></span>Demo line live</p>
+    </div>
   </header>
 
-  <main>
-    <section class="desk-hero desk-wrap" aria-labelledby="desk-h1">
-      <h1 id="desk-h1">Who answers when you're in ratio?</h1>
+  <main id="main">
 
-      <p class="desk-call">
-        <a class="desk-number" href="tel:+13466837141">346-683-7141</a>
-        <span class="desk-live"><span class="desk-dot" aria-hidden="true"></span>live now</span>
-      </p>
+    <!-- ============================ HERO ============================ -->
+    <section class="desk-hero" aria-labelledby="desk-h1">
+      <figure class="scene" data-parallax>
+        <div class="scene-art" data-parallax-art>
+          <div class="scene-built scene-built--tour-hero" aria-hidden="true">
+            <span class="sf-wash"></span>
+            <span class="sf-frame"></span>
+            <span class="sf-cone"></span>
+            <span class="sf-plane"></span>
+            <span class="sf-edge"></span>
+            <span class="sf-pool"></span>
+            <span class="sf-key"></span>
+            <span class="sf-grain"></span>
+            <span class="sf-vig"></span>
+          </div>
+          <img class="scene-img" src="/images/desk/tour-hero.webp" width="1600" height="900" alt="An empty preschool front desk at dusk, lit by the glow of a ringing phone." fetchpriority="high" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="scene-veil" aria-hidden="true"></div>
+      </figure>
 
-      <p class="desk-hear">Call it. It picks up as the front desk of a preschool.</p>
+      <div class="desk-wrap desk-hero-inner">
+        <p class="desk-eyebrow">Tour Desk, for child care centers</p>
+        <h1 id="desk-h1">Who answers when you're in ratio?</h1>
+        <p class="desk-hero-sub">A front desk that picks up when your team can't. It says it is an AI, answers from your handbook, and books the tour.</p>
 
-      <div class="desk-copy-slot">
-        <button class="desk-copy" type="button" data-copy-number="346-683-7141" hidden>Copy number</button>
-      </div>
-    </section>
+        <p class="desk-call">
+          <a class="desk-number" href="tel:+13466837141">346-683-7141</a>
+        </p>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-first">
-      <h2 id="desk-first">What it says first</h2>
-      <p class="desk-quote">Hi, this is the AI assistant for [your center]. I can answer questions about hours, fees and openings, and book a tour. What can I help with?</p>
-      <p>Every caller hears that in the first sentence. It never pretends to be staff.</p>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-captures">
-      <h2 id="desk-captures">What it captures on every call</h2>
-      <ul class="desk-list">
-        <li>parent's name and number</li>
-        <li>child's age and the start date they want</li>
-        <li>the tour time, booked onto your calendar with a confirmation to the parent</li>
-        <li>every question it could not answer from your handbook, listed in your morning brief</li>
-      </ul>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-never">
-      <h2 id="desk-never">What it never does</h2>
-      <ul class="desk-list">
-        <li>quote a fee your handbook does not state</li>
-        <li>promise a spot</li>
-        <li>guess at a policy</li>
-      </ul>
-      <p>When it does not know, it takes the number and puts it in your brief.</p>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-trial">
-      <h2 id="desk-trial">The trial</h2>
-      <div class="desk-trial">
-        <p>Fourteen days on your own line for $500, after-hours only. Stop at day 14 and the deposit comes back. What I promise while it runs is one thing. Every after-hours call answered and logged inside 60 seconds, and if it misses one, the two weeks are on me.</p>
-        <div class="desk-actions">
-          <a class="desk-btn" href="https://calendly.com/ndburton/30min" target="_blank" rel="noopener">Book a 30 minute call with Natasha</a>
-          <p class="desk-or">or email <a href="mailto:natasha@vibeworksstudio.ai">natasha@vibeworksstudio.ai</a></p>
+        <div class="desk-hero-actions">
+          <div class="desk-copy-slot">
+            <button class="desk-copy" type="button" data-copy-number="346-683-7141" hidden>Copy number</button>
+          </div>
+          <p class="desk-hint">Ask it anything a parent would.</p>
         </div>
       </div>
     </section>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-after">
-      <h2 id="desk-after">After the trial</h2>
-      <p>If you keep it, install is $3,500 with the $500 credited, and care is $497 a month from day 31. No meter, no overage, no cancellation fee.</p>
+    <!-- ========================== PROBLEM ========================== -->
+    <section class="desk-sec" aria-labelledby="s-problem">
+      <div class="desk-wrap">
+        <h2 id="s-problem" class="reveal">The call you never hear</h2>
+        <ol class="problem-grid">
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">01</p>
+            <p>A parent calls three to five centers. The first one that answers gets the tour.</p>
+          </li>
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">02</p>
+            <p>At 4:45 your team is in ratio. The phone rings through to voicemail, and the parent does not leave one.</p>
+          </li>
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">03</p>
+            <p>You find out on Monday, if you find out at all.</p>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-faq">
-      <h2 id="desk-faq">FAQ</h2>
-      <div class="desk-faq" data-faq>
-        <details>
-          <summary>Does it replace my front desk?</summary>
-          <p>No. It takes the calls nobody is free for, after hours and while you are in a room.</p>
-        </details>
-        <details>
-          <summary>Do parents know it is an AI?</summary>
-          <p>Yes, first sentence, every call.</p>
-        </details>
-        <details>
-          <summary>What does it need from me?</summary>
-          <p>Your handbook, your hours, your tour slots, and a fifteen-minute call.</p>
-        </details>
-        <details>
-          <summary>What about my phone system?</summary>
-          <p>It runs on the number you have, by forwarding after hours. Landline, cell or VoIP.</p>
-        </details>
-        <details>
-          <summary>Where do the calls go?</summary>
-          <p>Logged and transcribed for you, kept thirty days, then deleted.</p>
-        </details>
+    <!-- =========================== DEMO ============================ -->
+    <section class="desk-sec" aria-labelledby="s-demo">
+      <div class="desk-wrap demo-grid">
+        <div class="reveal">
+          <h2 id="s-demo">Hear it yourself</h2>
+          <p class="demo-line">Call <a class="demo-number" href="tel:+13466837141">346-683-7141</a>. It picks up as the front desk of a preschool.</p>
+        </div>
+        <ul class="try-list reveal">
+          <li data-n="01">Ask what a full-time spot costs.</li>
+          <li data-n="02">Ask for a tour on Thursday afternoon.</li>
+          <li data-n="03">Ask something no handbook covers, and listen to what it does instead of guessing.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================= THE CALL =========================== -->
+    <section class="desk-sec" aria-labelledby="s-call">
+      <div class="desk-wrap">
+        <div class="call-head reveal">
+          <h2 id="s-call">One call, start to finish</h2>
+        </div>
+        <p class="call-caption reveal">Sample call on the demo line, names changed.</p>
+
+        <div class="call" data-call>
+          <div class="call-phone">
+            <span class="call-progress" data-call-progress aria-hidden="true"></span>
+
+            <div class="call-bar">
+              <span class="desk-dot" aria-hidden="true"></span>
+              <p class="call-who">Tour Desk</p>
+              <p class="call-state" data-call-clock aria-hidden="true">0:53</p>
+            </div>
+
+            <div class="call-wave" data-call-wave aria-hidden="true">
+              <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
+              <i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i>
+              <i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i>
+              <i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i>
+              <i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i>
+              <i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i>
+            </div>
+
+            <ol class="call-script" data-call-script aria-live="polite" aria-label="Call transcript">
+              <li class="call-line call-line--desk is-shown" data-call-line="0:01" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Tour Desk 0:01</span><span data-call-text>Hi, this is the AI assistant for Bright Start Preschool. I can answer questions about hours, fees and openings, and book a tour. What can I help with?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:07" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Dana 0:07</span><span data-call-text>Hi, yeah, I'm looking for a spot for my daughter, she's three.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:12" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Tour Desk 0:12</span><span data-call-text>We have openings in the three-year-old room. Full time is $1,180 a month, and hours are 6:30 to 6:00. Would you like to come see the room?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:20" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Dana 0:20</span><span data-call-text>Yes, could we do Thursday after four?</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:24" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Tour Desk 0:24</span><span data-call-text>Thursday at 4:30 is open. Can I get your name and the best number for a confirmation?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:29" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Dana 0:29</span><span data-call-text>Dana Whitfield, 512-555-0143.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:34" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Tour Desk 0:34</span><span data-call-text>Thank you, Dana. You are booked for Thursday at 4:30 with the director. I have sent a confirmation to your phone. Anything else I can answer?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:41" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Dana 0:41</span><span data-call-text>Do you do a sibling discount?</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:44" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Tour Desk 0:44</span><span data-call-text>That is one for the director. I have added it to her notes so she has an answer for you Thursday.</span></p>
+              </li>
+            </ol>
+
+            <div class="call-controls" data-call-controls>
+              <button class="call-btn call-btn--play" type="button" data-call-play hidden>Play the call</button>
+              <button class="call-btn" type="button" data-call-replay hidden>Replay</button>
+            </div>
+          </div>
+
+          <div class="call-intake">
+            <p class="call-intake-head"><span class="desk-dot" aria-hidden="true"></span>Intake</p>
+
+            <dl class="call-fields">
+              <div class="call-field is-filled" data-call-field="30">
+                <dt>Parent</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Dana Whitfield</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="10">
+                <dt>Child's age</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">3</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="16">
+                <dt>Start</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Full time</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="27">
+                <dt>Tour</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Thu 4:30pm</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="37">
+                <dt>Confirmation</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Sent, 512-555-0143</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="46">
+                <dt>For the director</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Sibling discount?</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+            </dl>
+
+            <div class="call-outcome is-shown" data-call-outcome="52.5" aria-live="polite">
+              <span class="call-outcome-label">Outcome</span>
+              <p>Tour booked, Thursday 4:30pm. Confirmation sent to Dana.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DOES / NEVER ========================= -->
+    <section class="desk-sec" aria-label="What it does and what it never does">
+      <div class="desk-wrap two-up">
+        <section class="reveal" aria-labelledby="s-does">
+          <h2 id="s-does">What it does</h2>
+          <ul class="rule-list rule-list--does">
+            <li>Answers from your handbook, in the first ring.</li>
+            <li>Books tours onto your calendar and confirms the parent by text.</li>
+            <li>Puts every question it could not answer in your morning brief.</li>
+            <li>Tells every caller it is an AI in the first sentence.</li>
+          </ul>
+        </section>
+        <section class="reveal" aria-labelledby="s-never">
+          <h2 id="s-never">What it never does</h2>
+          <ul class="rule-list rule-list--never">
+            <li>Quote a fee your handbook does not state.</li>
+            <li>Promise a spot.</li>
+            <li>Guess at a policy.</li>
+            <li>Pretend to be staff.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- ====================== THE MORNING AFTER ==================== -->
+    <section class="desk-band" aria-labelledby="s-morning">
+      <figure class="scene scene--band" data-parallax>
+        <div class="scene-art" data-parallax-art>
+          <div class="scene-built scene-built--tour-morning" aria-hidden="true">
+            <span class="sf-wash"></span>
+            <span class="sf-frame"></span>
+            <span class="sf-cone"></span>
+            <span class="sf-plane"></span>
+            <span class="sf-edge"></span>
+            <span class="sf-pool"></span>
+            <span class="sf-key"></span>
+            <span class="sf-grain"></span>
+            <span class="sf-vig"></span>
+          </div>
+          <img class="scene-img" src="/images/desk/tour-morning.webp" width="1600" height="900" alt="A director's desk at seven in the morning with the printed brief on it." loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="scene-veil" aria-hidden="true"></div>
+      </figure>
+
+      <div class="desk-wrap desk-band-inner">
+        <h2 id="s-morning" class="reveal">The morning after</h2>
+        <p class="reveal">At 7am your brief is on your desk. Every after-hours call, who it was, what they asked, what got booked, and the questions that are yours to answer. Nothing to log in to. Nothing to chase.</p>
+      </div>
+    </section>
+
+    <!-- ========================== UNDER IT ========================= -->
+    <section class="desk-sec" aria-labelledby="s-under">
+      <div class="desk-wrap">
+        <h2 id="s-under" class="reveal">Under it</h2>
+        <div class="tile-grid reveal">
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">01</span>
+            <h3>Your handbook is the only source.</h3>
+            <p>It answers from what you gave it. If the answer is not there, it takes the number instead of inventing one.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">02</span>
+            <h3>Your number, forwarded after hours.</h3>
+            <p>Nothing to install. Landline, cell or VoIP. Turn forwarding off and it is gone.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">03</span>
+            <h3>Every call logged and transcribed.</h3>
+            <p>Kept thirty days for you, then deleted.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">04</span>
+            <h3>Built and run by VibeWorks.</h3>
+            <p>We build and run agents like this across many industries. This one is ours, not a reseller's.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== TRIAL =========================== -->
+    <section class="desk-sec" aria-labelledby="s-trial">
+      <div class="desk-wrap">
+        <h2 id="s-trial" class="reveal">Two weeks on your own number</h2>
+        <div class="trial reveal">
+          <div>
+            <p class="trial-promise">Fourteen days on your own line for $500, after-hours only. Stop at day 14 and the deposit comes back. What I promise while it runs is one thing. Every after-hours call answered and logged inside 60 seconds, and if it misses one, the two weeks are on me.</p>
+            <div class="trial-actions">
+              <a class="desk-btn" href="https://calendly.com/ndburton/30min" target="_blank" rel="noopener">Book a 30 minute call with Natasha</a>
+              <p class="desk-or">or email <a href="mailto:natasha@vibeworksstudio.ai">natasha@vibeworksstudio.ai</a></p>
+            </div>
+          </div>
+
+          <div data-strip>
+            <p class="strip-head">Covered 6pm to 7am, every day.</p>
+            <ul class="strip">
+              <li><span class="strip-day strip-day--split" data-day="Day 01" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">01</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 02" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">02</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 03" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">03</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 04" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">04</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 05" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">05</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 06" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">06</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 07" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">07</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 08" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">08</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 09" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">09</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 10" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">10</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 11" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">11</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 12" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">12</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 13" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">13</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 14" data-note="covered 6pm to 7am"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">14</span></span></li>
+            </ul>
+            <p class="strip-note" aria-live="polite"><span class="strip-note-day" data-strip-day-label></span><span data-strip-note></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= AFTER THE TRIAL ===================== -->
+    <section class="desk-sec" aria-labelledby="s-after">
+      <div class="desk-wrap">
+        <h2 id="s-after" class="reveal">After the trial</h2>
+        <p class="after-note reveal">If you keep it, install is $3,500 with the $500 credited, and care is $497 a month from day 31. No meter, no overage, no cancellation fee.</p>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="desk-sec" aria-labelledby="s-faq">
+      <div class="desk-wrap">
+        <h2 id="s-faq" class="reveal">FAQ</h2>
+        <div class="desk-faq reveal" data-faq>
+          <details>
+            <summary>Does it replace my front desk?</summary>
+            <p>No. It takes the calls nobody is free for, after hours and while you are in a room.</p>
+          </details>
+          <details>
+            <summary>Do parents know it is an AI?</summary>
+            <p>Yes, first sentence, every call.</p>
+          </details>
+          <details>
+            <summary>What does it need from me?</summary>
+            <p>Your handbook, your hours, your tour slots, and a fifteen-minute call.</p>
+          </details>
+          <details>
+            <summary>What about my phone system?</summary>
+            <p>It runs on the number you have, by forwarding after hours. Landline, cell or VoIP.</p>
+          </details>
+          <details>
+            <summary>Where do the calls go?</summary>
+            <p>Logged and transcribed for you, kept thirty days, then deleted.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="desk-foot desk-wrap">
-    <p>Natasha Burton, Co-Founder, VibeWorks</p>
-    <p>VibeWorks AI Studio LLC, 32 Gould Street, Sheridan, WY 82801</p>
-    <p><a href="/">vibeworksstudio.ai</a></p>
+  <footer class="desk-foot">
+    <div class="desk-wrap">
+      <p>Natasha Burton, Co-Founder, VibeWorks</p>
+      <p>VibeWorks AI Studio LLC, 32 Gould Street, Sheridan, WY 82801</p>
+      <p><a href="/">vibeworksstudio.ai</a></p>
+    </div>
   </footer>
 
   <script type="module" src="/src/desk-page.ts"></script>

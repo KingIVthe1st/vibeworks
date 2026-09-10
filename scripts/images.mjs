@@ -1,5 +1,5 @@
 import { copyFile, mkdir, readdir, rm } from 'node:fs/promises'
-import { basename, extname, join, parse, relative } from 'node:path'
+import { basename, dirname, extname, join, parse, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
@@ -7,6 +7,9 @@ const sourceRoot = fileURLToPath(new URL('../images/', import.meta.url))
 const outputRoot = fileURLToPath(new URL('../public/images/', import.meta.url))
 const sourceExtensions = new Set(['.png', '.jpg', '.jpeg'])
 const portraitNames = new Set(['ivan', 'natasha'])
+/* Folders whose files keep their folder in the output path. Everything else
+   still flattens, which is what the rest of the site links to. */
+const nestedFolders = new Set(['desk'])
 
 async function walk(directory) {
   const entries = await readdir(directory, { withFileTypes: true })
@@ -34,9 +37,13 @@ for (const source of sources) {
   }
 
   const name = parse(sourceName).name
-  const outputName = `${name}.webp`
+  const folder = dirname(sourceRelative)
+  const nested = nestedFolders.has(folder)
+  const outputName = nested ? `${folder}/${name}.webp` : `${name}.webp`
   if (outputNames.has(outputName)) throw new Error(`Duplicate flattened output name: ${outputName}`)
   outputNames.add(outputName)
+
+  if (nested) await mkdir(join(outputRoot, folder), { recursive: true })
 
   const width = portraitNames.has(name) ? 800 : 1600
   await sharp(source)

@@ -19,103 +19,374 @@
   <link rel="icon" type="image/png" href="/images/icon-192.png?v=2" sizes="192x192">
   <link rel="apple-touch-icon" href="/images/icon-192.png?v=2">
   <link rel="manifest" href="/manifest.json">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 
 <body class="desk">
-  <header class="desk-top desk-wrap">
-    <a class="desk-mark" href="/" aria-label="VibeWorks home">Vibe<span>Works</span></a>
+  <a class="desk-skip" href="#main">Skip to the content</a>
+
+  <header class="desk-top">
+    <div class="desk-wrap desk-top-inner">
+      <a class="desk-mark" href="/" aria-label="VibeWorks home">Vibe<span>Works</span></a>
+      <p class="desk-status"><span class="desk-dot" aria-hidden="true"></span>Demo line live</p>
+    </div>
   </header>
 
-  <main>
-    <section class="desk-hero desk-wrap" aria-labelledby="desk-h1">
-      <h1 id="desk-h1">Somebody's cell phone at 2am.</h1>
+  <main id="main">
 
-      <p class="desk-call">
-        <a class="desk-number" href="tel:+18325012590">832-501-2590</a>
-        <span class="desk-live"><span class="desk-dot" aria-hidden="true"></span>live now</span>
-      </p>
+    <!-- ============================ HERO ============================ -->
+    <section class="desk-hero" aria-labelledby="desk-h1">
+      <figure class="scene" data-parallax>
+        <div class="scene-art" data-parallax-art>
+          <div class="scene-built scene-built--firstcall-hero" aria-hidden="true">
+            <span class="sf-wash"></span>
+            <span class="sf-frame"></span>
+            <span class="sf-cone"></span>
+            <span class="sf-plane"></span>
+            <span class="sf-edge"></span>
+            <span class="sf-pool"></span>
+            <span class="sf-key"></span>
+            <span class="sf-grain"></span>
+            <span class="sf-vig"></span>
+          </div>
+          <img class="scene-img" src="/images/desk/firstcall-hero.webp" width="1600" height="900" alt="A kitchen at two in the morning, water across the floor holding the glow of a phone." fetchpriority="high" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="scene-veil" aria-hidden="true"></div>
+      </figure>
 
-      <p class="desk-hear">Call it. It picks up as a restoration office at 2am.</p>
+      <div class="desk-wrap desk-hero-inner">
+        <p class="desk-eyebrow">First Call Desk, for restoration contractors</p>
+        <h1 id="desk-h1">Somebody's cell phone at 2am.</h1>
+        <p class="desk-hero-sub">An after-hours desk that picks up, takes the loss, and pages your on-call tech until someone answers. It says it is an AI in the first sentence.</p>
 
-      <div class="desk-copy-slot">
-        <button class="desk-copy" type="button" data-copy-number="832-501-2590" hidden>Copy number</button>
-      </div>
-    </section>
+        <p class="desk-call">
+          <a class="desk-number" href="tel:+18325012590">832-501-2590</a>
+        </p>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-first">
-      <h2 id="desk-first">What it says first</h2>
-      <p class="desk-quote">Hi, this is the AI assistant for [your company]. I can take the details of your loss and get a technician paged right now. Where is the water coming from?</p>
-      <p>Every caller hears that in the first sentence. It never pretends to be your office staff.</p>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-captures">
-      <h2 id="desk-captures">What it captures on every call</h2>
-      <ul class="desk-list">
-        <li>loss type</li>
-        <li>property address</li>
-        <li>whether water is still standing</li>
-        <li>insurer, and the claim number if there is one yet</li>
-        <li>the caller's callback number</li>
-      </ul>
-      <p>Then it pages your on-call tech and keeps ringing down the list until somebody acknowledges.</p>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-never">
-      <h2 id="desk-never">What it never does</h2>
-      <ul class="desk-list">
-        <li>tell a homeowner whether something is covered. It takes the insurer and says your team handles coverage</li>
-        <li>quote a price</li>
-        <li>promise an arrival time you did not set</li>
-      </ul>
-    </section>
-
-    <section class="desk-section desk-wrap" aria-labelledby="desk-trial">
-      <h2 id="desk-trial">The trial</h2>
-      <div class="desk-trial">
-        <p>Two weeks on the line you already have, $500, nights and weekends. Stop at day 14 and the money goes back to you. You keep the call log either way. Three rings to answer, tech paged within a minute, and if it misses that, the two weeks are on me.</p>
-        <div class="desk-actions">
-          <a class="desk-btn" href="https://calendly.com/ndburton/30min" target="_blank" rel="noopener">Book a 30 minute call with Natasha</a>
-          <p class="desk-or">or email <a href="mailto:natasha@vibeworksstudio.ai">natasha@vibeworksstudio.ai</a></p>
+        <div class="desk-hero-actions">
+          <div class="desk-copy-slot">
+            <button class="desk-copy" type="button" data-copy-number="832-501-2590" hidden>Copy number</button>
+          </div>
+          <p class="desk-hint">Ask it what happens next.</p>
         </div>
       </div>
     </section>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-after">
-      <h2 id="desk-after">After the trial</h2>
-      <p>If you keep it, install is $5,000 with the $500 credited, and care is $500 a month from day 31. No meter, no overage, no cancellation fee.</p>
+    <!-- ========================== PROBLEM ========================== -->
+    <section class="desk-sec" aria-labelledby="s-problem">
+      <div class="desk-wrap">
+        <h2 id="s-problem" class="reveal">The call you never hear</h2>
+        <ol class="problem-grid">
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">01</p>
+            <p>A pipe lets go at 2am. The homeowner calls the first three names they find.</p>
+          </li>
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">02</p>
+            <p>Yours rings to a cell in a nightstand, or to a service that takes a message. A message is not an intake.</p>
+          </li>
+          <li class="problem-item reveal">
+            <p class="problem-num" aria-hidden="true">03</p>
+            <p>The shop that picks up and paces the homeowner through it gets the job. Every time.</p>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section class="desk-section desk-wrap" aria-labelledby="desk-faq">
-      <h2 id="desk-faq">FAQ</h2>
-      <div class="desk-faq" data-faq>
-        <details>
-          <summary>Does it dispatch?</summary>
-          <p>It pages your on-call list in order until someone acknowledges, then sends the intake by text.</p>
-        </details>
-        <details>
-          <summary>Will it talk about coverage?</summary>
-          <p>Never. It takes the insurer and the claim number and says your team handles coverage.</p>
-        </details>
-        <details>
-          <summary>What does it need from me?</summary>
-          <p>Your on-call list, your service area, and a fifteen-minute call.</p>
-        </details>
-        <details>
-          <summary>What about my phone system?</summary>
-          <p>Forwarding after hours from the number you have. Landline, cell or VoIP.</p>
-        </details>
-        <details>
-          <summary>Where do the calls go?</summary>
-          <p>Logged and transcribed for you, kept thirty days, then deleted.</p>
-        </details>
+    <!-- =========================== DEMO ============================ -->
+    <section class="desk-sec" aria-labelledby="s-demo">
+      <div class="desk-wrap demo-grid">
+        <div class="reveal">
+          <h2 id="s-demo">Hear it yourself</h2>
+          <p class="demo-line">Call <a class="demo-number" href="tel:+18325012590">832-501-2590</a>. It picks up as a restoration office at 2am.</p>
+        </div>
+        <ul class="try-list reveal">
+          <li data-n="01">Tell it water is still coming in.</li>
+          <li data-n="02">Ask whether your insurance will cover it, and listen to it refuse to guess.</li>
+          <li data-n="03">Give it a fake address and see what it asks next.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================= THE CALL =========================== -->
+    <section class="desk-sec" aria-labelledby="s-call">
+      <div class="desk-wrap">
+        <div class="call-head reveal">
+          <h2 id="s-call">One call, start to finish</h2>
+        </div>
+        <p class="call-caption reveal">Sample call on the demo line, names changed.</p>
+
+        <div class="call" data-call>
+          <div class="call-phone">
+            <span class="call-progress" data-call-progress aria-hidden="true"></span>
+
+            <div class="call-bar">
+              <span class="desk-dot" aria-hidden="true"></span>
+              <p class="call-who">First Call Desk</p>
+              <p class="call-state" data-call-clock aria-hidden="true">0:57</p>
+            </div>
+
+            <div class="call-wave" data-call-wave aria-hidden="true">
+              <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
+              <i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i>
+              <i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i>
+              <i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i>
+              <i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i><i style="--i:24"></i>
+              <i style="--i:25"></i><i style="--i:26"></i><i style="--i:27"></i>
+            </div>
+
+            <ol class="call-script" data-call-script aria-live="polite" aria-label="Call transcript">
+              <li class="call-line call-line--desk is-shown" data-call-line="0:01" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:01</span><span data-call-text>Hi, this is the AI assistant for Ridgeline Restoration. I can take the details of your loss and get a technician paged right now. Where is the water coming from?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:08" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Marcus 0:08</span><span data-call-text>The water heater, it's all over the garage and coming into the hallway.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:13" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:13</span><span data-call-text>Is water still flowing right now?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:15" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Marcus 0:15</span><span data-call-text>Yeah, I can't find the shutoff.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:17" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:17</span><span data-call-text>Look for a valve on the cold pipe on top of the heater and turn it clockwise. What is the address?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:26" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Marcus 0:26</span><span data-call-text>1408 Cedar Ridge Drive, Clearwater.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:30" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:30</span><span data-call-text>Got it. Do you know your insurer?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:33" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Marcus 0:33</span><span data-call-text>State Farm. Is this going to be covered?</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:36" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:36</span><span data-call-text>Our team handles the coverage conversation with you and the adjuster. I am paging the on-call technician now. What number should he call back?</span></p>
+              </li>
+              <li class="call-line call-line--caller is-shown" data-call-line="0:44" data-call-who="caller">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">Marcus 0:44</span><span data-call-text>727-555-0188.</span></p>
+              </li>
+              <li class="call-line call-line--desk is-shown" data-call-line="0:47" data-call-who="desk">
+                <p class="call-bubble" data-call-jump><span class="call-stamp">First Call Desk 0:47</span><span data-call-text>Thank you, Marcus. Ray is on call tonight and will call you within a few minutes. Keep the water off if you can.</span></p>
+              </li>
+            </ol>
+
+            <div class="call-controls" data-call-controls>
+              <button class="call-btn call-btn--play" type="button" data-call-play hidden>Play the call</button>
+              <button class="call-btn" type="button" data-call-replay hidden>Replay</button>
+            </div>
+          </div>
+
+          <div class="call-intake">
+            <p class="call-intake-head"><span class="desk-dot" aria-hidden="true"></span>Intake</p>
+
+            <dl class="call-fields">
+              <div class="call-field is-filled" data-call-field="11">
+                <dt>Loss type</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Water heater, garage and hallway</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="20">
+                <dt>Still flowing</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Yes, shutoff walked</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="29">
+                <dt>Address</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">1408 Cedar Ridge Dr, Clearwater</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="35">
+                <dt>Insurer</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">State Farm</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="39">
+                <dt>Claim number</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">None yet</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="46">
+                <dt>Callback</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">727-555-0188</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+              <div class="call-field is-filled" data-call-field="49">
+                <dt>Paged</dt>
+                <dd><span class="call-wait" aria-hidden="true"></span><span class="call-value">Ray, 2:09am</span></dd>
+                <svg class="call-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.4 6.3 11.8 13 4.6"></path></svg>
+              </div>
+            </dl>
+
+            <div class="call-outcome is-shown" data-call-outcome="56" aria-live="polite">
+              <span class="call-outcome-label">Outcome</span>
+              <p>Tech paged 2:09am. Acknowledged 2:11am.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DOES / NEVER ========================= -->
+    <section class="desk-sec" aria-label="What it does and what it never does">
+      <div class="desk-wrap two-up">
+        <section class="reveal" aria-labelledby="s-does">
+          <h2 id="s-does">What it does</h2>
+          <ul class="rule-list rule-list--does">
+            <li>Picks up in three rings, every night and weekend.</li>
+            <li>Takes loss type, address, standing water, insurer and callback.</li>
+            <li>Pages your on-call list in order until somebody acknowledges.</li>
+            <li>Tells every caller it is an AI in the first sentence.</li>
+          </ul>
+        </section>
+        <section class="reveal" aria-labelledby="s-never">
+          <h2 id="s-never">What it never does</h2>
+          <ul class="rule-list rule-list--never">
+            <li>Tell a homeowner whether something is covered.</li>
+            <li>Quote a price.</li>
+            <li>Promise an arrival time you did not set.</li>
+            <li>Pretend to be your office staff.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- ======================= WHO GETS PAGED ====================== -->
+    <section class="desk-band" aria-labelledby="s-paged">
+      <figure class="scene scene--band" data-parallax>
+        <div class="scene-art" data-parallax-art>
+          <div class="scene-built scene-built--firstcall-truck" aria-hidden="true">
+            <span class="sf-wash"></span>
+            <span class="sf-frame"></span>
+            <span class="sf-cone"></span>
+            <span class="sf-plane"></span>
+            <span class="sf-edge"></span>
+            <span class="sf-pool"></span>
+            <span class="sf-key"></span>
+            <span class="sf-grain"></span>
+            <span class="sf-vig"></span>
+          </div>
+          <img class="scene-img" src="/images/desk/firstcall-truck.webp" width="1600" height="900" alt="The dash of a work truck at night with a phone lighting up on it." loading="lazy" decoding="async" onerror="this.style.display='none'">
+        </div>
+        <div class="scene-veil" aria-hidden="true"></div>
+      </figure>
+
+      <div class="desk-wrap desk-band-inner">
+        <h2 id="s-paged" class="reveal">Who gets paged</h2>
+        <p class="reveal">Your on-call list, in your order. It rings the first tech, waits, rings the next, and keeps going until someone acknowledges. Then it texts them the intake: address, loss, insurer, callback. The homeowner already knows who is coming.</p>
+      </div>
+    </section>
+
+    <!-- ========================== UNDER IT ========================= -->
+    <section class="desk-sec" aria-labelledby="s-under">
+      <div class="desk-wrap">
+        <h2 id="s-under" class="reveal">Under it</h2>
+        <div class="tile-grid reveal">
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">01</span>
+            <h3>The coverage line is in the script.</h3>
+            <p>It takes the insurer and the claim number if there is one yet, and says your team handles coverage. Every time.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">02</span>
+            <h3>Your number, forwarded after hours.</h3>
+            <p>Nothing to install. Landline, cell or VoIP. Turn forwarding off and it is gone.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">03</span>
+            <h3>Every call logged and transcribed.</h3>
+            <p>Kept thirty days for you, then deleted.</p>
+          </article>
+          <article class="tile">
+            <span class="tile-n" aria-hidden="true">04</span>
+            <h3>Built and run by VibeWorks.</h3>
+            <p>We build and run agents like this across many industries. This one is ours, not a reseller's.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== TRIAL =========================== -->
+    <section class="desk-sec" aria-labelledby="s-trial">
+      <div class="desk-wrap">
+        <h2 id="s-trial" class="reveal">Two weeks, nights and weekends</h2>
+        <div class="trial reveal">
+          <div>
+            <p class="trial-promise">Two weeks on the line you already have, $500, nights and weekends. Stop at day 14 and the money goes back to you. You keep the call log either way. Three rings to answer, tech paged within a minute, and if it misses that, the two weeks are on me.</p>
+            <div class="trial-actions">
+              <a class="desk-btn" href="https://calendly.com/ndburton/30min" target="_blank" rel="noopener">Book a 30 minute call with Natasha</a>
+              <p class="desk-or">or email <a href="mailto:natasha@vibeworksstudio.ai">natasha@vibeworksstudio.ai</a></p>
+            </div>
+          </div>
+
+          <div data-strip>
+            <p class="strip-head">Covered 6pm to 7am on weeknights, all day Saturday and Sunday.</p>
+            <ul class="strip">
+              <li><span class="strip-day strip-day--split" data-day="Day 01" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">01</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 02" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">02</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 03" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">03</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 04" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">04</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 05" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">05</span></span></li>
+              <li><span class="strip-day strip-day--full" data-day="Day 06" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">06</span></span></li>
+              <li><span class="strip-day strip-day--full" data-day="Day 07" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">07</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 08" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">08</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 09" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">09</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 10" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">10</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 11" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">11</span></span></li>
+              <li><span class="strip-day strip-day--split" data-day="Day 12" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">12</span></span></li>
+              <li><span class="strip-day strip-day--full" data-day="Day 13" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">13</span></span></li>
+              <li><span class="strip-day strip-day--full" data-day="Day 14" data-note="covered 6pm to 7am, all day Sat and Sun"><span class="strip-band" aria-hidden="true"></span><span class="strip-n">14</span></span></li>
+            </ul>
+            <p class="strip-note" aria-live="polite"><span class="strip-note-day" data-strip-day-label></span><span data-strip-note></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= AFTER THE TRIAL ===================== -->
+    <section class="desk-sec" aria-labelledby="s-after">
+      <div class="desk-wrap">
+        <h2 id="s-after" class="reveal">After the trial</h2>
+        <p class="after-note reveal">If you keep it, install is $5,000 with the $500 credited, and care is $500 a month from day 31. No meter, no overage, no cancellation fee.</p>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="desk-sec" aria-labelledby="s-faq">
+      <div class="desk-wrap">
+        <h2 id="s-faq" class="reveal">FAQ</h2>
+        <div class="desk-faq reveal" data-faq>
+          <details>
+            <summary>Does it dispatch?</summary>
+            <p>It pages your on-call list in order until someone acknowledges, then sends the intake by text.</p>
+          </details>
+          <details>
+            <summary>Will it talk about coverage?</summary>
+            <p>Never. It takes the insurer and the claim number and says your team handles coverage.</p>
+          </details>
+          <details>
+            <summary>What does it need from me?</summary>
+            <p>Your on-call list, your service area, and a fifteen-minute call.</p>
+          </details>
+          <details>
+            <summary>What about my phone system?</summary>
+            <p>Forwarding after hours from the number you have. Landline, cell or VoIP.</p>
+          </details>
+          <details>
+            <summary>Where do the calls go?</summary>
+            <p>Logged and transcribed for you, kept thirty days, then deleted.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="desk-foot desk-wrap">
-    <p>Natasha Burton, Co-Founder, VibeWorks</p>
-    <p>VibeWorks AI Studio LLC, 32 Gould Street, Sheridan, WY 82801</p>
-    <p><a href="/">vibeworksstudio.ai</a></p>
+  <footer class="desk-foot">
+    <div class="desk-wrap">
+      <p>Natasha Burton, Co-Founder, VibeWorks</p>
+      <p>VibeWorks AI Studio LLC, 32 Gould Street, Sheridan, WY 82801</p>
+      <p><a href="/">vibeworksstudio.ai</a></p>
+    </div>
   </footer>
 
   <script type="module" src="/src/desk-page.ts"></script>
