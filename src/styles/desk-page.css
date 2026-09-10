@@ -1,0 +1,343 @@
+/* Voice Desk landing pages (tour-desk, first-call-desk).
+   Static, CSS only. No scene, no Lenis, no GSAP. */
+
+body.desk {
+  background:
+    radial-gradient(circle at 50% -6%, color-mix(in srgb, var(--violet) 16%, transparent), transparent 34rem),
+    var(--bg);
+}
+
+.desk-wrap {
+  width: min(100% - 2.5rem, 42.5rem);
+  margin-inline: auto;
+}
+
+/* ---------- eyebrow ---------- */
+
+.desk-top {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+}
+
+.desk-mark {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.desk-mark span {
+  color: var(--violet);
+}
+
+/* ---------- hero ---------- */
+
+.desk-hero {
+  padding-block: var(--space-5) var(--space-6);
+}
+
+.desk-hero h1 {
+  max-width: 20ch;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  font-weight: 600;
+  color: var(--txt-mute);
+  letter-spacing: -.045em;
+}
+
+.desk-call {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.desk-number {
+  display: block;
+  min-width: 0;
+  color: var(--txt);
+  font-family: var(--font-display);
+  font-size: clamp(3.1rem, 13vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+  padding-block: .35rem;
+  margin-block: -.35rem;
+  padding-inline-end: .5rem;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+.desk-number:hover {
+  color: var(--violet);
+}
+
+.desk-live {
+  display: inline-flex;
+  align-items: center;
+  padding-top: .35em;
+  gap: .5rem;
+  color: var(--txt-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.desk-dot {
+  position: relative;
+  display: inline-block;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+.desk-dot::after {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--green);
+  content: '';
+  animation: desk-pulse 2.4s cubic-bezier(.2, .6, .3, 1) infinite;
+}
+
+@keyframes desk-pulse {
+  0% { opacity: .6; transform: scale(1); }
+  100% { opacity: 0; transform: scale(3.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-dot::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+.desk-hear {
+  margin-top: var(--space-3);
+  max-width: 46ch;
+  color: var(--txt-mute);
+}
+
+/* The slot keeps its height whether or not the button is revealed, so the
+   script cannot push the sections below it down. */
+.desk-copy-slot {
+  margin-top: var(--space-3);
+  min-height: 2.75rem;
+}
+
+.desk-copy {
+  min-height: 2.75rem;
+  padding-inline: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--txt) 16%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--txt) 4%, transparent);
+  color: var(--txt-mute);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: color var(--dur-1) linear, border-color var(--dur-1) linear;
+}
+
+.desk-copy:hover {
+  border-color: color-mix(in srgb, var(--violet) 55%, transparent);
+  color: var(--txt);
+}
+
+/* ---------- sections ---------- */
+
+.desk-section {
+  padding-block: var(--space-5);
+  border-top: 1px solid color-mix(in srgb, var(--txt) 10%, transparent);
+}
+
+.desk-section h2 {
+  font-size: clamp(1.35rem, 3.2vw, 1.8rem);
+  letter-spacing: -.035em;
+}
+
+.desk-section > p {
+  margin-top: var(--space-3);
+  color: var(--txt-mute);
+}
+
+.desk-quote {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--txt) 12%, transparent);
+  border-radius: var(--radius-1);
+  background: color-mix(in srgb, var(--bg-2) 82%, transparent);
+  color: var(--txt);
+  font-size: 1.05em;
+  line-height: 1.55;
+}
+
+.desk-list {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: 0;
+  color: var(--txt-mute);
+  list-style: none;
+}
+
+.desk-list li {
+  position: relative;
+  padding-left: var(--space-3);
+}
+
+.desk-list li::before {
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: .34rem;
+  height: .34rem;
+  border-radius: 999px;
+  background: var(--violet);
+  content: '';
+}
+
+/* ---------- trial ---------- */
+
+.desk-trial {
+  margin-top: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--violet) 40%, transparent);
+  border-radius: var(--radius-2);
+  background: color-mix(in srgb, var(--bg-2) 88%, transparent);
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, var(--violet) 10%, transparent);
+}
+
+.desk-trial p {
+  color: var(--txt);
+  font-size: 1.1em;
+  line-height: 1.55;
+}
+
+.desk-actions {
+  margin-top: var(--space-4);
+}
+
+.desk-btn {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-1);
+  /* deepened a touch against the token violet so white label text clears 4.5:1 */
+  background: color-mix(in srgb, var(--violet) 86%, var(--bg));
+  box-shadow: 0 var(--space-2) var(--space-5) color-mix(in srgb, var(--violet) 22%, transparent);
+  color: var(--txt);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background var(--dur-1) linear;
+}
+
+.desk-btn:hover {
+  background: var(--violet);
+}
+
+.desk-or {
+  margin-top: var(--space-3);
+  color: var(--txt-mute);
+  font-size: .95em;
+}
+
+/* ---------- faq ---------- */
+
+.desk-faq {
+  margin-top: var(--space-3);
+}
+
+.desk-faq details {
+  border-bottom: 1px solid color-mix(in srgb, var(--txt) 10%, transparent);
+}
+
+.desk-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.desk-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.desk-faq summary::after {
+  flex: none;
+  color: var(--violet);
+  content: '+';
+  font-family: var(--font-mono);
+  transition: transform var(--dur-1);
+}
+
+.desk-faq summary:hover {
+  color: var(--violet);
+}
+
+.desk-faq details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.desk-faq details[open] summary::after {
+  content: '\2212';
+}
+
+.desk-faq details p {
+  margin: 0;
+  padding-bottom: var(--space-3);
+  color: var(--txt-mute);
+}
+
+/* ---------- footer ---------- */
+
+.desk-foot {
+  padding-block: var(--space-4) var(--space-5);
+  border-top: 1px solid color-mix(in srgb, var(--txt) 10%, transparent);
+  color: var(--txt-mute);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  line-height: 1.9;
+}
+
+.desk-foot p {
+  margin: 0;
+}
+
+@media (min-width: 40rem) {
+  .desk-hero {
+    padding-block: var(--space-6) var(--space-7);
+  }
+
+  .desk-section {
+    padding-block: var(--space-6);
+  }
+}
+
+@media (max-width: 40rem) {
+  .desk-trial {
+    padding: var(--space-3);
+  }
+
+  .desk-btn {
+    width: 100%;
+    justify-content: center;
+    padding-inline: var(--space-2);
+    font-size: .92rem;
+    letter-spacing: -.01em;
+    text-align: center;
+  }
+}

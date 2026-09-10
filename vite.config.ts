@@ -10,6 +10,8 @@ export default defineConfig({
         support: resolve(__dirname, 'support.html'),
         thankyou: resolve(__dirname, 'thank-you.html'),
         department: resolve(__dirname, 'department/index.html'),
+        tourdesk: resolve(__dirname, 'tour-desk/index.html'),
+        firstcalldesk: resolve(__dirname, 'first-call-desk/index.html'),
       },
     },
   },
