@@ -12,6 +12,7 @@ export default defineConfig({
         department: resolve(__dirname, 'department/index.html'),
         tourdesk: resolve(__dirname, 'tour-desk/index.html'),
         firstcalldesk: resolve(__dirname, 'first-call-desk/index.html'),
+        consult: resolve(__dirname, 'consult/index.html'),
       },
     },
   },

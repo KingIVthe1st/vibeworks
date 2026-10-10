@@ -1,0 +1,1147 @@
+/* ==========================================================================
+   /consult: "The Briefing". A private briefing prepared for one company.
+   Editorial, quiet, expensive. Tungsten leads; violet appears only on the
+   primary CTA hover and the Opportunity Map's top rank.
+   Everything is scoped under .consult so nothing leaks into other pages.
+   No three.js, no GSAP, no Lenis. CSS + a small vanilla driver.
+   ========================================================================== */
+
+.consult {
+  --ink: #070512;
+  --plate: #0d0a1b;
+  --plate-2: #120e24;
+  --hair: rgba(244, 242, 255, .09);
+  --hair-2: rgba(244, 242, 255, .17);
+  --bone: #f4f2ff;
+  --mute: #a9aec0;
+  --mute-2: #7d8398;
+  --tungsten: #e8b34b;
+  --tungsten-soft: rgba(232, 179, 75, .32);
+  --tungsten-wash: rgba(232, 179, 75, .06);
+  --working: #7c5cff;
+  --working-lit: #9b83ff;
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-text: var(--font-display);
+
+  --wrap: 1120px;
+  --gutter: 16px;
+  --sec: 4.75rem;
+  --measure: 62ch;
+  --radius: 18px;
+
+  position: relative;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-text);
+  overflow-x: clip;
+}
+
+@media (min-width: 600px) {
+  .consult {
+    --gutter: 28px;
+    --sec: 6rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .consult {
+    --gutter: 48px;
+    --sec: 8rem;
+  }
+}
+
+.consult :focus-visible {
+  outline-color: var(--tungsten);
+}
+
+.consult ::selection {
+  background: var(--tungsten);
+  color: var(--ink);
+}
+
+.cs-wrap {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--wrap) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.cs-skip {
+  position: absolute;
+  top: -100px;
+  left: var(--gutter);
+  z-index: 40;
+  padding: .8rem 1rem;
+  border-radius: 0 0 10px 10px;
+  background: var(--tungsten);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  text-decoration: none;
+}
+
+.cs-skip:focus {
+  top: 0;
+}
+
+/* --- type --------------------------------------------------------------- */
+
+.consult h1,
+.consult h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+
+.consult h2 {
+  max-width: 19ch;
+  font-size: clamp(2.35rem, 5.4vw, 4.3rem);
+  line-height: 1.02;
+}
+
+.consult h3 {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--font-text);
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+}
+
+.consult p {
+  max-width: var(--measure);
+  margin: 0;
+}
+
+.consult em {
+  color: var(--tungsten);
+  font-style: italic;
+}
+
+.consult .cs-index {
+  margin: 0 0 1.75rem;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.cs-index span {
+  color: var(--tungsten);
+}
+
+.consult .cs-body {
+  color: var(--mute);
+  font-size: clamp(1.02rem, 1.25vw, 1.12rem);
+  line-height: 1.66;
+}
+
+/* --- reveal ------------------------------------------------------------- */
+
+.js .consult .reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 760ms var(--ease-out-expo), transform 760ms var(--ease-out-expo);
+}
+
+.js .consult .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- sections ----------------------------------------------------------- */
+
+.cs-sec {
+  position: relative;
+  padding-block: var(--sec);
+  border-top: 1px solid var(--hair);
+}
+
+/* --- nav ---------------------------------------------------------------- */
+
+.cs-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--hair);
+  background: rgba(7, 5, 18, .93);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.cs-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+}
+
+.cs-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.cs-nav-logo span {
+  color: var(--tungsten);
+}
+
+/* --- buttons ------------------------------------------------------------ */
+
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 1.45rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease-out-expo), color var(--dur-1) var(--ease-out-expo), border-color var(--dur-1) var(--ease-out-expo);
+}
+
+.cs-btn:hover {
+  background: var(--working);
+  color: var(--bone);
+}
+
+.cs-btn-ghost {
+  border-color: var(--hair-2);
+  background: transparent;
+  color: var(--bone);
+}
+
+.cs-btn-ghost:hover {
+  border-color: var(--tungsten);
+  background: transparent;
+  color: var(--tungsten);
+}
+
+.cs-btn-sm {
+  min-height: 44px;
+  padding: 0 1.1rem;
+  font-size: .68rem;
+}
+
+.cs-btn-lg {
+  min-height: 56px;
+  padding: 0 1.9rem;
+  font-size: .78rem;
+}
+
+.cs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+@media (max-width: 519px) {
+  .cs-actions .cs-btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* --- lamp --------------------------------------------------------------- */
+
+.cs-lamp {
+  position: absolute;
+  top: -10%;
+  right: -12%;
+  width: min(900px, 120vw);
+  aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(232, 179, 75, .13), rgba(232, 179, 75, .045) 45%, transparent 72%);
+  pointer-events: none;
+}
+
+.cs-lamp-low {
+  top: auto;
+  right: auto;
+  bottom: -40%;
+  left: -20%;
+}
+
+/* --- 01 hero ------------------------------------------------------------ */
+
+.cs-hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 10vw, 8.5rem) var(--sec);
+  overflow: hidden;
+}
+
+.cs-hero h1 {
+  max-width: 11.6em;
+  font-size: clamp(3rem, 7.4vw, 6rem);
+  line-height: .98;
+}
+
+.cs-hero h1 em {
+  white-space: nowrap;
+}
+
+.cs-hero-foot {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: clamp(2.25rem, 5vw, 4rem);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--hair);
+}
+
+.consult .cs-hero-sub {
+  max-width: 54ch;
+  color: var(--mute);
+  font-size: clamp(1.06rem, 1.45vw, 1.24rem);
+  line-height: 1.6;
+}
+
+.cs-hero-side {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .8rem;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.cs-meta span:first-child {
+  color: var(--bone);
+}
+
+.cs-meta span[aria-hidden] {
+  color: var(--tungsten);
+}
+
+@media (min-width: 900px) {
+  .cs-hero-foot {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+
+  .cs-hero-side {
+    justify-items: start;
+    padding-left: 3rem;
+    border-left: 1px solid var(--hair);
+  }
+}
+
+/* --- 02 credential ------------------------------------------------------ */
+
+.cs-cred-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .cs-cred-grid {
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 5rem;
+  }
+}
+
+.cs-card {
+  margin: 0;
+  max-width: 380px;
+  padding: 2rem 1.75rem 1.5rem;
+  border: 1px solid var(--hair-2);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(232, 179, 75, .07), transparent 60%),
+    var(--plate);
+}
+
+/* The source photo has a white ring and a pink field baked in around the
+   face. The image is scaled 4/3 inside a circular clip, so the clip lands
+   about 240px into the 261px ring: ring and pink both fall outside it. */
+.cs-photo {
+  position: relative;
+  width: clamp(240px, 24vw, 290px);
+  aspect-ratio: 1;
+  padding: 7px;
+  border: 1px solid var(--tungsten-soft);
+  border-radius: 50%;
+}
+
+.cs-photo-clip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+  background: var(--plate-2);
+}
+
+.cs-photo-clip img {
+  position: absolute;
+  top: -16.6667%;
+  left: -16.6667%;
+  width: 133.3333%;
+  max-width: none;
+  height: 133.3333%;
+  object-fit: cover;
+  object-position: 49.85% 50%;
+}
+
+.cs-card-body {
+  margin-top: 1.6rem;
+}
+
+.consult .cs-card-name {
+  color: var(--bone);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.consult .cs-card-title {
+  margin-top: .35rem;
+  color: var(--mute);
+  font-size: .96rem;
+}
+
+.consult .cs-card-council {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hair);
+  color: var(--tungsten);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.cs-card-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 44px;
+  color: var(--bone);
+  font-size: .9rem;
+  text-decoration: underline;
+  text-decoration-color: var(--hair-2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .32em;
+  transition: color var(--dur-1) var(--ease-out-expo), text-decoration-color var(--dur-1) var(--ease-out-expo);
+}
+
+.cs-card-verify:hover {
+  color: var(--tungsten);
+  text-decoration-color: var(--tungsten);
+}
+
+.cs-cred-copy .cs-body {
+  margin-top: 1.75rem;
+}
+
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.25rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
+}
+
+@media (min-width: 900px) {
+  .cs-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.cs-fact {
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hair-2);
+}
+
+.cs-fact dt {
+  color: var(--bone);
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.cs-fact dd {
+  margin: .6rem 0 0;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+/* --- 03 problem --------------------------------------------------------- */
+
+.cs-cols {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 900px) {
+  .cs-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+.cs-col {
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--hair-2);
+}
+
+.consult .cs-col h3 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.consult .cs-col p {
+  margin-top: .9rem;
+  color: var(--mute);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* --- 04 stack ----------------------------------------------------------- */
+
+.cs-stack {
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--hair);
+}
+
+.cs-stack-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: .5rem 1rem;
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--hair);
+}
+
+.cs-stack-n {
+  grid-row: span 2;
+  padding-top: .55rem;
+  color: var(--tungsten);
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .12em;
+}
+
+.consult .cs-stack-row h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2.3vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+
+.consult .cs-stack-row p {
+  color: var(--mute);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 900px) {
+  .cs-stack-row {
+    grid-template-columns: 4rem minmax(0, 22rem) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: baseline;
+    padding-block: 2rem;
+  }
+
+  .cs-stack-n {
+    grid-row: auto;
+    padding-top: 0;
+  }
+}
+
+.cs-bonus {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--tungsten-soft);
+  border-radius: var(--radius);
+  background: var(--tungsten-wash);
+}
+
+.consult .cs-bonus-label {
+  color: var(--tungsten);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.cs-bonus-list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .cs-bonus-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.consult .cs-bonus-list p {
+  margin-top: .45rem;
+  color: var(--mute);
+  font-size: .96rem;
+  line-height: 1.6;
+}
+
+/* --- 05 the Opportunity Map -------------------------------------------- */
+
+.cs-map {
+  --cols: 2rem minmax(0, 1fr) auto;
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding: clamp(1.25rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--hair-2);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--plate);
+}
+
+@media (min-width: 720px) {
+  .cs-map {
+    --cols: 3rem minmax(0, 1fr) 9rem 9rem;
+  }
+}
+
+.consult .cs-map-cap {
+  max-width: none;
+  margin-bottom: 1.6rem;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.cs-map-head {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .cs-map-head {
+    display: grid;
+    grid-template-columns: var(--cols);
+    gap: 1rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--hair-2);
+    color: var(--mute-2);
+    font-family: var(--font-mono);
+    font-size: .64rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+
+  .cs-map-head span:nth-child(n + 3) {
+    text-align: right;
+  }
+}
+
+.cs-map-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-map-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--cols);
+  gap: .35rem 1rem;
+  align-items: baseline;
+  padding-block: 1.05rem .95rem;
+  border-bottom: 1px solid var(--hair);
+  transition: opacity 500ms var(--ease-out-expo);
+}
+
+.cs-map-rank {
+  grid-row: span 2;
+  color: var(--mute-2);
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .08em;
+}
+
+.cs-map-row.is-top .cs-map-rank {
+  color: var(--working-lit);
+}
+
+.cs-map-work {
+  grid-column: 2 / -1;
+  color: var(--bone);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.cs-map-hours,
+.cs-map-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-map-hours {
+  grid-column: 2;
+  color: var(--mute);
+  font-size: .78rem;
+  letter-spacing: .04em;
+}
+
+.cs-map-unit {
+  color: var(--mute-2);
+}
+
+.cs-map-value {
+  grid-column: 3;
+  color: var(--bone);
+  font-size: 1rem;
+  text-align: right;
+}
+
+.cs-map-bar {
+  grid-column: 2 / -1;
+  position: relative;
+  height: 2px;
+  margin-top: .55rem;
+  border-radius: 2px;
+  background: rgba(244, 242, 255, .05);
+  overflow: hidden;
+}
+
+.cs-map-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--share, 0) * 100%);
+  border-radius: inherit;
+  background: var(--tungsten);
+  opacity: .75;
+}
+
+.cs-map-row.is-top .cs-map-bar::after {
+  background: var(--working-lit);
+  opacity: 1;
+}
+
+@media (min-width: 720px) {
+  .cs-map-row {
+    padding-block: 1.25rem 1.1rem;
+  }
+
+  .cs-map-rank {
+    grid-row: auto;
+  }
+
+  .cs-map-work {
+    grid-column: 2;
+  }
+
+  .cs-map-hours {
+    grid-column: 3;
+    font-size: .92rem;
+    text-align: right;
+  }
+
+  .cs-map-unit {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .cs-map-value {
+    grid-column: 4;
+    font-size: 1.08rem;
+  }
+
+  .cs-map-bar {
+    grid-column: 2 / -1;
+    margin-top: .2rem;
+  }
+}
+
+/* while sorting: risers pass in front on an opaque plate, sinkers pass behind */
+.cs-map-row.is-rising {
+  z-index: 2;
+  background: var(--plate);
+}
+
+.cs-map-row.is-sinking {
+  z-index: 1;
+  opacity: .22;
+}
+
+/* the armed state, before the map scrolls into view */
+.cs-map.is-armed:not(.is-sorted) .cs-map-row {
+  opacity: .5;
+}
+
+.cs-map.is-armed .cs-map-rank {
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out-expo) 650ms;
+}
+
+.cs-map.is-armed.is-sorted .cs-map-rank {
+  opacity: 1;
+}
+
+.cs-map.is-armed .cs-map-bar::after {
+  width: 0;
+  transition: width 1200ms var(--ease-out-expo) 560ms;
+}
+
+.cs-map.is-armed.is-sorted .cs-map-bar::after {
+  width: calc(var(--share, 0) * 100%);
+}
+
+/* the meter */
+
+.cs-meter {
+  margin-top: 2rem;
+}
+
+.cs-meter-track {
+  position: relative;
+  height: 10px;
+  margin-block: 2.4rem 2.2rem;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: rgba(244, 242, 255, .04);
+}
+
+.cs-meter-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--fill, 0%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(232, 179, 75, .3), var(--tungsten));
+  box-shadow: 0 0 18px rgba(232, 179, 75, .28);
+}
+
+.cs-meter-tick {
+  position: absolute;
+  top: -9px;
+  bottom: -9px;
+  left: var(--at, 0%);
+  width: 1px;
+  background: var(--mute-2);
+  transition: background var(--dur-2) var(--ease-out-expo);
+}
+
+.cs-meter-tick span {
+  position: absolute;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--dur-2) var(--ease-out-expo);
+}
+
+/* the fee reads below the track, starting at its tick */
+.cs-meter-tick.is-fee span {
+  top: calc(100% + .35rem);
+  left: 0;
+}
+
+/* the guarantee line reads above the track, ending at its tick */
+.cs-meter-tick.is-line {
+  width: 2px;
+  margin-left: -1px;
+}
+
+.cs-meter-tick.is-line span {
+  right: 0;
+  bottom: calc(100% + .35rem);
+}
+
+.cs-meter-tick.is-passed {
+  background: var(--bone);
+}
+
+.cs-meter-tick.is-passed span {
+  color: var(--bone);
+}
+
+.cs-meter-tick.is-line.is-passed span {
+  color: var(--tungsten);
+}
+
+.consult .cs-meter-total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .6rem;
+  max-width: none;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.cs-meter-total b {
+  font-weight: 400;
+}
+
+.cs-meter-total [data-meter-total] {
+  color: var(--bone);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+
+.cs-meter-rest {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .3rem .6rem;
+}
+
+@media (max-width: 599px) {
+  .cs-meter-total [data-meter-total] {
+    flex-basis: 100%;
+  }
+}
+
+.cs-meter-total span[aria-hidden] {
+  color: var(--tungsten);
+}
+
+.cs-meter-end {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .6rem;
+  transition: opacity 520ms var(--ease-out-expo), transform 520ms var(--ease-out-expo);
+}
+
+.cs-meter-x {
+  display: inline-flex;
+  align-items: center;
+  padding: .2rem .65rem;
+  border: 1px solid var(--tungsten);
+  border-radius: 999px;
+  color: var(--tungsten);
+  letter-spacing: .08em;
+}
+
+.cs-map.is-armed:not(.is-done) .cs-meter-end {
+  opacity: 0;
+  transform: scale(.85);
+}
+
+/* --- 06 guarantee ------------------------------------------------------- */
+
+.cs-guarantee {
+  position: relative;
+  padding: clamp(1.75rem, 6vw, 4.5rem);
+  border: 1px solid var(--tungsten-soft);
+  border-radius: calc(var(--radius) + 6px);
+  background:
+    radial-gradient(80% 90% at 0% 0%, rgba(232, 179, 75, .09), transparent 65%),
+    var(--plate);
+}
+
+.cs-guarantee .cs-body {
+  margin-top: 1.6rem;
+  color: var(--bone);
+}
+
+.consult .cs-fine {
+  margin-top: 1.4rem;
+  color: var(--mute-2);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  line-height: 1.7;
+}
+
+/* --- 07 start ----------------------------------------------------------- */
+
+.cs-start {
+  overflow: hidden;
+}
+
+.cs-start .cs-body {
+  margin-top: 1.6rem;
+  color: var(--bone);
+}
+
+.consult .cs-anchor {
+  max-width: 56ch;
+  margin-top: 1.1rem;
+  color: var(--mute-2);
+  font-size: .94rem;
+  line-height: 1.6;
+}
+
+.cs-start .cs-actions {
+  margin-top: 2.25rem;
+}
+
+.consult .cs-mail {
+  margin-top: 1.25rem;
+  color: var(--mute);
+  font-size: .95rem;
+}
+
+.cs-mail a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--bone);
+  text-decoration-color: var(--hair-2);
+  text-decoration-thickness: 1px;
+}
+
+.cs-mail a:hover {
+  color: var(--tungsten);
+  text-decoration-color: var(--tungsten);
+}
+
+/* --- FAQ ---------------------------------------------------------------- */
+
+.cs-faq-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .cs-faq-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 4rem;
+  }
+}
+
+.consult .cs-faq-h {
+  font-size: clamp(2.35rem, 4vw, 3.2rem);
+}
+
+.cs-faq {
+  border-bottom: 1px solid var(--hair);
+}
+
+.cs-faq details {
+  border-top: 1px solid var(--hair);
+}
+
+.cs-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  padding-block: 1.15rem;
+  color: var(--bone);
+  font-size: 1.06rem;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+.cs-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.cs-faq summary::after {
+  content: '+';
+  flex: none;
+  color: var(--tungsten);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  transition: transform var(--dur-2) var(--ease-out-expo);
+}
+
+.cs-faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.cs-faq summary:hover {
+  color: var(--tungsten);
+}
+
+.consult .cs-faq p {
+  padding-bottom: 1.3rem;
+  color: var(--mute);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* --- footer ------------------------------------------------------------- */
+
+.cs-foot {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--hair);
+}
+
+.cs-foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+}
+
+.consult .cs-foot-name {
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.cs-foot a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--mute);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.cs-foot a:hover {
+  color: var(--bone);
+}
