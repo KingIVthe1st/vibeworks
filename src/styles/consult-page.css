@@ -169,8 +169,8 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid var(--hair);
-  background: rgba(7, 5, 18, .93);
+  background: rgba(7, 5, 18, .92);
+  box-shadow: 0 10px 28px rgba(3, 2, 10, .45);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
@@ -360,10 +360,29 @@
   align-items: start;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .cs-cred-grid {
     grid-template-columns: 340px minmax(0, 1fr);
     gap: 5rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .consult .cs-card {
+    display: grid;
+    grid-template-columns: 236px minmax(0, 1fr);
+    gap: 2.25rem;
+    align-items: center;
+    max-width: none;
+    padding: 1.75rem;
+  }
+
+  .consult .cs-photo {
+    width: 236px;
+  }
+
+  .consult .cs-card-body {
+    margin-top: 0;
   }
 }
 
@@ -446,15 +465,23 @@
   min-height: 44px;
   color: var(--bone);
   font-size: .9rem;
+  text-decoration: none;
+  transition: color var(--dur-1) var(--ease-out-expo);
+}
+
+.cs-card-verify-t {
   text-decoration: underline;
   text-decoration-color: var(--hair-2);
   text-decoration-thickness: 1px;
   text-underline-offset: .32em;
-  transition: color var(--dur-1) var(--ease-out-expo), text-decoration-color var(--dur-1) var(--ease-out-expo);
+  transition: text-decoration-color var(--dur-1) var(--ease-out-expo);
 }
 
 .cs-card-verify:hover {
   color: var(--tungsten);
+}
+
+.cs-card-verify:hover .cs-card-verify-t {
   text-decoration-color: var(--tungsten);
 }
 
@@ -629,8 +656,8 @@
 
 .cs-map {
   --cols: 2rem minmax(0, 1fr) auto;
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
-  padding: clamp(1.25rem, 3.5vw, 2.75rem);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(1.1rem, 3.5vw, 2.75rem);
   border: 1px solid var(--hair-2);
   border-radius: calc(var(--radius) + 4px);
   background: var(--plate);
@@ -644,7 +671,7 @@
 
 .consult .cs-map-cap {
   max-width: none;
-  margin-bottom: 1.6rem;
+  margin-bottom: clamp(.6rem, 2vw, 1.6rem);
   color: var(--mute);
   font-family: var(--font-mono);
   font-size: .68rem;
@@ -686,10 +713,9 @@
   position: relative;
   display: grid;
   grid-template-columns: var(--cols);
-  gap: .35rem 1rem;
+  gap: .2rem 1rem;
   align-items: baseline;
-  padding-block: 1.05rem .95rem;
-  border-bottom: 1px solid var(--hair);
+  padding-block: .75rem 0;
   transition: opacity 500ms var(--ease-out-expo);
 }
 
@@ -740,9 +766,9 @@
   grid-column: 2 / -1;
   position: relative;
   height: 2px;
-  margin-top: .55rem;
+  margin-top: .5rem;
   border-radius: 2px;
-  background: rgba(244, 242, 255, .05);
+  background: rgba(244, 242, 255, .08);
   overflow: hidden;
 }
 
@@ -763,7 +789,7 @@
 
 @media (min-width: 720px) {
   .cs-map-row {
-    padding-block: 1.25rem 1.1rem;
+    padding-block: 1.3rem 0;
   }
 
   .cs-map-rank {
@@ -796,7 +822,7 @@
 
   .cs-map-bar {
     grid-column: 2 / -1;
-    margin-top: .2rem;
+    margin-top: .9rem;
   }
 }
 
@@ -808,7 +834,13 @@
 
 .cs-map-row.is-sinking {
   z-index: 1;
-  opacity: .22;
+  background: var(--plate);
+  opacity: .55;
+}
+
+.cs-map.is-armed.is-fading .cs-map-row {
+  opacity: 0;
+  transition-duration: 220ms;
 }
 
 /* the armed state, before the map scrolls into view */
@@ -837,13 +869,13 @@
 /* the meter */
 
 .cs-meter {
-  margin-top: 2rem;
+  margin-top: clamp(1rem, 3vw, 2rem);
 }
 
 .cs-meter-track {
   position: relative;
   height: 10px;
-  margin-block: 2.4rem 2.2rem;
+  margin-block: 2.6rem 1.4rem;
   border: 1px solid var(--hair);
   border-radius: 999px;
   background: rgba(244, 242, 255, .04);
@@ -854,7 +886,7 @@
   inset: 0 auto 0 0;
   width: var(--fill, 0%);
   border-radius: inherit;
-  background: linear-gradient(90deg, rgba(232, 179, 75, .3), var(--tungsten));
+  background: linear-gradient(90deg, rgba(232, 179, 75, .65), var(--tungsten) 70%, #f5cb72);
   box-shadow: 0 0 18px rgba(232, 179, 75, .28);
 }
 
@@ -879,10 +911,14 @@
   transition: color var(--dur-2) var(--ease-out-expo);
 }
 
-/* the fee reads below the track, starting at its tick */
+.cs-meter-tick span b {
+  font-weight: 400;
+}
+
+/* both labels read above the track: the fee starting just right of its tick */
 .cs-meter-tick.is-fee span {
-  top: calc(100% + .35rem);
-  left: 0;
+  bottom: calc(100% + .35rem);
+  left: .5rem;
 }
 
 /* the guarantee line reads above the track, ending at its tick */
@@ -891,9 +927,22 @@
   margin-left: -1px;
 }
 
+/* ...the guarantee line ending at its tick */
 .cs-meter-tick.is-line span {
-  right: 0;
+  right: .5rem;
   bottom: calc(100% + .35rem);
+  text-align: right;
+}
+
+/* on a phone each label stacks its amount under its name, so they never meet */
+@media (max-width: 599px) {
+  .cs-meter-tick span b {
+    display: block;
+  }
+
+  .cs-meter-tick {
+    top: -6px;
+  }
 }
 
 .cs-meter-tick.is-passed {
@@ -926,10 +975,14 @@
 }
 
 .cs-meter-total [data-meter-total] {
+  min-width: 5.2ch;
   color: var(--bone);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 4.5rem);
   font-variant-numeric: tabular-nums;
   letter-spacing: -.01em;
+  line-height: 1;
+  text-transform: none;
 }
 
 .cs-meter-rest {
@@ -956,14 +1009,14 @@
   transition: opacity 520ms var(--ease-out-expo), transform 520ms var(--ease-out-expo);
 }
 
-.cs-meter-x {
-  display: inline-flex;
-  align-items: center;
-  padding: .2rem .65rem;
-  border: 1px solid var(--tungsten);
-  border-radius: 999px;
+.consult .cs-meter-x {
   color: var(--tungsten);
-  letter-spacing: .08em;
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
 }
 
 .cs-map.is-armed:not(.is-done) .cs-meter-end {
@@ -1001,6 +1054,83 @@
 
 .cs-start {
   overflow: hidden;
+}
+
+.cs-start-grid {
+  display: grid;
+  gap: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .cs-start-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 5rem;
+    align-items: end;
+  }
+}
+
+.cs-next {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--hair-2);
+  border-radius: var(--radius);
+  background: var(--plate);
+}
+
+.consult .cs-next-h {
+  color: var(--tungsten);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.cs-next-list {
+  position: relative;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* a hairline spine through the markers */
+.cs-next-list::before {
+  content: '';
+  position: absolute;
+  top: .8rem;
+  bottom: .8rem;
+  left: 3.5px;
+  width: 1px;
+  background: var(--hair-2);
+}
+
+.cs-next-list li {
+  position: relative;
+  padding: .7rem 0 .7rem 1.6rem;
+  color: var(--bone);
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .06em;
+  line-height: 1.5;
+}
+
+.cs-next-list li::before {
+  content: '';
+  position: absolute;
+  top: 1.22rem;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--tungsten);
+  border-radius: 50%;
+  background: var(--plate);
+}
+
+.cs-next-list li:last-child::before {
+  background: var(--tungsten);
+}
+
+.cs-next-list li span {
+  color: var(--tungsten);
 }
 
 .cs-start .cs-body {

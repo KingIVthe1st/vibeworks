@@ -56,9 +56,10 @@ answers.forEach((answer) => {
 /** The order the rows sit in before they sort, as indices into the ranked list. */
 const SCRAMBLE = [3, 0, 5, 2, 4, 1]
 
-const SORT_MS = 900
-const SORT_STAGGER = 55
-const COUNT_AT = 520
+const SORT_MS = 700
+const SORT_STAGGER = 0
+const FADE_MS = 220
+const COUNT_AT = 260
 const COUNT_MS = 1100
 const COUNT_STAGGER = 85
 const METER_AT = 820
@@ -132,8 +133,7 @@ function setupMap(root: HTMLElement): void {
   if (totalLabel) totalLabel.textContent = formatDollars(0)
   root.classList.add('is-armed')
 
-  const play = (): void => {
-    /* FLIP the rows from scrambled to ranked. */
+  const flip = (): void => {
     const first = new Map(ranked.map((row) => [row.el, row.el.getBoundingClientRect().top]))
     list.replaceChildren(...ranked.map((row) => row.el))
     ranked.forEach((row) => {
@@ -153,6 +153,22 @@ function setupMap(root: HTMLElement): void {
     window.setTimeout(() => {
       ranked.forEach((row) => row.el.classList.remove('is-rising', 'is-sinking'))
     }, SORT_MS * 0.7 + ranked.length * SORT_STAGGER)
+  }
+
+  /* On a phone the rows are tall and travel far, so they fade out, reorder
+     and fade back in instead of sliding past each other. */
+  const fade = (): void => {
+    root.classList.add('is-fading')
+    window.setTimeout(() => {
+      list.replaceChildren(...ranked.map((row) => row.el))
+      root.classList.add('is-sorted')
+      root.classList.remove('is-fading')
+    }, FADE_MS)
+  }
+
+  const play = (): void => {
+    if (window.matchMedia('(max-width: 599px)').matches) fade()
+    else flip()
 
     /* Count each line up to its figure. */
     ranked.forEach((row, index) => {
