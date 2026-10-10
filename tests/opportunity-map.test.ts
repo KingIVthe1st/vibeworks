@@ -35,7 +35,7 @@ describe('rankOpportunities', () => {
     expect(summary.multiple).toBe('14x')
   })
 
-  it('clears the $60,000 guarantee line', () => {
+  it('totals well past ten times the fee', () => {
     expect(rankOpportunities(ROWS, 6000).total).toBeGreaterThanOrEqual(60000)
   })
 
@@ -68,7 +68,7 @@ describe('the meter', () => {
     expect(meterScale(0)).toBe(10000)
   })
 
-  it('places the fee and guarantee ticks and the fill', () => {
+  it('places the meter ticks and the fill', () => {
     expect(meterPercent(6000, 90000)).toBeCloseTo(6.6667, 3)
     expect(meterPercent(60000, 90000)).toBeCloseTo(66.6667, 3)
     expect(meterPercent(84600, 90000)).toBeCloseTo(94, 5)

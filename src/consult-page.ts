@@ -177,7 +177,7 @@ function setupMap(root: HTMLElement): void {
       })
     })
 
-    /* Fill the meter past the fee and the guarantee line, landing on the total. */
+    /* Fill the meter past the fee, landing on the total. */
     tween(METER_AT, METER_MS, easeInOut, (p) => {
       const running = summary.total * p
       fill?.style.setProperty('--fill', `${(finalFill * p).toFixed(3)}%`)

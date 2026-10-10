@@ -1024,23 +1024,6 @@
   transform: scale(.85);
 }
 
-/* --- 06 guarantee ------------------------------------------------------- */
-
-.cs-guarantee {
-  position: relative;
-  padding: clamp(1.75rem, 6vw, 4.5rem);
-  border: 1px solid var(--tungsten-soft);
-  border-radius: calc(var(--radius) + 6px);
-  background:
-    radial-gradient(80% 90% at 0% 0%, rgba(232, 179, 75, .09), transparent 65%),
-    var(--plate);
-}
-
-.cs-guarantee .cs-body {
-  margin-top: 1.6rem;
-  color: var(--bone);
-}
-
 .consult .cs-fine {
   margin-top: 1.4rem;
   color: var(--mute-2);
