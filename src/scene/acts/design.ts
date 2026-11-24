@@ -160,7 +160,7 @@ export function createDesignAct(onParticleProgress: (local: number) => void): De
 
       if (stage.tier.name !== 'low') {
         cacheTextElements = () => {
-          textElements = Array.from(document.querySelectorAll<HTMLElement>('#design h2, #design p'))
+          textElements = Array.from(document.querySelectorAll<HTMLElement>('#design h2, #design p, #design .info-card'))
             .filter((element) => {
               const style = getComputedStyle(element)
               return style.display !== 'none' && style.visibility !== 'hidden'

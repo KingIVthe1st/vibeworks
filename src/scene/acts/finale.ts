@@ -270,7 +270,8 @@ export function createFinaleActs(): FinaleActs {
         const ctaRect = startCta.getBoundingClientRect()
         if (sectionRect.bottom > 0 && sectionRect.top < window.innerHeight && innerRect.width > 0 && ctaRect.height > 0) {
           const x = innerRect.left + innerRect.width * 0.5
-          const y = Math.min(sectionRect.bottom - 70, ctaRect.bottom + (stageRef.portrait ? 118 : 96))
+          // Land the pad below the whole closing block (CTA, email, badge) so it never sits on top of text.
+          const y = Math.min(sectionRect.bottom - 70, innerRect.bottom + (stageRef.portrait ? 92 : 110))
           placeAtScreen(landing, x, y, 4.6, stageRef.portrait ? 0.68 : 0.82)
           const draw = smoothstep((shippedLocal - 0.12) / 0.48)
           const visibleVertices = Math.floor(padVertexCount * draw / 2) * 2

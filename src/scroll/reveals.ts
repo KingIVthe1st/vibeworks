@@ -13,6 +13,8 @@ export function initReveals(): void {
       const interactive = el.matches('a, button') || Boolean(el.querySelector('a, button'))
       const inlineTextTags = new Set(['BR', 'SPAN', 'EM', 'STRONG', 'B', 'I', 'SMALL', 'CODE'])
       const pureText = Array.from(el.querySelectorAll('*')).every((child) => inlineTextTags.has(child.tagName))
+      // Hero content must reveal on load at any viewport height, so the primary CTA is never hidden below the 80% line.
+      const start = el.closest('.hero') ? 'top bottom' : 'top 80%'
 
       if (interactive || !pureText) {
         gsap.from(el, {
@@ -21,7 +23,7 @@ export function initReveals(): void {
           ease: 'expo.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 80%',
+            start,
           },
         })
         return
@@ -38,7 +40,7 @@ export function initReveals(): void {
           ease: 'expo.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 80%',
+            start,
           },
         }),
       })

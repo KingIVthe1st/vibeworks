@@ -19,11 +19,11 @@ import { onStageFrame } from '../stage'
 import { loadActTextures } from '../textures'
 import type { Act, Stage } from '../types'
 
-const PLATFORM_IDS = ['atomicity', 'growthos', 'robin'] as const
+const PLATFORM_IDS = ['atomicity', 'growthos', 'voicedesk'] as const
 const TEXTURE_URLS = [
   '/images/atomicity-dashboard.webp',
   '/images/growthos-dashboard.webp',
-  '/images/robintrade-dashboard.webp',
+  '/images/voicedesk-dashboard.webp',
 ]
 
 const screenVertex = /* glsl */ `

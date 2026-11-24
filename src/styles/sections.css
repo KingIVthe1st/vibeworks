@@ -578,11 +578,21 @@ html.webgl #platforms .device-frame {
   background: var(--bg-2);
 }
 
+.operator .card-index {
+  display: inline-block;
+  padding: .35rem .6rem;
+  border: 1px solid color-mix(in srgb, var(--violet) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  color: color-mix(in srgb, var(--violet) 55%, var(--txt));
+  backdrop-filter: blur(6px);
+}
+
 .operator::before {
   position: absolute;
-  inset: 40% 0 0;
+  inset: 34% 0 0;
   z-index: 1;
-  background: linear-gradient(transparent, var(--bg-2) 60%);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--bg-2) 70%, transparent) 30%, var(--bg-2) 62%);
   content: '';
   pointer-events: none;
 }
@@ -705,6 +715,11 @@ html.webgl #platforms .device-frame {
   text-align: center;
 }
 
+/* Room under the closing block for the finale landing pad. */
+.act.start {
+  padding-bottom: calc(var(--space-7) + 12rem);
+}
+
 .start-inner {
   display: grid;
   justify-items: center;
@@ -823,6 +838,10 @@ html.webgl #platforms .device-frame {
 
   .card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pillar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .proof-strip {
